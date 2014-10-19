@@ -11,8 +11,17 @@ class Tweet(models.Model):
     is_retweet= models.BooleanField(default = False)
     key_word = models.CharField(max_length=30,blank = True)
     retweet_count = models.BigIntegerField(default=0)
-    hash_tags = models.CharField(max_length=30,blank = True, default = None)
+    hash_tags = models.CharField(max_length=30, blank = True, default = "")
 
+    # def __init__(_id, _user, _raw_text, _key_word, _created_at):
+    #     self.ID = _id
+    #     self.user = _user
+    #     self.raw_text = _raw_text
+    #     self.key_word = _key_word
+    #     self.created_at=_created_at
+
+    # def __init__():
+    #     super.__init__()
 
 class News(models.Model):
     ID = models.BigIntegerField(primary_key = True)
