@@ -1,0 +1,9 @@
+{% if related_tweets_list %}
+    <ul>
+    {% for tweet in related_tweets_list %}
+        <li>{{ tweet.raw_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No tweets are available.</p>
+{% endif %}

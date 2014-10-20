@@ -34,10 +34,15 @@ class Migration(migrations.Migration):
                 ('key_word', models.CharField(max_length=30, blank=True)),
                 ('retweet_count', models.BigIntegerField(default=0)),
                 ('hash_tags', models.CharField(default=b'', max_length=30, blank=True)),
-                ('related_news', models.ManyToManyField(to='overviews.News')),
             ],
             options={
             },
             bases=(models.Model,),
+        ),
+        migrations.AddField(
+            model_name='news',
+            name='related_tweet',
+            field=models.ManyToManyField(to='overviews.Tweet'),
+            preserve_default=True,
         ),
     ]
