@@ -1,3 +1,9 @@
+<p>
+    The news is : {{current_news.raw_text}}
+</p>
+<p>
+    The related tweets are:
+</p>
 {% if related_tweets_list %}
     <ul>
     {% for tweet in related_tweets_list %}

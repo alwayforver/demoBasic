@@ -14,7 +14,8 @@ def news(request):
 
 def tweet_with_news(request, news_ID):
     related_tweets_list = Tweet.objects.filter(related_news=news_ID)
-    context = {'related_tweets_list':related_tweets_list}
+    current_news = News.objects.get(pk=news_ID)
+    context = {'related_tweets_list':related_tweets_list,'current_news':current_news}
     return render(request, 'relatedTweets.html', context)
 
 
