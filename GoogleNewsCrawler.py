@@ -4,12 +4,50 @@ import re
 import datetime
 import newspaper
 import codecs
+import os
+from textblob import TextBlob
+import string
 
 # This file crawls news (including full article) from Google News feed
 # To run, you need to give the parameters by -n num_of_news -o output_file
 # where num_of_news is no larger than 10 (default 10), and the news will be appended into the output_file
 
-def GoogleNewsCrawler(num_news, output_file):
+def GetLastLines(input_file) :
+	filesize = os.path.getsize(input_file)
+	blocksize = 102400
+	input = codecs.open(input_file, 'rb', encoding = 'utf-8')
+	last_line = ""
+
+	if filesize > blocksize :
+		maxseekpoint = (filesize // blocksize)
+		input.seek((maxseekpoint-1)*blocksize)
+	elif filesize :
+		input.seek(0, 0)
+
+	lines =  input.readlines()
+	if lines :
+		if len(lines) > 10:
+			last_lines = lines[-10:]
+		else:
+			last_lines = lines
+
+	input.close()
+	return last_lines
+
+def GetLatestNews(input_file):
+	latest_news = []
+	if os.path.exists(input_file):
+		lines = GetLastLines(input_file)
+		for line in lines:
+			latest_news.append(line.split('\t')[0])
+	return latest_news
+
+
+def GoogleNewsCrawler(num_news, output_file, twitter_folder):
+	new_news = {}
+
+	latest_news = GetLatestNews(output_file)
+
 	#download news feed
 #	#=============Google News===============================
 	s = 'http://news.google.com/?output=rss'
@@ -52,12 +90,22 @@ def GoogleNewsCrawler(num_news, output_file):
 	for news_url in news_urls:
 		#get the full article via the url
 		url = 'http://' + news_url.split('//')[2][:-1]
+
+		#ignore existing news
+		if url in latest_news:
+			titles.pop(0)
+			dates.pop(0)
+			snippets.pop(0)
+			continue
+
 		article = newspaper.Article(url, language='en')
 		article.download()
 		article.parse()
 		
 		#extract necessary information
 		title = article.title.replace('\t', ' ')
+		blob = TextBlob(title)
+		keywords = blob.noun_phrases
 		authors = article.authors
 		text = article.text.replace('\t', ' ')
 		date = dates.pop(0).split('\"')[3]
@@ -65,26 +113,31 @@ def GoogleNewsCrawler(num_news, output_file):
 		source = google_title[len(google_title) - 1][1:-1]
 
 		#write the information
+		output.write(url + '\t')
 		output.write(title.replace('\t', ' ').replace('\n', '::::') + '\t')
 		output.write(source + '\t')
 		output.write(date.replace('\t', ' ') + '\t')
-		author_str = ''
-		for author in authors:
-			author_str = author + ';'
-		output.write(author_str[:-1] + '\t')
+		output.write(';'.join(authors)+ '\t')
+		output.write(';'.join(keywords) + '\t')
 		output.write(snippets.pop(0).replace('\\u0026', '&').replace('&amp;', '&').replace('&#39;', '\'').replace('&quot;', '\"') + '\t')
-		output.write(text.replace('\t', ' ').replace('\n', '::::') + '\t')
+		output.write(text.replace('\t', ' ').replace('\n', '::::'))
 		output.write('\n')
+
+		new_news[twitter_folder + '/' + title.translate(title.maketrans("",""), string.punctuation).replace(' ', '_') + '-' + source.replace(' ', '_')] = ' '.join(keywords)
+	return new_news
 		
 			
 if __name__ == '__main__':
 	output_file = 'news.txt'
 	num_news = 10
+	twitter_folder = 'tweets'
 	#parse input
 	for i in range(1, len(sys.argv), 2):
 		if sys.argv[i] == '-n':
 			num_news = int(sys.argv[i+1])
 		if sys.argv[i] == '-o':
 			output_file = sys.argv[i+1]
+		if sys.argv[i] == '-t':
+			twitter_folder = sys.argv[i+1]
 	
-	GoogleNewsCrawler(num_news, output_file)
+	GoogleNewsCrawler(num_news, output_file, twitter_folder)
