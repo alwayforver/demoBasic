@@ -59,8 +59,12 @@ WSGI_APPLICATION = 'tweenews.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'DB_NAME',
+        'USER':'DB_USER',
+        'PASSWORD':'DB_PASSWORD',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
