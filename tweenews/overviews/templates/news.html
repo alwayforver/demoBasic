@@ -1,9 +1,25 @@
+<h1> News Table </h1>
+
 {% if all_news_list %}
-    <ul>
-    {% for news in all_news_list %}
-        <li><a href=" {% url 'tweet_with_news' news.ID %}">{{ news.raw_text }}</a></li>
-    {% endfor %}
-    </ul>
+<div align="center">
+	<table style="width:80%"  border="1px solid black">
+	  <tr>
+	    <td>News Title</td>
+	    <td>Main_article</td> 
+	    <td>source</td>
+	    <td>created_time</td>
+	  </tr>
+	  {% for news in all_news_list %}
+	  <tr>
+	    <td><a href=" {% url 'tweet_with_news' news.ID %}">{{ news.title }}</a></td>
+	    <td>{{ news.main_article }}</td> 
+	    <td>{{ news.source }}</td>
+	    <td>{{ news.created_at }}</td>
+	  </tr>
+	  {% endfor %}
+	</table>
+</div>
+
 {% else %}
     <p>No news are available.</p>
 {% endif %}

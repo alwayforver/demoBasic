@@ -1,15 +1,34 @@
 <p>
+	<h1>{{current_news.title}}</h1>
+	<h4>by {{current_news.source}}</h4>
     The news is : {{current_news.raw_text}}
 </p>
 <p>
     The related tweets are:
 </p>
+
 {% if related_tweets_list %}
-    <ul>
-    {% for tweet in related_tweets_list %}
-        <li>{{ tweet.raw_text }}</a></li>
-    {% endfor %}
-    </ul>
+
+<div align="center">
+	<table style="width:80%"  border="1px solid black">
+	  <tr>
+	    <td>tweet</td>
+	    <td>username</td> 
+	    <td>time created</td>
+	    <td>hashtags</td>
+	  </tr>
+	  {% for tweet in related_tweets_list %}
+	  <tr>
+	    <td>{{ tweet.raw_text }}</td>
+	    <td>{{ tweet.user }}</td> 
+	    <td>{{ tweet.created_at }}</td>
+	    <td>{{ tweet.hash_tags }}</td>
+	  </tr>
+	  {% endfor %}
+	</table>
+</div>
+
+
 {% else %}
     <p>No tweets are available.</p>
 {% endif %}

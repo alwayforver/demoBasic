@@ -9,6 +9,9 @@ class News(models.Model):
     key_word = models.CharField(max_length=30, blank=True)
     source = models.CharField(max_length=2, choices = SOURCE_CHOICES, default = "GF")
     created_at = models.DateTimeField()
+    title = models.CharField(max_length=100,default="testtitle")
+    main_article = models.BooleanField(default=True)
+    related_article = models.CharField(max_length=200,default="")
     # related_tweet = models.ManyToManyField(Tweet)
 
     def __str__(self):
