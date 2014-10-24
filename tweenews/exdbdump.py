@@ -11,7 +11,7 @@ sys.path.append(local_base)
 os.environ['DJANGO_SETTINGS_MODULE']='tweenews.settings'
 
 from overviews.models import News, Tweet
-
+# test git
 # This is a script for database queries
 # Please refer to https://docs.djangoproject.com/en/dev/topics/db/queries/
 if __name__ == "__main__":
