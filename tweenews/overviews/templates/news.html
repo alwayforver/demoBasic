@@ -11,7 +11,7 @@
 	  </tr>
 	  {% for news in all_news_list %}
 	  <tr>
-	    <td><a href=" {% url 'tweet_with_news' news.ID %}">{{ news.title }}</a></td>
+	    <td><a href=" {% url 'tweet_with_news' news.id %}">{{ news.title }}</a></td>
 	    <td>{{ news.main_article }}</td> 
 	    <td>{{ news.source }}</td>
 	    <td>{{ news.created_at }}</td>
