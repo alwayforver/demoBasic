@@ -138,8 +138,12 @@ def GoogleNewsCrawler(num_news, output_file, twitter_folder):
 		output.write(text.replace('\t', ' ').replace('\n', '::::') + '\t')
 		output.write('\n')
 
+<<<<<<< HEAD:DataCollector/GoogleNewsCrawler.py
 		new_news[twitter_file] = ' '.join(keywords)
 
+=======
+		new_news[twitter_folder + '/' + title.translate(string.maketrans("",""), string.punctuation).replace(' ', '_') + '-' + source.replace(' ', '_')] = ' '.join(keywords)
+>>>>>>> origin/master:GoogleNewsCrawler.py
 	return new_news
 		
 			
