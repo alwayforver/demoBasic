@@ -4,45 +4,79 @@ import simplejson
 import datetime, time
 import sys
 import os
-from apscheduler.schedulers.background import BackgroundScheduler
+import thread
+import string
+import random
 
 #To run this file, parameters are -w keywords -o output_file_name -i interval (minutes, default 30) -d duration(days, default 1), multiple keywords are connected with +
 #and the tweets that contain keywords will constantly flow in and be written to the output_file_name, until you manually kill this process
 
 def GetLastLine(input_file) :
-	file = codecs.open(input_file, "r+", encoding = "utf-8")
-	file.seek(0, os.SEEK_END)
-	pos = file.tell() - 1
-	while pos > 0 and file.read(1) != "\n":
-		pos -= 1
-		file.seek(pos, os.SEEK_SET)
+	input = codecs.open(input_file, 'r+', encoding = 'utf-8')
+	lines = input.readlines()
+	if lines:
+		line = (lines[-1].split('\t')[0]).replace('\n', '')
+	else:
+		return None
 
-	if pos > 0:
-		file.seek(pos, os.SEEK_SET)
-		line = file.readlines()
-		file.seek(pos, os.SEEK_SET)
-		file.truncate()
-		file.write('\n')
-
-	file.close()
-	return line[1]
+	input.seek(0, os.SEEK_END)
+	pos = input.tell() - 21
+	
+	if pos < 0:
+		input.seek(0, os.SEEK_SET)
+		input.truncate()
+	else:
+		input.seek(pos, os.SEEK_SET)
+		c = input.read(1)
+		if (c == '\n'):
+			input.truncate()
+	
+	input.close()
+	return line
 
 #=============Twitter Search API===============================
 def TweetSearch(keywords, output_file, interval):
+	if keywords == '':
+		return
+
 	#find the latest tweet that have been crawled before
-	print output_file
+	since_id = '0'
 	if os.path.exists(output_file):
 		last_line = GetLastLine(output_file)
-		since_id = last_line.split('\t')[0]
-		print since_id
+		if last_line is None:
+			since_id = '0'
+		else:
+			since_id = last_line
 	else:
 		since_id = '0'
+	max_id = since_id
 
-	output = codecs.open(output_file, 'a', encoding = 'utf-8')
+	try:
+		output = codecs.open(output_file, 'a', encoding = 'utf-8')
+	except Exception:
+		return
 
 	#open twython
-	twitter = twython.Twython('jh7TUj0nNaOSWnRnel8toUvdi', 'L0G0L5pKxA1BjDAc2sTLMTVVxy1tbSvBNo0r0B41l9LjqxmItV', '2802589467-icYj3gXB0vShXtDSsJogTbVZwHqWeGmC3AK1cjS', 'N9n47iYU8wUwM5EC9Qv3PPOmDn1JDfPbV6Bjs921Sl1W4')
-	results = twitter.search(q=keywords, result_type = 'recent', count = '100', since_id = since_id)
+	try:
+		rand = random.randint(0, 2)
+		if rand == 0:
+			twitter = twython.Twython('jh7TUj0nNaOSWnRnel8toUvdi', 'L0G0L5pKxA1BjDAc2sTLMTVVxy1tbSvBNo0r0B41l9LjqxmItV', '2802589467-icYj3gXB0vShXtDSsJogTbVZwHqWeGmC3AK1cjS', 'N9n47iYU8wUwM5EC9Qv3PPOmDn1JDfPbV6Bjs921Sl1W4')
+		elif rand == 1:
+			twitter = twython.Twython('HLrxMgREPf045FIJtRz3WQAb8', ' atZvODDN2gysB61gfKBsCEnqBe1TV1jbSGvnleaUAoqx7ewGsg', '2257147508-SuL04e6ZNka4zfYug4siBoOxTGfjXGoSkGU2knC', 'wvBGZHgV60zUSmRfrmE2oljKZIv9ZixaooHYNDxU1sTsN')
+		else:
+			twitter = twython.Twython('bvYzhYPQY7YaHXcORdFtzwNKw', 'F6xzVB8Ev3DWzfr8Dl4xv22eKe54fq2bcG8xn79T38mzMNlwmd', '505759082-7xbt6KcsKv7v0lTOoWmReIom7msd5j8HbXcT2DGp', 'Qr65Me3wzQYZA81PmA6FcLngb5hTMzOZTSqgcr2HaD33X')
+	except Exception:
+		output.write(max_id + '\n')
+		output.close()
+		return
+
+	try:
+		results = twitter.search(q=keywords, result_type = 'recent', count = '100', since_id = since_id)
+	except Exception:
+		output.write(max_id + '\n')
+		output.close()
+		return
+
 	max_id = results.get('search_metadata').get('max_id')
 
 	#search until the publish time is earlier than interval
@@ -58,7 +92,7 @@ def TweetSearch(keywords, output_file, interval):
 		time = time[:15] + ' ' + time[-4:]
 		published_time = datetime.datetime.strptime(time, '%b %d %H:%M:%S %Y')	
 		now = datetime.datetime.now() + datetime.timedelta(hours=5)
-		if now - published_time > datetime.timedelta(minutes = interval):
+		if since_id == '0' and now - published_time > datetime.timedelta(minutes = interval):
 			break
 	
 		#write data
@@ -122,7 +156,7 @@ def TweetSearch(keywords, output_file, interval):
 		results = twitter.search(q=keywords, result_type = 'recent', count = '100', max_id=next[8:26], since_id = since_id)
 	
 	#write the latest tweet id for further collecting data
-	output.write(str(max_id))
+	output.write(str(max_id) + '\n')
 	output.close()
 
 
@@ -131,45 +165,51 @@ def TweetSearchForNewsGroup(keywords, interval):
 		TweetSearch(words, news, interval)
 
 #===================Twitter Streaming API================================	
-class MyStreamer(twython.TwythonStreamer):
-	output = None
-	def __init__(self, app_key, app_secret, token, token_secret, output_file):
-		twython.TwythonStreamer.__init__(self, app_key, app_secret, token, token_secret)
-		self.output = codecs.open(output_file, 'w', encoding = 'utf-8')
-		
-	def on_success(self, data):
-		self.output.write(simplejson.dumps(data, indent = 4*' '))
-
-	def on_error(self, status_code, data):
-		print status_code
-	
-def TweetStreaming(keywords, output_file):
-	stream = MyStreamer('jh7TUj0nNaOSWnRnel8toUvdi', 'L0G0L5pKxA1BjDAc2sTLMTVVxy1tbSvBNo0r0B41l9LjqxmItV', '2802589467-icYj3gXB0vShXtDSsJogTbVZwHqWeGmC3AK1cjS', 'N9n47iYU8wUwM5EC9Qv3PPOmDn1JDfPbV6Bjs921Sl1W4', output_file)
-	stream.statuses.filter(track=keywords)	
+#class MyStreamer(twython.TwythonStreamer):
+#	output = None
+#	def __init__(self, app_key, app_secret, token, token_secret, output_file):
+#		twython.TwythonStreamer.__init__(self, app_key, app_secret, token, token_secret)
+#		self.output = codecs.open(output_file, 'w', encoding = 'utf-8')
+#		
+#	def on_success(self, data):
+#		self.output.write(simplejson.dumps(data, indent = 4*' '))
+#
+#	def on_error(self, status_code, data):
+#		print status_code
+#	
+#def TweetStreaming(keywords, output_file):
+#	stream = MyStreamer('jh7TUj0nNaOSWnRnel8toUvdi', 'L0G0L5pKxA1BjDAc2sTLMTVVxy1tbSvBNo0r0B41l9LjqxmItV', '2802589467-icYj3gXB0vShXtDSsJogTbVZwHqWeGmC3AK1cjS', 'N9n47iYU8wUwM5EC9Qv3PPOmDn1JDfPbV6Bjs921Sl1W4', output_file)
+#	stream.statuses.filter(track=keywords)	
 
 
 #===================Search Tweets in Cron-Style, i.e., execute every 30 minutes=======================
 def CronTweetSearch(keywords, interval, duration):
 
-	scheduler = BackgroundScheduler()
-	scheduler.daemonic = False
+	if len(keywords) == 0:
+		return
+
 	start_time = datetime.datetime.now()
 
-	scheduler.add_job(lambda:TweetSearchForNewsGroup(keywords, interval), 'interval', minutes = interval)
-	scheduler.start()
-
 	while True:
-		time.sleep(5000)
+		rand = random.randint(0, interval * 60)
+		time.sleep(rand)
+
+		thread.start_new_thread(TweetSearchForNewsGroup, (keywords, interval * 2))
 		now = datetime.datetime.now()
 		if now - start_time > datetime.timedelta(days = duration):
-			scheduler.shutdown()
 			return
+
+		time.sleep(interval * 60 - rand)
 
 	
 #====================Main===============================================
 if __name__ == '__main__':
-	output_file = 'twitter.txt'
-	keywords[output_file] = 'hong kong protester'
+	title = 'twitter'
+	source = ''
+
+	output_file = ("".join(c for c in title if c not in (string.punctuation))).replace(' ', '_') + '-' + source.replace(' ', '_')
+
+	keywords = 'update 5-pro-europe parties big election ukraine exit poll'
 	interval = 30
 	duration = 1
 	
@@ -191,5 +231,5 @@ if __name__ == '__main__':
 			duration = int(sys.argv[i+1])
 
 	
-	CronTweetSearch(keywords, interval, duration)
+	TweetSearch(keywords, output_file, interval)
 

@@ -7,9 +7,10 @@ import codecs
 import os
 from textblob import TextBlob
 import string
+import simplejson
 
 # This file crawls news (including full article) from Google News feed
-# To run, you need to give the parameters by -n num_of_news -o output_file
+# To run, you need to give the parameters by -n num_of_news -o output_file -t output_folder_for_related_tweets
 # where num_of_news is no larger than 10 (default 10), and the news will be appended into the output_file
 
 def GetLastLines(input_file) :
@@ -77,15 +78,22 @@ def GoogleNewsCrawler(num_news, output_file, twitter_folder):
 	
 	response = urllib2.urlopen(url)
 	content = response.read().decode('utf-8')
+	results = simplejson.loads(content)
+	results = results.get('responseData').get('feed').get('entries')
+
 	output = codecs.open(output_file, 'a', encoding='utf-8')
 	
 	#parse content to find titles and urls etc.
-	titles = re.findall(r'{\"title\":\"[^\"]+\"', content)
-	dates = re.findall(r'\"publishedDate\":\"[^\"]+\"', content)
+	titles = []
+	dates = []
+	news_urls = []
+
+	for result in results:
+		titles.append(result.get('title'))
+		dates.append(result.get('publishedDate'))
+		news_urls.append(result.get('link'))
+
 	snippets = re.findall(r'font size\\u003d\\\"-1\\\"\\u003e([^\\].+?)\\u003c', content)
-	
-	news_urls = re.findall(r'\"link\":\"[^\"]+\"', content)
-	news_urls.pop(0)
 	
 	for news_url in news_urls:
 		#get the full article via the url
@@ -101,16 +109,23 @@ def GoogleNewsCrawler(num_news, output_file, twitter_folder):
 		article = newspaper.Article(url, language='en')
 		article.download()
 		article.parse()
-		
+
 		#extract necessary information
-		title = article.title.replace('\t', ' ')
+		google_title = titles.pop(0).split(' - ')
+		source = google_title.pop(len(google_title) - 1).replace('\\u0026', '&')
+		title = ' '.join(google_title).replace('\t', ' ')
+
 		blob = TextBlob(title)
 		keywords = blob.noun_phrases
 		authors = article.authors
 		text = article.text.replace('\t', ' ')
-		date = dates.pop(0).split('\"')[3]
-		google_title = titles.pop(0).split('-')
-		source = google_title[len(google_title) - 1][1:-1]
+		date = dates.pop(0)
+
+		twitter_file = twitter_folder + '/' + ("".join(c for c in title if c not in (string.punctuation))).replace(' ', '_') + '-' + ("".join(c for c in source if c not in (string.punctuation))).replace(' ', '_')
+		if os.path.exists(twitter_file):
+			snippets.pop(0)
+			continue
+
 
 		#write the information
 		output.write(url + '\t')
@@ -120,10 +135,11 @@ def GoogleNewsCrawler(num_news, output_file, twitter_folder):
 		output.write(';'.join(authors)+ '\t')
 		output.write(';'.join(keywords) + '\t')
 		output.write(snippets.pop(0).replace('\\u0026', '&').replace('&amp;', '&').replace('&#39;', '\'').replace('&quot;', '\"') + '\t')
-		output.write(text.replace('\t', ' ').replace('\n', '::::'))
+		output.write(text.replace('\t', ' ').replace('\n', '::::') + '\t')
 		output.write('\n')
 
-		new_news[twitter_folder + '/' + title.translate(title.maketrans("",""), string.punctuation).replace(' ', '_') + '-' + source.replace(' ', '_')] = ' '.join(keywords)
+		new_news[twitter_file] = ' '.join(keywords)
+
 	return new_news
 		
 			
