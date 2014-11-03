@@ -18,7 +18,7 @@ class News(models.Model):
     # related_tweet = models.ManyToManyField(Tweet)
 
     def __str__(self):
-        return "News "+str(self.ID)
+        return "News "+str(self.id)
 
 
 class Tweet(models.Model):
@@ -33,7 +33,7 @@ class Tweet(models.Model):
     related_news = models.ManyToManyField(News)
 
     def __str__(self):
-        return "Tweet "+str(self.ID)
+        return "Tweet "+str(self.id)
 
 
 
