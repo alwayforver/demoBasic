@@ -19,7 +19,13 @@
   </head>
 <body>
 <h1> News Table </h1>
-
+<div class="row" id="order">
+                        <ol class="breadcrumb">
+                            <li><a href="{% url 'overview:news_home'%}">Order by Alphabet</a></li>
+                            <li><a href="{% url 'overview:news_home'%}">Order by Created Time</a></li>
+                            <li><a href="{% url 'overview:news_home'%}">Order by Latest</a></li>
+                        </ol>
+                    </div>
 {% if all_news_list %}
 <div align="center">
 	<table style="width:80%"  border="1px solid black">
@@ -31,7 +37,7 @@
 	  </tr>
 	  {% for news in all_news_list %}
 	  <tr>
-	    <td><a href=" {% url 'tweet_with_news' news.id %}">{{ news.title }}</a></td>
+	    <td><a href=" {% url 'overview:tweet_with_news' news.id %}">{{ news.title }}</a></td>
 	    <td>{{ news.main_article }}</td> 
 	    <td>{{ news.source }}</td>
 	    <td>{{ news.created_at }}</td>
