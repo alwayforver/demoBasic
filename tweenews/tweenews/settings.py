@@ -59,13 +59,15 @@ WSGI_APPLICATION = 'tweenews.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        #'ENGINE': 'django.db.backends.mysql',
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'NAME': 'twitter_news',
-        'USER': 'hcai6',
-        'PASSWORD':'haoyan',
-        'PORT':'3306',
-        'HOST':'',
+        #'NAME': 'twitter_news',
+        #'USER': 'hcai6',
+        #'PASSWORD':'haoyan',
+        #'PORT':'3306',
+        #'HOST':'',
     }
 }
 
@@ -86,4 +88,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
-STATIC_URL = '/static/'
+#STATIC_URL = '/static/'
+SITE_URL = '/overviews'
+STATIC_URL = SITE_URL + '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = (
+    ("script", os.path.join(STATIC_ROOT,'script')),
+    ("css", os.path.join(STATIC_ROOT,'css')),
+    ("admin", os.path.join(STATIC_ROOT, 'admin')),
+)
