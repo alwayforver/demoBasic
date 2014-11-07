@@ -33,7 +33,7 @@ class Tweet(models.Model):
     related_news = models.ManyToManyField(News)
 
     def __str__(self):
-        return "Tweet "+str(self.id)
+        return "Tweet "+str(self.ID)
 
 
 

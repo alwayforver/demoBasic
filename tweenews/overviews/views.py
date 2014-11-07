@@ -18,6 +18,12 @@ def tweet_with_news(request, news_ID):
     context = {'related_tweets_list':related_tweets_list,'current_news':current_news}
     return render(request, 'relatedTweets.html', context)
 
+def tweet_page(request, tweet_id):
+	res_tweet = Tweet.objects.get(ID = tweet_id)
+	context = {'tweet': res_tweet}
+	return render(request, 'tweet_basic.html', context)
+
+
 
 
 
