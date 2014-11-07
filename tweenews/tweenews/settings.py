@@ -59,15 +59,16 @@ WSGI_APPLICATION = 'tweenews.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        #'ENGINE': 'django.db.backends.mysql',
+        #'ENGINE': 'django.db.backends.sqlite3',
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        #'NAME': 'twitter_news',
-        #'USER': 'hcai6',
-        #'PASSWORD':'haoyan',
-        #'PORT':'3306',
-        #'HOST':'',
+        'ENGINE': 'django.db.backends.mysql',
+	'OPTIONS': {'charset': 'utf8mb4'},
+        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': 'twitter_news',
+        'USER': 'hcai6',
+        'PASSWORD':'haoyan',
+        'PORT':'3306',
+        'HOST':'',
     }
 }
 

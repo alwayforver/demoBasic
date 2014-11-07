@@ -4,6 +4,7 @@ from datetime import datetime
 import django
 import re
 import string
+
 local_base = '~/projects/demoBasic/tweenews'
 sys.path.append(local_base)
 
@@ -23,6 +24,9 @@ def try_utf8(data):
 # This is a script for database queries
 # Please refer to https://docs.djangoproject.com/en/dev/topics/db/queries/
 if __name__ == "__main__":
+    if len(sys.argv) != 3:
+	print 'usage: python ' + sys.argv[0] + ' newsfile tweetfolder'
+	sys.exit(-1)
     django.setup()
     
     
@@ -30,7 +34,7 @@ if __name__ == "__main__":
     # for each news in news.txt, save news
     #     for each related tweets:
     ##        save tweets and add related news
-    f = open("/srv/data/twitter_news/data/news.txt","r")
+    f = open(sys.argv[1],"r")
     fmt = "%a, %d %b %Y %H:%M:%S"
     news_log = open("news.log","a+")
     tweets_log = open("tweets.log","a+")
@@ -41,18 +45,28 @@ if __name__ == "__main__":
         date = re.sub(" [\+\-]\d{4}","",date)
         date = datetime.strptime(date,fmt)
         
-        if len(text) > 20000:
-            text = text[:20000]
+        if len(text) > 10000:
+            text = text[:10000]
+	    news_log.write("text too long: "+title+"\t"+text+"\n")
+        if len(title) > 200:
+            title = title[:200]
+	    news_log.write("title too long: "+title+"\t"+text+"\n")
+        if len(keywords) > 200:
+            keywords = keywords[:200]
+	    news_log.write("keywords too long: "+title+"\t"+text+"\n")
         if try_utf8(text) is None:
             news_log.write(title+"\t"+text+"\n")
             continue
         news = News(url = url, raw_text = text,created_at = date, key_word = keywords, source = source, title = title)
+	#print title
         news.save()
         ID = news.id
 
         # for each related tweets
         #t_path = os.path.join("/srv/data/twitter_news/data/tweets/",title.translate(string.maketrans("",""), string.punctuation).replace(" ","_") + '-' + source.replace(" ","_"))
-        t_path = os.path.join("/srv/data/twitter_news/data/tweets/",title.replace(" ","_") + '-' + source.replace(" ","_"))
+        #t_path = os.path.join("/srv/data/twitter_news/data/tweets/",title.replace(" ","_") + '-' + source.replace(" ","_"))
+#        t_path = os.path.join(sys.argv[2],title.replace(" ","_") + '-' + source.replace(" ","_"))
+        t_path = os.path.join(sys.argv[2],("".join(c for c in title if c not in (string.punctuation))).replace(' ', '_') + '-' + ("".join(c for c in source if c not in (string.punctuation))).replace(' ', '_'))
         if os.path.exists(t_path):
             t = open(t_path,"r")
         else:
@@ -60,25 +74,32 @@ if __name__ == "__main__":
         fmt1 = "%a %b %d %H:%M:%S %Y"
         counter = 0
         for line in t:
-            if len(line.strip().split("\t")) != 21:
-                continue
+	    fields = line.strip().split("\t")
+            if len(fields) != 27:  # new format of the crawled tweets
+        	#print "27"
+		tweets_log.write("not 27:"+line.strip()+"\n")
+		continue
+
             tw_id_str, tw_text, tw_created_at, contained_url, tag_text, retw_id_str, retw_favorited, retw_favorite_count, retw_retweeted, retw_retweet_count, \
             tw_favorited, tw_favorite_count, tw_retweeted, tw_retweet_count, user_id_str, verified, follower_count, statuses_count, friends_count, \
-            favorites_count, user_created_at= line.strip().split("\t")
+	    favorites_count, user_created_at= fields[:21]
             
             # convert user_created time
             tw_created_at = re.sub("[\+\-]\d{4} ","",tw_created_at)
             tw_created_at = datetime.strptime(tw_created_at,fmt1)
             
             if try_utf8(tw_text) is None:
-                news_log.write(tw_id_str +"\t"+tw_text+"\n")
+                tweets_log.write(tw_id_str +"\t"+tw_text+"\n")
                 continue
-            tw_text = re.sub(r'[\U00010000-\U0010ffff]','',tw_text)
+
+            # tw_text = re.sub(r'[\U00010000-\U0010ffff]','',tw_text)
             
             # Tweet object
             
-            tweet = Tweet(ID=int(tw_id_str), user=user_id_str ,raw_text = tw_text,created_at = tw_created_at, key_word="test,test", retweet_count = tw_retweet_count,\
+            tweet = Tweet(ID=int(tw_id_str), user=int(user_id_str) ,raw_text = tw_text,created_at = tw_created_at, retweet_count = tw_retweet_count,\
             hash_tags = tag_text)
+	    #print tw_text
+	    #print tw_id_str
             tweet.save() # save the record into django db
             tweet.related_news.add(news)
         t.close()
