@@ -16,6 +16,7 @@ def news(request, pos = 1, rank_method = 0):
     one_page = 100
     default_pagenum = 10
     end_pos = min( pos + default_pagenum , int(math.ceil(total_num/one_page))) 
+    end_pos = max( pos , end_pos)
     print total_num, pos, end_pos
     if rank_method == 0:
         all_news_list = News.objects.filter(id__range = ((pos-1)*one_page+1, pos*one_page))
