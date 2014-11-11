@@ -65,9 +65,9 @@
 <h1> News Table </h1>
 <div class="row" id="order">
                         <ol class="breadcrumb">
-                            <li><a href="{% url 'overview:news_home'%}">Order by Alphabet</a></li>
-                            <li><a href="{% url 'overview:news_home'%}">Order by Created Time</a></li>
-                            <li><a href="{% url 'overview:news_home'%}">Order by Latest</a></li>
+                            <li><a href="{% url 'overview:news_next' 0 0 %}">Order by ID</a></li>
+                            <li><a href="{% url 'overview:news_next' 0 1 %}">Order by Created Time</a></li>
+                            <li><a href="{% url 'overview:news_next' 0 2 %}">Order by Latest</a></li>
                         </ol>
                     </div>
 {% if all_news_list %}
@@ -75,6 +75,7 @@
 <div align="center">
 	<table class="table table-striped" style="width:80%">
 	  <tr>
+    <td></td>
 	    <td>News Title</td>
 	    <td>Main_article</td> 
 	    <td>source</td>
@@ -82,6 +83,7 @@
 	  </tr>
 	  {% for news in all_news_list %}
 	  <tr>
+      <td>ID: {{ news.id }}</td> 
 	    <td><a href=" {% url 'overview:tweet_with_news' news.id %}">{{ news.title }}</a></td>
 	    <td>{{ news.main_article }}</td> 
 	    <td>{{ news.source }}</td>
@@ -93,6 +95,16 @@
 {% else %}
     <p>No news are available.</p>
 {% endif %}
+        <div class="row" id="pager">
+         <ul class="pager">
+         <li><a href="{% url 'overview:news_next' prevPos  rankmethod %}">Previous</a></li>
+         {%for pos in page_index %}
+          <li><a href="{% url 'overview:news_next' pos  rankmethod  %}">{{pos}}</a></li>
+          {%endfor%}
+          <li><a href="{% url 'overview:news_next' nextPos  rankmethod %}">Next</a></li>
+          </ul>
+        </div>
+       <div id="scrolltop_button"></div>
       <div class="well">
         <p>All copyrights are reserved on UIUC Data Mining Group</p>
       </div>
