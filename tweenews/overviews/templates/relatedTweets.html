@@ -92,6 +92,16 @@
 {% else %}
     <p>No tweets are available.</p>
 {% endif %}
+        <div class="row" id="pager">
+         <ul class="pager">
+         <li><a href="{% url 'overview:tweet_next' current_news.id prevPos counts%}">Previous</a></li>
+         {%for pos in page_index %}
+          <li><a href="{% url 'overview:tweet_next' current_news.id pos  counts%}">{{pos}}</a></li>
+          {%endfor%}
+          <li><a href="{% url 'overview:tweet_next' current_news.id nextPos counts %}">Next</a></li>
+          </ul>
+        </div>
+       <div id="scrolltop_button"></div>
 
       <div class="well">
         <p>All copyrights are reserved on UIUC Data Mining Group</p>
