@@ -35,7 +35,7 @@ def news(request, pos = 1, rank_method = 0):
 def tweet_with_news(request, news_ID, pos = 1, counts = -1):
     base_page = 1
     pos = max(int(pos),base_page)
-    one_page = 2
+    one_page = 30
     default_pagenum = 10
     start = time.time()
     if counts == -1:
