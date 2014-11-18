@@ -57,6 +57,12 @@ def tweet_page(request, tweet_id):
 	return render(request, 'tweet_basic.html', context)
 
 
+def cluster_view(request):
+    context = {}
+    return render(request, 'cluster.html', context)
+
+
+
 
 
 
