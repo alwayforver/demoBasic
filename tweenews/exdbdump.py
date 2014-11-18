@@ -81,9 +81,10 @@ if __name__ == "__main__":
             fields = line.strip().split("\t")
             # new format of the crawled tweets
             #if len(fields) != 27:
+            # length of tweets are 24 or 25
+            # TODO check why
             if len(fields) < 24:
                 tweets_log.write("not 27:"+line.strip()+"\n")
-                print "CATCH 27",len(fields)
                 continue
 
             tw_id_str, tw_text, tw_created_at, contained_url, tag_text, retw_id_str, retw_favorited, retw_favorite_count, retw_retweeted, retw_retweet_count, \
@@ -93,9 +94,6 @@ if __name__ == "__main__":
             # convert user_created time
             # Fri Nov 07 22:20:38 +0000 2014
             tw_created_at_tz = parse(tw_created_at) # utc time with tz information
-            #tw_created_at_temp = tw_created_at[:len(tw_created_at)-10] + tw_created_at[len(tw_created_at)-4:]
-            #cut_index = len(tw_created_at)-6
-            #tw_local_created_time = parse(tw_created_at_temp) # created local time
             tw_local_timezone = tw_created_at[len(tw_created_at)-10:len(tw_created_at)-5] # +0000
             if try_utf8(tw_text) is None:
                 tweets_log.write(tw_id_str +"\t"+tw_text+"\n")
