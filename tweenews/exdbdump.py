@@ -14,13 +14,6 @@ os.environ['DJANGO_SETTINGS_MODULE']='tweenews.settings'
 
 from overviews.models import News, Tweet
 
-def try_utf8(data):
-    "Returns a Unicode object on success, or None on failure"
-    try:
-        return data.decode('utf-8')
-    except UnicodeDecodeError:
-        return None
-
 
 # test git
 # This is a script for database queries
@@ -57,9 +50,7 @@ if __name__ == "__main__":
         if len(keywords) > 200:
             keywords = keywords[:200]
             news_log.write("keywords too long: "+title+"\t"+text+"\n")
-        if try_utf8(text) is None:
-            news_log.write(title+"\t"+text+"\n")
-            continue
+        
         news = News(ID = id,url = url, raw_text = text,created_at = date_utc, local_time_zone = date_local_timezone , key_word = keywords, source = source, title = title)
         # save news object to db
         news.save()
@@ -68,15 +59,14 @@ if __name__ == "__main__":
         # for each related tweets
         #t_path = os.path.join("/srv/data/twitter_news/data/tweets/",title.translate(string.maketrans("",""), string.punctuation).replace(" ","_") + '-' + source.replace(" ","_"))
         #t_path = os.path.join("/srv/data/twitter_news/data/tweets/",title.replace(" ","_") + '-' + source.replace(" ","_"))
-#        t_path = os.path.join(sys.argv[2],title.replace(" ","_") + '-' + source.replace(" ","_"))
+        #t_path = os.path.join(sys.argv[2],title.replace(" ","_") + '-' + source.replace(" ","_"))
         t_path = os.path.join(sys.argv[2],(id+"_"+"".join(c for c in title if c not in (string.punctuation))).replace(' ', '_') + '-' + ("".join(c for c in source if c not in (string.punctuation))).replace(' ', '_'))
         print "t_path",t_path
         if os.path.exists(t_path):
             t = open(t_path,"r")
         else:
-            print "Not Found"
             continue
-        counter = 0
+        
         for line in t:
             fields = line.strip().split("\t")
             # new format of the crawled tweets
@@ -95,9 +85,6 @@ if __name__ == "__main__":
             # Fri Nov 07 22:20:38 +0000 2014
             tw_created_at_tz = parse(tw_created_at) # utc time with tz information
             tw_local_timezone = tw_created_at[len(tw_created_at)-10:len(tw_created_at)-5] # +0000
-            if try_utf8(tw_text) is None:
-                tweets_log.write(tw_id_str +"\t"+tw_text+"\n")
-                continue
 
             
             # Tweet object
