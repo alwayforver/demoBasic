@@ -80,10 +80,11 @@ if __name__ == "__main__":
         for line in t:
             fields = line.strip().split("\t")
             # new format of the crawled tweets
-            if len(fields) != 27:
+            #if len(fields) != 27:
+            if len(fields) < 24:
                 tweets_log.write("not 27:"+line.strip()+"\n")
                 print "CATCH 27",len(fields)
-                #continue
+                continue
 
             tw_id_str, tw_text, tw_created_at, contained_url, tag_text, retw_id_str, retw_favorited, retw_favorite_count, retw_retweeted, retw_retweet_count, \
             tw_favorited, tw_favorite_count, tw_retweeted, tw_retweet_count, user_id_str, verified, follower_count, statuses_count, friends_count, \
