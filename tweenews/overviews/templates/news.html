@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="author" content="Yifang Zhang">
+    <meta name="author" content="UIUC DM Group">
     <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
 
     <title>Tweenews News Page</title>
@@ -28,8 +28,9 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="{{ STATIC_URL }}script/bootstrap.min.js"></script>
+    <script src="{{ STATIC_URL }}script/jquery.cookie.js"></script>
   </head>
 
   <body>
@@ -60,14 +61,16 @@
       <div class="top-buffer">
         <!-- Make the space for top -->
       </div>
-      <div class="col-md-3" id="search-navbar">
+      <div class="col-md-5" id="search-navbar">
                     <div class="row">
                         <nav class="navbar navbar-default" id="nevbar" role="navigation">
-                            <form class="navbar-form" role="search" action='/search/'>
+                        <form class="navbar-form" role="search" method="post" action="{% url 'overview:news_home'%}">
+                                {% csrf_token %}
                                 <div class="input-group">
                                     <input id="searchContent" type="text" class="form-control" placeholder="Search" value="" name="q">
                                     <div class="input-group-btn">
-                                        <button class="btn btn-default" type="submit" onclick="toSearch()"><i class="glyphicon glyphicon-search"></i></button>
+                                    <button class="btn btn-default" type="submit" id="titleSearch"><i class="glyphicon  glyphicon-search"></i>search title</button>
+                                        <button class="btn btn-default" type="submit" onclick="toSearch()"><i class="glyphicon glyphicon-search"></i>search by engine</button>
                                     </div>
                                  </div>
                             </form>
@@ -81,7 +84,9 @@
                         window.location.replace(redirectURL);
                     }
                 </script> 
+<ul id="search-results">
 
+</ul>
 <h1> News Table </h1>
 <div class="row" id="order">
                         <ol class="breadcrumb">
@@ -138,8 +143,6 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="{{ STATIC_URL }}script/bootstrap.min.js"></script>
     
   </body>
 </html>
