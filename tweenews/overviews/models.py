@@ -19,7 +19,7 @@ class News(models.Model):
     url = models.CharField(max_length=200)
 
     def __str__(self):
-        return "News "+str(self.id)
+        return "News "+str(self.ID)
 
 
 class Tweet(models.Model):

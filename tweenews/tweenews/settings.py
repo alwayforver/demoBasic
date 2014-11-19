@@ -97,5 +97,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = (
     ("script", os.path.join(STATIC_ROOT,'script')),
     ("css", os.path.join(STATIC_ROOT,'css')),
-    ("admin", os.path.join(STATIC_ROOT, 'admin')),
+    ("admin", os.path.join(STATIC_ROOT, 'admin')),	
+    ("fonts", os.path.join(STATIC_ROOT, 'fonts')),
 )

@@ -19,7 +19,8 @@ def news(request, pos = 1, rank_method = 0):
     end_pos = max( pos , end_pos)
     print total_num, pos, end_pos
     if rank_method == 0:
-        all_news_list = News.objects.filter(id__range = ((pos-1)*one_page+1, pos*one_page))
+        #all_news_list = News.objects.filter(ID__range = ((pos-1)*one_page+1, pos*one_page))
+        all_news_list = News.objects.all().order_by('ID')[(pos-1)*one_page:pos*one_page]
     elif rank_method == 1:     
         all_news_list = News.objects.all().order_by('created_at')[(pos-1)*one_page : pos*one_page]
     elif rank_method == 2:

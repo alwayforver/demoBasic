@@ -103,8 +103,8 @@
 	  </tr>
 	  {% for news in all_news_list %}
 	  <tr>
-      <td>ID: {{ news.id }}</td> 
-	    <td><a href=" {% url 'overview:tweet_with_news' news.id %}">{{ news.title }}</a></td>
+      <td>ID: {{ news.ID }}</td> 
+	    <td><a href=" {% url 'overview:tweet_with_news' news.ID %}">{{ news.title }}</a></td>
 	    <td>{{ news.main_article }}</td> 
 	    <td>{{ news.source }}</td>
 	    <td>{{ news.created_at }}</td>
@@ -139,9 +139,8 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+    <script src="{{ STATIC_URL }}script/bootstrap.min.js"></script>
     
   </body>
 </html>
-
 
