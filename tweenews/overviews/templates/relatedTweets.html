@@ -94,11 +94,11 @@
 {% endif %}
         <div class="row" id="pager">
          <ul class="pager">
-         <li><a href="{% url 'overview:tweet_next' current_news.id prevPos counts%}">Previous</a></li>
+         <li><a href="{% url 'overview:tweet_next' current_news.ID prevPos counts%}">Previous</a></li>
          {%for pos in page_index %}
-          <li><a href="{% url 'overview:tweet_next' current_news.id pos  counts%}">{{pos}}</a></li>
+          <li><a href="{% url 'overview:tweet_next' current_news.ID pos  counts%}">{{pos}}</a></li>
           {%endfor%}
-          <li><a href="{% url 'overview:tweet_next' current_news.id nextPos counts %}">Next</a></li>
+          <li><a href="{% url 'overview:tweet_next' current_news.ID nextPos counts %}">Next</a></li>
           </ul>
         </div>
        <div id="scrolltop_button"></div>
