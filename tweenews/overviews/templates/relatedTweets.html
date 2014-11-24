@@ -95,6 +95,7 @@
 {% endif %}
         <div class="row" id="pager">
          <ul class="pager">
+         <li><a href="{% url 'overview:tweet_next' current_news.ID 1 counts%}">Start</a></li>
          <li><a href="{% url 'overview:tweet_next' current_news.ID prevPos counts%}">Previous</a></li>
          {%for pos in page_index %}
           <li><a href="{% url 'overview:tweet_next' current_news.ID pos  counts%}">{{pos}}</a></li>
@@ -116,7 +117,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+    <script src="{{ STATIC_URL }}script/bootstrap.min.js"></script>
     
   </body>
 </html>

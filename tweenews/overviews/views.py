@@ -1,4 +1,4 @@
-from django.shortcuts import render, render_to_response
+sfrom django.shortcuts import render, render_to_response
 from django.http import HttpResponse
 from overviews.models import News, Tweet
 import math
@@ -50,8 +50,8 @@ def news(request, pos = 1, rank_method = 0):
     prev = max(1, pos - 1)
     nextPos = min(end_pos, pos+1)
     context = {'all_news_list':all_news_list, 'page_index':page_index, 'nextPos': nextPos,'prevPos': prev, 'rankmethod': rank_method,}
-    if news_set != None:
-        print context
+    #if news_set != None:
+    #    print context
     return render(request, 'news.html', context)
 
 def tweet_with_news(request, news_ID, pos = 1, counts = -1):

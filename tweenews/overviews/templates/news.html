@@ -146,6 +146,7 @@
 {% endif %}
         <div class="row" id="pager">
          <ul class="pager">
+         <li><a href="{% url 'overview:news_next' 1  rankmethod %}">Start</a></li>
          <li><a href="{% url 'overview:news_next' prevPos  rankmethod %}">Previous</a></li>
          {%for pos in page_index %}
           <li><a href="{% url 'overview:news_next' pos  rankmethod  %}">{{pos}}</a></li>
@@ -175,7 +176,6 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
     
   </body>
