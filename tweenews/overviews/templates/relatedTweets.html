@@ -1,3 +1,4 @@
+{% load template_filters %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -61,7 +62,7 @@
 <p>
 	<h1>{{current_news.title}}</h1>
 	<h4>by {{current_news.source}}</h4>
-    The news is : {{current_news.raw_text}}
+    The news is : <pre>{{current_news.raw_text | replace_mark}}</pre>
 </p>
 <p>
     The related tweets are:
