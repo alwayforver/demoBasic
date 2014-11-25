@@ -34,6 +34,9 @@
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="{{ STATIC_URL }}script/bootstrap.min.js"></script>
     <script src="{{ STATIC_URL }}script/jquery.cookie.js"></script>
+    <script src="{{ STATIC_URL }}script/utils.js"></script>
+    <script src="{{ STATIC_URL }}script/readmore.min.js"></script>
+    <script src="{{ STATIC_URL }}script/jquery.tablesorter.min.js"></script>
     <script>
       $(function() {
           $( "#datepicker" ).datepicker();
@@ -81,26 +84,43 @@
       </div>
 
       <a name="top"></a>
+      <div class="col-xs-12 search-box">
+        
 
+    </div>
       
 
 
-      <div class="col-md-5" id="search-navbar">
-                    <div class="row">
-                        <nav class="navbar navbar-default" id="nevbar" role="navigation">
-                        <form class="navbar-form" role="search" method="post" action="{% url 'overview:news_home'%}">
-                                {% csrf_token %}
-                                <div class="input-group">
-                                    <input id="searchContent" type="text" class="form-control" placeholder="Search" value="" name="q">
-                                    <div class="input-group-btn">
-                                    <button class="btn btn-default" type="submit" id="titleSearch"><i class="glyphicon  glyphicon-search"></i>search title</button>
-                                        <button class="btn btn-default" type="submit" onclick="toSearch()"><i class="glyphicon glyphicon-search"></i>search by engine</button>
-                                    </div>
-                                 </div>
-                            </form>
-                            </nav>
-                            </div>
-                            </div>
+      <div class="col-md-8" id="search-navbar">
+      <div class="row">
+      <nav class="navbar navbar-default" id="nevbar" role="navigation">
+      <form method="GET" action="" class="form-horizontal" role="form" id="advanced-search-form" style="display:none">
+            {% for field in search_form %}
+                <div class="form-group">
+                    <label class="col-xs-2 control-label">{{ field.label_tag }}</label>
+                    <div class="col-xs-10">{{ field}}</div>
+                </div>
+            {% endfor %}
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Go</button>
+                    <button type="submit" class="btn btn-default" id="advanced-cancel">Cancel</button>
+                </div>
+            </div>
+        </form>
+        <form method="post" class="navbar-form" action="" class="form-horizontal" role="form" id="search-form">
+        {% csrf_token %}
+            <div class="input-group">
+              <input type="text" name="q" id="q" placeholder="Search" class="form-control" value="{{q}}">
+              <span class="input-group-btn">
+              <button class="btn btn-default" type="submit" id="titleSearch">Search</button>
+              <button class="btn btn-default" type="button" id="advanced-search">Advanced Search</button>
+              <button class="btn btn-default" type="submit" onclick="toSearch()"><i class="glyphicon glyphicon-search"></i>search by engine</button>
+              </span>
+            </div>
+        </form>
+
+        </nav></div></div>
                 <script>
                     function toSearch(){
                         var searchContent = $('#searchContent').val();
