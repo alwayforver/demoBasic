@@ -5,11 +5,11 @@ import django
 import re
 import string
 # parse time zone string to django time zone aware datetime 
-from dateutil.parser import parse
 
-local_base = '~/projects/demoBasic/tweenews'
+local_base = '/home/jwang112/projects/demoBasic/tweenews'
 sys.path.append(local_base)
-
+#print sys.path
+from dateutil.parser import parse
 os.environ['DJANGO_SETTINGS_MODULE']='tweenews.settings'
 
 from overviews.models import News, Tweet
@@ -80,6 +80,9 @@ if __name__ == "__main__":
             tw_id_str, tw_text, tw_created_at, contained_url, tag_text, retw_id_str, retw_favorited, retw_favorite_count, retw_retweeted, retw_retweet_count, \
             tw_favorited, tw_favorite_count, tw_retweeted, tw_retweet_count, user_id_str, verified, follower_count, statuses_count, friends_count, \
         favorites_count, user_created_at= fields[:21]
+            if len(tag_text) > 100:
+                tweets_log.write("hashtag too long: "+line.strip()+"\n")
+                continue
             
             # convert user_created time
             # Fri Nov 07 22:20:38 +0000 2014
