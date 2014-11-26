@@ -43,15 +43,21 @@ if __name__ == "__main__":
         # length checks
         if len(text) > 15000:
             text = text[:15000]
-            news_log.write("text too long: "+title+"\t"+text+"\n")
+            news_log.write("text too long: "+id+"\n")
         if len(title) > 200:
             title = title[:200]
-            news_log.write("title too long: "+title+"\t"+text+"\n")
+            news_log.write("title too long: "+id+"\n")
         if len(keywords) > 200:
             keywords = keywords[:200]
-            news_log.write("keywords too long: "+title+"\t"+text+"\n")
+            news_log.write("keywords too long: "+id+"\n")
+        if len(url) > 200:
+            url = url[:200]
+            news_log.write("url too long: "+id+"\n")
+        if len(source) > 30:
+            source = source[:30]
+            news_log.write("source too long: "+id+"\n")
         
-        news = News(ID = id,url = url, raw_text = text,created_at = date_utc, local_time_zone = date_local_timezone , key_word = keywords, source = source, title = title)
+        news = News(ID = int(id),url = url, raw_text = text,created_at = date_utc, local_time_zone = date_local_timezone , key_word = keywords, source = source, title = title)
         # save news object to db
         news.save()
         
