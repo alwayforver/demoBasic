@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from overviews.models import News, Tweet
 import math
 import time
+from overviews.forms import SearchForm
 
 def index(request):
     
@@ -10,13 +11,39 @@ def index(request):
 
 def news(request, pos = 1, rank_method = 0):
     news_set = None
+    form = SearchForm()
     if(request.method == 'POST' and 'q' in request.POST):
         query =  request.POST['q']
         news_set = News.objects.filter(title__icontains=query)
         #print new_set
         print 'Post ' + str(news_set.count())
     else:
-        print 'FAIL'
+        string_type = ['key_word', 'source', 'main_article', 'title']
+        manytomany_type = ['ID']
+        timetype = ['created_at']
+        kwargs = {}
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            print 'Get in Form'
+            all_empty = True
+            for field in form.cleaned_data:
+                if form.cleaned_data[field]:
+                    all_empty = False
+                    #    if field == 'year' and form.cleaned_data['year_opt']:
+                    #        if form.cleaned_data['year_opt'] == '=':
+                    #            kwargs['year'] = str('%s' % form.cleaned_data[field])
+                    #        elif form.cleaned_data['year_opt'] in year_query_map:
+                    #            kwargs[str('year__%s' % year_query_map[form.cleaned_data['year_opt']])] = str('%s' % form.cleaned_data[field])
+                        #if field == 'ID':
+
+                    if field in string_type:
+                        kwargs[str('%s__icontains' % field)] = str('%s' % form.cleaned_data[field].strip())
+                    elif field in manytomany_type:
+                        kwargs[str('%s' % field)] = form.cleaned_data[field]
+            if all_empty!= True:
+                news_set = News.objects.select_related().filter(**kwargs)
+                print len(news_set)
+        print 'Advanced Search'
     base_page = 1
     pos = max(int(pos),base_page)
     rank_method = int(rank_method)
@@ -49,9 +76,9 @@ def news(request, pos = 1, rank_method = 0):
 
     prev = max(1, pos - 1)
     nextPos = min(end_pos, pos+1)
-    context = {'all_news_list':all_news_list, 'page_index':page_index, 'nextPos': nextPos,'prevPos': prev, 'rankmethod': rank_method,}
-    #if news_set != None:
-    #    print context
+    context = {'all_news_list':all_news_list, 'search_form': form, 'page_index':page_index, 'nextPos': nextPos,'prevPos': prev, 'rankmethod': rank_method,}
+    if len(news_set)== 0:
+        context['search_fail'] = True
     return render(request, 'news.html', context)
 
 def tweet_with_news(request, news_ID, pos = 1, counts = -1):

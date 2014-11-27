@@ -94,7 +94,8 @@
       <div class="col-md-8" id="search-navbar">
       <div class="row">
       <nav class="navbar navbar-default" id="nevbar" role="navigation">
-      <form method="GET" action="" class="form-horizontal" role="form" id="advanced-search-form" style="display:none">
+      <form method="post" action="" class="form-horizontal" role="form" id="advanced-search-form" style="display:none">
+            {% csrf_token %}
             {% for field in search_form %}
                 <div class="form-group">
                     <label class="col-xs-2 control-label">{{ field.label_tag }}</label>
@@ -139,6 +140,9 @@
                             <li><a href="{% url 'overview:news_next' 0 2 %}">Order by Latest</a></li>
                         </ol>
                     </div>
+{% if search_fail %}   
+<h2> Sorry, No News Match Your Query </h2> 
+{% endif %}           
 {% if all_news_list %}
 
 <div align="center">
