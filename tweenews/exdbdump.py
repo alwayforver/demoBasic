@@ -41,8 +41,8 @@ if __name__ == "__main__":
         date_local_timezone = date[len(date)-5:]# local time
         
         # length checks
-        if len(text) > 15000:
-            text = text[:15000]
+        if len(text) > 10000:
+            text = text[:10000]
             news_log.write("text too long: "+id+"\n")
         if len(title) > 200:
             title = title[:200]
