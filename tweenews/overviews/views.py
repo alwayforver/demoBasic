@@ -79,7 +79,7 @@ def news(request, pos = 1, rank_method = 0):
     prev = max(1, pos - 1)
     nextPos = min(end_pos, pos+1)
     context = {'all_news_list':all_news_list, 'search_form': form, 'page_index':page_index, 'nextPos': nextPos,'prevPos': prev, 'rankmethod': rank_method,}
-    if request.method == 'POST' and SearchFlag == False:
+    if request.method == 'POST' and news_set != None and SearchFlag == False:
         context['search_fail'] = True
     return render(request, 'news.html', context)
 
