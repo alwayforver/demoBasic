@@ -47,8 +47,10 @@ def news(request, pos = 1, rank_method = 0):
     base_page = 1
     pos = max(int(pos),base_page)
     rank_method = int(rank_method)
-    if news_set != None:
+    SearchFlag = False
+    if news_set != None and len(news_set)!= 0:
         total_num = news_set.count()
+        SearchFlag = True
     else:
         total_num = News.objects.count()
     one_page = 100
@@ -58,17 +60,17 @@ def news(request, pos = 1, rank_method = 0):
     print total_num, pos, end_pos
     if rank_method == 0:
         #all_news_list = News.objects.filter(ID__range = ((pos-1)*one_page+1, pos*one_page))
-        if news_set != None:
+        if SearchFlag:
             all_news_list = news_set.order_by('ID')[(pos-1)*one_page:pos*one_page]
         else:
             all_news_list = News.objects.all().order_by('ID')[(pos-1)*one_page:pos*one_page]
     elif rank_method == 1: 
-        if news_set != None:    
+        if SearchFlag:    
             all_news_list = news_set.order_by('created_at')[(pos-1)*one_page : pos*one_page]
         else:
             all_news_list = News.objects.all().order_by('created_at')[(pos-1)*one_page : pos*one_page]
     elif rank_method == 2:
-        if news_set != None:
+        if SearchFlag:
             all_news_list = news_set.order_by('-created_at')[(pos-1)*one_page : pos*one_page]
         else:
             all_news_list = News.objects.all().order_by('-created_at')[(pos-1)*one_page : pos*one_page]
@@ -77,7 +79,7 @@ def news(request, pos = 1, rank_method = 0):
     prev = max(1, pos - 1)
     nextPos = min(end_pos, pos+1)
     context = {'all_news_list':all_news_list, 'search_form': form, 'page_index':page_index, 'nextPos': nextPos,'prevPos': prev, 'rankmethod': rank_method,}
-    if not news_set or len(news_set)== 0:
+    if request.method == 'POST' and (not news_set or len(news_set)== 0):
         context['search_fail'] = True
     return render(request, 'news.html', context)
 
