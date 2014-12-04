@@ -13,6 +13,6 @@ class SearchForm(forms.Form):
     #year_opt = forms.ChoiceField(choices=YEAR_FILERS_CHOICES, widget=forms.Select(attrs={'class': 'form-control'}), required=False)
     #year = forms.ChoiceField(choices=YEARS_FORM_CHOICES, widget=forms.Select(attrs={'class': 'form-control'}), required=False)
 	title = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Title', 'class': 'form-control'}), required=False)
-	main_article = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'Description', 'class': 'form-control'}), required=False)
-	source = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'Source', 'class': 'form-control'}), required=False)
+	main_article = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Description', 'class': 'form-control'}), required=False)
+	source = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Source', 'class': 'form-control'}), required=False)
     #source = forms.ModelMultipleChoiceField(queryset=Venue.objects.all().order_by('name'), widget=forms.SelectMultiple(attrs={'class': 'form-control'}), required=False)
