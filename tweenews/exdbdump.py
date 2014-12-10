@@ -89,6 +89,9 @@ if __name__ == "__main__":
             if len(tag_text) > 100:
                 tweets_log.write("hashtag too long: "+line.strip()+"\n")
                 continue
+            if len(tw_text) > 200:
+                tweets_log.write("tweet too long: "+line.strip()+"\n")
+                continue
             
             # convert user_created time
             # Fri Nov 07 22:20:38 +0000 2014
