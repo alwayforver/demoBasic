@@ -5,11 +5,11 @@ import django
 import re
 import string
 # parse time zone string to django time zone aware datetime 
-from dateutil.parser import parse
 
-local_base = '~/projects/demoBasic/tweenews'
+local_base = '/home/jwang112/projects/demoBasic/tweenews'
 sys.path.append(local_base)
-
+#print sys.path
+from dateutil.parser import parse
 os.environ['DJANGO_SETTINGS_MODULE']='tweenews.settings'
 
 from overviews.models import News, Tweet
@@ -41,17 +41,23 @@ if __name__ == "__main__":
         date_local_timezone = date[len(date)-5:]# local time
         
         # length checks
-        if len(text) > 15000:
-            text = text[:15000]
-            news_log.write("text too long: "+title+"\t"+text+"\n")
+        if len(text) > 10000:
+            text = text[:10000]
+            news_log.write("text too long: "+id+"\n")
         if len(title) > 200:
             title = title[:200]
-            news_log.write("title too long: "+title+"\t"+text+"\n")
+            news_log.write("title too long: "+id+"\n")
         if len(keywords) > 200:
             keywords = keywords[:200]
-            news_log.write("keywords too long: "+title+"\t"+text+"\n")
+            news_log.write("keywords too long: "+id+"\n")
+        if len(url) > 200:
+            url = url[:200]
+            news_log.write("url too long: "+id+"\n")
+        if len(source) > 30:
+            source = source[:30]
+            news_log.write("source too long: "+id+"\n")
         
-        news = News(ID = id,url = url, raw_text = text,created_at = date_utc, local_time_zone = date_local_timezone , key_word = keywords, source = source, title = title)
+        news = News(ID = int(id),url = url, raw_text = text,created_at = date_utc, local_time_zone = date_local_timezone , key_word = keywords, source = source, title = title)
         # save news object to db
         news.save()
         
@@ -80,6 +86,12 @@ if __name__ == "__main__":
             tw_id_str, tw_text, tw_created_at, contained_url, tag_text, retw_id_str, retw_favorited, retw_favorite_count, retw_retweeted, retw_retweet_count, \
             tw_favorited, tw_favorite_count, tw_retweeted, tw_retweet_count, user_id_str, verified, follower_count, statuses_count, friends_count, \
         favorites_count, user_created_at= fields[:21]
+            if len(tag_text) > 100:
+                tweets_log.write("hashtag too long: "+line.strip()+"\n")
+                continue
+            if len(tw_text) > 200:
+                tweets_log.write("tweet too long: "+line.strip()+"\n")
+                continue
             
             # convert user_created time
             # Fri Nov 07 22:20:38 +0000 2014
