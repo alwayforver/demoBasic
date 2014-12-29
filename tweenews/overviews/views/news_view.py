@@ -73,7 +73,7 @@ def news(request, pos = 1, rank_method = 0):
     start_pos = min(pos, end_pos-10)
     start_pos = max(0, start_pos)    
     page_index = range(start_pos, end_pos+1)
-    last_pos = int(math.ceil(float(total_num)/float(one_page)
+    last_pos = int(math.ceil(float(total_num)/float(one_page)))
     prev = max(1, pos - 1)
     nextPos = min(end_pos, pos+1)
     context = {'all_news_list':all_news_list, 'search_form': form, 'page_index':page_index, 'nextPos': nextPos,'prevPos': prev, 'rankmethod': rank_method, 'last_pos': last_pos}
