@@ -22,6 +22,7 @@ def tweet_with_news(request, news_ID, pos = 1, counts = -1):
     if counts == -1:
         #counts = Tweet.objects.filter(related_news=news_ID).count()
         counts = current_news.tweet_set.all().count()
+        print 'count total tweets'
     end = time.time()
     print start - end
     start = end
@@ -34,8 +35,9 @@ def tweet_with_news(request, news_ID, pos = 1, counts = -1):
     end_pos = min( pos + default_pagenum , int(math.ceil(float(total_num)/float(one_page))))
     end_pos = max( pos , end_pos)
     last_pos = int(math.ceil(float(total_num)/float(one_page)))
-    
-    page_index = range(pos, end_pos+1)
+    start_pos = min(pos, end_pos-10)
+    start_pos = max(0, start_pos)    
+    page_index = range(start_pos, end_pos+1)
     prev = max(1, pos - 1)
     nextPos = min(end_pos, pos+1)
     context = {'related_tweets_list':related_tweets_list,'current_news':current_news, 'nextPos': nextPos,'prevPos': prev, 'page_index':page_index, 'counts':total_num, 'last_pos': last_pos}
