@@ -1,5 +1,5 @@
 from django.shortcuts import render, render_to_response
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from overviews.models import News, Tweet
 import math
 import time
@@ -15,13 +15,21 @@ def tweet_with_news(request, news_ID, pos = 1, counts = -1):
     one_page = 30
     default_pagenum = 10
     start = time.time()
+    try:
+        current_news = News.objects.get(pk=news_ID)
+    except:
+        raise Http404
     if counts == -1:
-        counts = Tweet.objects.filter(related_news=news_ID).count()
+        #counts = Tweet.objects.filter(related_news=news_ID).count()
+        counts = current_news.tweet_set.all().count()
+
     total_num = counts
-    related_tweets_list = Tweet.objects.filter(related_news=news_ID)[(pos-1)*one_page : pos*one_page]
+
+    related_tweets_list = News.objects.get(ID=news_ID).tweet_set.all()[(pos-1)*one_page : pos*one_page]
+    #related_tweets_list = Tweet.objects.filter(related_news=news_ID)[(pos-1)*one_page : pos*one_page]
     end_pos = min( pos + default_pagenum , int(math.ceil(float(total_num)/float(one_page))))
     end_pos = max( pos , end_pos)
-    current_news = News.objects.get(pk=news_ID)
+    
     page_index = range(pos, end_pos+1)
     prev = max(1, pos - 1)
     nextPos = min(end_pos, pos+1)
