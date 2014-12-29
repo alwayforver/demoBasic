@@ -101,6 +101,7 @@
           <li><a href="{% url 'overview:tweet_next' current_news.ID pos  counts%}">{{pos}}</a></li>
           {%endfor%}
           <li><a href="{% url 'overview:tweet_next' current_news.ID nextPos counts %}">Next</a></li>
+          <li><a href="{% url 'overview:tweet_next' current_news.ID last_pos counts %}">Total {{last_pos}}</a></li>
           </ul>
         </div>
        <div id="scrolltop_button"></div>

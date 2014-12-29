@@ -22,18 +22,23 @@ def tweet_with_news(request, news_ID, pos = 1, counts = -1):
     if counts == -1:
         #counts = Tweet.objects.filter(related_news=news_ID).count()
         counts = current_news.tweet_set.all().count()
-
+    end = time.time()
+    print start - end
+    start = end
     total_num = counts
 
     related_tweets_list = News.objects.get(ID=news_ID).tweet_set.all()[(pos-1)*one_page : pos*one_page]
+    end = time.time()
+    print start - end
     #related_tweets_list = Tweet.objects.filter(related_news=news_ID)[(pos-1)*one_page : pos*one_page]
     end_pos = min( pos + default_pagenum , int(math.ceil(float(total_num)/float(one_page))))
     end_pos = max( pos , end_pos)
+    last_pos = int(math.ceil(float(total_num)/float(one_page)))
     
     page_index = range(pos, end_pos+1)
     prev = max(1, pos - 1)
     nextPos = min(end_pos, pos+1)
-    context = {'related_tweets_list':related_tweets_list,'current_news':current_news, 'nextPos': nextPos,'prevPos': prev, 'page_index':page_index, 'counts':total_num}
+    context = {'related_tweets_list':related_tweets_list,'current_news':current_news, 'nextPos': nextPos,'prevPos': prev, 'page_index':page_index, 'counts':total_num, 'last_pos': last_pos}
     return render(request, 'relatedTweets.html', context)
 
 def tweet_page(request, tweet_id):
