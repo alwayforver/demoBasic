@@ -70,11 +70,15 @@ def news(request, pos = 1, rank_method = 0):
             all_news_list = news_set.order_by('-created_at')[(pos-1)*one_page : pos*one_page]
         else:
             all_news_list = News.objects.all().order_by('-created_at')[(pos-1)*one_page : pos*one_page]
-    page_index = range(pos, end_pos+1) 
-
+    start_pos = min(pos, end_pos-10)
+    start_pos = max(0, start_pos)    
+    page_index = range(start_pos, end_pos+1)
+    last_pos = int(math.ceil(float(total_num)/float(one_page)
     prev = max(1, pos - 1)
     nextPos = min(end_pos, pos+1)
-    context = {'all_news_list':all_news_list, 'search_form': form, 'page_index':page_index, 'nextPos': nextPos,'prevPos': prev, 'rankmethod': rank_method,}
+    context = {'all_news_list':all_news_list, 'search_form': form, 'page_index':page_index, 'nextPos': nextPos,'prevPos': prev, 'rankmethod': rank_method, 'last_pos': last_pos}
     if request.method == 'POST' and news_set != None and SearchFlag == False:
         context['search_fail'] = True
     return render(request, 'news.html', context)
+
+

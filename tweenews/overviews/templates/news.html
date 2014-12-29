@@ -176,6 +176,7 @@
           <li><a href="{% url 'overview:news_next' pos  rankmethod  %}">{{pos}}</a></li>
           {%endfor%}
           <li><a href="{% url 'overview:news_next' nextPos  rankmethod %}">Next</a></li>
+          <li><a href="{% url 'overview:news_next' last_pos  rankmethod %}">Total {{last_pos}}</a></li>
           </ul>
         </div>
        <div id="scrolltop_button"> </div>
