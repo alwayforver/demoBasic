@@ -62,7 +62,8 @@
 <p>
 	<h1>{{current_news.title}}</h1>
 	<h4>by {{current_news.source}}</h4>
-  <h4>create time: {{current_news.create_at | replace_empty}}  URL: {{current_news.url | replace_empty}} </h4>
+  <h4>create time: {{current_news.created_at | replace_empty}}</h4>
+  <h4>URL: <a href="http://{{current_news.url | replace_empty}}">{{current_news.url | replace_empty}}</a> </h4>
   <h4>Key Words: {{current_news.key_word | replace_empty}}</h4>
     The news is : <pre>{{current_news.raw_text | replace_mark}}</pre>
 </p>
