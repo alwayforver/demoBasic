@@ -62,8 +62,19 @@
 <p>
 	<h1>{{current_news.title}}</h1>
 	<h4>by {{current_news.source}}</h4>
+  <h4>create time: {{current_news.create_at | replace_empty}}  URL: {{current_news.url | replace_empty}} </h4>
+  <h4>Key Words: {{current_news.key_word | replace_empty}}</h4>
     The news is : <pre>{{current_news.raw_text | replace_mark}}</pre>
 </p>
+        <form method="post" class="navbar-form" action="" class="form-horizontal" role="form" id="search-form">
+        {% csrf_token %}
+            <div class="input-group">
+              <input type="text" name="q" id="q" placeholder="Search" class="form-control" value="{{q}}">
+              <span class="input-group-btn">
+              <button class="btn btn-default" type="submit" id="titleSearch">Search</button>
+              </span>
+            </div>
+        </form>
 <p>
     The related tweets are:
 </p>

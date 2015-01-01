@@ -17,9 +17,16 @@ def plus(num1,num2):
 
 def replace_mark(content):
 	return content.replace('::::', '\n')
+
+def replace_empty(content):
+	if content == '':
+		return "[Empty]"
+	else:
+		return content
 		
 register.filter('get_dict_item',get_dict_item)
 register.filter('get_dict_keys',get_dict_keys)
 register.filter('get_range',get_range)
 register.filter('plus',plus)
 register.filter('replace_mark', replace_mark)
+register.filter('replace_empty', replace_empty)
