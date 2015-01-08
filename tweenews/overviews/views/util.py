@@ -1,6 +1,7 @@
 from django.conf import settings
 import sys,os
 import Queue
+from overviews.models import News
 
 def read_source(sourcefile):
 	id_map = {}
@@ -42,9 +43,9 @@ def read_source(sourcefile):
 			node_children[r[0]] = [r[1]]
 		else:
 			node_children[r[0]].append(r[1])
-	return [node_children, root]
+	return [id_map, node_children, root]
 
-def draw_json(node_children, root, outputfile):
+def draw_json(node_children, root, id_map, outputfile):
 	output = open(outputfile, 'w')
 	output_data = '{"name":"' + root + '"}\n'
 	q = Queue.Queue()
@@ -57,7 +58,17 @@ def draw_json(node_children, root, outputfile):
 			replace_text = replace_text+'"children":[\n'
 			tmp = []
 			for child in node_children[node]:
-				tmp.append('{"name":"'+child+'"}')
+				child_name = ''
+				if int(child) in id_map:
+					try:
+						news = News.objects.get(pk = id_map[int(child)])
+						child_name = str(id_map[int(child)]) + ' ' + news.title + ' ' + news.created_at
+					except:
+						print "No such News"
+				else:
+					child_name = child
+
+				tmp.append('{"name":"'+child_name+'"}')
 				q.put(child)
 			replace_text = replace_text+',\n'.join(tmp)+'\n'
 			replace_text = replace_text+']\n}'
@@ -68,6 +79,8 @@ def draw_json(node_children, root, outputfile):
 	output.close()
 
 def test():
+	[id_map, temp_relation, root] = read_source('/Users/solitarylord/Documents/DjangoEnvir/TNDemo/demoBasic/tweenews/overviews/views/tmp_noknn.txt')
+	draw_json(temp_relation , root, id_map, settings.MEDIA_ROOT+'/' +'test.json')
 	print settings.MEDIA_ROOT
 	print settings.STATIC_ROOT
 
