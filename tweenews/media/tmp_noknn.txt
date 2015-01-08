@@ -1,0 +1,6671 @@
+n_samples: 1664, n_features: 10000 
+Clustering sparse data with AgglomerativeClustering(affinity='euclidean', compute_full_tree='auto',
+            connectivity=None, linkage='ward',
+            memory=Memory(cachedir=None), n_clusters=2, n_components=None,
+            pooling_func=<function mean at 0x19c6500>)
+clustering done in 15.056s
+Cluster 0:
+2014-11-16 13:47:38	Glen A Larson, producer of Battlestar Galactica, dies aged 77
+-------
+2014-11-16 17:19:37	Police: Man killed by train was pushed onto tracks
+-------
+2014-11-16 19:20:05	New footage claims to show MH17 crash aftermath
+-------
+2014-11-16 19:21:15	State Dept Computers Hacked, Email Shut Down
+-------
+2014-11-16 19:47:47	Man pushed in front of subway, killed
+-------
+2014-11-16 20:01:32	The NASCAR losers' lament
+-------
+2014-11-16 20:10:37	Brothers among victims of Texas chemical leak
+-------
+2014-11-16 20:17:38	National roundup: 172 people on cruise ship contract norovirus
+-------
+2014-11-16 20:34:32	Officer Darren Wilson Could Remain a Ferguson Cop If Not Indicted
+-------
+2014-11-16 20:43:06	Kevin Harvick, Tony Stewart, share victory ride to NASCAR title as Harvick wins in Homestead
+-------
+2014-11-16 20:47:00	Kevin Harvick wins race, NASCAR Sprint Cup Series title
+-------
+2014-11-16 21:04:27	Obama Condemns Islamic State's Killing of Peter Kassig
+-------
+2014-11-16 21:04:27	Routine Trip Turns Fatal as a Man Is Pushed in Front of a Subway Train
+-------
+2014-11-16 21:22:21	U2 cancels weeklong gig on 'The Tonight Show' when Bono injures arm in ...
+-------
+2014-11-16 21:31:03	The Walking Dead: Who Will Die In the Attack on the Hospital?
+-------
+2014-11-16 21:34:51	Legendary TV Producer Glen A. Larson Dead At 77
+-------
+2014-11-16 21:45:43	iafrica.com Philae lander has lost power
+-------
+2014-11-16 21:47:15	US cities brace for protests off Ferguson decision
+-------
+2014-11-16 21:48:37	The Walking Dead's Carol and Daryl Together Again! Our Rants and Raves
+-------
+2014-11-16 21:55:58	Asia Stocks Drop With S&P 500 Futures on Japan Recession
+-------
+2014-11-16 21:59:22	Obama calls hostage's beheading by ISIS 'pure evil'
+-------
+2014-11-16 21:59:22	Defiant Obama says he won't bend to GOP
+-------
+2014-11-16 21:59:35	Crews Recovering MH-17 Crash Debris
+-------
+2014-11-16 22:00:11	Historic comet landing lands on Royal Mail postmark
+-------
+2014-11-16 22:03:57	Australia-China to Sign Free Trade Deal Spurring Economic Shift
+-------
+2014-11-16 22:11:22	172 people on cruise in US fell ill with norovirus
+-------
+2014-11-16 22:14:37	GM ignition-switch compensation claims deadline extended to Jan. 31
+-------
+2014-11-16 22:15:57	Comet lander shuts down after sending data; Will it come back online?
+-------
+2014-11-16 22:16:35	DEA Said to Inspect NFL Teams for Improper Prescriptions
+-------
+2014-11-16 22:17:10	Modi Moves Like Jagger as India Diaspora Flocks to Sydney Speech
+-------
+2014-11-16 22:26:24	GM agrees to extend deadline for switch claims
+-------
+2014-11-16 22:41:27	Modi set repeat 'Madison moment' in Sydney
+-------
+2014-11-16 22:54:40	Bono's injured arm scratches U2's weeklong residency on Fallon's Tonight Show
+-------
+2014-11-16 22:55:11	Facebook said to plan site to rival Microsoft Office
+-------
+2014-11-16 23:01:05	State Department Shuts Down Unclassified Email System Over Hacker Attack
+-------
+2014-11-16 23:02:22	US Sanctions Relief Fails, Threatening the Nuclear Talks
+-------
+2014-11-16 23:08:36	Europe Factors to Watch-Shares set to fall after Japan GDP data
+-------
+2014-11-16 23:08:36	UPDATE 3-Money flows to mainland as landmark Hong Kong-Shanghai stock link opens
+-------
+2014-11-16 23:08:58	New report: Child homelessness on the rise in US
+-------
+2014-11-16 23:14:04	Rosetta mission: Philae finally spotted on comet
+-------
+2014-11-16 23:15:23	American Aid Worker Beheaded in Act of 'Pure Evil'
+-------
+2014-11-16 23:16:58	Japan Unexpectedly Enters Recession as Abe Weighs Tax: Economy
+-------
+2014-11-16 23:39:32	Heavy shelling rocks rebel-held Donetsk in east Ukraine
+-------
+2014-11-16 23:42:20	LIVE: Modi addresses NRIs at Sydney Allphones Arena
+-------
+2014-11-17 00:02:47	'Facebook at Work' site to take on LinkedIn, Google Drive
+-------
+2014-11-17 00:02:47	Facebook developing a professional website 'Facebook at Work'
+-------
+2014-11-17 00:05:49	Recalling Kassig's warmth and empathy
+-------
+2014-11-17 00:05:49	Bracing for combat in D.C.
+-------
+2014-11-17 00:28:34	The Missing Immigration Memo
+-------
+2014-11-17 00:32:27	European Stocks Decline as Japan Falls Into Recession
+-------
+2014-11-17 00:33:28	French tourist scales Brooklyn Bridge to snap photos, gets arrested: cops
+-------
+2014-11-17 00:42:57	Japan slips into surprise recession, paves way for tax delay, snap poll
+-------
+2014-11-17 00:45:06	18 Killed, 13 Injured in Massive Chinese Carrot Plant Fire
+-------
+2014-11-17 00:52:08	Palestinian driver found hanged in Jerusalem bus
+-------
+2014-11-17 01:01:26	Bono set to undergo surgery after he's injured in Central Park bike accident
+-------
+2014-11-17 01:02:22	Police: Man Killed by Train Was Pushed Onto Tracks
+-------
+2014-11-17 01:10:46	Battlestar Galactica Creator has passed away.
+-------
+2014-11-17 01:11:58	Runoff for Democratic nod in mayor's race
+-------
+2014-11-17 01:15:41	Bono needs surgery after bicycle fall in Central Park
+-------
+2014-11-17 01:18:24	Facebook developing a professional website "Facebook at Work" FT
+-------
+2014-11-17 01:21:47	Results of European comet lander's experiments due Monday
+-------
+2014-11-17 01:27:26	White House and State Department hacked at the same time
+-------
+2014-11-17 01:43:25	Colombia Suspends Peace Talks With Rebels After General's Capture
+-------
+2014-11-17 01:48:42	Obama calls IS beheadings 'pure evil'
+-------
+2014-11-17 02:01:16	Abenomics' direction uncertain after GDP shock
+-------
+2014-11-17 02:01:50	Sports roundup: Drug agents check medical staffs of three NFL teams
+-------
+2014-11-17 02:02:01	Obama Could Act This Week on Immigration Reform
+-------
+2014-11-17 02:09:27	Japan Slips Into Recession
+-------
+2014-11-17 02:12:13	DHL alerts Bangkok Police after finding human body parts in three packages
+-------
+2014-11-17 02:18:35	Putin: Russia, Germany formed good basis for relations over past decade
+-------
+2014-11-17 02:19:31	Bono facing surgery after Central Park bike crash
+-------
+2014-11-17 02:29:45	Obama Confirms Death of American by IS Group
+-------
+2014-11-17 02:32:23	Pope Francis Plans to Visit Philadelphia in 2015
+-------
+2014-11-17 02:32:54	Ukraine crisis: EU mulls Russia sanctions amid fighting
+-------
+2014-11-17 02:35:02	Body parts in parcels: US pair pursued - World News
+-------
+2014-11-17 02:40:34	Knight Rider creator Glen Larson dies aged 77
+-------
+2014-11-17 02:42:49	Iran talks: taking stock a week before deadline
+-------
+2014-11-17 02:46:57	Israel to step up demolition of Palestinian homes
+-------
+2014-11-17 02:46:59	Actavis Said Near $62.5 Billion Deal for Allergan
+-------
+2014-11-17 02:57:15	Pope Francis Plans to Visit United States in 2015
+-------
+2014-11-17 02:59:37	Abdul-Rahman Kassig: From Soldier to Peace-Loving ISIS Victim
+-------
+2014-11-17 03:01:49	Modi urges Indian expatriates in Australia to invest back home
+-------
+2014-11-17 03:04:29	Dick Durbin: Elizabeth Warren a 'great spokesman' for Democrats
+-------
+2014-11-17 03:06:02	White House Cyber Attack Hacking: State Dept. closes unclassified email system
+-------
+2014-11-17 03:15:02	White House and State Department Computers Hacked
+-------
+2014-11-17 03:20:50	Thai elephant tramples man, runs off with tourists
+-------
+2014-11-17 03:26:51	UPDATE 1-Russian rouble weakens on falling oil, fears of more EU sanctions
+-------
+2014-11-17 03:27:43	Why Peter Kassig's conversion to Islam didn't save him — or other Islamic State ...
+-------
+2014-11-17 03:29:55	Allergan near buyout of up to $65 billion to escape Valeant, Ackman: source
+-------
+2014-11-17 03:31:53	Kidnap halts Colombia peace talks
+-------
+2014-11-17 03:32:57	Body parts labelled as toys intercepted in US-bound mail from Thailand
+-------
+2014-11-17 03:50:43	Facebook seen planning new Pro edition to rival LinkedIn, Google Drive
+-------
+2014-11-17 04:07:00	Report: Hackers compromise U.S. State Department network
+-------
+2014-11-17 04:12:40	Japan's economy makes surprise fall into recession
+-------
+2014-11-17 04:18:11	Peter Kassig: 'Here, in this land, I have found my calling'
+-------
+2014-11-17 04:18:18	Halliburton to Buy Baker Hughes for $34.6 Billion
+-------
+2014-11-17 04:19:43	U2 frontman Bono injures arm in New York City bike accident
+-------
+2014-11-17 04:23:25	Putin says neither side upholding ceasefire agreement in Ukraine
+-------
+2014-11-17 04:26:23	How McConnell world works
+-------
+2014-11-17 04:36:16	Ukraine Dollar Bond Extends Slump as Putin Pledges Rebel Support
+-------
+2014-11-17 04:40:07	Across US, protesters and police prep for Ferguson grand jury decision Brown ...
+-------
+2014-11-17 04:40:20	Morning Agenda: Halliburton's Deal for Baker Hughes
+-------
+2014-11-17 04:41:53	Ukraine Dollar Bond Extends Slump as Putin Pledges Rebel Support
+-------
+2014-11-17 04:48:51	ISIS Victim Abdul-Rahman Kassig Died Serving Mideast's Vulnerable
+-------
+2014-11-17 04:53:49	DEA conducts surprise inspections of several NFL teams
+-------
+2014-11-17 04:57:02	Federal Investigation Into Painkillers Targets NFL Teams' Medical Staffs
+-------
+2014-11-17 04:57:31	Japan falls into recession as consumers 'stop spending'
+-------
+2014-11-17 04:59:05	Halliburton Agrees to Buy Baker Hughes
+-------
+2014-11-17 04:59:38	Cupich to be installed as new Chicago archbishop
+-------
+2014-11-17 05:06:53	U2 postpones 'Tonight' after Bono biking accident
+-------
+2014-11-17 05:07:48	Study: 1 in 30 US Kids Were Homeless During 2013
+-------
+2014-11-17 05:14:48	Indian Prime Minister Narendra Modi draws thousands to Sydney Olympic Park
+-------
+2014-11-17 05:17:28	Artillery explosions shake Donetsk airport in east Ukraine
+-------
+2014-11-17 05:25:42	Ebola-Stricken Surgeon Dr. Martin Salia Dies in Nebraska
+-------
+2014-11-17 05:30:30	Thailand police seek Americans over baby parts posted to US
+-------
+2014-11-17 05:33:02	US review of Islamic State video confirms American's death
+-------
+2014-11-17 05:33:02	Halliburton to buy Baker Hughes for $35B
+-------
+2014-11-17 05:35:25	Ebola-infected physician dies in Nebraska
+-------
+2014-11-17 05:40:23	Pope Francis to Visit US for the First Time in September
+-------
+2014-11-17 05:46:34	Comet scientists take break after 4 straight days
+-------
+2014-11-17 05:48:14	Bono Hurts His Arm in Cycling Accident; Band Cancels Shows
+-------
+2014-11-17 05:54:36	Halliburton Buying Baker Hughes in $34.6B Deal
+-------
+2014-11-17 05:59:28	Severe Weather in the Deep South: Radar-Confirmed Tornado Hits Prison Near Blountstown, Florida
+-------
+2014-11-17 06:05:05	Thai police identify Americans accused of trying to ship infant body parts
+-------
+2014-11-17 06:06:48	Islamic State video intensifies concerns about foreign jihadis
+-------
+2014-11-17 06:13:17	More US children go to bed without a home than ever before, report says
+-------
+2014-11-17 06:15:39	Pope Francis to visit United States next year
+-------
+2014-11-17 06:24:31	Doctor's death marks second US Ebola fatality
+-------
+2014-11-17 06:33:48	US confirms Islamic State beheading of American
+-------
+2014-11-17 06:35:00	Pope Francis Confirms US Visit to Attend Meeting on Family Issues
+-------
+2014-11-17 06:36:07	GOP Campaigns and Outside Groups Allegedly Skirt Election Laws via Twitter
+-------
+2014-11-17 06:38:38	EU sanctions should not be aimed at harming Russia — Ukrainian FM
+-------
+2014-11-17 06:41:04	Comet lander: First pictures of Philae 'bounce' released
+-------
+2014-11-17 06:42:25	Big Oil Deals Return as Halliburton Moves First
+-------
+2014-11-17 06:45:13	Allergan Nears a Deal With Actavis to Block a Takeover by Valeant
+-------
+2014-11-17 06:47:31	Embattled aide to NYC mayor's wife takes leave
+-------
+2014-11-17 06:47:36	Putin Rebukes Ukraine for Cutting Links With Eastern Regions
+-------
+2014-11-17 06:52:45	Obamacare Approval at All-Time Low, Poll Shows
+-------
+2014-11-17 07:02:04	Halliburton and Baker Hughes Reach Agreement to Combine in Stock and Cash ...
+-------
+2014-11-17 07:05:02	Report: GOP, outside groups used Twitter to share polling info
+-------
+2014-11-17 07:05:25	Ebola Patient Dr. Martin Salia Has Died in Nebraska: Officials
+-------
+2014-11-17 07:11:22	Pope Francis plans US trip for 2015
+-------
+2014-11-17 07:14:05	In Ferguson, Tactics Set for Grand Jury Decision in Michael Brown Case
+-------
+2014-11-17 07:19:13	US aid worker Peter Kassig beheaded by Islamic State
+-------
+2014-11-17 07:24:54	Martin Salia, Ebola-stricken surgeon from Sierra Leone, dies in Nebraska hospital
+-------
+2014-11-17 07:26:02	How the GOP used Twitter to stretch election laws
+-------
+2014-11-17 07:32:14	Horror as man is shoved to death in NYC subway
+-------
+2014-11-17 07:32:23	Halliburton's $3.5 Billion Breakup Fee Highlights Regulator Risk
+-------
+2014-11-17 07:36:04	Putin: Moscow Won't Let Ukraine Rebels Fail
+-------
+2014-11-17 07:49:39	Botox Maker Allergan Agrees to Be Sold to Actavis
+-------
+2014-11-17 07:55:41	Dollar Gains, Treasuries Slide; Europe Stocks Advance
+-------
+2014-11-17 08:01:25	Ebola-infected doctor is disease's second victim to die in U.S.
+-------
+2014-11-17 08:04:46	Gruber was 'some adviser,' indeed
+-------
+2014-11-17 08:09:28	Analysts: ISIS video 'sign of desperation'
+-------
+2014-11-17 08:10:42	Putin: Moscow won't let Ukraine rebels fail
+-------
+2014-11-17 08:18:08	Health Law Turns Obama and Insurers Into Allies
+-------
+2014-11-17 08:24:09	Police release video in hunt for suspect who pushed man onto NYC subway tracks
+-------
+2014-11-17 08:32:19	Watch Live: Family of American Killed by ISIS Makes Statement 3:30p ET
+-------
+2014-11-17 08:32:51	Pope: children need mother and a father
+-------
+2014-11-17 08:33:56	Sierra Leone doctor dies from Ebola in Nebraska, according to hospital
+-------
+2014-11-17 08:36:15	Surgeon dies after 'false negative' Ebola test
+-------
+2014-11-17 08:42:58	Police officials on edge as grand jury deliberates charges in Ferguson shooting
+-------
+2014-11-17 08:42:58	Surgeon who contracted Ebola virus in Sierra Leone dies at Nebraska hospital
+-------
+2014-11-17 08:44:21	Halliburton Merger Driven by Cheap Oil, Smell of Fear
+-------
+2014-11-17 08:48:23	No Allergan Deal, but a $2.6 Billion Profit for Ackman
+-------
+2014-11-17 08:48:37	Ten Illegal Police Actions to Watch for in Ferguson
+-------
+2014-11-17 08:58:01	Halliburton, Baker Hughes merge as oil prices collapse
+-------
+2014-11-17 08:59:18	US 'disappointed' with Iran's IAEA cooperation ahead of nuclear talks
+-------
+2014-11-17 09:04:27	Pope Francis calls the right-to-die “a sin against God and creation”
+-------
+2014-11-17 09:13:19	Pope says will visit United States next year
+-------
+2014-11-17 09:13:36	Disapproval of Obamacare has never been greater
+-------
+2014-11-17 09:23:46	One in 30 American Children Is Homeless, Report Says
+-------
+2014-11-17 09:28:16	Ebola-Stricken Surgeon Martin Salia Died Despite ZMapp, Plasma Transfusion
+-------
+2014-11-17 09:36:49	The GOP Used Coded Tweets to Share Information on the 2014 Election
+-------
+2014-11-17 09:41:00	Paris prosecutor: At least 1 Frenchman in IS video
+-------
+2014-11-17 09:48:37	Top Senate Democrats Stand Behind Obama On Immigration
+-------
+2014-11-17 09:55:56	Zetia, Vytorin reduce risk of repeat heart attacks
+-------
+2014-11-17 09:57:04	Philae comet lander expected to wake up again next spring
+-------
+2014-11-17 10:00:58	Stupid Is as Stupid Does
+-------
+2014-11-17 10:05:15	Weighing the Evidence in the Shooting Death of Michael Brown
+-------
+2014-11-17 10:07:49	EU Moves to Sanction Separatists as E. Ukraine Fighting Intensifies
+-------
+2014-11-17 10:08:44	How ISIS's Latest Horrific Video Showing Dead American Is Different
+-------
+2014-11-17 10:09:02	Police hunt suspect who pushed father of two onto NYC subway tracks
+-------
+2014-11-17 10:16:14	Trade body calls for cocoa to be exempt from EU labelling rules
+-------
+2014-11-17 10:16:17	Pope Francis' schedule in Philadelphia: What we know so far; what you think he ...
+-------
+2014-11-17 10:27:40	Senate Dems push Obama on deportations
+-------
+2014-11-17 10:28:33	Video Released Of Possible Suspect In Subway Shove
+-------
+2014-11-17 10:33:03	Actavis Agrees to Buy Botox Maker Allergan
+-------
+2014-11-17 10:33:46	Taking daily aspirin fails to prevent heart deaths
+-------
+2014-11-17 10:47:11	Americans don't like Obamacare, even if enrollees do
+-------
+2014-11-17 10:49:48	Kerry: US 'not intimidated' by Islamic militants
+-------
+2014-11-17 10:52:05	Putin, Merkel square off over Ukraine
+-------
+2014-11-17 11:00:06	Will Pope Francis's first US visit help promote his progressive agenda?
+-------
+2014-11-17 11:02:25	Obama returns to DC to firestorms over Keystone, health law, immigration
+-------
+2014-11-17 11:12:47	Did the Republicans violate election laws in 2014 midterms? Twitter offers clues
+-------
+2014-11-17 11:15:48	Losing Allergan deals blow to Valeant reputation
+-------
+2014-11-17 11:19:33	Boxer, Democratic Leaders Pledge Support For Executive Action On Immigration « CBS Los Angeles
+-------
+2014-11-17 11:20:56	Death on the New York City Subway
+-------
+2014-11-17 11:21:38	Rosetta captures Philae's wild ride across Comet 67P
+-------
+2014-11-17 11:27:13	Loved ones, nation mourn latest Ebola victim in U.S.
+-------
+2014-11-17 11:31:00	British and French Militants May Have Been Seen in ISIS Execution Video
+-------
+2014-11-17 11:40:06	Pope Francis plans to visit United States next year
+-------
+2014-11-17 11:57:26	World heading toward chocolate shortage?
+-------
+2014-11-17 12:04:19	HHS chief rips Gruber for 'stupidity' remarks
+-------
+2014-11-17 12:13:35	Church of England Approves Plan Allowing Female Bishops
+-------
+2014-11-17 12:25:57	What You Need to Know About the Bill Cosby Sex Assault Allegations
+-------
+2014-11-17 12:29:50	Putin vows to protect Ukraine separatists from defeat
+-------
+2014-11-17 12:38:39	Man dies after being pushed onto NY subway track
+-------
+2014-11-17 12:39:32	Peter Kassig's Parents Say They Need Time to 'Mourn, Cry -- and Yes, Forgive ...
+-------
+2014-11-17 12:43:43	St. Louis awaits grand jury's decision on shooting of unarmed black teen
+-------
+2014-11-17 12:45:17	In The South, Obamacare Advocates Try to Outmaneuver Opponents
+-------
+2014-11-17 12:48:37	Chocolate Supply Running Low Throughout World
+-------
+2014-11-17 12:54:24	Merkel, Georgian Leader Warn of Russia's Cold War-Style Meddling Abroad
+-------
+2014-11-17 13:01:10	White House Confirms Death of American Aid Worker Peter Kassig in New Video
+-------
+2014-11-17 13:01:43	Missouri governor declares state of emergency ahead of ruling on Ferguson shooting
+-------
+2014-11-17 13:05:37	One Day, 2 Deals and a Changed Calculus of Deal Making
+-------
+2014-11-17 13:07:52	Sierra Leone doctor dies of Ebola at Nebraska hospital
+-------
+2014-11-17 13:09:27	Democratic leader taps New Mexico lawmaker to head campaign committee
+-------
+2014-11-17 13:18:36	Iran and six powers haven't discussed extending nuclear talks: U.S.
+-------
+2014-11-17 13:19:47	Pope Francis confirms appearance at Philadelphia rally in September 2015
+-------
+2014-11-17 13:38:04	Missouri Gov. Jay Nixon issues state of emergency ahead of Ferguson grand jury decision
+-------
+2014-11-17 13:40:30	Subway motorman saw pushed man 'flying in the air' before D train killed him
+-------
+2014-11-17 13:40:35	Is a chocolate shortage on the way?
+-------
+2014-11-17 13:54:30	New report details rise of child homelessness in US, says more affordable housing needed
+-------
+2014-11-17 15:12:01	New Mexico Dem Tapped to Head Campaign Committee
+-------
+2014-11-17 15:25:07	Relatives of slain woman sue over Denver 911 delay
+-------
+2014-11-17 16:03:31	Nancy Pelosi on Tammy Duckworth: No doctors note situations
+-------
+2014-11-17 16:08:32	Rejected Asian students sue Harvard over admissions that favor other minorities
+-------
+2014-11-17 16:20:56	ISIS Beheading Leaves Fate Uncertain for Last Two Hostages
+-------
+2014-11-17 16:21:58	Immigration advocates ready for executive action
+-------
+2014-11-17 16:33:18	Can Miami Marlins commit to winning and Giancarlo Stanton with richest contract in sports history?
+-------
+2014-11-17 16:35:24	Democrats Shake Lineup In House Political Team
+-------
+2014-11-17 16:40:58	Mark Begich finally concedes Alaska race
+-------
+2014-11-17 16:47:45	Kassig's parents: Hearts 'battered, but they will mend'
+-------
+2014-11-17 16:49:56	Charles Manson gets wedding license
+-------
+2014-11-17 17:01:15	Health coverage enrollment gets good early reviews
+-------
+2014-11-17 17:01:35	Ahead of grand jury, Missouri prepares for decision on Ferguson shooting
+-------
+2014-11-17 17:05:04	Child homelessness at all-time high, Florida in bottom half, new study finds
+-------
+2014-11-17 17:07:17	Harvard and UNC sued over their admission policies: National
+-------
+2014-11-17 17:35:57	Child homelessness surges to nearly 2.5 million (+video)
+-------
+2014-11-17 17:37:27	Missouri governor declares state of emergency in Ferguson
+-------
+2014-11-17 17:40:29	Nightengale: Marlins buy credibility with Stanton deal
+-------
+2014-11-17 17:42:43	Actavis to buy Botox maker Allergan for $66B
+-------
+2014-11-17 17:43:29	Setting Usual Caution Aside, Merkel Issues a Stern Rebuke to Russia
+-------
+2014-11-17 17:43:43	Doctor With Ebola Dies in Nebraska
+-------
+2014-11-17 18:02:20	Charles Manson gets marriage license with 26-year-old woman
+-------
+2014-11-17 18:17:10	Death of second Ebola patient in US shows need for early, accurate tests ...
+-------
+2014-11-17 18:25:32	Facebook testing workplace tools
+-------
+2014-11-17 18:32:57	Halliburton, Actavis deals to bring bankers $316M
+-------
+2014-11-17 18:34:11	merging companies key to development of oil services industry
+-------
+2014-11-17 18:38:58	Monday's MLB roundup: Stanton agrees to megadeal
+-------
+2014-11-17 18:53:28	Halliburton Mega-Deal Sealed by CEOs Over Coke and Coffee
+-------
+2014-11-17 18:56:37	Church of England formally approves plans for women bishops
+-------
+2014-11-17 19:01:52	Hong Kong clears part of protest site, as students stand by
+-------
+2014-11-17 19:03:30	Islamic State beheading videos might now be backfiring (+video)
+-------
+2014-11-17 19:07:13	Putin says he will not let Ukraine rebels be beaten
+-------
+2014-11-17 19:07:40	Missouri Governor Calls Out National Guard Ahead of Grand Jury Decision
+-------
+2014-11-17 19:09:21	Halliburton to buy Baker Hughes for about $35 billion
+-------
+2014-11-17 19:12:06	RPT-UPDATE 2-Australian, Indian leaders target free trade pact, economic boost
+-------
+2014-11-17 19:31:23	Wedding bells in Charlie Manson's future?
+-------
+2014-11-17 19:32:30	Mo. governor declares state of emergency in expectation of more Ferguson unrest
+-------
+2014-11-17 19:37:36	Dr. Martin Salia's Death Shows Early Ebola Treatment Vital
+-------
+2014-11-17 19:50:14	Church of England approves women bishops
+-------
+2014-11-17 19:58:29	Charles Manson Is Getting Married -- NYMag
+-------
+2014-11-17 20:07:25	Charles Manson to wed a very young supporter
+-------
+2014-11-17 20:27:08	Hong Kong officials launch move to oust pro-democracy student protesters
+-------
+2014-11-17 20:34:21	Obama orders full review of US hostage policy
+-------
+2014-11-17 20:46:05	Steelers rally from 11 down, beat Titans 27-24
+-------
+2014-11-17 20:52:31	Authorities: Frenchman is in beheading video
+-------
+2014-11-17 21:01:31	PEOPLE: Bill Cosby. Charles Manson, Solange Knowles and more!
+-------
+2014-11-17 21:04:08	Hong Kong Clears an Area of Pro-Democracy Protesters
+-------
+2014-11-17 21:04:21	Missouri's Nixon Declares State of Emergency Awaiting Grand Jury
+-------
+2014-11-17 21:08:24	Ukraine takes economic swing at rebels – but might hit pensioners instead (+video)
+-------
+2014-11-17 21:12:29	With Bell Running Loose, Steelers Rally Past Titans
+-------
+2014-11-17 21:20:53	At least 4 dead in attack in Kabul, official says
+-------
+2014-11-17 21:21:22	Europeans have prominent role in beheading video
+-------
+2014-11-17 21:26:18	Homeless Children in US: A parent-to-parent approach to help kids (+video)
+-------
+2014-11-17 21:26:59	Australia will not be at periphery of India's vision: Modi
+-------
+2014-11-17 21:30:18	Suicide blast kills two at Kabul's foreign compound
+-------
+2014-11-17 21:34:11	Ebola patient who died had received ZMapp late in his treatment
+-------
+2014-11-17 22:00:46	Surgeon dies of Ebola at Nebraska hospital after contracting disease in Sierra ...
+-------
+2014-11-17 22:06:17	Abdul-Rahman Kassig's parents mourn 'beloved son'
+-------
+2014-11-17 22:09:02	FBI: Violence could follow Ferguson indictment decision
+-------
+2014-11-17 22:12:58	News Guide: Texas' latest history textbook tussle
+-------
+2014-11-17 22:13:03	Uber executive wants to dig into personal lives, discredit journalists who cover ...
+-------
+2014-11-17 22:15:05	Mass murderer Charles Manson issued marriage license, may get hitched next ...
+-------
+2014-11-17 22:16:03	Four Killed in Palestinian Attack at Jerusalem Synagogue
+-------
+2014-11-17 22:31:42	Deals Heat Up for Lawyers Like It's 1998: Business of Law
+-------
+2014-11-17 22:40:41	Cupich set to become 9th archbishop of Chicago
+-------
+2014-11-17 22:41:50	Cupich set to become 9th archbishop of Chicago
+-------
+2014-11-17 22:42:29	Suicide Attack in Afghan Capital Kills 2
+-------
+2014-11-17 22:43:57	Answers to questions about the Ferguson grand jury
+-------
+2014-11-17 22:53:02	Deals Heat Up for Lawyers Like It's 1998: Business of Law
+-------
+2014-11-17 22:59:38	Baseball notes, Nov. 17: Stanton gets record $325 million deal
+-------
+2014-11-17 22:59:39	Four Killed in Jerusalem Synagogue Complex
+-------
+2014-11-17 23:04:47	Hong Kong Protesters Greet Court Officials With Indifference
+-------
+2014-11-17 23:06:36	Source: Charles Manson, fiance get marriage license
+-------
+2014-11-17 23:27:19	Obama orders review of hostage policy - World News
+-------
+2014-11-17 23:36:48	French National Identified In Islamic State Beheading Video
+-------
+2014-11-17 23:37:15	Suicide bombing near coalition base in Kabul kills 2 security officers
+-------
+2014-11-17 23:40:39	Missouri Gov. Jay Nixon Declares State Of Emergency Ahead Of Grand Jury Decision
+-------
+2014-11-17 23:41:46	4 Israelis, 2 Palestinians killed in synagogue attack, Israeli police say
+-------
+2014-11-17 23:46:12	Gunfight at godman Rampal's ashram in Hisar, devotees take on cops
+-------
+2014-11-17 23:58:38	Some Barricades Cleared From HK Protest Site
+-------
+2014-11-18 00:03:28	India sixth worst affected country by terrorism in 2013: Report
+-------
+2014-11-18 00:06:01	Pakistan ranks third among terror-hit countries
+-------
+2014-11-18 00:09:39	AP Exclusive: Charles Manson gets marriage license
+-------
+2014-11-18 00:18:49	Child Homelessness Reaches Record High
+-------
+2014-11-18 00:23:50	Hong Kong authorities clear part of Admiralty protest site
+-------
+2014-11-18 00:30:16	Should Uber Fire Exec Who Suggested Investigating Reporters' Personal Lives?
+-------
+2014-11-18 00:30:56	Study Finds Alternative to Anti-Cholesterol Drug
+-------
+2014-11-18 00:35:10	Answers to questions about the Ferguson grand jury
+-------
+2014-11-18 00:45:27	Uber executive suggests 'digging up dirt' on media critics: BuzzFeed
+-------
+2014-11-18 00:49:15	Supporters of oil pipeline scramble for last vote
+-------
+2014-11-18 00:56:43	Missouri Governor Activates National Guard Ahead of Ferguson Grand Jury Ruling
+-------
+2014-11-18 01:01:12	Taliban Suicide Attacker Kills 4 in Kabul
+-------
+2014-11-18 01:01:18	'Cruel murder': Netanyahu, Kerry denounce terror attack on Jerusalem synagogue
+-------
+2014-11-18 01:01:28	All 50 States Face Winter Whack; 5 Feet of Snow Forecast Near Buffalo
+-------
+2014-11-18 01:04:36	Indian PM Modi Urges Greater Security, Economic Ties With Australia
+-------
+2014-11-18 01:11:42	Modi, Abbott agree on closer cooperation on security and trade
+-------
+2014-11-18 01:15:41	Charles Manson reluctantly applies for marriage license to wed girlfriend
+-------
+2014-11-18 01:20:55	Four dead in suspected Palestinian attack on Jerusalem synagogue
+-------
+2014-11-18 01:24:45	UPDATE 3-Truck bomb kills two in attack on foreign base in Kabul
+-------
+2014-11-18 01:25:51	Toyota aims to replicate Prius success with fuel cell Mirai
+-------
+2014-11-18 01:26:31	Truck bomb hits foreign base in Afghan capital, kills two
+-------
+2014-11-18 01:36:28	Deaths caused by terrorism rises by 61 percent, report shows
+-------
+2014-11-18 01:54:49	Police Storm Ashram in India in Search of Guru
+-------
+2014-11-18 01:57:26	Charles Manson reluctantly applies for marriage license to wed girlfriend
+-------
+2014-11-18 01:58:09	Missouri governor declares state of emergency in Ferguson, St. Louis region
+-------
+2014-11-18 01:58:21	Israel: 'We will respond with a heavy hand' after synagogue attack kills 4
+-------
+2014-11-18 02:06:03	Toyota bets on hydrogen fuel cell technology
+-------
+2014-11-18 02:13:41	Uber exec proposed publishing journalists' personal secrets to fight bad press
+-------
+2014-11-18 02:16:41	Keystone Vote May Be Too Late to Help Democrat Hold Senate Seat
+-------
+2014-11-18 02:22:35	Missouri governor declares state of emergency ahead of ruling on Ferguson shooting
+-------
+2014-11-18 02:26:54	Prime Minister Narendra Modi in Australia Parliament.
+-------
+2014-11-18 02:39:48	Followers of wanted Indian guru hold out against police
+-------
+2014-11-18 02:43:08	Small plane crashes into home near Chicago's Midway airport (PHOTOS)
+-------
+2014-11-18 03:00:29	Japan's Abe Calls Early Election to Save His Grand Economic Plan
+-------
+2014-11-18 03:01:55	Can a Keystone pipeline vote help Mary Landrieu?
+-------
+2014-11-18 03:05:35	Haryana police storm godman Rampal's ashram, main gate damaged: Report
+-------
+2014-11-18 03:11:12	Deaths Linked to Terrorism Are Up 60 Percent, Study Finds
+-------
+2014-11-18 03:19:19	Small Plane Crashes Into Home Near Chicago's Midway Airport
+-------
+2014-11-18 03:20:11	Suicide bombers attack foreigner compound in Afghan capital, killing 2
+-------
+2014-11-18 03:29:20	Russia sees no chance of breakthrough on Ukraine in German minister's visit
+-------
+2014-11-18 03:34:29	Attackers storm Jerusalem synagogue, killing 4 worshippers
+-------
+2014-11-18 03:36:28	Global terrorism on rise: Fivefold increase in terror-related deaths since 2000 — RT News
+-------
+2014-11-18 03:41:44	Small Plane Crashes Into Chicago Home
+-------
+2014-11-18 03:46:46	'Terror' Deaths Up by 37%: Study
+-------
+2014-11-18 03:49:58	Indian PM jokingly accuses Tony Abbott of 'shirt-fronting' Australia
+-------
+2014-11-18 04:07:35	At Least 6 Killed at Jerusalem Synagogue
+-------
+2014-11-18 04:08:13	National Guard Prepares for More Ferguson Unrest
+-------
+2014-11-18 04:09:50	Home Depot profit beats estimates as US job market improves
+-------
+2014-11-18 04:15:36	As Missouri awaits decision on police shooting, National Guard called in
+-------
+2014-11-18 04:15:47	State Board Mulls New History Textbooks « CBS Dallas / Fort Worth
+-------
+2014-11-18 04:24:52	Lives lost to terrorism up by 61%, with 18000 dead
+-------
+2014-11-18 04:33:19	Uber rides into new PR storm over digging dirt on hostile press
+-------
+2014-11-18 04:36:16	Supporters Of Keystone Oil Pipeline Scramble For Last Vote - NewsOn6.com - Tulsa, OK - News, Weather, Video and Sports - KOTV.com
+-------
+2014-11-18 04:43:50	Japan leads world markets higher on stimulus hopes
+-------
+2014-11-18 04:50:17	Jonathan Gruber's Obamacare comments, Ferguson grand jury, and more
+-------
+2014-11-18 04:59:31	FBI warns Ferguson grand jury decision 'will likely' lead to violence
+-------
+2014-11-18 05:18:33	Obama Orders Review Of U.S. Hostage Policy
+-------
+2014-11-18 05:18:48	Charles Manson gets marriage license
+-------
+2014-11-18 05:22:49	Small plane crashes into Chicago home, police say
+-------
+2014-11-18 05:22:52	Uber Exec Suggests Spending $1 Million To 'Dig Up Dirt' On Journalists: BuzzFeed
+-------
+2014-11-18 05:24:19	House Democrats lash out at Nancy Pelosi
+-------
+2014-11-18 05:25:59	Lake-Effect Snow Pummels New York, Closes Thruway
+-------
+2014-11-18 05:27:08	Bernie Sanders Has Found His Grassroots Support Base: The Fake News Audience
+-------
+2014-11-18 05:28:06	Plane crashes into Chicago home, but elderly couple survives
+-------
+2014-11-18 05:47:55	Mary Landrieu scrambles for 60th vote for Keystone
+-------
+2014-11-18 05:55:28	NM Rep. Ben Ray Luján tapped to head Democratic campaign committee
+-------
+2014-11-18 05:56:07	NFL suspends Adrian Peterson without pay for at least rest of regular season
+-------
+2014-11-18 06:04:55	Uber Just Stuck a Knife in the Republican Party's Heart
+-------
+2014-11-18 06:05:37	NFL suspends Vikings RB Adrian Peterson without pay for remainder of the ...
+-------
+2014-11-18 06:11:45	What explains the continuing fascination with Charles Manson?
+-------
+2014-11-18 06:12:42	US Producer Prices Rise 0.2 Percent in October
+-------
+2014-11-18 06:12:48	And the 2014 Word of the Year Is…
+-------
+2014-11-18 06:14:46	Disappointment Becomes Global-Growth Norm as Japan Contracts
+-------
+2014-11-18 06:23:50	Lake-effect snow snarls Buffalo flights in wake of storm
+-------
+2014-11-18 06:25:12	Small Cargo Plane Crashes Into Chicago Home
+-------
+2014-11-18 06:26:34	Tie Keystone approval to bigger environmental goals
+-------
+2014-11-18 06:34:21	Jose Canseco says he's selling detached finger and digit-blasting gun
+-------
+2014-11-18 06:38:34	Upholding the Sanctity of Marriage for Charles Manson
+-------
+2014-11-18 06:41:30	Obama orders review of US policy on hostages
+-------
+2014-11-18 06:45:46	Jennifer Lawrence and the stars of 'The Hunger Games: Mockingjay Part 1' stun ...
+-------
+2014-11-18 06:59:19	Missouri Gov. Jay Nixon issues state of emergency ahead of Ferguson grand jury decision
+-------
+2014-11-18 06:59:39	Peterson Suspended Without Pay for Rest of Season by NFL
+-------
+2014-11-18 07:06:56	AP Exclusive: Charles Manson Plans Prison Wedding
+-------
+2014-11-18 07:10:01	Uber Responds to BuzzFeed Report on Journalism Smear Campaign
+-------
+2014-11-18 07:10:45	America's Disastrous History of Pipeline Accidents Shows Why the Keystone Vote Matters
+-------
+2014-11-18 07:13:34	Former Slugger Jose Canseco Plans To Put His Finger On EBay
+-------
+2014-11-18 07:18:42	Oxford names 'vape' 2014 Word of the Year
+-------
+2014-11-18 07:30:43	House Democrats re-elect Pelosi as minority leader
+-------
+2014-11-18 07:37:08	Chicago plane crashes into home near Midway; 1 dead
+-------
+2014-11-18 07:37:30	14 Questions And Answers About The Ferguson Grand Jury
+-------
+2014-11-18 07:40:51	Keystone Supporters Hustle to Get 60 Yeses for Senate Vote on Tuesday
+-------
+2014-11-18 07:45:53	Democrats Re-Elect Nancy Pelosi As House Minority Leader Amid Criticism Over 2014 Midterm Elections
+-------
+2014-11-18 07:51:03	Uber's Plan to Win Over the Press Backfires
+-------
+2014-11-18 08:01:21	AP Exclusive: Charles Manson gets marriage license
+-------
+2014-11-18 08:01:21	National Guard prepares for more Ferguson unrest
+-------
+2014-11-18 08:06:00	Jerusalem Attack: A Look at the Victims
+-------
+2014-11-18 08:06:39	President Orders Review of US Hostage Policies
+-------
+2014-11-18 08:09:01	Oxford Dictionaries' 2014 Word of the Year is 'vape'
+-------
+2014-11-18 08:10:06	Myers: With Adrian Peterson ban, NFL commish gets it right
+-------
+2014-11-18 08:12:24	GOP Vows to Pass Keystone Later If Bill Fails Now
+-------
+2014-11-18 08:21:51	Official Bob Marley Marijuana Is Coming
+-------
+2014-11-18 08:26:21	The new PEANUTS trailer is here And it's everything we ever wanted!!!
+-------
+2014-11-18 08:36:17	Plane misses elderly couple by '8 inches' after crashing into home near Midway
+-------
+2014-11-18 08:37:24	Israel's 'Lone Wolf' Attacks Show Weapons Threat Hard to Track
+-------
+2014-11-18 08:40:43	Israel's 'Lone Wolf' Attacks Show Weapons Threat Hard to Track
+-------
+2014-11-18 08:42:01	Where does Adrian Peterson's NFL career go from here?
+-------
+2014-11-18 08:44:48	Uber Exec in Hot Water After Suggesting Smear Campaign on Journalists
+-------
+2014-11-18 09:00:09	Bob Marley Named As Face of Global Marijuana Brand
+-------
+2014-11-18 09:00:19	Keystone backers scramble for last vote on bill, Boehner warns Obama against veto
+-------
+2014-11-18 09:03:03	Obama Orders Review of Hostage Policy
+-------
+2014-11-18 09:03:27	Browns waive running back Ben Tate
+-------
+2014-11-18 09:04:57	Obama order could protect thousands of illegal immigrants in Md. Va., report says
+-------
+2014-11-18 09:08:00	Louisiana's Landrieu Silent at Almost 70% of Energy Hearings
+-------
+2014-11-18 09:10:55	House Democrats Re-elect Pelosi as Minority Leader
+-------
+2014-11-18 09:31:20	Oxford chooses 'vape' as its 2014 Word of the Year
+-------
+2014-11-18 09:33:53	NFL suspends Adrian Peterson for remainder of 2014 season
+-------
+2014-11-18 09:37:52	Liberals oppose Himes in House Democratic race
+-------
+2014-11-18 09:50:22	Ferguson Activists Prepare Havens for Post-Decision Protests
+-------
+2014-11-18 09:50:39	Tech world calls out Uber for "thuggish" behavior
+-------
+2014-11-18 09:51:26	What Charles Manson's Future Mother-in-Law Thinks About Wedding
+-------
+2014-11-18 09:52:38	Report: Alleged Officer Warns Ferguson 'If You Do Not Have a Gun, Get One'
+-------
+2014-11-18 09:59:19	President Obama Orders Full Review of Hostage Negotiation Policy
+-------
+2014-11-18 10:00:08	Vape is Oxford Dictionaries' Word Of The Year
+-------
+2014-11-18 10:01:09	Keystone XL chances dim in Senate as King says 'no'
+-------
+2014-11-18 10:14:57	Four rabbis killed in Jerusalem synagogue terror attack
+-------
+2014-11-18 10:30:06	Charles Manson fan insists she will marry the 80-year-old murderer
+-------
+2014-11-18 10:30:51	Charles Manson Set to Tie the Knot With 26-Year-Old Woman
+-------
+2014-11-18 10:43:51	Senator Landrieu's Hail Mary goes beyond Keystone XL pipeline
+-------
+2014-11-18 10:54:20	Crime and Inept Punishment: Sheriff Roger Goodell Is Barney Fife Once More
+-------
+2014-11-18 10:59:19	Earnest: "Old" Gruber Videos "Are Not Views That Are Shared By Anybody At The White House"
+-------
+2014-11-18 10:59:34	Putin says US wants to subdue Russia
+-------
+2014-11-18 11:00:18	Uber Draws Fire After Executive Suggests Investigating Reporters
+-------
+2014-11-18 11:00:47	Cost to Treat Ebola: $1 Million For Two Patients
+-------
+2014-11-18 11:03:44	Gruber frequently visited White House
+-------
+2014-11-18 11:11:58	Three Americans Among Four Rabbis 'Slaughtered' in Jerusalem Synagogue
+-------
+2014-11-18 11:14:35	Lake-effect snow pummels New York, closes Thruway
+-------
+2014-11-18 11:16:19	Dear relatives not in SoCal: We really don't miss your crazy snowstorms
+-------
+2014-11-18 11:25:55	Top Republican floats new attack plan for Obama's immigration action
+-------
+2014-11-18 11:27:51	The NFL Suspends Adrian Peterson, and the Sponsors Stay Quiet
+-------
+2014-11-18 11:29:05	UPDATE 1-Seventh Sierra Leone doctor killed by Ebola -source
+-------
+2014-11-18 11:29:05	UPDATE 1-Seventh Sierra Leone doctor killed by Ebola -source
+-------
+2014-11-18 11:38:59	Uber can't sweep exec's revenge campaign under the car mat
+-------
+2014-11-18 11:40:23	Fla sees big rise of residents in US illegally
+-------
+2014-11-18 11:54:23	East Coast popular for immigrants in US illegally
+-------
+2014-11-18 11:54:30	'Vape' is English Word of the Year for 2014, Oxford Says
+-------
+2014-11-18 12:00:45	Obama will not change policy against paying ransom for hostages
+-------
+2014-11-18 12:16:16	National Guard coming to help dig out from colossal effect storm
+-------
+2014-11-18 12:40:35	Pilot dies after small plane crashes into Chicago home
+-------
+2014-11-18 12:43:19	Obama orders review of the policy on terrorist-related hostage cases
+-------
+2014-11-18 12:47:57	With beheading deaths of Americans, Obama orders review of US response to hostage takings
+-------
+2014-11-18 12:48:19	Winter Whack: Nation Faces Arctic Chill; Almost 6 Feet of Snow Forecast Near Buffalo
+-------
+2014-11-18 12:53:12	NY agency aids more than 100 snow-stranded drivers
+-------
+2014-11-18 12:57:31	Can Uber afford to have this many enemies?
+-------
+2014-11-18 13:00:00	House Democratic Leaders Hold Caucus Meeting To Elect Leaders For 114th Congress
+-------
+2014-11-18 13:01:20	Chicago plane crashes into home near Midway, pilot killed
+-------
+2014-11-18 13:07:26	Obama orders review of US hostage policy
+-------
+2014-11-18 13:07:32	Ferguson dilemma: Was calling up National Guard the right move?
+-------
+2014-11-18 13:17:12	Uber CEO Apologies For Exec's 'Terrible' Suggestion That The Company ...
+-------
+2014-11-18 13:21:29	Obama orders review of US hostage policy
+-------
+2014-11-18 13:26:05	Synagogue attack: Netanyahu vow in 'battle for Jerusalem'
+-------
+2014-11-18 13:29:50	Vape is word of the year for 2014
+-------
+2014-11-18 13:35:21	What May Happen to Officer Darren Wilson After Ferguson Grand Jury Decision
+-------
+2014-11-18 13:36:31	Louisiana Senate Seat Is Real Reward in Keystone Pipeline Vote
+-------
+2014-11-18 13:39:30	For Obama, Executive Action Will Not Be Limited to Immigration
+-------
+2014-11-18 13:49:22	Vape named as Oxford English Dictionary's 2014 word of the year
+-------
+2014-11-18 13:52:13	Oxford Dictionaries' word of 2014: Have you ever heard of it? - One News
+-------
+2014-11-18 14:09:39	U-Va. student Hannah Graham's death the result of 'homicidal violence,' officials ...
+-------
+2014-11-18 14:19:09	Ebola Researchers Race to Slow Epidemic
+-------
+2014-11-18 14:31:22	Obama: 'Nowhere Near Out of the Woods' on Ebola
+-------
+2014-11-18 14:40:30	Adrian Peterson will not return this weekend against Green Bay [updated]
+-------
+2014-11-18 14:40:50	Tracy Morgan Sustained 'A Traumatic Brain Injury' In Crash, His Lawyer Said
+-------
+2014-11-18 14:46:52	West Africa "nowhere near out of woods" on Ebola: Obama - Xinhua
+-------
+2014-11-18 15:00:34	Uber's vast trove of customer data is ripe for abuse
+-------
+2014-11-18 15:07:20	Missouri Gov. swears in Ferguson panel ahead of grand jury decision in shooting
+-------
+2014-11-18 15:12:48	Palestinians kill five in Jerusalem synagogue attack
+-------
+2014-11-18 15:13:13	UN panel calls for N.Korea referral to international court
+-------
+2014-11-18 15:15:23	Keystone's Big Senate Test: A Search For One Vote
+-------
+2014-11-18 15:24:15	UN calls for probe of North Korea 'crimes against humanity'
+-------
+2014-11-18 15:31:46	Justice Department Probe Of Ferguson Police Could Spur Broad Change
+-------
+2014-11-18 15:40:19	Senate Narrowly Defeats Keystone XL Bill
+-------
+2014-11-18 15:41:17	The Short List: Uber wants to silence journalists; Keystone bill fails; Peterson ...
+-------
+2014-11-18 15:45:21	Death of Virginia college student ruled a homicide
+-------
+2014-11-18 15:49:29	Obama orders review of US hostage policy
+-------
+2014-11-18 15:51:39	Western New York Snow Storm Could Set Records
+-------
+2014-11-18 15:51:57	Death of Virginia college student ruled a homicide
+-------
+2014-11-18 15:55:04	Will Kim Jong-un face mass crimes prosecution at The Hague? (+video)
+-------
+2014-11-18 15:56:19	Quinn: Uber grapples with its aggressive image
+-------
+2014-11-18 15:58:46	Keystone Pipeline Fails to Get Through Senate
+-------
+2014-11-18 16:00:20	Tracy Morgan Still Struggling but "Fighting to Get Better" After Brain Injury ...
+-------
+2014-11-18 16:04:14	Keystone Vote Falls Short in Senate
+-------
+2014-11-18 16:07:23	Tech lobby to keep tabs on NSA reform votes
+-------
+2014-11-18 16:09:54	Jerusalem synagogue attack: 'Lone wolf' pattern seen in deadly assault
+-------
+2014-11-18 16:14:19	Lawyer: Tracy Morgan Still Struggling With Severe Brain Injury
+-------
+2014-11-18 16:18:18	Ryan to chair tax panel, a possible 2016 platform
+-------
+2014-11-18 16:23:08	Ryan to Chair Tax Panel, a Possible 2016 Platform
+-------
+2014-11-18 16:26:58	Ebola crisis: Seventh Sierra Leone doctor dies from virus
+-------
+2014-11-18 16:47:28	UN Rights Committee Urges Court Referral for North Korea
+-------
+2014-11-18 16:54:50	Police nab man sought after fatal NYC subway shove
+-------
+2014-11-18 16:56:22	Stupidity reconsidered
+-------
+2014-11-18 17:09:02	Senate Narrowly Defeats Keystone XL Pipeline
+-------
+2014-11-18 17:11:35	Obama orders review of hostage policy
+-------
+2014-11-18 17:13:06	Police nab man sought after fatal NYC subway shove
+-------
+2014-11-18 17:14:03	Senate Republicans Block Sweeping Overhaul of NSA Program
+-------
+2014-11-18 17:18:05	Sarah Lacy on Uber: I'm doing everything I can to keep my family safe
+-------
+2014-11-18 17:18:23	Uber's plot to spy on reporter is latest controversy
+-------
+2014-11-18 17:29:36	Court clears way for gay marriage in South Carolina
+-------
+2014-11-18 17:30:14	Middle East|Jewish Victims, All From One Jerusalem Street, Were a ...
+-------
+2014-11-18 17:31:17	Report: Va. student's death was homicide
+-------
+2014-11-18 17:34:22	Senate defeats Keystone XL pipeline
+-------
+2014-11-18 17:36:51	UN push against North Korea on rights moves ahead
+-------
+2014-11-18 17:37:37	150 cars snowbound in early winter storm
+-------
+2014-11-18 17:39:08	United Nations Urges North Korea Prosecutions
+-------
+2014-11-18 17:47:36	After Jerusalem attack, Netanyahu hopes 'PR porn' will win support abroad - Diplomacy and Defense Israel News
+-------
+2014-11-18 18:05:20	Uber CEO Apologizes For Exec's 'Terrible' Suggestion That The Company Investigate Journalists
+-------
+2014-11-18 18:09:22	Defective Takata Airbag Grows Into Global Problem for Manufacturer
+-------
+2014-11-18 18:14:31	Attorney says actor Tracy Morgan struggling after crash: report
+-------
+2014-11-18 18:15:19	In all 50 states, it's below freezing in at least one spot
+-------
+2014-11-18 18:24:39	Uber executive stirs up privacy controversy
+-------
+2014-11-18 18:28:28	In latest College Football Playoff rankings, Alabama rolls straight to the No. 1 spot
+-------
+2014-11-18 18:29:08	Senate fails to advance legislation on NSA reform
+-------
+2014-11-18 18:50:54	Police question man in subway shoving death
+-------
+2014-11-18 18:54:32	UVA student Hannah Graham died from 'homicidal violence': medical examiner
+-------
+2014-11-18 18:55:56	Lawyer: Comedian Tracy Morgan Suffered Traumatic Brain Injury In NJ Tpke Crash
+-------
+2014-11-18 19:00:05	Tracy Morgan Still Battling With Brain Injury
+-------
+2014-11-18 19:02:02	North Korea: UN moves closer to ICC human rights probe
+-------
+2014-11-18 19:18:08	Storm blamed for at least 4 deaths in upstate New York
+-------
+2014-11-18 19:20:57	Senate Fails to Advance NSA Data Collection Overhaul Legislation
+-------
+2014-11-18 19:35:54	Attorney says actor Tracy Morgan struggling after crash -report
+-------
+2014-11-18 19:50:30	Senate Republicans block bill: NSA will continue monitoring your calls
+-------
+2014-11-18 19:53:59	Federal highway safety agency demands recall of cars with Takata air bags
+-------
+2014-11-18 19:55:18	Keystone Vote Unlikely to Change Odds for Mary Landrieu
+-------
+2014-11-18 19:58:47	Video seems to show Ferguson officer in confrontation
+-------
+2014-11-18 20:03:37	North Korea reacts angrily after UN votes to probe 'crimes against humanity'
+-------
+2014-11-18 20:19:45	UN calls for North Korea's referral to international court
+-------
+2014-11-18 20:23:32	US auto regulator seeks nationwide recall of Takata air bags
+-------
+2014-11-18 20:27:41	Fail Mary: Senate rejects Keystone bill
+-------
+2014-11-18 20:31:31	Police arrest man in fatal NYC subway shove
+-------
+2014-11-18 20:37:47	Palestinians kill five in Jerusalem synagogue attack
+-------
+2014-11-18 20:37:47	Palestinians kill five in Jerusalem synagogue attack
+-------
+2014-11-18 20:44:43	Winter Whack: Nation Faces Arctic Chill; 6 Feet of Snow Hit Buffalo Area
+-------
+2014-11-18 20:45:54	Subway Motorman Describes Deadly Train Push
+-------
+2014-11-18 20:47:44	Adrian Peterson May Be Suspended, But He's Unlikely To Lose Any Pay
+-------
+2014-11-18 20:58:16	Missouri governor denies clemency for Leon Taylor
+-------
+2014-11-18 21:04:54	Early winter pummels much of country, strands motorists, emergency vehicles
+-------
+2014-11-18 21:16:48	Early winter pummels much of country, strands motorists, emergency vehicles
+-------
+2014-11-18 21:17:35	UPDATE 3-US auto regulator seeks nationwide recall of Takata air bags
+-------
+2014-11-18 21:23:10	AP source: Billy Butler and A's reach 3-year deal - WLTZ 38
+-------
+2014-11-18 21:25:02	Regulators Call for Takata Airbag Recall to Be Extended Nationwide
+-------
+2014-11-18 21:36:43	Chris Hemsworth Named People's Sexiest Man Alive 2014
+-------
+2014-11-18 21:40:43	Police Arrest Man in Fatal NYC Subway Shove
+-------
+2014-11-18 21:43:31	At the site of Jerusalem terror attack, no calls for revenge, just grief
+-------
+2014-11-18 21:48:55	Police arrest man in fatal NYC subway shove
+-------
+2014-11-18 21:51:15	UN Advocates Prosecuting North Korea for Gross Rights Abuses
+-------
+2014-11-18 21:51:34	Lawyer says Tracy Morgan suffered severe brain injury in crash
+-------
+2014-11-18 21:56:22	PEOPLE names Chris Hemsworth 'Sexiest Man Alive'
+-------
+2014-11-18 22:03:00	Could Obama cut deal on Keystone pipeline? Don't rule it out
+-------
+2014-11-18 22:09:06	Bryant, Lakers earn second win
+-------
+2014-11-18 22:21:35	Chris Hemsworth a Marvel as People's 'Sexiest Man Alive' (VIDEO)
+-------
+2014-11-18 22:35:56	Missouri executes Leon Taylor for 1994 murder
+-------
+2014-11-18 22:40:25	Jerusalem terror attack 'strikes at soul' of Jews worldwide
+-------
+2014-11-18 22:47:01	Missouri executes Leon Taylor for 1994 killing
+-------
+2014-11-18 22:47:36	Gun sales surge ahead of grand jury's Ferguson decision
+-------
+2014-11-18 23:01:27	States with the most undocumented immigrants
+-------
+2014-11-18 23:02:25	States with the most undocumented immigrants
+-------
+2014-11-18 23:05:53	Ruth Marcus: A slippery slope on immigration
+-------
+2014-11-18 23:16:21	NFL suspends Peterson for at least rest of season
+-------
+2014-11-18 23:23:56	Missouri executes inmate for 1994 murder during robbery
+-------
+2014-11-18 23:24:51	Behind the silent reaction of the Palestinian street - Diplomacy and Defense Israel News
+-------
+2014-11-18 23:29:45	Chris Hemsworth named People's 'Sexiest Man Alive'; world reacts on social media
+-------
+2014-11-18 23:35:30	Snowstorm, frigid temperatures whack over half of the US, more coming
+-------
+2014-11-18 23:39:28	Missouri Executes Leon Taylor For 1994 Slaying Of Gas Station Attendant
+-------
+2014-11-18 23:43:40	North Korea human rights practices challenged in UN
+-------
+2014-11-18 23:48:21	Jodhpur youth accuses Rampal of giving human sacrifice
+-------
+2014-11-18 23:59:00	Despite the terror, we immigrants to Israel would never go back - Rabbis' Round Table Israel News
+-------
+2014-11-18 23:59:50	Man Charged in Subway Death Allegedly Pushed Another Rider
+-------
+2014-11-19 00:00:44	Libertarian Champion Rand Paul Helped Kill NSA Reform Bill
+-------
+2014-11-19 00:03:33	North Korea: UN moves closer to ICC human rights probe
+-------
+2014-11-19 00:03:37	This hunk is "Sexiest Man Alive" for 2014
+-------
+2014-11-19 00:05:09	Second Frenchman likely on Islamic State beheading video: government spokesman
+-------
+2014-11-19 00:10:09	Jerusalem ramps up security after deadly synagogue attack
+-------
+2014-11-19 00:10:28	Second Frenchman likely on IS beheading video – government spokesman
+-------
+2014-11-19 00:19:15	UN Committee Urges Court Action Against N. Korea
+-------
+2014-11-19 00:20:16	Some in House reject GOP warning against shutdown
+-------
+2014-11-19 00:27:29	India police say 4 bodies of women found in ashram
+-------
+2014-11-19 00:29:01	UN panel calls for North Korea referral to international court
+-------
+2014-11-19 00:37:09	Some in House Reject GOP Warning Against Shutdown
+-------
+2014-11-19 00:38:31	Six dead in Hisar: Is Sant Rampal any better than a hostage-taking terrorist?
+-------
+2014-11-19 00:50:45	Obama Condemns 'Horrific Attack' on Jerusalem Synagogue
+-------
+2014-11-19 00:59:53	Six dead at Rampal's Hisar ashram, godman charged with sedition: Haryana DGP
+-------
+2014-11-19 01:31:04	Chris Hemsworth named world's sexiest man by People magazine
+-------
+2014-11-19 01:49:29	Six Dead, Nearly 200 Injured Amid Clashes at Indian Ashram
+-------
+2014-11-19 01:53:08	Missouri executes Leon Taylor for killing a suburban Kansas City gas station attendant in 1994
+-------
+2014-11-19 01:53:42	2nd Frenchman seen in ISIS beheading video, president says
+-------
+2014-11-19 01:55:30	Russia urges Kiev to talk directly to separatists
+-------
+2014-11-19 01:57:51	Second French militant seen in IS beheading video
+-------
+2014-11-19 02:17:35	Missouri Executes Leon Taylor for 1994 Murder
+-------
+2014-11-19 02:17:51	Buffalo, New York, Set For More Snow; Thaw Expected By Weekend
+-------
+2014-11-19 02:35:00	Accomplice cleared as Missouri execution witness, doesn't come
+-------
+2014-11-19 02:45:23	GOP vows replay after Keystone pipeline defeat
+-------
+2014-11-19 02:45:39	New York health officials test person's remains for Ebola
+-------
+2014-11-19 02:49:11	Why Republicans Think They Can't Lose a Showdown with Obama
+-------
+2014-11-19 02:53:32	Islamic State: Second French jihadist seen in video
+-------
+2014-11-19 02:53:40	Putin says relations with US must be based on equality
+-------
+2014-11-19 02:59:18	5 Things to Know This Morning
+-------
+2014-11-19 03:13:06	Senate Blocks Vote on Curbing NSA's Bulk Data Collection Program
+-------
+2014-11-19 03:29:45	Suicide car bomb kills five in Iraqi Kurdish capital
+-------
+2014-11-19 03:54:07	France Identifies 2nd French Citizen in Islamic State Video
+-------
+2014-11-19 04:02:59	Chris Hemsworth named 'Sexiest Man Alive'
+-------
+2014-11-19 04:04:12	Erick Erickson's shutdown fantasy: Have GOP hurt people, then lie about it!
+-------
+2014-11-19 04:04:20	Senate fails to pass NSA reform bill
+-------
+2014-11-19 04:04:32	Ferguson, Missouri, remains on edge ahead of grand jury report
+-------
+2014-11-19 04:05:46	Jerusalem Attack Shakes Israel
+-------
+2014-11-19 04:07:37	Israel Demolishes East Jerusalem Home of Palestinian Behind Car Attack
+-------
+2014-11-19 04:21:30	Missouri Executes Death Row Inmate Leon Taylor for 1994 Killing
+-------
+2014-11-19 04:25:34	WhatsApp Moves To Protect Messages From Snoops
+-------
+2014-11-19 04:25:34	WhatsApp Moves To Protect Messages From Snoops
+-------
+2014-11-19 04:35:07	At least 6 die as snow, cold pummels Northeast
+-------
+2014-11-19 04:35:23	Chris Hemsworth named People's 'Sexiest Man Alive'
+-------
+2014-11-19 04:40:31	Israelis, Palestinians look to personal safety in holy city on edge
+-------
+2014-11-19 04:42:24	War zone Hisar: 6 dead in violent clashes, Rampal's aide held; but where's the ...
+-------
+2014-11-19 04:45:53	Second Frenchman Is Identified in ISIS Video of Peter Kassig
+-------
+2014-11-19 04:58:31	Woman's Death Not Related to Ebola, NYC Health Officials Say
+-------
+2014-11-19 05:00:06	Cecily Strong Will Perform at the White House
+-------
+2014-11-19 05:07:25	Senate Republicans block bill: NSA will continue monitoring your calls (+video)
+-------
+2014-11-19 05:12:13	Body of Brooklyn Woman to be Tested for Ebola
+-------
+2014-11-19 05:27:17	Miss Honduras, sister, found shot to death
+-------
+2014-11-19 05:29:52	Islamic State execution video includes two French jihadis, France confirms
+-------
+2014-11-19 05:46:52	Rabbi killed in Jerusalem had deep Boston connections
+-------
+2014-11-19 05:47:30	Zookeeper seriously injured by rhino at Whipsnade Zoo
+-------
+2014-11-19 05:55:19	Cecily Strong to headline White House Correspondents' dinner
+-------
+2014-11-19 06:00:50	Republicans block overhaul of NSA surveillance reform
+-------
+2014-11-19 06:10:47	Presented by BlueCross BlueShield of Illinois
+-------
+2014-11-19 06:15:30	Fact check: Obama's immigration amnesia
+-------
+2014-11-19 06:18:37	Chris Hemsworth has hammerlock on People's 'Sexiest Man Alive' title
+-------
+2014-11-19 06:19:04	Republicans block overhaul of NSA surveillance reform
+-------
+2014-11-19 06:19:34	Obama's Executive Order on Immigration Is Unlikely to Include Health Benefits
+-------
+2014-11-19 06:22:02	Snow Emergency: Five Dead, 100+ Trapped in Monster Winter Storm
+-------
+2014-11-19 06:25:55	Miss Honduras 2014 found dead and buried with sister, police say
+-------
+2014-11-19 06:38:37	Today's six-pack: The sexiest man and the longest bus ride : News
+-------
+2014-11-19 06:40:23	Analysis: Can Bloodshed Be Stopped After Synagogue Attack?
+-------
+2014-11-19 06:49:30	Second Frenchman likely on IS beheading video: gov't spokesperson - Xinhua
+-------
+2014-11-19 07:19:42	Meet Charles Manson's future wife
+-------
+2014-11-19 07:35:30	Conaway: Ready to work on next farm bill, immigration
+-------
+2014-11-19 07:39:05	'SNL' star to perform at White House Correspondents' Dinner
+-------
+2014-11-19 07:39:13	Obama to unveil immigration plan Friday, visit Las Vegas: reports
+-------
+2014-11-19 07:40:49	Honduran Beauty Queen and Her Sister Are Found Dead
+-------
+2014-11-19 07:50:36	Chris Hemsworth Named People Magazine's 'Sexiest Man Alive'
+-------
+2014-11-19 07:51:00	Secret Service chief: Morale suffering at agency
+-------
+2014-11-19 07:54:44	Obama to unveil immigration plan Friday, visit Las Vegas: reports
+-------
+2014-11-19 07:54:44	Honduras' Miss World contestant and sister found murdered
+-------
+2014-11-19 07:54:59	Israel Demolishes Family Home of Palestinian Driver Who Killed 2 Pedestrians
+-------
+2014-11-19 07:56:04	Ferguson remains on edge ahead of grand jury report
+-------
+2014-11-19 07:59:44	Nixon swears in Ferguson Commission
+-------
+2014-11-19 08:07:39	Ninth execution in Missouri this year in what activists say was racially biased case
+-------
+2014-11-19 08:12:08	Clancy: Secret Service has 'fallen short' in mission
+-------
+2014-11-19 08:16:05	Judge hearing 'under God' pledge lawsuit
+-------
+2014-11-19 08:30:08	Fight to rein in NSA will resume next year when Patriot Act is set to expire
+-------
+2014-11-19 08:36:50	Israel Troops Demolish Palestinian Attacker's Home
+-------
+2014-11-19 08:42:23	People mag names Hemsworth 'Sexiest Man Alive'
+-------
+2014-11-19 08:44:00	Boyfriend confesses to killing Miss Honduras, sister, authorities say
+-------
+2014-11-19 08:53:29	Will Giancarlo Stanton's historic contract ever impact Bryce Harper?
+-------
+2014-11-19 09:01:09	NBC/WSJ Poll: Nearly Half Oppose Executive Action On Immigration
+-------
+2014-11-19 09:01:10	Acting Secret Service director Joseph Clancy calls lapses 'devastating'
+-------
+2014-11-19 09:04:26	Meet the $325 million man: Giancarlo Stanton seals deal with Marlins
+-------
+2014-11-19 09:10:38	President Obama gets bipartisan gift: Ambassador approvals
+-------
+2014-11-19 09:10:39	Second Frenchman identified as ISIS thug wielding knife in Peter Kassig ...
+-------
+2014-11-19 09:13:35	Stanton: Toughest decision of my life
+-------
+2014-11-19 09:15:20	Compound housing foreigners under attack in Kabul, police say
+-------
+2014-11-19 09:15:44	Kabul's Green Village international zone under attack, gunfire heard
+-------
+2014-11-19 09:20:18	Police: Two men arrested in deaths of Honduran beauty queen, her sister
+-------
+2014-11-19 09:21:34	Five dead in upstate NY snowstorm that could break 24-hour record
+-------
+2014-11-19 09:27:49	Tension in Jerusalem simmers one day after bloody attack on synagogue - National Israel News
+-------
+2014-11-19 09:29:22	Notebook: Hollande really needs to press his reset button
+-------
+2014-11-19 09:37:34	Obama to Announce Executive Action on Immigration Thursday
+-------
+2014-11-19 09:44:21	NBC News President Shuts Down Rumors That Natalie Morales, Willie Geist Fired From 'Today'
+-------
+2014-11-19 09:45:16	Obama to announce immigration executive action in prime time address Thursday
+-------
+2014-11-19 09:56:42	Clancy Says Failures in US Secret Service Tarnish Reputation
+-------
+2014-11-19 10:02:39	Kutcher weighs in on Uber exec controversy, slams press
+-------
+2014-11-19 10:06:37	Uber executive in New York allegedly used company's 'God View' tool to track ... The Post-Standard
+-------
+2014-11-19 10:09:41	Watch Surfers Catch Waves on Lake Erie in Snowstorm
+-------
+2014-11-19 10:17:59	Miss World contestant found dead
+-------
+2014-11-19 10:20:34	Honduras beauty queen Maria Jose Alvarado found dead
+-------
+2014-11-19 10:20:58	Uber's Latest Scandal and Silicon Valley's Grown-Up Problem
+-------
+2014-11-19 10:22:41	#Snowvember: Buffalo buried under six feet of snow, with more falling
+-------
+2014-11-19 10:23:43	Obama to Detail Immigration Plans in Address on Thursday
+-------
+2014-11-19 10:24:48	Your Picks for 'Sexiest Man Alive'
+-------
+2014-11-19 10:25:45	Britain 'not optimistic' on Iran nuclear talks
+-------
+2014-11-19 10:29:32	Bill to reform NSA surveillance goes down in US Senate
+-------
+2014-11-19 10:30:51	Islamic State execution video: second Frenchman identified
+-------
+2014-11-19 10:33:54	France identifies second national in IS execution video
+-------
+2014-11-19 10:38:34	Iran says Vienna talks "serious, intensive" - Xinhua
+-------
+2014-11-19 10:49:25	Snow Emergency: Six Dead, 100+ Trapped in Monster Winter Storm
+-------
+2014-11-19 10:54:59	Rumors swirl that Natalie Morales, Willie Geist were fired from 'Today'
+-------
+2014-11-19 10:57:37	Ryan Gosling turned down People's Sexiest Man Alive: report
+-------
+2014-11-19 11:03:04	US: Single-Family Starts Up 4.2% While Overall Production Drops Slightly in ...
+-------
+2014-11-19 11:03:18	Taliban attacks housing complex for foreigners in Afghanistan
+-------
+2014-11-19 11:06:11	'Devastating' Failures Lead Secret Service to Consider Raising White House ...
+-------
+2014-11-19 11:42:53	Honduras' Miss World contestant Maria Jose Alvarado and her sister found murdered
+-------
+2014-11-19 11:43:29	NBC denies reports Natalie Morales, Willie Geist were fired: 'The rumors are ...
+-------
+2014-11-19 11:52:26	Drivers Left to Cool Their Heels While Snow Piled Up Near Buffalo
+-------
+2014-11-19 11:58:02	Rumors swirl that Natalie Morales, Willie Geist were fired from 'Today'
+-------
+2014-11-19 12:01:24	Secret Service chief says training emphasized after security lapses
+-------
+2014-11-19 12:08:52	What is driving French nationals to join Islamic State?
+-------
+2014-11-19 12:33:08	People mag names Hemsworth 'Sexiest Man Alive'
+-------
+2014-11-19 12:34:25	Dollar, bond yields gain after Fed minutes
+-------
+2014-11-19 12:38:44	Natalie Morales, Willie Geist not fired from 'Today' show despite reports
+-------
+2014-11-19 12:41:51	Movie review: Lawrence is on fire, but 'Mockingjay' drags
+-------
+2014-11-19 12:42:50	Dollar reaches seven-year highs against yen
+-------
+2014-11-19 12:52:44	'The Hunger Games: Mockingjay Part 1' review: this is how a revolution dies
+-------
+2014-11-19 12:56:38	Murdered Miss Honduras, Mayan beauty and aspiring diplomat
+-------
+2014-11-19 12:58:17	Drone Captures Aerial View of Snow-Covered Buffalo Burbs
+-------
+2014-11-19 12:59:29	Secret Service Arrests Man Outside White House
+-------
+2014-11-19 13:01:03	Chris Hemsworth Named People Magazine's 'Sexiest Man Alive'
+-------
+2014-11-19 13:03:59	Buffalo area braces for another big snowstorm
+-------
+2014-11-19 13:05:49	NBC drops Bill Cosby; fallout continues
+-------
+2014-11-19 13:20:48	10 reasons why Chris Hemsworth is the 'Sexiest Man Alive'
+-------
+2014-11-19 13:39:31	Australia PM warns global climate deal must not hit economy
+-------
+2014-11-19 13:40:57	Fed Officials on Guard for Signs of Lower Inflation Expectations
+-------
+2014-11-19 13:49:05	Secret Service plans taller White House fence. Will that block jumpers?
+-------
+2014-11-19 13:56:12	Suicide blast targets Kabul's Green Village international zone, killing four
+-------
+2014-11-19 13:57:50	President Obama to Announce Major Immigration Executive Action Thursday
+-------
+2014-11-19 14:03:49	Hell hath no fury like a French First Lady scorned: Valerie Trierweiler in UK to tell ...
+-------
+2014-11-19 14:05:50	Western NY Digs Out After Record-Breaking Storm
+-------
+2014-11-19 14:11:04	Secret Service Arrests Man With Rifle in His Car Near the White House
+-------
+2014-11-19 14:17:05	GLOBAL MARKETS-Dollar, bond yields gain after Fed minutes
+-------
+2014-11-19 14:30:52	Valerie Trierweiler in UK: Hell hath no fury like a French First Lady scorned as she is to tell all on betrayal
+-------
+2014-11-19 14:31:23	Deadly western New York snowstorm to get second wind
+-------
+2014-11-19 14:32:48	Ferguson Demonstrations Set for Federal Courthouses Across US
+-------
+2014-11-19 14:35:05	Man arrested at White House after weapon, ammunition found in car Report ...
+-------
+2014-11-19 14:38:09	Uber May Need Adult Supervision as Controversy Builds
+-------
+2014-11-19 14:38:16	5 questions about Obama's immigration plan
+-------
+2014-11-19 14:52:50	Sharpton Organizing Rallies in 25 Cities for Once Grand Jury Decision is Known « CBS St. Louis
+-------
+2014-11-19 15:08:01	2016 Contest Overshadows GOP Governors Meeting
+-------
+2014-11-19 15:10:30	Chris Christie hedges on Obama immigration plan
+-------
+2014-11-19 15:11:54	France Identifies 2nd French Citizen in IS Video
+-------
+2014-11-19 15:13:06	Al Sharpton Beset By Over $4 Million In Unpaid Taxes, Records Show
+-------
+2014-11-19 15:13:30	Police: Miss Honduras, sister found shot to death
+-------
+2014-11-19 15:28:29	Obama to announce executive action on immigration Thursday in primetime speech
+-------
+2014-11-19 15:33:33	Let the 2016 Republican Primary Begin
+-------
+2014-11-19 15:34:09	Arrests over killing of Honduras beauty queen Alvarado
+-------
+2014-11-19 15:46:38	Grand jury decision on Ferguson Officer Darren Wilson could come Friday
+-------
+2014-11-19 15:54:16	GOP senator warns of violence after immigration order
+-------
+2014-11-19 16:05:22	Charles R. Schwab: Raise Interest Rates, Make Grandma Smile
+-------
+2014-11-19 16:06:12	Secret Service arrests Iowa man, recovers shotgun
+-------
+2014-11-19 16:19:53	Wall Street edges lower as Fed minutes offer few clues on rates
+-------
+2014-11-19 16:25:34	Ferguson grand jury: What do we know about Michael Brown deliberations? (+video)
+-------
+2014-11-19 16:29:00	Obama's Immigration Plan Will Affect These K-12 Students With Undocumented Parents
+-------
+2014-11-19 16:33:39	Buffalo braces for 3 more feet of snow after first dump
+-------
+2014-11-19 16:39:29	Obama immigration order draws split GOP response from possible candidates
+-------
+2014-11-19 16:42:56	Sandoval sidesteps meeting of GOP governors, political climbers
+-------
+2014-11-19 16:49:40	Obama immigration order draws split GOP response from possible candidates
+-------
+2014-11-19 16:59:49	Storm Dumps Snow on Western New York, With More on the Way; at Least 7 Die
+-------
+2014-11-19 17:02:15	Republican governors urge Congress to avoid shutdown over immigration
+-------
+2014-11-19 17:10:02	Police: Miss Honduras and her sister shot dead by jealous boyfriend
+-------
+2014-11-19 17:48:12	Missing Mexico students: 'We want them alive,' LA activists chant
+-------
+2014-11-19 18:14:34	Islamic State video: second Frenchman identified
+-------
+2014-11-19 18:27:43	Ubers PR stumble drives new privacy woes
+-------
+2014-11-19 18:46:52	President Obama says he'll announce immigration reform plan Thursday
+-------
+2014-11-19 18:55:33	Grand jurors near big decision in Ferguson case
+-------
+2014-11-19 19:03:22	Republican Governors Seethe Over Obama's Pending Move on Immigration
+-------
+2014-11-19 19:18:45	Al Franken Confronts Uber After 'Troubling' Reports
+-------
+2014-11-19 19:46:28	'Peacock parade' of GOP governors lines up for 2016
+-------
+2014-11-19 19:52:01	Motown singer Jimmy Ruffin dies at age 78
+-------
+2014-11-19 19:58:02	Rangers' Talbot shuts out Flyers 2-0 for 1st win
+-------
+2014-11-19 20:08:32	Medieval Times: Congress Suggests Moat, Electronic Fence to Protect White House
+-------
+2014-11-19 20:09:02	Obama's immigration order poses political challenges for both parties
+-------
+2014-11-19 20:09:57	Miss Honduras, sister shot dead by jealous boyfriend
+-------
+2014-11-19 20:10:15	Iowa man arrested near White House with gun in car
+-------
+2014-11-19 20:13:35	Six nurses killed in latest attack on Chinese medical workers
+-------
+2014-11-19 20:16:42	Uber executive investigated after spying on journalist using 'God View' tool
+-------
+2014-11-19 20:28:02	Writers Phil Klay and Evan Osnos win top National Book Awards
+-------
+2014-11-19 20:40:45	Facebook Supplier's Drivers Join Teamsters to Boost Pay
+-------
+2014-11-19 20:42:29	Iowa man arrested outside White House after rifle, ammo found in car
+-------
+2014-11-19 20:46:21	Phil Klay Wins National Book Award for Fiction
+-------
+2014-11-19 21:00:25	Iowa man arrested near White House; rifle and ammunition found in trunk of car
+-------
+2014-11-19 21:06:05	Americans brace for more icy temperatures and snow as ferocious storms linger
+-------
+2014-11-19 21:06:10	California's reaction to Obama's impending immigration action ranges from joy to outrage
+-------
+2014-11-19 21:12:59	Tears, anger pour for slain Miss Honduras, sister
+-------
+2014-11-19 21:15:14	Fed Debate Shifts to Tightening Pace After First Rate Increase
+-------
+2014-11-19 21:16:58	Fed Debate Shifts to Tightening Pace After First Rate Increase
+-------
+2014-11-19 21:22:45	Tears, anger for slain Miss Honduras, sister in country where violence against women is up
+-------
+2014-11-19 21:23:28	Rampal to be produced in high court after late night arrest
+-------
+2014-11-19 21:25:15	Ferguson braces for finding on shooting of unarmed black teen
+-------
+2014-11-19 21:28:54	Indian-American Ami Bera re-elected to US Congress
+-------
+2014-11-19 21:42:55	Webb forms exploratory committee for White House
+-------
+2014-11-19 21:45:49	Facebook shuttle drivers vote to unionize in attempt to get better pay, working conditions
+-------
+2014-11-19 21:50:45	Facebook shuttle drivers vote to unionize
+-------
+2014-11-19 21:53:42	Business News Roundup, Nov. 19
+-------
+2014-11-19 22:00:46	Tears, anger pour for slain Miss Honduras, sister
+-------
+2014-11-19 22:04:44	Charlie Baker attends Republican governors conference
+-------
+2014-11-19 22:10:33	Obama to shield 5 million immigrants; Republicans ready to attack: Sweet
+-------
+2014-11-19 22:10:33	Obama to shield 5 million immigrants; Republicans ready to attack: Sweet
+-------
+2014-11-19 22:27:02	Historic Snowstorm Buries Western New York, Kills 7 : The Two-Way : NPR
+-------
+2014-11-19 22:28:39	Officials Not Ready to Call Buffalo Snow a Record
+-------
+2014-11-19 22:31:29	Officials not ready to call Buffalo snow a record
+-------
+2014-11-19 22:34:41	Alleged gunman on Florida State campus opens fire
+-------
+2014-11-19 22:45:40	After 6 feet of snowfall near Buffalo, 2 to 3 more feet expected
+-------
+2014-11-19 22:59:37	Hospital: At least two shot at Florida State University
+-------
+2014-11-19 23:01:00	Facebook shuttle drivers vote to unionize.
+-------
+2014-11-19 23:03:11	Japan's new 'Black Widow' arrested after sixth former partner dies in suspicious circumstances
+-------
+2014-11-19 23:13:19	Facebook bus drivers unionize amid concern about work conditions
+-------
+2014-11-19 23:15:10	Multiple fractures for Bono in NY bicycle accident
+-------
+2014-11-19 23:17:04	Facebook bus drivers unionize amid concern about work conditions
+-------
+2014-11-19 23:21:06	Round 2: Buffalo braces for another wintry wallop
+-------
+2014-11-19 23:21:53	Montana marriage ban overturned; licenses granted
+-------
+2014-11-19 23:22:27	Secret Service wants 'more confident' agents, higher White House fence
+-------
+2014-11-19 23:23:58	Obama's plan of action on immigration may derail Republican agenda
+-------
+2014-11-19 23:28:28	Secret Service arrests man outside White House, finds rifle in car
+-------
+2014-11-19 23:37:51	Japanese Police Raid Home of Suspect in Killings
+-------
+2014-11-19 23:39:45	Police Respond to 'Dangerous Situation' on FSU Campus in Tallahassee
+-------
+2014-11-19 23:41:23	Boyfriend of sister confesses to shooting dead Miss Honduras
+-------
+2014-11-19 23:43:18	Japanese police raid home of suspect in killings
+-------
+2014-11-19 23:50:08	Bodies of Missing Honduran Beauty Queen, Sister Found
+-------
+2014-11-19 23:59:32	FSU Campus in Tallahassee Secured After Gunshots in Strozier Library
+-------
+2014-11-20 00:02:20	Buffalo area hit with epic snow with more coming
+-------
+2014-11-20 00:04:46	Multiple fractures for Bono in NY bicycle accident
+-------
+2014-11-20 00:05:30	Secret Service chief sees morale risks
+-------
+2014-11-20 00:08:47	Multiple fractures for Bono in NY bicycle accident
+-------
+2014-11-20 00:20:28	Immigrants anxiously wait as Obama's speech looms
+-------
+2014-11-20 00:20:52	Uber reportedly tracking riders without permission
+-------
+2014-11-20 00:36:49	Motown singer Jimmy Ruffin, older brother of Temptations lead singer, dies at age 78
+-------
+2014-11-20 00:38:08	3 Injured in Florida State University Shooting; Gunman Killed
+-------
+2014-11-20 00:42:47	Yahoo replaces Google as Firefox's default search
+-------
+2014-11-20 00:53:55	Google To Be Replaced With Yahoo For Search On Firefox
+-------
+2014-11-20 00:54:55	Immigrants face major hurdles in signing up to new Obama plan
+-------
+2014-11-20 00:58:04	Iowa man arrested near White House with gun in car
+-------
+2014-11-20 01:00:28	Already snowed under, Buffalo braces for up to 3 feet more
+-------
+2014-11-20 01:02:20	Iowa man arrested near White House with gun in car
+-------
+2014-11-20 01:05:20	Center doctor patches up Bono
+-------
+2014-11-20 01:14:35	Sri Lanka President Mahinda Rajapaksa calls polls, seeking 3rd term amid opposition criticism
+-------
+2014-11-20 01:21:48	Lone gunman killed after shooting at Florida State University library leaves three wounded
+-------
+2014-11-20 01:30:35	Facebook Bus Drivers Unionize to Avoid Exploitation
+-------
+2014-11-20 01:31:50	Sri Lanka President Seeks Unprecedented Third Term
+-------
+2014-11-20 01:47:00	Deadly western New York snowstorm to get second wind
+-------
+2014-11-20 01:52:38	'I had promised': Obama to announce executive action on immigration Thursday in primetime speech
+-------
+2014-11-20 01:53:42	Second French citizen identified as Islamic State executioner
+-------
+2014-11-20 01:58:48	Student Arrested After Hunger Games 'Three-Finger Salute'
+-------
+2014-11-20 02:07:18	Japan Police Comb Suspected Spouses Killer's Home
+-------
+2014-11-20 02:15:36	U2's Bono suffered extensive injuries, had hours of surgery after bicycle crash
+-------
+2014-11-20 02:18:03	Thai Exhibitor Pulls 'Mockingjay'
+-------
+2014-11-20 02:28:11	Buffalo, Western New York Buried by Another Wave of Snow
+-------
+2014-11-20 02:51:51	Multiple fractures for Bono in New York accident
+-------
+2014-11-20 03:00:17	The legal battle over Obama's immigration plan
+-------
+2014-11-20 03:06:30	Secret Service arrest man with hunting rifle and a knife in a car near the White House
+-------
+2014-11-20 03:08:01	'Hunger Games' Film Strikes Thai Nerve
+-------
+2014-11-20 03:11:35	Firefox drops Google like a BAD HABIT
+-------
+2014-11-20 03:13:05	Buffalo lake effect storm turns deadly as snow keeps falling
+-------
+2014-11-20 03:23:32	Gunman Shot Dead After Opening Fire on FSU Campus in Tallahassee
+-------
+2014-11-20 03:37:08	Police seek poison after Japanese woman's husband is latest of six partners to die
+-------
+2014-11-20 03:40:30	Kerry to Join Iran Nuclear Talks in Vienna
+-------
+2014-11-20 03:51:26	Gunman Shot Dead After Opening Fire on FSU Campus
+-------
+2014-11-20 03:57:15	Kerry to travel to Vienna for Iran nuclear talks
+-------
+2014-11-20 04:01:03	Yahoo usurps Google in Firefox search deal
+-------
+2014-11-20 04:01:40	U2's Bono suffered extensive injuries, had hours of surgery after bicycle crash
+-------
+2014-11-20 04:05:25	2016 Presidential race kicks off with Jim Webb
+-------
+2014-11-20 04:12:58	Immigrants wait, hope, plan for Obama order
+-------
+2014-11-20 04:18:39	After Tor Partnership Announcement, Mozilla Criticized for Ad Tracker Upgrade
+-------
+2014-11-20 04:21:48	Round 2: Buffalo Faces Another Wintry Wallop
+-------
+2014-11-20 04:24:19	Mike Nichols, Oscar-Winning Director Of 'The Graduate,' Dies At 83
+-------
+2014-11-20 04:28:02	Obama to Bypass Congress on Immigration Reform
+-------
+2014-11-20 04:31:48	Secret Service agents arrest an Iowa man outside White House
+-------
+2014-11-20 04:38:10	Motown Singer Jimmy Ruffin Dies At 78 « CBS Dallas / Fort Worth
+-------
+2014-11-20 04:41:19	Former Virginia Senator Jim Webb forms exploratory committee for 2016 White House run
+-------
+2014-11-20 04:48:01	Director Mike Nichols dead at 83
+-------
+2014-11-20 04:55:09	Iran not providing explanations on nuclear claims: watchdog
+-------
+2014-11-20 05:17:25	Swedish court rejects Assange appeal to revoke arrest warrant
+-------
+2014-11-20 05:20:08	Republicans mull shutdown alternatives ahead of immigration order
+-------
+2014-11-20 05:21:05	Three shot at Florida State University: How best to protect students?
+-------
+2014-11-20 05:28:41	Best Buy's 3Q results shatter expectations [Star Tribune (Minneapolis) :: ]
+-------
+2014-11-20 05:42:49	US unemployment aid applications fall to 291,000
+-------
+2014-11-20 05:52:49	President Jim Webb?
+-------
+2014-11-20 06:01:51	Mike Nichols, Acclaimed Director of 'The Graduate,' Dies at 83
+-------
+2014-11-20 06:03:49	For many Iranians, nuclear talks aren't about the sanctions
+-------
+2014-11-20 06:17:58	Buffalo, Western New York Buried by Another Wave of Snow
+-------
+2014-11-20 06:21:24	Buffalo Area Battered Again by Snow, 3 More Feet Expected in Places
+-------
+2014-11-20 06:30:59	Three students shot in Florida university library, gunman killed
+-------
+2014-11-20 06:40:12	Iranians Count Sanctions Cost as Nuclear Accord Deadline Nears
+-------
+2014-11-20 06:40:12	Assange Loses Second Appeal to Cancel Swedish Detention Order
+-------
+2014-11-20 06:46:48	Hillary Clinton draws her first 2016 challenger
+-------
+2014-11-20 06:59:24	Swedish appeals court upholds Assange detention
+-------
+2014-11-20 07:02:07	Obama's Immigration Plan Takes Shape
+-------
+2014-11-20 07:02:40	US Supreme Court denies stay in SC same-sex marriage
+-------
+2014-11-20 07:04:03	Already reeling, Buffalo area braces for more snow
+-------
+2014-11-20 07:06:36	Best Buy is latest retailer to show fresh momentum going into the holidays
+-------
+2014-11-20 07:07:42	'Hunger Games' Continues to Inspire Coup Resistance in Thailand
+-------
+2014-11-20 07:08:30	Swedish Court Rejects Appeal by Julian Assange
+-------
+2014-11-20 07:09:58	Jim Webb announces 2016 exploratory bid for president
+-------
+2014-11-20 07:11:51	Iran nuclear talks deadline may be extended to March: officials
+-------
+2014-11-20 07:13:03	Immigration Action Will Likely Bring Pain -- For Both Obama and GOP
+-------
+2014-11-20 07:16:05	FSU Gunman Killed After Opening Fire in Library on Tallahassee Campus
+-------
+2014-11-20 07:21:04	Previously Owned U.S. Home Sales Increase to One-Year High
+-------
+2014-11-20 07:21:40	5 Million Strollers Recalled Over Fingertip Amputation Hazard
+-------
+2014-11-20 07:47:22	Cuomo: 'Impractical' for Bills to play Jets Sunday
+-------
+2014-11-20 07:51:25	Thai students detained for 'Hunger Games' salute
+-------
+2014-11-20 07:52:34	Supreme Court allows gay marriage to proceed in South Carolina
+-------
+2014-11-20 07:54:01	Iran nuclear talks stuck, deadline may be extended officials
+-------
+2014-11-20 07:58:02	Iran nuclear deal? Maybe with a small "d"
+-------
+2014-11-20 08:06:14	Parties Push to Sway Public Before Obama's Immigration Speech
+-------
+2014-11-20 08:06:51	'Thought I Was Gonna Die': Three Students Hit in FSU Library Shooting
+-------
+2014-11-20 08:14:26	Thai students held over 'Hunger Games' salute
+-------
+2014-11-20 08:15:37	Inside the FSU Library During the School Shooting
+-------
+2014-11-20 08:16:21	Takata Apologizes for Air Bag Flaw as Sixth Fatality Is Revealed
+-------
+2014-11-20 08:21:14	Supreme Court Denies Stay in South Carolina Same-Sex Marriage
+-------
+2014-11-20 08:28:34	Supreme Court Allows Same-Sex Marriages to Proceed in South Carolina
+-------
+2014-11-20 08:32:21	NSA director confirms China, other countries can hack into and shut down critical systems
+-------
+2014-11-20 08:32:32	Thai chain pulls 'Mockingjay' after 3-fingered salute bust
+-------
+2014-11-20 08:33:16	Cuomo: 'Impractical' for Bills to play Jets Sunday
+-------
+2014-11-20 08:38:03	Kerry: Iran nuclear talks seek agreements not extension in upcoming deadline
+-------
+2014-11-20 08:40:21	Mike Nichols dies; crafter of films, plays including 'The Graduate,' 'Virginia Woolf'
+-------
+2014-11-20 08:53:13	Gay marriage in SC: still on the wrong side of history
+-------
+2014-11-20 09:00:50	Graco recalls 5 million strollers due to fingertip amputation hazard
+-------
+2014-11-20 09:00:58	Jim Webb all but launches presidential bid. Does he have a chance?
+-------
+2014-11-20 09:04:40	Supreme Court clears way for same-sex marriage in S.C.
+-------
+2014-11-20 09:12:34	FSU Gunman Identified As School Alumnus and Attorney: Report
+-------
+2014-11-20 09:24:50	Thai students detained at 'Hunger Games' opening over three-finger salute
+-------
+2014-11-20 09:25:43	US and Iran prepare for the blame game
+-------
+2014-11-20 09:37:01	Gunman opens fire in Florida State University library; 3 wounded
+-------
+2014-11-20 09:48:25	Boston urges peaceful demonstrations over Ferguson
+-------
+2014-11-20 09:53:34	Kerry Meets French Counterpart Ahead of Iran Nuclear Talks in Vienna
+-------
+2014-11-20 09:55:13	Graco Recalling Nearly 5M Strollers After Reports of Finger Injuries
+-------
+2014-11-20 09:55:54	Mike Nichols, 83: A prolific theater director who could do it all
+-------
+2014-11-20 09:56:20	US Supreme Court refuses to block SC gay marriages
+-------
+2014-11-20 09:56:38	Republican Response on Immigration Faces Wrinkle
+-------
+2014-11-20 09:59:26	STROLLER RECALL: Hinges Can Cut off Fingertips
+-------
+2014-11-20 10:05:43	New Storm Bears Down on Buffalo; Jets-Bills Game in Doubt
+-------
+2014-11-20 10:06:52	Iran nuclear talks stuck, deadline may be extended officials
+-------
+2014-11-20 10:14:29	After nights of calm, raucous protest in Ferguson
+-------
+2014-11-20 10:14:37	Ferguson decision could come Friday
+-------
+2014-11-20 10:16:14	Jim Webb first to form presidential exploratory committee for 2016
+-------
+2014-11-20 10:16:26	John Kerry Heads to Vienna for Iran Nuclear Talks
+-------
+2014-11-20 10:20:54	Five memorable movies from Mike Nichols
+-------
+2014-11-20 10:29:24	Immigration Advocates Brace For Big Win, Then Backlash
+-------
+2014-11-20 10:34:00	Slain beauty queen, sister buried in Honduras
+-------
+2014-11-20 10:34:50	Jim Webb launches 2016 committee
+-------
+2014-11-20 10:36:49	Jim Webb first to form presidential exploratory committee for 2016 | The Republic
+-------
+2014-11-20 10:38:20	Graco Recalls Almost 5 Million Strollers In The U.S. Due To Fingertip Amputation Hazard
+-------
+2014-11-20 10:42:58	Gov. Rick Scott asks nation to pray for FSU after library shooting, as students ...
+-------
+2014-11-20 10:50:12	VOTE | Should networks air President's speech?
+-------
+2014-11-20 10:50:47	About 5 million Graco strollers recalled after fingertip amputations
+-------
+2014-11-20 10:57:33	FSU Student Jason Derfuss Saved By Book Bag in Campus Shooting
+-------
+2014-11-20 11:03:07	UPDATE 5-Mike Nichols, award-winning American director, dies at 83
+-------
+2014-11-20 11:11:21	New York girding for 3 more feet of lake-effect snow as piles amass
+-------
+2014-11-20 11:15:29	NSA Worries Hackers May Shut Down American Utilities
+-------
+2014-11-20 11:16:15	Mike Nichols, acclaimed director of 'The Graduate,' dies at 83
+-------
+2014-11-20 11:16:46	AAA predicts 46.3 million will travel on Thanksgiving, most since '07 The Plain Dealer
+-------
+2014-11-20 11:23:59	Roofs collapse under Buffalo snow
+-------
+2014-11-20 11:25:55	What Is President Obama's Immigration Plan?
+-------
+2014-11-20 11:29:22	Most Thanksgiving travel expected since 2007, AAA says
+-------
+2014-11-20 11:29:45	Graco recalls 4.9 million baby strollers over infant finger amputation concerns The Post-Standard
+-------
+2014-11-20 12:05:16	3 Wounded, Suspected Gunman Dead After Shooting on Florida State University ...
+-------
+2014-11-20 12:09:03	Mike Nichols, Award-Winning Director Of 'The Graduate,' 'Silkwood,' Dies : NPR
+-------
+2014-11-20 12:11:44	Republican leaders hope to contain outrage in the ranks over Obama immigration moves
+-------
+2014-11-20 12:26:45	Jeb Bush defends Common Core standards
+-------
+2014-11-20 12:30:32	Jeb Bush Remains Stalwart On Common Core
+-------
+2014-11-20 12:35:10	Everybody's Running (Jim Webb Edition)
+-------
+2014-11-20 12:37:08	Graco recalls nearly 5 million strollers after finger injuries
+-------
+2014-11-20 12:39:01	UPDATE 2-In Senate hot seat, Goldman denies commodity manipulation
+-------
+2014-11-20 12:39:01	Mike Nichols, award-winning American director, dies at 83
+-------
+2014-11-20 12:42:09	Defying Republicans, Obama to offer immigration help to millions
+-------
+2014-11-20 12:49:10	Obamacare Sign-Ups Erroneously Inflated with Dental Plans - HDM Top Stories Article
+-------
+2014-11-20 13:00:01	Administration overstated 2014 Obamacare enrollment number
+-------
+2014-11-20 13:07:39	NSA Director: China can damage US power grid
+-------
+2014-11-20 13:14:58	Mike Nichols, award-winning American director, dies at 83
+-------
+2014-11-20 13:14:58	Graco recalls nearly 5 million strollers after finger injuries
+-------
+2014-11-20 13:16:28	Goldman spars with lawmakers over aluminum conflicts
+-------
+2014-11-20 13:20:18	Liberal group slams networks for not airing Obama speech
+-------
+2014-11-20 13:25:13	Obama administration gave bad health exchange numbers
+-------
+2014-11-20 13:34:52	FSU gunman Myron May was in 'crisis,' feared government targeting, police say
+-------
+2014-11-20 13:35:26	4.7 Million Graco Strollers Recalled Due To Amputation Risk « CBS Detroit
+-------
+2014-11-20 13:39:53	Snow causes roofs to collapse in Buffalo area
+-------
+2014-11-20 13:40:22	U.S. Supreme Court asked to review Louisiana marriage case
+-------
+2014-11-20 13:45:50	Republicans Split on Defunding Obama Immigration Order
+-------
+2014-11-20 13:48:44	Former Senator Jim Webb Moves Toward Presidential Run
+-------
+2014-11-20 13:52:28	ObamaCare total was inflated, GOP finds
+-------
+2014-11-20 13:59:36	FSU Shooter Myron May Have Feared Government Was Targeting Him: Cops
+-------
+2014-11-20 14:00:49	Possible Presidential Candidate Makes It Official, Sort Of
+-------
+2014-11-20 14:04:14	It's Getting Serious In Panem As 'Mockingjay' Goes Dark
+-------
+2014-11-20 14:07:06	Hollywood Pays Tribute to Mike Nichols
+-------
+2014-11-20 14:08:40	FSU gunman showed signs of “severe mental disorder” in weeks before shooting
+-------
+2014-11-20 14:12:32	10 deaths blamed on major New York snowstorm
+-------
+2014-11-20 14:16:57	Jeb Bush visits Washington to talk about education and economic opportunity
+-------
+2014-11-20 14:19:38	Deadly snowstorms cause roof collapses in Buffalo area
+-------
+2014-11-20 14:25:53	Republicans ready to do whatever it takes to halt Obama immigration plan
+-------
+2014-11-20 14:26:08	CBS news chairman stepping down
+-------
+2014-11-20 14:28:11	US Senate Subcommittee Blasts Morgan Stanley's Actions in Natural Gas Market
+-------
+2014-11-20 14:31:55	'Mockingjay' fails to satisfy as half a movie
+-------
+2014-11-20 14:37:44	Graco recalls 5 million baby strollers
+-------
+2014-11-20 14:39:46	Giant of Stage and Screen, Mike Nichols Dies at 83
+-------
+2014-11-20 14:40:23	Did White House pad Obamacare enrollment numbers?
+-------
+2014-11-20 15:05:22	Is Jim Webb 2016's Barack Obama?
+-------
+2014-11-20 15:21:49	In immigration speech, Obama will announce protective status for 2 groups
+-------
+2014-11-20 15:22:10	Bills-Jets Game Will Be Relocated Because of Snow in Buffalo Area
+-------
+2014-11-20 15:35:55	Whoopi Goldberg breaks down when talking about Mike Nichols
+-------
+2014-11-20 15:38:07	University tuition increases adopted in California
+-------
+2014-11-20 15:46:56	Sotheby's auction house CEO to step down
+-------
+2014-11-20 15:47:27	Guantanamo Transfers First Yemeni Detainees Since 2010
+-------
+2014-11-20 15:49:44	Jeb Bush champions US education reform ahead of 2016
+-------
+2014-11-20 15:51:32	UPDATE 1-Sotheby's CEO to step down, shares rise after hours
+-------
+2014-11-20 15:52:52	President Obama to Offer Legal Status to Millions of Undocumented Immigrants
+-------
+2014-11-20 16:01:17	Take the Jets off a bye week amid Buffalo snowstorm
+-------
+2014-11-20 16:06:07	University tuition increases adopted in California
+-------
+2014-11-20 16:25:42	Julian Assange's detention order upheld by Swedish court
+-------
+2014-11-20 16:31:05	US Sends Guantanamo Prisoners to Georgia, Slovakia
+-------
+2014-11-20 16:33:02	US sends Guantanamo prisoners to Georgia, Slovakia
+-------
+2014-11-20 16:35:13	Five Guantanamo detainees transferred
+-------
+2014-11-20 16:35:40	Florida State shooter identified: How best to protect students? (+video)
+-------
+2014-11-20 16:41:00	President Obama Announces Executive Action on Immigration
+-------
+2014-11-20 16:41:18	Mike Nichols and the versatility paradox
+-------
+2014-11-20 16:41:28	Day 3: Death toll rises to 10; roofs collapse as snow piles up
+-------
+2014-11-20 16:46:16	Michael Brown's dad pleas against violence, destruction
+-------
+2014-11-20 16:57:20	Mike Nichols remembered
+-------
+2014-11-20 17:02:48	Jeb Bush seeks common ground with Common Core education critics
+-------
+2014-11-20 17:04:22	Rex: Jets 'zillion ways' better this time vs Bills
+-------
+2014-11-20 17:11:19	Michael Brown's Father Urges Calm, Calls for 'Positive Change'
+-------
+2014-11-20 17:11:39	Obama calls plan 'lawful action' to protect 5M immigrants
+-------
+2014-11-20 17:27:20	FSU gunman thought government was after him, according to his journal (+video)
+-------
+2014-11-20 17:28:02	Ferguson Looks to Holiday Shopping Rush With Unease
+-------
+2014-11-20 17:40:42	Mike Nichols, 'The Graduate' director, dies
+-------
+2014-11-20 17:54:18	FSU gunman was in 'state of crisis' during shooting, investigators say
+-------
+2014-11-20 17:54:18	Mike Nichols, Oscar-winning director of 'The Graduate,' dies at 83
+-------
+2014-11-20 18:14:12	Bills-Jets game will be played Monday in Detroit
+-------
+2014-11-20 18:14:25	Michael Brown's father: 'I don't want my son's death to be in vain'
+-------
+2014-11-20 18:18:00	Senators Get No Clear Answers on Air Bag Safety
+-------
+2014-11-20 18:25:11	For 'Hunger Games' juggernaut, the odds are in its favor
+-------
+2014-11-20 18:27:43	Sunday's Jets-Bills game will be moved to Monday in Detroit
+-------
+2014-11-20 18:42:44	Mexico missing students: Capital sees mass protests
+-------
+2014-11-20 18:45:13	Violence flares on Mexico streets over missing students
+-------
+2014-11-20 18:46:28	Remembering Mike Nichols: Let's Talk About Sex
+-------
+2014-11-20 18:58:12	Bills-Jets game moved to Monday in Detroit
+-------
+2014-11-20 19:06:57	Some Republicans Fear That Their Hard-Liners Will Alienate Hispanics
+-------
+2014-11-20 19:17:43	Gunman shot dead after wounding three at Florida State University
+-------
+2014-11-20 19:20:57	Middle East|US Lays Out Limits It Seeks in Iran Nuclear Talks
+-------
+2014-11-20 19:30:05	One Killed, Three Injured in Oil Platform Blast in Gulf
+-------
+2014-11-20 19:30:08	Jeb Bush ready for fight on Common Core
+-------
+2014-11-20 19:31:10	Ferguson awaits grand jury outcome after police arrest protesters
+-------
+2014-11-20 19:31:10	Ferguson awaits grand jury outcome after police arrest protesters
+-------
+2014-11-20 19:37:15	First Take: Obama gives immigration speech, with echoes of Bush
+-------
+2014-11-20 19:40:36	Woman watches as Obama tells her story in speech
+-------
+2014-11-20 19:48:55	Angry Mexicans Protest Over 43 Missing Students
+-------
+2014-11-20 20:02:41	Reports: Secret Service arrests armed woman outside White House
+-------
+2014-11-20 20:07:42	Iran nuclear talks stuck officials
+-------
+2014-11-20 20:09:25	Books save Apopka student in FSU shootings that left gunman dead, 3 hurt
+-------
+2014-11-20 20:10:37	Obama unveils US immigration reform, setting up fight with Republicans
+-------
+2014-11-20 20:15:34	Florida State shooter was well-liked but troubled
+-------
+2014-11-20 20:15:58	1 Killed, 3 Injured in Oil Rig Explosion in Gulf of Mexico
+-------
+2014-11-20 20:20:22	PICANDPUBPLEASEClashes as Mexicans hold rally for 43 missing students
+-------
+2014-11-20 20:31:27	The Jets' Snow Bowl Will Be Played Indoors
+-------
+2014-11-20 20:36:44	Rampal becomes object of curiosity at P'kula hospital
+-------
+2014-11-20 20:42:40	Obama's immigration plan: Too far or not far enough?
+-------
+2014-11-20 20:46:02	Western New York Residents Call Snow Worst In Memory
+-------
+2014-11-20 20:49:40	Secret Service Arrests Armed Woman Outside White House
+-------
+2014-11-20 20:57:40	UPDATE 2-One dead in explosion at Fieldwood platform in Gulf of Mexico
+-------
+2014-11-20 21:01:53	Obama heads to Vegas to rally support for immigration overhaul
+-------
+2014-11-20 21:02:05	Charges seem unlikely for Ferguson cop, union official says
+-------
+2014-11-20 21:03:56	Advocate had 'no idea' Obama would name her during his speech on immigration reform
+-------
+2014-11-20 21:05:40	UN chief urges 'flexibility' in jammed Iran nuclear talks
+-------
+2014-11-20 21:14:42	Secret Service Arrests Woman With Handgun Outside White House
+-------
+2014-11-20 21:17:03	FSU gunman sent mystery mail to law school roommate before attack
+-------
+2014-11-20 21:17:58	Tears, smiles in Nevada over US immigration reform some call bittersweet
+-------
+2014-11-20 21:19:06	UPDATE 2-One dead in explosion at Fieldwood platform in Gulf of Mexico
+-------
+2014-11-20 21:25:09	Police Draw Ire With Arrests Before Missouri Grand Jury Decision
+-------
+2014-11-20 21:25:33	FSU shooting felt at Heights
+-------
+2014-11-20 21:28:49	Obama unveils actions to spare some illegal immigrants
+-------
+2014-11-20 21:31:04	Indian guru in deadly standoff due in court
+-------
+2014-11-20 21:31:12	Police question Indian guru after standoff arrest
+-------
+2014-11-20 21:32:33	Rampal pleads he was held hostage; sent to police custody
+-------
+2014-11-20 21:42:18	Tears, smiles in Nevada over US immigration reform some call bittersweet
+-------
+2014-11-20 21:43:41	Kristin Chenoweth Remembers Mike Nichols: 'Maybe In Heaven We'll Be Doing ...
+-------
+2014-11-20 21:46:47	Mike Nichols, The Graduate Director, Dies at 83
+-------
+2014-11-20 21:55:54	Woman with gun is arrested outside White House
+-------
+2014-11-20 22:12:52	Woman with gun arrested outside White House after Obama's immigration speech
+-------
+2014-11-20 22:12:59	Snow Ending, but Rain Possible for Buffalo
+-------
+2014-11-20 22:16:43	Blast on Gulf of Mexico platform leaves 1 dead, 3 injured — RT USA
+-------
+2014-11-20 22:21:19	Obama, immigration, and the rule of law [updated with additional material on precedents for Obama's action]
+-------
+2014-11-20 22:21:45	Mourning Mike Nichols, the enemy of mystery
+-------
+2014-11-20 22:25:12	Obama's Sweeping Immigration Reform Draws Mixed Reaction
+-------
+2014-11-20 22:43:07	Explosion on Gulf Platform; 1 Dead, 3 Injured
+-------
+2014-11-20 22:43:16	Woman with handgun arrested outside White House after Obama immigration speech
+-------
+2014-11-20 22:46:02	Woman watches as Obama tells her story in speech
+-------
+2014-11-20 22:53:35	FSU students, staff head back to class after shooting
+-------
+2014-11-20 22:57:13	Worker killed, 3 others injured in Gulf of Mexico oil platform blast
+-------
+2014-11-20 23:01:30	Entertainment Icon Mike Nichols Has Died at Age 83
+-------
+2014-11-20 23:06:03	Major backlog for US Immigration Court in Las Vegas
+-------
+2014-11-20 23:09:00	Iranian views on what nuclear deal might bring
+-------
+2014-11-20 23:10:54	Highlights from Obama's immigration plan
+-------
+2014-11-20 23:14:49	The four key hurdles in the way of a nuclear deal with Iran
+-------
+2014-11-20 23:42:50	Are all bets off after fresh UKIP by-election victory?
+-------
+2014-11-20 23:48:42	Protest over 43 missing students in Mexico turns violent
+-------
+2014-11-20 23:56:03	'Not Who We Are As Americans' : Obama Acts on Deportation Relief for Millions
+-------
+2014-11-21 00:02:45	Mike Nichols, 83, director of film, TV,and stage
+-------
+2014-11-21 00:03:25	Fla. State shooter called well-liked but troubled
+-------
+2014-11-21 00:03:49	Rampal in Jail: Deconstructing the operation
+-------
+2014-11-21 00:13:12	Ferguson Police Arrest Protesters
+-------
+2014-11-21 00:27:09	Inside 'godman' Rampal's Satlok ashram: Crude bombs, body massager, swimming pool
+-------
+2014-11-21 00:32:46	Anti-EU Party Wins 2nd Seat in Britain
+-------
+2014-11-21 00:35:25	France tempers Iran nuclear stance in nod to wider diplomatic needs
+-------
+2014-11-21 00:36:27	Live: Mole helped cops close in on 'godman' Rampal, ashram set to be demolished
+-------
+2014-11-21 01:05:09	Iran Nuclear Talks Enter 4th Day
+-------
+2014-11-21 01:07:59	Five memorable movies from Mike Nichols
+-------
+2014-11-21 01:10:37	Buffalo's Roofs Creak After Winter Storm Dumps Seven Feet of Snow
+-------
+2014-11-21 01:16:14	UKIP's Reckless wins Rochester and Strood seat
+-------
+2014-11-21 01:30:44	President Obama Acts on Deportation Relief for Millions
+-------
+2014-11-21 01:31:35	Florida State shooter was well-liked but troubled
+-------
+2014-11-21 01:37:14	Florida State shooter went from liked to troubled
+-------
+2014-11-21 01:55:47	Israel charges 3 Palestinians in alleged plot to kill foreign minister
+-------
+2014-11-21 02:01:18	'It's so exciting': How Obama's plan could benefit Nevada families
+-------
+2014-11-21 02:03:19	In blow to Cameron, Britain's UKIP wins second parliamentary seat
+-------
+2014-11-21 02:05:49	Mexico protests over student massacre descends into violence
+-------
+2014-11-21 02:06:05	Armed woman arrested outside White House
+-------
+2014-11-21 02:13:02	5 family members killed on 'dream trip' to Disney
+-------
+2014-11-21 02:13:09	5 family members killed on 'dream trip' to Disney
+-------
+2014-11-21 02:14:39	Mexico Massacre Protest Turns Violent as Thousands Take to Streets
+-------
+2014-11-21 02:16:36	Ferguson Shooting Case Grand Jury Proceeds Under Veil of Secrecy
+-------
+2014-11-21 02:19:03	Horrific crash kills 5 family members on 'dream trip' to Disney World
+-------
+2014-11-21 02:29:01	Residents battle worst snow in memory in New York state
+-------
+2014-11-21 02:41:52	Secret Service Arrests Armed Woman Outside White House
+-------
+2014-11-21 02:46:06	5 family members die on 'dream trip' to Disney
+-------
+2014-11-21 02:48:07	Undocumented Immigrants Tune In to See President Fulfill Long-Delayed Pledges
+-------
+2014-11-21 02:48:09	Obama's Immigration Action Has Precedents, but May Set a New One
+-------
+2014-11-21 02:50:53	Michigan woman with gun arrested outside of White House
+-------
+2014-11-21 02:53:19	The Immediate (and Not So Immediate) Impacts of Obama's Immigration ...
+-------
+2014-11-21 02:56:17	Rochester and Strood: What result means party-by-party
+-------
+2014-11-21 03:13:17	Iran Talks: Kerry to Meet UK, French Diplomats
+-------
+2014-11-21 03:22:13	Ferguson's Darren Wilson in talks to turn in his police badge
+-------
+2014-11-21 03:30:32	Woman with gun arrested outside of White House
+-------
+2014-11-21 03:34:36	Michigan Woman Arrested Outside Of White House With Gun « CBS Detroit
+-------
+2014-11-21 03:47:58	Iran Nuclear Talks Extension Would Be Tougher Sell Second Time
+-------
+2014-11-21 03:48:30	No word yet on Thruway reopening in western NY
+-------
+2014-11-21 04:00:41	Share “5 family members killed on 'dream trip' to...”
+-------
+2014-11-21 04:11:45	'Dream trip' to Disney ends in horrific crash that kills five in same family
+-------
+2014-11-21 04:32:45	John Kerry Joins Iran Nuclear Talks in Vienna
+-------
+2014-11-21 04:35:55	For millions of illegal immigrants, a mix of celebration and deep disappointment
+-------
+2014-11-21 04:49:26	Israeli forces disperse West Bank demonstration
+-------
+2014-11-21 04:54:02	Ferguson officer Darren Wilson in talks to resign; grand jury decision nears
+-------
+2014-11-21 04:54:41	Mexico says 'enough'
+-------
+2014-11-21 04:56:53	Victory for Anti-EU Party Shows Cracks in UK Politics
+-------
+2014-11-21 05:02:06	Video: Astrid Silva moved to tears by Barack Obama's pledge to allow illegal immigrants right to remain in US
+-------
+2014-11-21 05:03:21	President Barack Obama Acts on Deportation Relief for Millions
+-------
+2014-11-21 05:05:03	Kerry Meets Iranian FM as Nuclear Deadline Looms
+-------
+2014-11-21 05:09:54	Armed Mt. Morris woman arrested at White House
+-------
+2014-11-21 05:11:36	Fear Turns to Roofs and Flooding After Snowstorm in Buffalo, Western New York
+-------
+2014-11-21 05:12:18	Five members of family killed in crash en route to Disney World
+-------
+2014-11-21 05:17:00	Thousands protest in Mexico against corruption, missing students
+-------
+2014-11-21 05:35:42	Molotov cocktails, clashes as thousands of Mexicans protest over massacre
+-------
+2014-11-21 05:37:11	John Kerry and Iranian Counterpart to Leave Nuclear Talks
+-------
+2014-11-21 05:38:40	Key players regrouping in Iran nuke talks?
+-------
+2014-11-21 05:42:19	Fear Turns to Roofs and Flooding After Deadly Snowstorm in Buffalo, Western New York
+-------
+2014-11-21 05:42:39	Local leaders react to president's immigration speech - WCIV-TV
+-------
+2014-11-21 05:51:35	100-year-old woman sees the ocean for the 1st time
+-------
+2014-11-21 05:55:39	FSU Students Try To Get Back To Normal, Classes Resume « CBS Miami
+-------
+2014-11-21 06:02:16	David Cameron 'determined' to win back Rochester
+-------
+2014-11-21 06:03:07	Pro-Clinton groups prepare for 2016 bid
+-------
+2014-11-21 06:20:21	Astrid Silva: Obama lifts one immigrant's story out of the shadows
+-------
+2014-11-21 06:24:06	Woman with gun arrested outside White House, official says
+-------
+2014-11-21 06:24:23	Farage Targets 'Few Dozen' UK Seats After Rochester Win
+-------
+2014-11-21 06:36:19	On immigration, a tale of two presidents
+-------
+2014-11-21 06:38:40	Thousands protest against disappearance of 43 male students in Mexico after ...
+-------
+2014-11-21 06:43:23	Aereo files for bankruptcy
+-------
+2014-11-21 06:54:42	Ferguson Decision: Attorney General Eric Holder Appeals For Peace
+-------
+2014-11-21 07:03:31	Israeli intel: Iran nuclear deal unlikely by deadline; talks will be extended - Diplomacy and Defense Israel News
+-------
+2014-11-21 07:05:58	As snow ends in Buffalo, flooding and roof collapses are new threats; 12 deaths reported
+-------
+2014-11-21 07:13:51	Stocks soar to records on global stimulus moves
+-------
+2014-11-21 07:21:47	Iran, US, French officials to leave nuclear talks as deadline looms
+-------
+2014-11-21 07:21:47	UN nuclear agency says to discuss site access offer with Iran
+-------
+2014-11-21 07:32:20	Heavy snow plus rain could spell more trouble for Buffalo homeowners
+-------
+2014-11-21 07:32:26	Pastor says Michigan woman arrested with gun outside White House is 'a wonderful young lady'
+-------
+2014-11-21 07:34:10	Obama to travel to India in January
+-------
+2014-11-21 07:38:46	FSU Shooter Myron May Left Message: 'I Do Not Want to Die in Vain'
+-------
+2014-11-21 07:38:57	FSU gunman sent packages before shooting, man says
+-------
+2014-11-21 07:40:46	John Boehner Vows GOP Will 'Rise To This Challenge' Of Obama On Immigration
+-------
+2014-11-21 08:04:43	Holder Urges Calm, Negotiations to Reduce Tensions at Protests
+-------
+2014-11-21 08:09:35	Flooding, roof collapses now major concern in western New York
+-------
+2014-11-21 08:10:41	Obama to Visit India in January
+-------
+2014-11-21 08:18:50	House GOP File Lawsuit Against Obama
+-------
+2014-11-21 08:22:47	Spoiler Alert: How 'Mockingjay' mocks fans
+-------
+2014-11-21 08:28:46	Holder to police, protesters: Keep the peace in Ferguson
+-------
+2014-11-21 08:32:24	Ukraine's Facebook revolution, 1 year later
+-------
+2014-11-21 08:37:10	Second man walks free after key witness recants testimony
+-------
+2014-11-21 08:37:22	Florida State shooting suspect sent package to friends: cop
+-------
+2014-11-21 08:38:01	Obama to be chief guest at Republic Day celebrations
+-------
+2014-11-21 08:50:22	Movie review: "The Hunger Games: Mockingjay Part 1"
+-------
+2014-11-21 08:53:38	In bid for relevance, Obama mortgages Dems' future
+-------
+2014-11-21 08:54:58	Why the West will strike a nuclear deal with Iran
+-------
+2014-11-21 08:57:52	2014 Latin Grammys Shared The Spotlight With Obama But Still Shone Brightly
+-------
+2014-11-21 09:00:46	What charges could the Michael Brown grand jury consider, if they choose to indict?
+-------
+2014-11-21 09:07:21	NSA director: China can damage US power grid
+-------
+2014-11-21 09:09:23	Forgetful Obama retrieves phone before imm...
+-------
+2014-11-21 09:09:40	FSU shooter Myron May heard voices, thought police were watching him
+-------
+2014-11-21 09:11:21	NY police: Man killed by police in housing complex
+-------
+2014-11-21 09:12:43	Arizona sheriff sues Obama over immigration change
+-------
+2014-11-21 09:15:22	Mr. President, did you forget something? Whoops: Obama forgets his Blackberry
+-------
+2014-11-21 09:18:40	Forgetful Obama? President leaves something behind
+-------
+2014-11-21 09:23:12	How the Newest Hunger Games Movie Scared Off the Box Office Competition
+-------
+2014-11-21 09:37:42	Massive snowfall leads to major flood threat in western New York
+-------
+2014-11-21 09:40:24	Package From Florida State Shooter Found in Texas
+-------
+2014-11-21 09:41:10	Lack of immigration plan flusters GOP
+-------
+2014-11-21 09:44:30	Obama to be chief guest at 2015 Republic Day
+-------
+2014-11-21 09:58:11	Report: Medical, school professionals missed chances to help Sandy Hook shooter
+-------
+2014-11-21 09:58:15	Sandy Hook killer carefully planned attack, study says
+-------
+2014-11-21 10:00:05	Obama Moves To Protect Millions From Deportation
+-------
+2014-11-21 10:02:51	Ferguson Tensions in Black and White
+-------
+2014-11-21 10:08:41	Snow-choked Buffalo faces 'urban floods' as temps rise
+-------
+2014-11-21 10:12:28	Forgetful Obama? President leaves something behind
+-------
+2014-11-21 10:13:03	Obama to visit India in January to meet with Prime Minister Modi
+-------
+2014-11-21 10:14:01	Marysville Shooting: Disturbing Texts
+-------
+2014-11-21 10:18:56	What We Know About the Packages Sent to Friends by FSU Shooter
+-------
+2014-11-21 10:20:03	Darren Wilson to resign from Ferguson Police Department, reports say
+-------
+2014-11-21 10:25:15	GOP, Obama Tread a Delicate Political Path on Immigration
+-------
+2014-11-21 10:30:53	Newtown School Shooter Adam Lanza's Mental Health Issues Not Treated Appropriately: Agency
+-------
+2014-11-21 10:34:02	New York City Police Officer Accidentally Shoots, Kills Unarmed Man
+-------
+2014-11-21 10:39:11	Biden Warns Russia of Further Isolation if It Fails to Foster Peace in Ukraine
+-------
+2014-11-21 10:43:54	Biden voices support for Ukraine, denounces Russia's Putin
+-------
+2014-11-21 11:00:25	Obama to Launch Immigration Message From Las Vegas
+-------
+2014-11-21 11:00:46	'Hunger Games: Mockingjay Part 1': What's the verdict?
+-------
+2014-11-21 11:05:03	World powers, Iran press on for nuke pact in Vienna
+-------
+2014-11-21 11:08:58	Key Figures in the Ferguson, Missouri, Shooting
+-------
+2014-11-21 11:10:46	How America Reacted to Obama's Immigration Announcement In Photos
+-------
+2014-11-21 11:13:41	Outrage in Israel as mayor fires Arab employees en masse in response to Jerusalem meat-cleaver murders
+-------
+2014-11-21 11:27:46	Jonathan Gruber invited to give an account of Obamacare deceptions to Congress - Houston Politics
+-------
+2014-11-21 11:32:43	FBI Sends 100 Agents to Ferguson Ahead of Grand Jury Decision
+-------
+2014-11-21 11:33:21	Package from Florida State shooter found in Texas
+-------
+2014-11-21 11:37:20	Hillary Clinton to raise money for Landrieu
+-------
+2014-11-21 11:39:33	Q. and A.: The Difficulties in Reaching a Nuclear Agreement With Iran
+-------
+2014-11-21 11:41:13	Western New York residents now face rain, flooding
+-------
+2014-11-21 11:41:26	Obama Forgot His BlackBerry Today
+-------
+2014-11-21 11:44:10	Uproar as Israeli mayor bans Arab workers
+-------
+2014-11-21 11:51:53	Brooklyn Man Fatally Shot by Police Was Unarmed, Bratton Says
+-------
+2014-11-21 11:57:27	Narendra Modi's diplomatic coup: Barack Obama to be Republic Day parade ...
+-------
+2014-11-21 12:07:59	$139M settlement in Los Angeles school molest case
+-------
+2014-11-21 12:10:25	Lawyers descend on Ferguson ahead of grand jury decision
+-------
+2014-11-21 12:20:26	Thruway Section Closed by Snow Is Set to Reopen in Buffalo Area
+-------
+2014-11-21 12:23:50	Palestinian Authority accuses Hamas of plotting against it from Turkish headquarters
+-------
+2014-11-21 12:27:07	Window washer plunges from downtown San Francisco building
+-------
+2014-11-21 12:34:11	Ford: New F-150's gas mileage top among pickups
+-------
+2014-11-21 12:39:07	What we know today about Ferguson
+-------
+2014-11-21 12:40:08	Democrats Preparing for Hillary Clinton Campaign
+-------
+2014-11-21 12:41:02	House GOP sues Obama administration on health law
+-------
+2014-11-21 12:41:25	Unarmed man killed by police in NY housing complex
+-------
+2014-11-21 12:57:00	Even for Buffalo, this storm's one for the books
+-------
+2014-11-21 13:03:32	Two Ohio men freed 39 years after wrongful conviction. What changed?
+-------
+2014-11-21 13:03:49	Hamas 'plotted assassination of Israeli Foreign Minister Avigdor Lieberman'
+-------
+2014-11-21 13:04:04	More disturbing details emerge in FSU shooting
+-------
+2014-11-21 13:09:23	Hillary's 2016 Campaign is Ready, Hypothetically Speaking
+-------
+2014-11-21 13:14:28	Obama forgets his phone, runs back into the White House to get it – Quartz
+-------
+2014-11-21 13:19:27	Obama signs executive orders delaying deportations for millions of illegal immigrants
+-------
+2014-11-21 13:30:40	San Francisco Window Washer Falls Onto Moving Car
+-------
+2014-11-21 13:31:28	NYPD says fatal shooting of unarmed man was an accident
+-------
+2014-11-21 13:37:03	John Kerry prolongs stay in Vienna to thrash out Iran nuclear deal
+-------
+2014-11-21 13:43:08	'The Hunger Games: Mockingjay — Part 1' hits a minor key
+-------
+2014-11-21 13:43:55	Iran's nuclear negotiations
+-------
+2014-11-21 13:52:29	Boehner Says Obama's Immigration Action Damages Presidency
+-------
+2014-11-21 13:54:46	In storm's bull's-eye, Buffalo writer reflects
+-------
+2014-11-21 13:55:08	Police: NY officer fatally shoots 'innocent' unarmed man
+-------
+2014-11-21 13:58:34	Ford's New Aluminum-Bodied F-150 Truck More Gas Efficient
+-------
+2014-11-21 14:06:47	Obama, Daring Congress, Acts to Overhaul Immigration
+-------
+2014-11-21 14:10:43	Iran nuke talks stalled, despite Kerry efforts
+-------
+2014-11-21 14:19:59	Israeli mayor's ban on Arab workers ignites uproar
+-------
+2014-11-21 14:22:19	Can Ferguson Residents Wait on Commission Report?
+-------
+2014-11-21 14:30:04	Uneasy calm descends on Jerusalem despite scattered overnight attacks
+-------
+2014-11-21 14:39:19	Did epic Buffalo storm set a new snow record? That's up to a government committee
+-------
+2014-11-21 14:46:03	Sources To CBS2: Officer Accidentally Shot Unarmed Man While Opening Door ...
+-------
+2014-11-21 14:49:34	Window washer survives 11-story fall onto moving car in Calif.
+-------
+2014-11-21 14:53:39	Holder urges police restraint in Ferguson response
+-------
+2014-11-21 14:59:21	Some classes canceled in Ferguson and nearby schools
+-------
+2014-11-21 15:01:38	Los Angeles school district paying $139 million to settle abuse claims
+-------
+2014-11-21 15:13:28	As deadline nears for Iran nuclear talks, how will opponents of a deal react?
+-------
+2014-11-21 15:16:14	Democrats preparing for Hillary Clinton campaign
+-------
+2014-11-21 15:16:27	Black Friday Campouts: As Traditional as Turkey
+-------
+2014-11-21 15:19:55	US, Iran in last-ditch bid to clinch historic nuclear deal
+-------
+2014-11-21 15:24:38	Adam Lanza report: How system and personal failings led to Newtown massacre
+-------
+2014-11-21 15:32:00	Obama on immigration moves: 'This is an American issue'
+-------
+2014-11-21 15:37:27	Obama on immigration moves: 'This is an American issue'
+-------
+2014-11-21 15:40:37	'Nervous' NYPD rookie fatally shoots unarmed man in Brooklyn
+-------
+2014-11-21 15:42:45	Leading Republican wants Senate to join House probe of Benghazi attack
+-------
+2014-11-21 15:43:19	Investigators may have recovered lost IRS emails
+-------
+2014-11-21 15:44:07	Window washer falls 11 stories, smashes into moving car in S.F.
+-------
+2014-11-21 15:47:57	Politics|House GOP Files Lawsuit In Battling Health Law
+-------
+2014-11-21 15:49:25	'#HYPOCRISY': New GOP Ad Uses Executive Amnesty To Attack Hillary Clinton ...
+-------
+2014-11-21 16:04:46	House intel panel debunks many Benghazi theories
+-------
+2014-11-21 16:05:16	Clinton advisers strategize without her
+-------
+2014-11-21 16:05:42	Florida State gunman sent package to Houston, officials say
+-------
+2014-11-21 16:11:36	FBI, friends receive packages from FSU library shooter
+-------
+2014-11-21 16:28:08	House Intel Committee dismisses some Benghazi myths
+-------
+2014-11-21 16:33:57	On Keystone and the NSA, Clinton Remains Quiet
+-------
+2014-11-21 16:40:02	Obama signs executive action delaying deportations for millions of illegal immigrants
+-------
+2014-11-21 16:41:05	Window washer survives 11-story plunge from SF building
+-------
+2014-11-21 16:41:09	Immigration reform: Who qualifies and who doesn't?
+-------
+2014-11-21 16:51:05	Israeli-Palestinian conflict shifts ominously toward religious war
+-------
+2014-11-21 16:55:11	Rising Temperatures Could Cause Flooding in Snow-Covered Buffalo
+-------
+2014-11-21 16:55:13	Republican-led report debunks Benghazi theories and accusations
+-------
+2014-11-21 16:58:00	LA school district settles teacher sex abuse suits for nearly $140 million
+-------
+2014-11-21 17:03:29	Agency: Schools helped Lanza's mom 'appease' him
+-------
+2014-11-21 17:08:16	Rookie NYPD Officer Peter Liang fatally shoots 'totally innocent' Akai Gurley, top cop says
+-------
+2014-11-21 17:08:31	Officials prepare for Ferguson grand jury decision, urge calm
+-------
+2014-11-21 17:08:31	Officials prepare for Ferguson grand jury decision, urge calm
+-------
+2014-11-21 17:13:00	Republicans challenge Obama's executive actions, file lawsuit over Obamacare
+-------
+2014-11-21 17:28:27	Buffalo Digs out from under snow storm
+-------
+2014-11-21 17:29:14	Hillary Clinton backs Obama immigration move
+-------
+2014-11-21 17:32:46	Hillary Clinton backs Obama immigration move
+-------
+2014-11-21 17:39:04	Window washer survives 11-story fall from SF building
+-------
+2014-11-21 17:49:58	Letters detail thoughts of gunman killed at Florida university
+-------
+2014-11-21 17:55:40	House panel finds no intelligence failure in Benghazi attacks
+-------
+2014-11-21 17:57:15	Hillary Clinton backs Obama immigration move
+-------
+2014-11-21 17:57:47	Bird's-eye-view of Buffalo: Digging out after the snowstorm
+-------
+2014-11-21 18:08:16	Report: Chances to help Adam Lanza missed
+-------
+2014-11-21 18:10:47	Report finds missed chances to help Newtown shooter Adam Lanza
+-------
+2014-11-21 18:13:01	Ferguson Officer Who Killed Teenager Is Said Not to Be Returning to Duty
+-------
+2014-11-21 18:13:24	Hillary Clinton backs Obama immigration move
+-------
+2014-11-21 18:36:00	Colleges review security after Florida State shooting | The Republic
+-------
+2014-11-21 18:37:57	Letters detail thoughts of gunman killed at Florida university
+-------
+2014-11-21 18:45:23	Ferguson police Officer Darren Wilson has mastered a disappearing act since shooting
+-------
+2014-11-21 18:46:04	Holder frustrated with Mo. governor over actions before Ferguson grand jury decision
+-------
+2014-11-21 18:50:17	Buffalo death toll rises as officials, residents clear lake-effect snow
+-------
+2014-11-21 18:51:16	Three charged over alleged plot to kill Israeli foreign minister
+-------
+2014-11-21 18:53:58	Unarmed man killed by police in NY housing complex
+-------
+2014-11-21 18:55:02	Window washer falls 60 feet from SF high rise onto moving car below
+-------
+2014-11-21 18:59:26	LA Unified ends Miramonte sex abuse case with $139-million deal
+-------
+2014-11-21 19:10:57	Newtown Report: Mother, School 'Appeased' Lanza
+-------
+2014-11-21 19:14:20	Obama Unveils Sweeping Immigration Reform
+-------
+2014-11-21 19:18:24	Officials: Ferguson area is prepared for protests
+-------
+2014-11-21 19:21:20	Death toll in western New York rises to at least 13
+-------
+2014-11-21 19:24:20	Lupica: Florida State quest interrupted by sobering reality
+-------
+2014-11-21 19:56:26	$139M deal reached in school sex abuse case
+-------
+2014-11-21 20:03:13	Pregnant woman, 3 others shot, killed; girl hurt
+-------
+2014-11-21 20:03:44	Hillary Clinton calls President Obamas immigration action necessary, historic
+-------
+2014-11-21 20:04:23	House Benghazi Report Finds Evidence Doesn't Back Rumors
+-------
+2014-11-21 20:06:09	With immigration action, Obama charts a new path forward
+-------
+2014-11-21 21:02:34	Speaker Boehner vows House response to Obama's immigration policy changes
+-------
+2014-11-21 21:03:41	CIA gathered intelligence on weapons to Syria: Benghazi report
+-------
+2014-11-21 21:04:22	Report: Abbas accuses Israel of using wild boars against Palestinians
+-------
+2014-11-21 21:06:45	In NYC, Hillary Clinton calls Obama's immigration action 'historic'
+-------
+2014-11-21 21:10:46	Family of NYC man killed by police seek answers
+-------
+2014-11-21 21:23:57	FBI arrests two would-be Ferguson bomb suspects: law enforcement source
+-------
+2014-11-21 21:24:32	Activists Rush to Help People Use Obama Immigration Plan
+-------
+2014-11-21 21:35:13	Official: Ferguson grand jury still meeting
+-------
+2014-11-21 21:36:20	Obama extends US combat role in Afghanistan
+-------
+2014-11-21 21:38:40	Obama signs order expanding US Afghanistan role: NYT
+-------
+2014-11-21 21:41:47	Obama's evolution on immigration
+-------
+2014-11-21 21:49:42	With snow still piled high, Buffalo faces flooding
+-------
+2014-11-21 21:52:12	Obama signs order expanding US Afghanistan role NY Times
+-------
+2014-11-21 21:53:30	Barack Obama secretly extends US combat role in Afghanistan
+-------
+2014-11-21 21:54:43	Report Questions Role of Wealth in Lanza's Care
+-------
+2014-11-21 21:54:50	Official: Ferguson grand jury still reviewing evidence
+-------
+2014-11-21 22:00:26	Highlights from report on Newtown school shooter
+-------
+2014-11-21 22:06:25	Jerusalem mayor: We cannot discriminate against Arabs
+-------
+2014-11-21 22:09:24	GOP assaults begin on Obama's deportation changes
+-------
+2014-11-21 22:11:02	Flooding becomes new threat in snowy Buffalo
+-------
+2014-11-21 22:11:25	Family of NYC man killed by police seek answers
+-------
+2014-11-21 22:11:42	FSU shooting victim recounts events that shattered a campus
+-------
+2014-11-21 22:11:42	House panel backs CIA and military in Benghazi attack
+-------
+2014-11-21 22:22:11	More signs of Florida shooter's troubled life
+-------
+2014-11-21 22:28:15	Human Rights Watch calls on Israel to stop demolition of terrorist homes - Diplomacy and Defense Israel News
+-------
+2014-11-21 22:37:15	Reports: Officer Wilson won't return to Ferguson force
+-------
+2014-11-21 23:05:38	Official: Ferguson Grand Jury Still Meeting
+-------
+2014-11-21 23:12:29	At least 2 shot at Florida State University
+-------
+2014-11-21 23:20:19	House finds no government wrongdoing in Benghazi
+-------
+2014-11-21 23:29:34	Obama broadens mission in Afghanistan
+-------
+2014-11-21 23:33:34	HRW: Israel's demolition of Palestinian terrorists' homes constitutes 'war crime'
+-------
+2014-11-21 23:39:28	Obama extends US combat role in Afghanistan: report
+-------
+2014-11-21 23:56:38	Kenyan Bus Attack by Suspected Militants Kills 28 People
+-------
+2014-11-22 00:00:46	Buffalo area braces for flooding after record snow
+-------
+2014-11-22 00:01:39	GOP promises to fight Obama's executive action on immigration
+-------
+2014-11-22 00:02:21	Agency faults Newtown school
+-------
+2014-11-22 00:04:11	Shared fault on Newtown
+-------
+2014-11-22 00:05:05	Al Shabaab thought to be behind massacre of passengers on bus in northern Kenya
+-------
+2014-11-22 00:05:58	Palestinian Authority accuses Hamas of plotting against it from Turkish headquarters
+-------
+2014-11-22 00:27:24	REFILE-UPDATE 1-FBI arrests 2 would-be Ferguson bomb suspects- law enforcement source
+-------
+2014-11-22 00:32:15	Report questions role of wealth in Sandy Hook shooter's care
+-------
+2014-11-22 00:35:29	Window washer falls onto car in San Francisco
+-------
+2014-11-22 00:35:37	San Francisco window washer falls onto moving car
+-------
+2014-11-22 00:36:11	Report on Newtown's Adam Lanza finds missed chances
+-------
+2014-11-22 00:36:23	Window washer falls onto car in San Francisco
+-------
+2014-11-22 00:52:26	Report clears Obama administration on Benghazi attack
+-------
+2014-11-22 00:53:09	Window washer falls onto car in San Francisco
+-------
+2014-11-22 00:54:51	Analysis: Obama holds upper hand on immigration
+-------
+2014-11-22 00:57:32	HRW: Israel's demolition of Palestinian terrorists' homes is 'war crime'
+-------
+2014-11-22 01:06:31	Timing of grand jury verdict still unclear
+-------
+2014-11-22 01:08:53	Parents and school made 'tragic mistake' of isolating Sandy Hook killer
+-------
+2014-11-22 01:13:46	Kenya Bus Hijacked by Gunmen, Dozens Killed
+-------
+2014-11-22 01:48:44	Kenya Police: Al-Shabab Militants Kill 28 in Bus
+-------
+2014-11-22 01:54:56	Obama approves guidelines to broaden operation in Afghanistan, officials say
+-------
+2014-11-22 01:55:39	GOP-led House report debunks Benghazi allegations
+-------
+2014-11-22 02:01:43	Arizona Sheriff Sues Obama Over Immigration Moves
+-------
+2014-11-22 02:05:34	Voice of America: Ukrainians mark EuroMaidan revolution
+-------
+2014-11-22 02:09:19	Israel Begins Controversial Demolitions of Palestinain Suspects' Homes
+-------
+2014-11-22 02:10:31	Guests flee in terror after explosion rips through five star hotel
+-------
+2014-11-22 02:16:39	Kenya bus attack near Somali border leaves 28 dead
+-------
+2014-11-22 02:22:07	Iraqi forces, Islamic State group battle in Ramadi
+-------
+2014-11-22 02:28:39	Israel Begins Controversial Demolitions of Palestinian Suspects' Homes
+-------
+2014-11-22 02:30:31	Connecticut Report Finds Missed Opportunities To Help Sandy Hook Shooter
+-------
+2014-11-22 02:34:19	Connecticut Report Finds Missed Opportunities To Help Sandy Hook Shooter
+-------
+2014-11-22 02:35:14	Armed militants raid bus at dawn in Kenya, killing 28 A deeper look at Al-Shabaab
+-------
+2014-11-22 02:47:17	This Time, the Protesters in Ferguson May Decide to Pass
+-------
+2014-11-22 02:55:47	Connecticut Report Finds Missed Opportunities To Help Sandy Hook Shooter
+-------
+2014-11-22 02:58:54	Obama taunts GOP critical of executive immigration action
+-------
+2014-11-22 03:12:01	Biden calls on Europe to diversify energy supplies
+-------
+2014-11-22 03:14:57	Florida colleges re-examine security
+-------
+2014-11-22 03:14:57	Report: Mother sheltered Lanza
+-------
+2014-11-22 03:24:31	Biden Calls on Nations to Focus on Energy Security
+-------
+2014-11-22 03:32:25	US 'to expand' 2015 Afghanistan combat role
+-------
+2014-11-22 03:37:52	Report: Obama Broadens US Combat Role in Afghanistan
+-------
+2014-11-22 03:40:14	Islamic State kills 25 Iraqi tribesmen near Ramadi: officials
+-------
+2014-11-22 03:40:14	Islamic State kills 25 Iraqi tribesmen near Ramadi: officials
+-------
+2014-11-22 03:48:09	On immigration, a failure of leadership
+-------
+2014-11-22 03:52:49	Hyatt Regency London 'gas blast' probe begins after 14 hurt
+-------
+2014-11-22 04:33:07	Flooding Becomes New Threat in Snowy Buffalo
+-------
+2014-11-22 04:34:42	Obama seeks support for immigration plan, blasts Boehner
+-------
+2014-11-22 04:55:06	Biden Assails Russian Intervention in Ukraine as 'Unacceptable'
+-------
+2014-11-22 04:55:56	Adam Lanza report: How system and personal failings led to Newtown massacre (+video)
+-------
+2014-11-22 05:01:12	President Obama Orders Longer Combat Role in Afghanistan
+-------
+2014-11-22 05:04:39	Darren Wilson to resign from Ferguson Police Department, reports say (+video)
+-------
+2014-11-22 05:11:11	House Republicans sue Obama over unilateral Obamacare changes (+video)
+-------
+2014-11-22 05:29:10	Florida State University shooter thought cameras were watching him: police
+-------
+2014-11-22 05:37:11	Magnitude 6.8 earth quake hits central Japan
+-------
+2014-11-22 05:39:10	Somalia's al Shabaab says kills 28 in northeast Kenya bus attack
+-------
+2014-11-22 05:44:51	Strong quake strikes central Japan's Nagano city
+-------
+2014-11-22 06:07:37	Magnitude 6.8 quake hits central Japan, no tsunami warning: NHK
+-------
+2014-11-22 06:13:28	Reports: Obama expands mission in Afghanistan
+-------
+2014-11-22 06:13:30	After record snow, Buffalo area facing floods
+-------
+2014-11-22 06:26:25	What Obama immigration plan means for US economy
+-------
+2014-11-22 06:34:00	Kerry Intensifies Nuclear Talks With Iran
+-------
+2014-11-22 06:40:35	Obama Promotes Deportation Reprieve, Boehner Vows to Fight
+-------
+2014-11-22 06:46:37	Will Benghazi report quell conspiracy theories? Not likely.
+-------
+2014-11-22 06:58:02	Somalia's al-Shabab kills 28 non-Muslims in Kenya
+-------
+2014-11-22 06:58:24	After 7 feet of snow, Buffalo prepares for flooding from Big Melt
+-------
+2014-11-22 07:05:57	After Shooting FSU Opens Doors, Opens Hearts
+-------
+2014-11-22 07:07:16	AP sources: Obama broadens mission in Afghanistan
+-------
+2014-11-22 07:19:50	FSU shooter Myron May feared 'energy weapon,' heard voices, thought police were watching him
+-------
+2014-11-22 07:21:02	FBI sends in reinforcements ahead of Ferguson grand jury announcement
+-------
+2014-11-22 07:25:53	Somalia's al-Shabab kills 28 non-Muslims in Kenya
+-------
+2014-11-22 07:27:31	White House gives commanders broader authority to support Afghan troops
+-------
+2014-11-22 07:41:22	Defying GOP, Obama to spare 5M from deportation
+-------
+2014-11-22 07:43:41	Obama's Secret Extension of the US Role in Afghanistan Should Come as No Surprise
+-------
+2014-11-22 07:59:36	Buildings damaged, at least 5 buried after M6.8 quake hits Japan's Nagano - Xinhua
+-------
+2014-11-22 08:00:11	Al-Shabaab profie
+-------
+2014-11-22 08:01:25	Obama's Nevada immigration speech may be early boost for Harry Reid
+-------
+2014-11-22 08:03:56	Police-involved shooting leaves 1 dead at Brooklyn Pink Houses; Sharpton calls for 'thorough investigation'
+-------
+2014-11-22 08:09:33	Battle with IS militants continues in Iraq
+-------
+2014-11-22 08:17:43	Radio Free Europe/Radio Liberty: Ukraine's Maidan protests one year on
+-------
+2014-11-22 08:20:01	Biden announces new aid for Syrian refugees
+-------
+2014-11-22 08:31:21	Magnitude 6.8 Quake Hits Central Japan Traps Five People: NHK
+-------
+2014-11-22 08:39:26	Immigrants to Get Wage Boost From Job Mobility Under Obama Plan
+-------
+2014-11-22 08:40:22	Immigrants to Get Wage Boost From Job Mobility Under Obama Plan
+-------
+2014-11-22 08:45:19	Ferguson: A city on on edge and waiting
+-------
+2014-11-22 08:53:44	US releases Saudi prisoner from Guantanamo Bay, to take part in militant rehab program
+-------
+2014-11-22 08:56:11	DOD announces release of detainee uantanamo Bay
+-------
+2014-11-22 09:02:07	Why Elizabeth Warren and Rand Paul offer glimmers of hope — but not for 2016
+-------
+2014-11-22 09:03:47	Japan Earthquake Collapses Homes, Causes Injuries
+-------
+2014-11-22 09:07:02	Most of Thruway open after massive NY snowfall
+-------
+2014-11-22 09:07:25	Window Washer Survives 11-Story Fall from San Francisco Building
+-------
+2014-11-22 09:13:21	St. Louis area braces for aftershock of grand jury's decision on Ferguson shooting
+-------
+2014-11-22 09:22:13	San Francisco window washer survives after falling 11 stories and landing on moving car
+-------
+2014-11-22 09:32:47	Flooding Becomes New Threat as Snowy Buffalo Digs Out
+-------
+2014-11-22 09:33:45	Window washer falls onto car in San Francisco
+-------
+2014-11-22 09:34:32	Kenyan bus attack kills 28; Islamists claim responsibility
+-------
+2014-11-22 09:47:47	US Broadens Military Mission in Afghanistan Next Year
+-------
+2014-11-22 09:48:08	Shabab Gunmen Attack Bus in Kenya and Kill 28
+-------
+2014-11-22 09:50:03	US pledges $135 million in additional Syria aid after UN warnings
+-------
+2014-11-22 09:50:37	Window washer survived 11-story fall by 'miracle'
+-------
+2014-11-22 10:05:03	The FSU shooting — a mother's perspective
+-------
+2014-11-22 10:07:43	Al-Shabab Claims Responsibility for Killing 28 in Kenyan Bus Attack
+-------
+2014-11-22 10:08:54	House GOP sues White House over health care law
+-------
+2014-11-22 10:17:18	Obama broadens mission in Afghanistan
+-------
+2014-11-22 10:27:58	Hotel gas blast at Hyatt Regency in London sees 14 hurt
+-------
+2014-11-22 10:31:47	Magnitude 6.8 quake hits central Japan; no tsunami warning
+-------
+2014-11-22 10:32:26	Strong earthquake strikes central Japan's Nagano city
+-------
+2014-11-22 10:39:29	Engulfed in snow, Buffalo shows resilience
+-------
+2014-11-22 10:45:49	Obama broadens mission in Afghanistan
+-------
+2014-11-22 10:52:50	Iran nuclear talks may be extended as US sees 'big gaps'
+-------
+2014-11-22 11:24:41	Strong earthquake shakes Japan's Nagano area
+-------
+2014-11-22 11:37:07	Obama immigration plan good, not great for economy
+-------
+2014-11-22 11:37:27	Obama to extend U.S. combat role in Afghanistan
+-------
+2014-11-22 11:37:27	Obama to extend U.S. combat role in Afghanistan
+-------
+2014-11-22 11:40:22	Snow done, now threat is flooding
+-------
+2014-11-22 11:42:43	Somali Islamists execute 28 non-Muslims on Kenyan bus
+-------
+2014-11-22 11:59:24	Florida madman torches house, guns down deputy: report
+-------
+2014-11-22 12:04:39	Obama Immigration Plan Good, Not Great for Economy
+-------
+2014-11-22 12:04:40	From One Republican Committee to Another; Your Charges Are A CROCK!
+-------
+2014-11-22 12:11:02	Obama approves fresh guidelines for US military in Afghanistan
+-------
+2014-11-22 12:13:40	Chicago rally celebrates Obama's actions but presses for further immigration ...
+-------
+2014-11-22 12:21:40	University Of Virginia Suspends Fraternities Following Explosive Rolling...
+-------
+2014-11-22 12:32:54	Pregnant Woman, Three Others Shot and Killed in Cleveland
+-------
+2014-11-22 12:40:37	6.8-magnitude earthquake in Japan collapses homes, causes injuries
+-------
+2014-11-22 12:41:10	New hunters emerge after national decline
+-------
+2014-11-22 12:41:16	West not expected to demand Iran atom bomb "mea culpa" in deal
+-------
+2014-11-22 12:49:53	U.Va. suspends fraternities amid rape investigation
+-------
+2014-11-22 12:50:29	Obama quietly broadens US mission in Afghanistan
+-------
+2014-11-22 12:51:43	Warming trend threatens to turn epic New York snowfall into floods
+-------
+2014-11-22 13:02:47	Obama's immigration plan may give him the upper hand for now
+-------
+2014-11-22 13:05:52	Al-Shabaab Claims Attack on Kenyan Bus Targeting 'Christians That Enjoyed the Killing of Muslims'
+-------
+2014-11-22 13:19:37	Civil-Rights Leaders Call for Investigation into Accidental Police Shooting
+-------
+2014-11-22 13:29:09	Florida deputy ambushed and killed, officials say
+-------
+2014-11-22 13:30:37	Man Sets House on Fire, Kills Responding Deputy
+-------
+2014-11-22 13:33:19	UVA Bans Fraternities Until January In Wake Of Campus Rape Article
+-------
+2014-11-22 13:41:56	Family of NYC Man Killed by Police Seeks Answers
+-------
+2014-11-22 13:48:41	Is Black Friday obsolete?
+-------
+2014-11-22 13:53:19	Feasting on a shopping demand: Black Friday stretches out
+-------
+2014-11-22 13:59:09	Republican-led report debunks Benghazi conspiracy theories
+-------
+2014-11-22 14:08:16	University of Virginia Suspends Fraternities After Rape Report
+-------
+2014-11-22 14:15:26	Kenya bus attack: Al-Shabab 'wants religious war'
+-------
+2014-11-22 14:16:19	Man Arrested in Bizarre Naked Rampage at Boston Airport
+-------
+2014-11-22 14:22:22	Ferguson Grand Jury to Reconvene Monday
+-------
+2014-11-22 14:22:34	Magnitude-6.8 earthquake injures 14 in central Japan
+-------
+2014-11-22 14:34:10	Obama immigration plan good, not great for economy
+-------
+2014-11-22 14:40:03	Florida sheriff's deputy killed in 'ambush attack' during house fire
+-------
+2014-11-22 14:43:11	Kerry warns of serious gaps in nuke talks with Iran
+-------
+2014-11-22 14:43:44	Islamic Shebab extremists ambush bus in Kenya and execute 28 non-Muslims
+-------
+2014-11-22 14:57:08	Michael Brown's dad hands out holiday turkeys
+-------
+2014-11-22 15:14:07	Al Shabab militants hijack bus, kill dozens on board
+-------
+2014-11-22 15:16:05	Biden, Erdogan discuss Syrian regime transition - Xinhua
+-------
+2014-11-22 15:19:57	Florida sheriff's deputy shot and killed in Tallahassee ambush
+-------
+2014-11-22 15:27:24	Obama signs order expanding US Afghanistan role
+-------
+2014-11-22 15:35:27	Black Friday Is No Sure Indicator of Holiday Retail Sales
+-------
+2014-11-22 15:38:51	University of Virginia Suspends All Fraternities After Sex Assault Report
+-------
+2014-11-22 15:42:00	Biden Announces New Aid for Syrian Refugees
+-------
+2014-11-22 15:49:34	Ferguson grand jury decision unlikely this weekend, sources say
+-------
+2014-11-22 15:57:18	Bighorn sheep that escaped from zoo struck by hit-and-run driver
+-------
+2014-11-22 16:00:00	Shabab militant group kills 28 in attack on Kenya bus
+-------
+2014-11-22 16:00:29	Iran nuclear talks: The narcissism of minor differences the EU and US
+-------
+2014-11-22 16:03:10	Obama's immigration plan may give him the upper hand for now (+video)
+-------
+2014-11-22 16:19:23	UVA Frats Suspended Amid Rape Allegations
+-------
+2014-11-22 16:28:32	In Ferguson, Preparation and Anticipation as Grand Jury Decision Nears
+-------
+2014-11-22 16:31:43	Obama Defends Immigration Action
+-------
+2014-11-22 16:40:28	Iran Nuclear Talks Count Down to Deadline With No Deal in Sight
+-------
+2014-11-22 16:46:52	US and Turkey discuss transition away from Assad in Syria
+-------
+2014-11-22 16:53:59	Somali Islamists execute 28 non-Muslims on Kenyan bus
+-------
+2014-11-22 16:56:29	Afghan military welcomes expanded US combat role as Taliban threat intensifies
+-------
+2014-11-22 17:10:12	Japan earthquake collapses homes, causes injuries
+-------
+2014-11-22 17:14:31	Double Whammy: Buffalo Braces for Flooding, Texas for Thunderstorms
+-------
+2014-11-22 17:18:21	Man sets house on fire, kills responding deputy
+-------
+2014-11-22 17:35:51	Republicans want to oppose Obama on immigration, but how?
+-------
+2014-11-22 17:45:13	U. of Virginia suspends all fraternal organizations in sex assault probe
+-------
+2014-11-22 17:46:46	University of Virginia suspends all fraternities
+-------
+2014-11-22 17:48:54	After Snow, Upstate New York Prepares for Floods
+-------
+2014-11-22 17:58:45	FSU's Winston shoves official during hurry-up
+-------
+2014-11-22 17:59:07	It's not just Black Friday anymore
+-------
+2014-11-22 18:01:14	Turmoil Over Immigration Status? California Has Lived It for Decades
+-------
+2014-11-22 18:03:36	Deputy slain in Saturday shooting in Tallahassee had no warning that shooter made threats
+-------
+2014-11-22 18:12:09	Official: Man who killed deputy had made threats
+-------
+2014-11-22 18:19:31	Over 50 injured after strong quake hits central Japan - Xinhua
+-------
+2014-11-22 18:27:35	University of Virginia suspends fraternities after rape allegations
+-------
+2014-11-22 18:37:08	Analysts: Thanksgiving openings reflect consumer demand
+-------
+2014-11-22 18:42:13	Iran nuclear talks may be extended as US sees "big gaps"
+-------
+2014-11-22 18:47:18	Obama approves fresh guidelines for US military in Afghanistan
+-------
+2014-11-22 18:59:01	Louisville holds off Notre Dame for 31-28 win
+-------
+2014-11-22 19:00:42	Missouri town on edge awaiting grand jury decision on police shooting
+-------
+2014-11-22 19:03:01	Homes collapse, 39 injured in Japan earthquake
+-------
+2014-11-22 19:13:36	Official: Man Who Fatally Ambushed Florida Deputy Made Previous Threats Against Police
+-------
+2014-11-22 19:15:54	5 things: Why haven't we heard from Ferguson grand jury?
+-------
+2014-11-22 19:18:58	Man Sets House on Fire, Kills Florida Deputy in Ambush
+-------
+2014-11-22 19:20:44	Japan Warns of Aftershocks as Quake Injures 39, Destroys Homes
+-------
+2014-11-22 19:21:16	Officer shoots boy holding fake gun at rec center
+-------
+2014-11-22 19:26:32	Cleveland Police Officer Shoots 12-Year-Old Boy Carrying Toy Gun
+-------
+2014-11-22 19:29:15	Neighbors react to deputy ambushed, killed in Leon County
+-------
+2014-11-22 19:48:41	Open, open, open
+-------
+2014-11-22 19:49:24	Magnitude-6.8 earthquake hits central Japan, 39 injured
+-------
+2014-11-22 19:58:13	Oregon Ducks 44, Colorado Buffaloes 10: Mark Helfrich on defense, 'game control' and Marcus Mariota's options
+-------
+2014-11-22 20:12:11	US pledges $135 million in additional Syria aid after UN warnings
+-------
+2014-11-22 20:21:26	Illinois prepares for Obama's immigration action
+-------
+2014-11-22 20:32:00	Buffalo digs itself out from under as much as 7 feet of snow
+-------
+2014-11-22 20:46:23	How Ferguson Officer Darren Wilson mastered the disappearing act
+-------
+2014-11-22 21:02:20	Iran nuclear talks: Doubts over deal as deadline looms
+-------
+=========
+
+*****************
+Cluster 1:
+2014-11-17 08:47:57	Bill Cosby sexual assault controversy continues
+-------
+2014-11-17 17:36:07	Netflix Said Sticking With Cosby Special Amid Allegations
+-------
+2014-11-17 18:10:16	As Cosby remains silent, scandal over alleged rape rages on
+-------
+2014-11-17 18:40:02	Bill Cosby hunkers down as rape scandal rages
+-------
+2014-11-17 20:10:05	Woman accuses Bill Cosby of sexually assaulting her decades ago
+-------
+2014-11-17 22:39:16	Alleged Bill Cosby victim has connection to Colorado
+-------
+2014-11-18 00:59:13	'Bill Cosby 77' Will Still Premiere on Netflix
+-------
+2014-11-18 02:11:08	Why liberals are turning on Bill Cosby over rape allegations
+-------
+2014-11-18 02:36:22	Whoopi Goldberg defends Bill Cosby over rape allegations: 'I have a lot of ...
+-------
+2014-11-18 06:35:19	Everything you need to know about the Bill Cosby sexual assault allegations
+-------
+2014-11-18 11:40:47	Who is Hannibal Buress, and why did he call Bill Cosby a "rapist"?
+-------
+2014-11-18 13:25:08	Bill Cosby hunkers down as scandal rages
+-------
+2014-11-18 13:52:03	Bill Cosby Rape Accuser Joan Tarshis Reveals Details Of Horrifying Attack
+-------
+2014-11-18 14:05:58	Here's Everything We Know (and Don't Know) About the Bill Cosby Rape ...
+-------
+2014-11-18 15:13:33	LISTEN: Bill Cosby's 1969 riff on drugging women's drinks
+-------
+2014-11-18 15:15:03	What will Bill Cosby's legacy be?
+-------
+2014-11-18 15:59:49	Janice Dickinson accuses Bill Cosby of sexual assault during 1982 hotel meetup
+-------
+2014-11-18 19:03:21	Janice Dickinson Says She Was Sexually Assaulted By Bill Cosby
+-------
+2014-11-18 19:10:19	Report: Janice Dickinson accuses Bill Cosby of rape
+-------
+2014-11-18 20:11:56	TV host Janice Dickinson latest Cosby accuser
+-------
+2014-11-18 22:02:30	Jungle Janice: I was a Cosby victim
+-------
+2014-11-18 22:05:33	Netflix postpones Bill Cosby's stand-up comedy special
+-------
+2014-11-18 22:25:34	Janice Dickinson accuses Bill Cosby of drugging and sexually assaulting her
+-------
+2014-11-18 22:27:30	Netflix postpones premiere of Bill Cosby comedy special amid sex assault allegations
+-------
+2014-11-18 23:35:34	Netflix postpones Bill Cosby comedy special over sexual assault allegations
+-------
+2014-11-19 00:16:03	Netflix Postpones a Bill Cosby Comedy Special as Fallout Mounts
+-------
+2014-11-19 00:54:16	CNN's Don Lemon crosses line with Bill Cosby rape accuser
+-------
+2014-11-19 01:24:40	Bill Cosby comedy special postponed by Netflix
+-------
+2014-11-19 02:52:36	Model, TV host Janice Dickinson latest to accuse Bill Cosby of sexual assault
+-------
+2014-11-19 02:59:21	Supermodel Janice Dickinson: 'Bill Cosby sexually assaulted me'
+-------
+2014-11-19 04:20:20	Netflix postpones Cosby show amidst sexual assualt allegations
+-------
+2014-11-19 05:00:45	Netflix postpones Bill Cosby special as rape allegations escalate
+-------
+2014-11-19 08:37:06	Netflix puts Bill Cosby's new comedy special on hold
+-------
+2014-11-19 09:14:50	Netflix postpones Bill Cosby comedy special amid sexual assault allegations
+-------
+2014-11-19 11:09:09	NBC and Netflix Shelve Projects With Bill Cosby
+-------
+2014-11-19 11:51:26	CNN anchor Don Lemon criticized for comments to Cosby rape accuser
+-------
+2014-11-19 13:15:13	CNN host apologizes for asking Bill Cosby accuser Joan Tarshis why she didn't bite
+-------
+2014-11-19 14:38:19	Why Cosby accusers are being listened to this time
+-------
+2014-11-19 14:46:25	PIERS MORGAN: The rape allegations against Bill Cosby are a classic case
+-------
+2014-11-19 15:26:06	TV Land pulls 'Cosby Show' from lineup
+-------
+2014-11-19 16:05:28	CNN's Don Lemon Apologizes for Controversial Comments He Made to Alleged Bill Cosby Rape Victim
+-------
+2014-11-19 16:15:47	NBC, Netflix cancel Bill Cosby's shows after sex assault claims
+-------
+2014-11-19 16:30:24	Why Cosby accusers are being listened to this time (+video)
+-------
+2014-11-19 16:30:58	CNN's Don Lemon apologizes for remarks he made to alleged Bill Cosby rape ...
+-------
+2014-11-19 16:53:21	Bill Cosby's Return to TV Is Canceled
+-------
+2014-11-19 17:17:38	Joan Tarshis on Bill Cosby Sexual Assault Allegation: 'I Was Sickened, Embarrassed, Humiliated'
+-------
+2014-11-19 21:26:20	REFILE-UPDATE 5-NBC, Netflix cancel Bill Cosby's shows after sex assault claims
+-------
+2014-11-19 22:06:23	TV Land pulls 'Cosby Show' reruns amid rape allegations
+-------
+2014-11-19 22:51:45	Bill Cosby Experiences More Fallout Amid Rape Allegations « CBS Los Angeles
+-------
+2014-11-20 00:05:30	NBC scraps Cosby television project
+-------
+2014-11-20 01:57:07	Cleansing popular culture of all things Cosby
+-------
+2014-11-20 02:27:50	Cosby shows pulled amid sex claims
+-------
+2014-11-20 02:46:17	I Warned You About Bill Cosby in 2007
+-------
+2014-11-20 03:51:13	Bill Cosby and the power of a beloved franchise – Quartz
+-------
+2014-11-20 04:01:16	Bill Cosby is in role of outcast after sexual assault allegations
+-------
+2014-11-20 06:41:27	Janice Dickinson on Bill Cosby accusation: "It is not a lie"
+-------
+2014-11-20 07:12:48	TV Land pulls 'Cosby Show' from lineup
+-------
+2014-11-20 08:12:27	Bill Cosby refuses to answer rape accusations questions
+-------
+2014-11-20 08:48:05	Therese Serignese, Florida Nurse, Says Bill Cosby Drugged And Raped Her In 1976
+-------
+2014-11-20 09:43:45	Bill Cosby facing litany of allegations
+-------
+2014-11-20 09:52:39	Bill Cosby's Sudden Fall, Explained Sociologically
+-------
+2014-11-20 10:57:41	What I wish I asked Bill Cosby: How I learned that entertainment journalists can play hardball too
+-------
+2014-11-20 11:40:12	Latest Cosby accuser comes forward with drug, rape claims
+-------
+2014-11-20 12:28:44	New Cosby accusers include Lou Ferrigno's wife
+-------
+2014-11-20 13:03:57	Hollywood gives up on Bill Cosby
+-------
+2014-11-20 13:44:56	An art loan drags Smithsonian into Bill Cosby scandal
+-------
+2014-11-20 15:02:16	Bill Cosby, Camille Cosby and the Oppressive Power of Silence
+-------
+2014-11-20 17:23:32	Florida Nurse Latest Woman to Accuse Bill Cosby of Forced Sex
+-------
+2014-11-20 18:10:19	Tom Werner, Marcy Carsey call rape allegations against Bill Cosby 'beyond 'comprehension'
+-------
+2014-11-20 18:23:03	In midst of storm, Bill Cosby to appear on Florida stage Friday
+-------
+2014-11-20 19:05:52	Raven-Symone on fake story about her and Cosby: 'Keep me out of this'
+-------
+2014-11-20 19:41:01	'Hulk' star Lou Ferrigno's wife is newest Cosby accuser
+-------
+2014-11-20 19:41:14	Cosby comedy gigs to go on in midst of swirling allegations
+-------
+2014-11-20 19:45:03	An art loan from Bill Cosby draws the Smithsonian into a national debate
+-------
+2014-11-21 00:08:45	Two new Cosby accusers emerge, including former Playboy bunny Carla Ferrigno
+-------
+2014-11-21 03:20:30	Bill Cosby's lawyer calls allegations 'ridiculous,' blames media frenzy
+-------
+2014-11-21 03:45:22	Bill Cosby facing litany of allegations
+-------
+2014-11-21 06:00:38	Therese Serignese, latest Bill Cosby accuser, urges star to 'quit lying'
+-------
+2014-11-21 06:22:13	Lou Ferrigno's wife Carla Ferrigno latest to accuse Bill Cosby of assault
+-------
+2014-11-21 07:43:36	Two more women accuse Bill Cosby of sexual attacks
+-------
+2014-11-21 18:33:35	Statement: Bill Cosby's lawyer criticizes media
+-------
+2014-11-21 20:20:40	Cosby gets sellout support at Florida show
+-------
+2014-11-21 21:32:12	Accusations and Cancellations: This Week in Bill Cosby
+-------
+2014-11-21 22:12:52	Carla Ferrigno, Angela Leslie And Louisa Moritz Come Forward With Allegations Against Bill Cosby (UPDATE)
+-------
+2014-11-21 23:10:29	For 1 night on stage, embattled Cosby his old self
+-------
+2014-11-22 00:09:52	Amid Uproar, Cosby Gets Standing Ovations at Florida Show
+-------
+2014-11-22 01:15:51	For 1 night on stage, embattled Cosby his old self
+-------
+2014-11-22 02:45:10	Bill Cosby comedy shows canceled in Las Vegas, Arizona and more
+-------
+2014-11-22 02:53:03	Bill Cosby Gets Standing Ovation at Florida Theater
+-------
+2014-11-22 03:48:30	LIVE: Inside Bill Cosby's Friday night routine
+-------
+2014-11-22 04:25:22	Bill Cosby's lawyer: it's time for 'media vilification' to stop
+-------
+2014-11-22 05:45:58	Why Is the Smithsonian Standing Behind Bill Cosby?
+-------
+2014-11-22 06:01:03	At a far-flung gig, Bill Cosby turns the tables on public outrage
+-------
+2014-11-22 06:56:44	Florida crowd cheers comedy from embattled Cosby
+-------
+2014-11-22 08:00:41	Actress Angela Leslie accuses Bill Cosby of sexual assault
+-------
+2014-11-22 08:12:34	More Venues Cancel Bill Cosby Shows Amid Rape Accusations
+-------
+2014-11-22 09:38:32	Bill Cosby, on Stage, Says Nothing About Assault Allegations
+-------
+2014-11-22 10:11:54	Accusations and Cancellations: This Week in Bill Cosby
+-------
+=========
+
+*****************
+ind to newsID:
+0 2402
+1 2403
+2 2405
+3 2406
+4 2407
+5 2408
+6 2409
+7 2410
+8 2411
+9 2412
+10 2413
+11 2414
+12 2415
+13 2416
+14 2417
+15 2418
+16 2419
+17 2420
+18 2421
+19 2422
+20 2423
+21 2424
+22 2425
+23 2426
+24 2427
+25 2428
+26 2429
+27 2430
+28 2431
+29 2432
+30 2433
+31 2434
+32 2435
+33 2436
+34 2437
+35 2438
+36 2439
+37 2440
+38 2441
+39 2442
+40 2443
+41 2444
+42 2445
+43 2446
+44 2447
+45 2448
+46 2449
+47 2450
+48 2451
+49 2452
+50 2453
+51 2454
+52 2456
+53 2457
+54 2458
+55 2459
+56 2460
+57 2461
+58 2462
+59 2463
+60 2464
+61 2465
+62 2466
+63 2467
+64 2468
+65 2469
+66 2470
+67 2471
+68 2472
+69 2473
+70 2474
+71 2475
+72 2476
+73 2477
+74 2478
+75 2479
+76 2480
+77 2481
+78 2482
+79 2483
+80 2484
+81 2485
+82 2486
+83 2487
+84 2488
+85 2489
+86 2490
+87 2491
+88 2492
+89 2493
+90 2494
+91 2496
+92 2498
+93 2499
+94 2500
+95 2501
+96 2502
+97 2503
+98 2504
+99 2505
+100 2506
+101 2507
+102 2508
+103 2509
+104 2510
+105 2511
+106 2512
+107 2513
+108 2514
+109 2515
+110 2516
+111 2517
+112 2518
+113 2519
+114 2520
+115 2521
+116 2522
+117 2523
+118 2524
+119 2525
+120 2526
+121 2527
+122 2528
+123 2529
+124 2530
+125 2531
+126 2532
+127 2533
+128 2535
+129 2536
+130 2537
+131 2538
+132 2539
+133 2540
+134 2541
+135 2542
+136 2543
+137 2544
+138 2545
+139 2546
+140 2547
+141 2548
+142 2549
+143 2551
+144 2552
+145 2553
+146 2554
+147 2555
+148 2556
+149 2557
+150 2558
+151 2559
+152 2560
+153 2561
+154 2562
+155 2563
+156 2564
+157 2565
+158 2566
+159 2567
+160 2568
+161 2569
+162 2570
+163 2571
+164 2572
+165 2573
+166 2574
+167 2575
+168 2576
+169 2577
+170 2578
+171 2579
+172 2580
+173 2581
+174 2582
+175 2583
+176 2584
+177 2585
+178 2586
+179 2587
+180 2588
+181 2589
+182 2590
+183 2591
+184 2592
+185 2593
+186 2594
+187 2595
+188 2596
+189 2597
+190 2598
+191 2599
+192 2600
+193 2601
+194 2602
+195 2603
+196 2604
+197 2606
+198 2607
+199 2608
+200 2609
+201 2610
+202 2611
+203 2612
+204 2613
+205 2614
+206 2615
+207 2616
+208 2617
+209 2618
+210 2619
+211 2620
+212 2621
+213 2622
+214 2623
+215 2624
+216 2625
+217 2626
+218 2627
+219 2628
+220 2629
+221 2630
+222 2631
+223 2632
+224 2633
+225 2634
+226 2635
+227 2636
+228 2637
+229 2638
+230 2639
+231 2640
+232 2641
+233 2642
+234 2643
+235 2644
+236 2645
+237 2646
+238 2647
+239 2648
+240 2649
+241 2651
+242 2652
+243 2653
+244 2654
+245 2655
+246 2656
+247 2657
+248 2658
+249 2659
+250 2660
+251 2661
+252 2662
+253 2663
+254 2664
+255 2665
+256 2666
+257 2667
+258 2668
+259 2669
+260 2670
+261 2671
+262 2672
+263 2673
+264 2674
+265 2675
+266 2676
+267 2677
+268 2678
+269 2679
+270 2680
+271 2681
+272 2682
+273 2683
+274 2684
+275 2685
+276 2686
+277 2687
+278 2688
+279 2689
+280 2690
+281 2691
+282 2692
+283 2693
+284 2694
+285 2695
+286 2696
+287 2697
+288 2698
+289 2699
+290 2700
+291 2701
+292 2702
+293 2703
+294 2704
+295 2705
+296 2706
+297 2707
+298 2708
+299 2709
+300 2710
+301 2711
+302 2712
+303 2713
+304 2714
+305 2715
+306 2716
+307 2717
+308 2718
+309 2720
+310 2721
+311 2722
+312 2723
+313 2724
+314 2725
+315 2726
+316 2727
+317 2728
+318 2729
+319 2730
+320 2731
+321 2732
+322 2733
+323 2734
+324 2735
+325 2736
+326 2737
+327 2738
+328 2739
+329 2740
+330 2741
+331 2742
+332 2743
+333 2744
+334 2745
+335 2746
+336 2747
+337 2748
+338 2749
+339 2750
+340 2751
+341 2752
+342 2753
+343 2754
+344 2755
+345 2756
+346 2757
+347 2758
+348 2759
+349 2760
+350 2761
+351 2762
+352 2763
+353 2764
+354 2765
+355 2766
+356 2767
+357 2768
+358 2769
+359 2770
+360 2771
+361 2772
+362 2773
+363 2774
+364 2775
+365 2776
+366 2777
+367 2778
+368 2779
+369 2780
+370 2781
+371 2782
+372 2783
+373 2784
+374 2785
+375 2786
+376 2787
+377 2788
+378 2789
+379 2790
+380 2791
+381 2792
+382 2793
+383 2794
+384 2795
+385 2796
+386 2797
+387 2798
+388 2799
+389 2800
+390 2801
+391 2802
+392 2803
+393 2804
+394 2805
+395 2806
+396 2807
+397 2808
+398 2809
+399 2810
+400 2811
+401 2812
+402 2813
+403 2814
+404 2815
+405 2816
+406 2817
+407 2818
+408 2819
+409 2820
+410 2821
+411 2822
+412 2823
+413 2824
+414 2825
+415 2826
+416 2827
+417 2828
+418 2829
+419 2830
+420 2831
+421 2832
+422 2833
+423 2834
+424 2835
+425 2836
+426 2837
+427 2838
+428 2839
+429 2840
+430 2841
+431 2842
+432 2843
+433 2844
+434 2845
+435 2846
+436 2847
+437 2848
+438 2849
+439 2850
+440 2851
+441 2852
+442 2853
+443 2854
+444 2855
+445 2856
+446 2857
+447 2858
+448 2859
+449 2860
+450 2861
+451 2862
+452 2863
+453 2864
+454 2865
+455 2866
+456 2867
+457 2868
+458 2869
+459 2870
+460 2871
+461 2872
+462 2873
+463 2874
+464 2875
+465 2876
+466 2877
+467 2878
+468 2879
+469 2880
+470 2881
+471 2882
+472 2883
+473 2884
+474 2885
+475 2886
+476 2887
+477 2888
+478 2889
+479 2890
+480 2891
+481 2892
+482 2893
+483 2894
+484 2895
+485 2896
+486 2897
+487 2898
+488 2899
+489 2900
+490 2901
+491 2902
+492 2903
+493 2904
+494 2905
+495 2906
+496 2907
+497 2908
+498 2909
+499 2910
+500 2911
+501 2912
+502 2913
+503 2914
+504 2915
+505 2916
+506 2917
+507 2918
+508 2919
+509 2920
+510 2921
+511 2922
+512 2923
+513 2924
+514 2925
+515 2926
+516 2927
+517 2928
+518 2929
+519 2930
+520 2931
+521 2932
+522 2933
+523 2934
+524 2935
+525 2937
+526 2938
+527 2939
+528 2940
+529 2941
+530 2942
+531 2943
+532 2944
+533 2945
+534 2946
+535 2947
+536 2948
+537 2949
+538 2950
+539 2951
+540 2952
+541 2953
+542 2954
+543 2955
+544 2956
+545 2957
+546 2958
+547 2959
+548 2960
+549 2961
+550 2962
+551 2963
+552 2964
+553 2965
+554 2966
+555 2967
+556 2968
+557 2969
+558 2970
+559 2971
+560 2972
+561 2973
+562 2974
+563 2975
+564 2976
+565 2977
+566 2978
+567 2979
+568 2980
+569 2981
+570 2982
+571 2983
+572 2984
+573 2985
+574 2986
+575 2987
+576 2988
+577 2989
+578 2990
+579 2991
+580 2992
+581 2993
+582 2994
+583 2995
+584 2996
+585 2997
+586 2998
+587 3000
+588 3001
+589 3002
+590 3003
+591 3005
+592 3006
+593 3007
+594 3008
+595 3009
+596 3010
+597 3011
+598 3012
+599 3013
+600 3015
+601 3016
+602 3017
+603 3018
+604 3019
+605 3020
+606 3021
+607 3022
+608 3023
+609 3024
+610 3025
+611 3026
+612 3027
+613 3028
+614 3030
+615 3031
+616 3032
+617 3033
+618 3034
+619 3035
+620 3037
+621 3038
+622 3040
+623 3041
+624 3042
+625 3043
+626 3044
+627 3045
+628 3046
+629 3047
+630 3048
+631 3049
+632 3050
+633 3051
+634 3052
+635 3053
+636 3054
+637 3055
+638 3056
+639 3057
+640 3058
+641 3059
+642 3061
+643 3062
+644 3063
+645 3064
+646 3065
+647 3066
+648 3067
+649 3068
+650 3069
+651 3070
+652 3071
+653 3072
+654 3073
+655 3074
+656 3075
+657 3076
+658 3077
+659 3079
+660 3080
+661 3081
+662 3082
+663 3083
+664 3084
+665 3085
+666 3087
+667 3088
+668 3089
+669 3090
+670 3091
+671 3092
+672 3094
+673 3095
+674 3096
+675 3097
+676 3098
+677 3099
+678 3100
+679 3101
+680 3102
+681 3104
+682 3105
+683 3106
+684 3107
+685 3108
+686 3109
+687 3110
+688 3111
+689 3112
+690 3113
+691 3114
+692 3115
+693 3116
+694 3117
+695 3118
+696 3119
+697 3121
+698 3122
+699 3123
+700 3124
+701 3125
+702 3126
+703 3127
+704 3128
+705 3129
+706 3130
+707 3131
+708 3132
+709 3133
+710 3134
+711 3135
+712 3136
+713 3137
+714 3138
+715 3139
+716 3140
+717 3141
+718 3142
+719 3143
+720 3144
+721 3145
+722 3146
+723 3147
+724 3148
+725 3149
+726 3150
+727 3151
+728 3152
+729 3153
+730 3154
+731 3155
+732 3156
+733 3157
+734 3159
+735 3160
+736 3161
+737 3162
+738 3163
+739 3164
+740 3165
+741 3166
+742 3167
+743 3168
+744 3169
+745 3170
+746 3171
+747 3172
+748 3173
+749 3174
+750 3175
+751 3176
+752 3177
+753 3178
+754 3179
+755 3180
+756 3181
+757 3182
+758 3183
+759 3184
+760 3185
+761 3186
+762 3187
+763 3188
+764 3189
+765 3190
+766 3192
+767 3193
+768 3194
+769 3195
+770 3196
+771 3197
+772 3198
+773 3199
+774 3200
+775 3201
+776 3202
+777 3203
+778 3204
+779 3205
+780 3206
+781 3207
+782 3208
+783 3209
+784 3210
+785 3211
+786 3212
+787 3213
+788 3214
+789 3215
+790 3216
+791 3217
+792 3218
+793 3219
+794 3220
+795 3221
+796 3222
+797 3223
+798 3224
+799 3225
+800 3226
+801 3227
+802 3228
+803 3229
+804 3230
+805 3231
+806 3232
+807 3233
+808 3234
+809 3235
+810 3236
+811 3237
+812 3238
+813 3239
+814 3240
+815 3241
+816 3242
+817 3243
+818 3244
+819 3245
+820 3246
+821 3248
+822 3249
+823 3250
+824 3251
+825 3252
+826 3253
+827 3254
+828 3255
+829 3256
+830 3257
+831 3258
+832 3259
+833 3260
+834 3261
+835 3262
+836 3263
+837 3264
+838 3265
+839 3266
+840 3267
+841 3268
+842 3269
+843 3270
+844 3271
+845 3272
+846 3273
+847 3274
+848 3275
+849 3276
+850 3277
+851 3278
+852 3279
+853 3280
+854 3281
+855 3282
+856 3283
+857 3284
+858 3285
+859 3286
+860 3287
+861 3288
+862 3289
+863 3290
+864 3291
+865 3292
+866 3293
+867 3295
+868 3296
+869 3298
+870 3299
+871 3300
+872 3301
+873 3302
+874 3303
+875 3304
+876 3305
+877 3306
+878 3307
+879 3308
+880 3309
+881 3310
+882 3311
+883 3312
+884 3313
+885 3315
+886 3316
+887 3317
+888 3318
+889 3319
+890 3320
+891 3321
+892 3322
+893 3324
+894 3325
+895 3326
+896 3327
+897 3328
+898 3329
+899 3330
+900 3331
+901 3332
+902 3333
+903 3334
+904 3335
+905 3336
+906 3337
+907 3338
+908 3339
+909 3340
+910 3341
+911 3342
+912 3343
+913 3344
+914 3345
+915 3346
+916 3347
+917 3348
+918 3349
+919 3350
+920 3351
+921 3352
+922 3353
+923 3354
+924 3355
+925 3356
+926 3357
+927 3358
+928 3359
+929 3360
+930 3361
+931 3362
+932 3363
+933 3365
+934 3366
+935 3367
+936 3368
+937 3369
+938 3370
+939 3371
+940 3372
+941 3373
+942 3374
+943 3375
+944 3376
+945 3377
+946 3378
+947 3379
+948 3380
+949 3381
+950 3382
+951 3383
+952 3384
+953 3385
+954 3386
+955 3387
+956 3388
+957 3389
+958 3390
+959 3391
+960 3392
+961 3393
+962 3394
+963 3395
+964 3396
+965 3397
+966 3398
+967 3399
+968 3400
+969 3401
+970 3402
+971 3403
+972 3404
+973 3405
+974 3406
+975 3407
+976 3408
+977 3409
+978 3410
+979 3411
+980 3412
+981 3413
+982 3414
+983 3415
+984 3416
+985 3417
+986 3418
+987 3419
+988 3420
+989 3421
+990 3422
+991 3423
+992 3424
+993 3425
+994 3426
+995 3427
+996 3428
+997 3429
+998 3430
+999 3431
+1000 3432
+1001 3433
+1002 3434
+1003 3435
+1004 3436
+1005 3437
+1006 3438
+1007 3439
+1008 3440
+1009 3441
+1010 3442
+1011 3443
+1012 3444
+1013 3445
+1014 3446
+1015 3447
+1016 3448
+1017 3449
+1018 3450
+1019 3451
+1020 3452
+1021 3453
+1022 3454
+1023 3456
+1024 3457
+1025 3458
+1026 3459
+1027 3460
+1028 3461
+1029 3462
+1030 3463
+1031 3464
+1032 3465
+1033 3466
+1034 3467
+1035 3468
+1036 3469
+1037 3470
+1038 3471
+1039 3472
+1040 3473
+1041 3474
+1042 3475
+1043 3476
+1044 3477
+1045 3478
+1046 3479
+1047 3480
+1048 3481
+1049 3482
+1050 3483
+1051 3484
+1052 3485
+1053 3486
+1054 3487
+1055 3488
+1056 3490
+1057 3491
+1058 3492
+1059 3493
+1060 3494
+1061 3495
+1062 3496
+1063 3497
+1064 3499
+1065 3500
+1066 3501
+1067 3502
+1068 3503
+1069 3504
+1070 3505
+1071 3506
+1072 3507
+1073 3508
+1074 3509
+1075 3510
+1076 3511
+1077 3512
+1078 3513
+1079 3514
+1080 3515
+1081 3516
+1082 3517
+1083 3518
+1084 3519
+1085 3520
+1086 3521
+1087 3522
+1088 3523
+1089 3524
+1090 3525
+1091 3526
+1092 3527
+1093 3528
+1094 3529
+1095 3530
+1096 3531
+1097 3532
+1098 3533
+1099 3534
+1100 3535
+1101 3536
+1102 3537
+1103 3538
+1104 3539
+1105 3540
+1106 3541
+1107 3542
+1108 3543
+1109 3544
+1110 3545
+1111 3546
+1112 3547
+1113 3548
+1114 3549
+1115 3550
+1116 3551
+1117 3552
+1118 3553
+1119 3554
+1120 3555
+1121 3556
+1122 3557
+1123 3558
+1124 3559
+1125 3560
+1126 3561
+1127 3562
+1128 3563
+1129 3564
+1130 3565
+1131 3566
+1132 3567
+1133 3568
+1134 3569
+1135 3570
+1136 3571
+1137 3572
+1138 3573
+1139 3574
+1140 3575
+1141 3576
+1142 3577
+1143 3578
+1144 3579
+1145 3580
+1146 3581
+1147 3582
+1148 3583
+1149 3584
+1150 3585
+1151 3586
+1152 3587
+1153 3588
+1154 3589
+1155 3590
+1156 3591
+1157 3592
+1158 3593
+1159 3594
+1160 3595
+1161 3596
+1162 3597
+1163 3598
+1164 3599
+1165 3600
+1166 3602
+1167 3603
+1168 3604
+1169 3605
+1170 3606
+1171 3607
+1172 3608
+1173 3609
+1174 3610
+1175 3611
+1176 3612
+1177 3613
+1178 3614
+1179 3615
+1180 3616
+1181 3617
+1182 3618
+1183 3619
+1184 3620
+1185 3621
+1186 3622
+1187 3623
+1188 3624
+1189 3625
+1190 3626
+1191 3627
+1192 3628
+1193 3629
+1194 3630
+1195 3631
+1196 3632
+1197 3633
+1198 3634
+1199 3635
+1200 3636
+1201 3637
+1202 3638
+1203 3639
+1204 3640
+1205 3641
+1206 3642
+1207 3643
+1208 3644
+1209 3645
+1210 3646
+1211 3647
+1212 3648
+1213 3649
+1214 3650
+1215 3651
+1216 3652
+1217 3653
+1218 3654
+1219 3655
+1220 3656
+1221 3657
+1222 3658
+1223 3659
+1224 3660
+1225 3661
+1226 3662
+1227 3663
+1228 3664
+1229 3666
+1230 3667
+1231 3668
+1232 3669
+1233 3670
+1234 3671
+1235 3672
+1236 3673
+1237 3674
+1238 3675
+1239 3676
+1240 3677
+1241 3678
+1242 3679
+1243 3680
+1244 3681
+1245 3682
+1246 3683
+1247 3685
+1248 3686
+1249 3687
+1250 3688
+1251 3689
+1252 3690
+1253 3691
+1254 3692
+1255 3693
+1256 3694
+1257 3695
+1258 3696
+1259 3697
+1260 3698
+1261 3699
+1262 3700
+1263 3701
+1264 3702
+1265 3703
+1266 3704
+1267 3705
+1268 3706
+1269 3707
+1270 3709
+1271 3710
+1272 3711
+1273 3712
+1274 3713
+1275 3714
+1276 3715
+1277 3716
+1278 3717
+1279 3718
+1280 3719
+1281 3720
+1282 3721
+1283 3722
+1284 3723
+1285 3724
+1286 3725
+1287 3726
+1288 3727
+1289 3728
+1290 3729
+1291 3730
+1292 3731
+1293 3732
+1294 3733
+1295 3734
+1296 3735
+1297 3736
+1298 3737
+1299 3738
+1300 3739
+1301 3740
+1302 3741
+1303 3742
+1304 3743
+1305 3744
+1306 3745
+1307 3746
+1308 3747
+1309 3748
+1310 3749
+1311 3750
+1312 3751
+1313 3752
+1314 3753
+1315 3754
+1316 3755
+1317 3756
+1318 3757
+1319 3758
+1320 3759
+1321 3760
+1322 3761
+1323 3763
+1324 3764
+1325 3765
+1326 3766
+1327 3767
+1328 3768
+1329 3769
+1330 3770
+1331 3771
+1332 3772
+1333 3773
+1334 3774
+1335 3775
+1336 3776
+1337 3777
+1338 3778
+1339 3779
+1340 3780
+1341 3781
+1342 3782
+1343 3783
+1344 3784
+1345 3785
+1346 3786
+1347 3787
+1348 3788
+1349 3789
+1350 3790
+1351 3791
+1352 3792
+1353 3793
+1354 3794
+1355 3795
+1356 3796
+1357 3797
+1358 3798
+1359 3799
+1360 3800
+1361 3801
+1362 3802
+1363 3803
+1364 3804
+1365 3805
+1366 3806
+1367 3807
+1368 3808
+1369 3809
+1370 3810
+1371 3811
+1372 3812
+1373 3814
+1374 3815
+1375 3816
+1376 3817
+1377 3819
+1378 3820
+1379 3821
+1380 3822
+1381 3823
+1382 3825
+1383 3826
+1384 3827
+1385 3828
+1386 3829
+1387 3830
+1388 3831
+1389 3832
+1390 3833
+1391 3834
+1392 3835
+1393 3836
+1394 3837
+1395 3838
+1396 3839
+1397 3840
+1398 3841
+1399 3842
+1400 3843
+1401 3844
+1402 3845
+1403 3846
+1404 3847
+1405 3848
+1406 3849
+1407 3850
+1408 3851
+1409 3852
+1410 3853
+1411 3854
+1412 3855
+1413 3856
+1414 3857
+1415 3858
+1416 3859
+1417 3860
+1418 3861
+1419 3862
+1420 3863
+1421 3864
+1422 3865
+1423 3866
+1424 3867
+1425 3868
+1426 3869
+1427 3870
+1428 3871
+1429 3872
+1430 3873
+1431 3874
+1432 3875
+1433 3876
+1434 3877
+1435 3878
+1436 3879
+1437 3880
+1438 3881
+1439 3882
+1440 3883
+1441 3884
+1442 3885
+1443 3886
+1444 3887
+1445 3888
+1446 3889
+1447 3890
+1448 3891
+1449 3892
+1450 3893
+1451 3894
+1452 3895
+1453 3896
+1454 3897
+1455 3898
+1456 3899
+1457 3900
+1458 3901
+1459 3902
+1460 3903
+1461 3904
+1462 3905
+1463 3906
+1464 3907
+1465 3908
+1466 3909
+1467 3910
+1468 3911
+1469 3912
+1470 3913
+1471 3914
+1472 3915
+1473 3916
+1474 3917
+1475 3918
+1476 3919
+1477 3920
+1478 3921
+1479 3922
+1480 3923
+1481 3924
+1482 3925
+1483 3926
+1484 3927
+1485 3929
+1486 3930
+1487 3931
+1488 3932
+1489 3933
+1490 3934
+1491 3935
+1492 3936
+1493 3937
+1494 3938
+1495 3939
+1496 3940
+1497 3941
+1498 3942
+1499 3943
+1500 3944
+1501 3945
+1502 3946
+1503 3947
+1504 3948
+1505 3949
+1506 3950
+1507 3951
+1508 3952
+1509 3953
+1510 3954
+1511 3955
+1512 3957
+1513 3958
+1514 3959
+1515 3960
+1516 3961
+1517 3962
+1518 3963
+1519 3964
+1520 3965
+1521 3966
+1522 3967
+1523 3968
+1524 3969
+1525 3970
+1526 3971
+1527 3972
+1528 3973
+1529 3974
+1530 3976
+1531 3977
+1532 3978
+1533 3979
+1534 3980
+1535 3981
+1536 3982
+1537 3983
+1538 3984
+1539 3985
+1540 3986
+1541 3987
+1542 3988
+1543 3989
+1544 3990
+1545 3991
+1546 3992
+1547 3993
+1548 3994
+1549 3995
+1550 3996
+1551 3997
+1552 3998
+1553 3999
+1554 4000
+1555 4001
+1556 4002
+1557 4003
+1558 4004
+1559 4005
+1560 4006
+1561 4007
+1562 4008
+1563 4009
+1564 4010
+1565 4012
+1566 4013
+1567 4014
+1568 4015
+1569 4016
+1570 4017
+1571 4018
+1572 4019
+1573 4020
+1574 4021
+1575 4023
+1576 4024
+1577 4025
+1578 4026
+1579 4027
+1580 4028
+1581 4029
+1582 4030
+1583 4031
+1584 4032
+1585 4033
+1586 4034
+1587 4035
+1588 4036
+1589 4038
+1590 4039
+1591 4040
+1592 4041
+1593 4042
+1594 4043
+1595 4044
+1596 4045
+1597 4046
+1598 4047
+1599 4048
+1600 4049
+1601 4050
+1602 4051
+1603 4052
+1604 4053
+1605 4054
+1606 4055
+1607 4056
+1608 4057
+1609 4058
+1610 4059
+1611 4060
+1612 4061
+1613 4062
+1614 4063
+1615 4064
+1616 4065
+1617 4066
+1618 4067
+1619 4068
+1620 4069
+1621 4070
+1622 4071
+1623 4072
+1624 4073
+1625 4074
+1626 4075
+1627 4076
+1628 4077
+1629 4078
+1630 4079
+1631 4081
+1632 4082
+1633 4083
+1634 4085
+1635 4086
+1636 4087
+1637 4088
+1638 4089
+1639 4090
+1640 4091
+1641 4092
+1642 4093
+1643 4094
+1644 4095
+1645 4096
+1646 4097
+1647 4098
+1648 4099
+1649 4100
+1650 4101
+1651 4102
+1652 4103
+1653 4104
+1654 4105
+1655 4106
+1656 4107
+1657 4108
+1658 4109
+1659 4110
+1660 4111
+1661 4112
+1662 4113
+1663 4114
+children_ array in scikit-learn aggl clustering array:
+[[ 470  505]
+ [ 649  656]
+ [1573 1578]
+ [1316 1449]
+ [ 557  563]
+ [ 848  878]
+ [1128 1141]
+ [ 771  778]
+ [1126 1133]
+ [1477 1489]
+ [1571 1626]
+ [1022 1041]
+ [ 215  389]
+ [ 297  324]
+ [1482 1673]
+ [1468 1475]
+ [1490 1494]
+ [1383 1416]
+ [ 684  745]
+ [1353 1409]
+ [ 321  327]
+ [1104 1110]
+ [ 542  652]
+ [1215 1218]
+ [ 106  139]
+ [ 104  123]
+ [ 821  829]
+ [1458 1549]
+ [1157 1174]
+ [1582 1615]
+ [1532 1537]
+ [1414 1432]
+ [1033 1111]
+ [ 887  894]
+ [ 551  558]
+ [ 583  587]
+ [1345 1358]
+ [ 761  786]
+ [ 552  559]
+ [ 308  388]
+ [ 567  584]
+ [ 726  733]
+ [ 880  915]
+ [ 934 1697]
+ [ 992 1021]
+ [  10   19]
+ [1081 1093]
+ [ 909  957]
+ [ 920  924]
+ [1380 1658]
+ [ 513  617]
+ [ 475  499]
+ [ 965  971]
+ [ 298  361]
+ [  62   73]
+ [ 476  523]
+ [1284 1497]
+ [1464 1691]
+ [ 539  556]
+ [1322 1365]
+ [1440 1471]
+ [ 818  902]
+ [  65   94]
+ [1214 1692]
+ [1413 1426]
+ [ 270  296]
+ [ 154  176]
+ [ 482 1698]
+ [ 834  865]
+ [1363 1370]
+ [ 917 1711]
+ [ 921 1063]
+ [ 884  906]
+ [ 861  872]
+ [ 408  417]
+ [ 241  467]
+ [ 767  801]
+ [1347 1498]
+ [ 614 1699]
+ [  46 1709]
+ [1417 1421]
+ [1452 1721]
+ [ 363 1703]
+ [1060 1279]
+ [1176 1180]
+ [1427 1608]
+ [ 898  907]
+ [1425 1558]
+ [ 402 1746]
+ [1294 1341]
+ [ 238  262]
+ [ 773  938]
+ [1400 1406]
+ [ 114  169]
+ [ 772  875]
+ [1377 1399]
+ [ 477  486]
+ [ 937  952]
+ [ 224  248]
+ [ 983 1168]
+ [1025 1708]
+ [1190 1239]
+ [ 527  533]
+ [1542 1633]
+ [1495 1513]
+ [1570 1657]
+ [ 948 1707]
+ [  39   78]
+ [ 291  320]
+ [1318 1327]
+ [ 680  730]
+ [ 833  841]
+ [ 870 1706]
+ [1368 1460]
+ [ 781  824]
+ [1369 1493]
+ [ 984 1761]
+ [1572 1600]
+ [ 883  943]
+ [1396 1481]
+ [ 594 1682]
+ [1423 1499]
+ [ 328  365]
+ [1587 1767]
+ [1419 1446]
+ [1511 1567]
+ [1547 1674]
+ [ 579  596]
+ [1313 1404]
+ [ 175  192]
+ [1008 1030]
+ [ 206  331]
+ [ 727  837]
+ [1441 1462]
+ [1486 1561]
+ [ 613 1704]
+ [ 237 1739]
+ [ 604  616]
+ [ 264 1752]
+ [1448 1517]
+ [ 914 1712]
+ [1201 1212]
+ [ 638  790]
+ [ 532 1799]
+ [1195 1402]
+ [ 896  911]
+ [ 817 1778]
+ [1330 1340]
+ [ 159  188]
+ [1469 1777]
+ [ 161  205]
+ [1563 1648]
+ [ 974 1204]
+ [1560 1787]
+ [1277 1527]
+ [1309 1335]
+ [1715 1760]
+ [ 719  774]
+ [ 661  687]
+ [ 394  424]
+ [1439 1728]
+ [ 989 1009]
+ [1463 1611]
+ [ 130  219]
+ [1155 1160]
+ [ 425  472]
+ [ 831  838]
+ [ 573  645]
+ [ 528  716]
+ [1508 1512]
+ [1059 1075]
+ [1362 1438]
+ [1535 1617]
+ [ 398  415]
+ [ 710  759]
+ [ 891  912]
+ [ 464  489]
+ [ 151  163]
+ [1568 1803]
+ [ 867  873]
+ [1461 1779]
+ [ 893  919]
+ [ 703  736]
+ [ 504  590]
+ [1113 1172]
+ [ 396 1772]
+ [ 961 1770]
+ [ 627 1686]
+ [ 844  851]
+ [1374 1624]
+ [1436 1455]
+ [ 397  468]
+ [ 299  325]
+ [ 660  717]
+ [ 322  334]
+ [ 788  794]
+ [ 111 1812]
+ [ 566  597]
+ [1147 1177]
+ [1445 1785]
+ [ 612  650]
+ [1435 1749]
+ [  69   75]
+ [1505 1790]
+ [ 621  658]
+ [1630 1643]
+ [ 825 1725]
+ [ 908 1843]
+ [ 854 1740]
+ [1243 1359]
+ [1134 1780]
+ [ 560  580]
+ [1583 1656]
+ [ 738  758]
+ [  52  166]
+ [1269 1301]
+ [1381 1756]
+ [1131 1794]
+ [1150 1185]
+ [ 762  876]
+ [ 495  536]
+ [1056 1072]
+ [1762 1802]
+ [1501 1745]
+ [1589 1842]
+ [ 882 1755]
+ [ 783  997]
+ [ 146  268]
+ [1454 1744]
+ [ 375  423]
+ [1219 1805]
+ [ 136 1841]
+ [  71   79]
+ [  17  156]
+ [ 852  901]
+ [ 390  481]
+ [ 622  626]
+ [ 737  766]
+ [ 569  631]
+ [ 543  628]
+ [ 128  138]
+ [1485 1516]
+ [1442 1835]
+ [ 278  314]
+ [1115 1748]
+ [  91  158]
+ [ 749  858]
+ [ 689  881]
+ [ 342 1169]
+ [ 609  640]
+ [ 459  549]
+ [ 931 1080]
+ [1781 1789]
+ [ 588  611]
+ [1158 1734]
+ [1253 1848]
+ [1814 1891]
+ [ 143  304]
+ [ 663  685]
+ [ 530  635]
+ [ 421  437]
+ [ 211  265]
+ [ 316  367]
+ [ 208 1895]
+ [ 608  779]
+ [ 546  603]
+ [ 339  439]
+ [ 947 1001]
+ [1472 1844]
+ [1003 1087]
+ [1642 1650]
+ [1623 1629]
+ [ 979  987]
+ [ 145  189]
+ [ 524 1664]
+ [1144 1247]
+ [1288 1450]
+ [ 364  370]
+ [ 279  330]
+ [ 105 1909]
+ [1896 1904]
+ [1361 1553]
+ [1085 1091]
+ [1175 1223]
+ [ 362 1676]
+ [ 697  748]
+ [1016 1167]
+ [1705 1877]
+ [1046 1881]
+ [ 520  561]
+ [1222 1329]
+ [ 462  518]
+ [ 465  507]
+ [ 868  980]
+ [1018 1077]
+ [1593 1654]
+ [ 676 1784]
+ [1105 1156]
+ [ 444 1840]
+ [  21  110]
+ [  26  200]
+ [  99 1717]
+ [ 129 1921]
+ [1451 1826]
+ [ 103  112]
+ [1166 1179]
+ [1304 1357]
+ [1893 1899]
+ [ 576 1923]
+ [1184 1257]
+ [  15 1963]
+ [ 933  939]
+ [ 244 1949]
+ [1742 1868]
+ [1543 1564]
+ [1519 1863]
+ [1603 1609]
+ [ 480  531]
+ [1064 1082]
+ [ 769  913]
+ [1531 1638]
+ [1272 1466]
+ [ 319 1731]
+ [1315 1970]
+ [ 317  338]
+ [ 257 1943]
+ [ 720  810]
+ [ 521  564]
+ [ 522  591]
+ [1619 1645]
+ [ 683  692]
+ [ 282  293]
+ [ 307  822]
+ [ 266  271]
+ [1757 1989]
+ [ 376  414]
+ [ 555 1875]
+ [  27   76]
+ [ 670  677]
+ [ 366  452]
+ [1097 1946]
+ [ 337  399]
+ [ 574  589]
+ [ 664  672]
+ [ 630 1913]
+ [1109 1958]
+ [1344 1391]
+ [ 571 1903]
+ [ 795 1928]
+ [ 133  925]
+ [ 944 1061]
+ [1927 1966]
+ [ 976 1228]
+ [1437 1581]
+ [1171 1723]
+ [ 392  474]
+ [ 953  964]
+ [ 506 1955]
+ [1236 1300]
+ [ 923 1975]
+ [ 544  565]
+ [ 853 1889]
+ [ 863 1242]
+ [1262 1303]
+ [1817 1934]
+ [ 512  540]
+ [ 643  936]
+ [ 195 1580]
+ [ 538 1847]
+ [1473 1602]
+ [ 673  679]
+ [ 746  941]
+ [ 714 1902]
+ [ 615  651]
+ [ 179  318]
+ [1112 1189]
+ [1397 1422]
+ [ 942  972]
+ [ 312  344]
+ [ 951 1000]
+ [   1   50]
+ [1107 1159]
+ [ 963 1198]
+ [ 102  170]
+ [ 525 1861]
+ [1502 1696]
+ [ 815  823]
+ [1371 1880]
+ [ 487  804]
+ [1834 2023]
+ [ 798 1993]
+ [1231 1429]
+ [ 547  568]
+ [ 860 1732]
+ [ 491 1258]
+ [1518 2028]
+ [1882 2045]
+ [ 785 2012]
+ [ 404 1971]
+ [ 497 1972]
+ [1012 1933]
+ [ 586  592]
+ [  59   93]
+ [  22  131]
+ [1864 1912]
+ [1647 1661]
+ [   4  178]
+ [ 258  310]
+ [ 300  326]
+ [  34   40]
+ [ 381 1941]
+ [1574 1979]
+ [ 514  550]
+ [ 250  256]
+ [  92  252]
+ [ 311 2005]
+ [ 162 1944]
+ [ 519  610]
+ [ 384  393]
+ [1585 1596]
+ [  44   51]
+ [ 295 1997]
+ [ 577  669]
+ [ 869 1669]
+ [1554 1616]
+ [ 904  922]
+ [ 620 1960]
+ [ 223  232]
+ [1569 1945]
+ [1265 1342]
+ [ 454 1837]
+ [1248 2031]
+ [ 553  978]
+ [1017 1032]
+ [1520 1853]
+ [ 897 1765]
+ [1897 1948]
+ [ 171  466]
+ [1312 1551]
+ [  95  180]
+ [  48   70]
+ [  31   45]
+ [ 332  422]
+ [1408 1906]
+ [  20  149]
+ [1833 1836]
+ [ 246  313]
+ [1216 1514]
+ [1382 1411]
+ [1181 1894]
+ [1004 1348]
+ [ 874  905]
+ [1010 1931]
+ [ 380 2062]
+ [ 438  637]
+ [ 600 1856]
+ [ 309  353]
+ [ 945  986]
+ [ 993 2027]
+ [ 946 2063]
+ [ 601  693]
+ [1024 1038]
+ [ 639  647]
+ [ 501 2048]
+ [ 460 2110]
+ [1293 1324]
+ [1221 1245]
+ [ 929  966]
+ [ 806 2054]
+ [1282 1295]
+ [ 648  682]
+ [1071 1084]
+ [ 351 2042]
+ [1199 1954]
+ [ 541 1930]
+ [1612 1636]
+ [ 231  718]
+ [ 483  502]
+ [ 121 2015]
+ [1936 2116]
+ [1088 1108]
+ [ 892 2035]
+ [ 982 1922]
+ [ 260  537]
+ [   3   89]
+ [ 127 1964]
+ [1050 1266]
+ [1252 1286]
+ [1298 1500]
+ [1052 2004]
+ [ 950 1040]
+ [1525 2040]
+ [1331 1337]
+ [  16 2070]
+ [ 340  347]
+ [1319 1428]
+ [  32   67]
+ [ 411 2079]
+ [ 214  220]
+ [ 352 2128]
+ [1978 2088]
+ [1545 1710]
+ [ 517 2003]
+ [1860 2142]
+ [1467 1888]
+ [ 412  562]
+ [2037 2124]
+ [ 137 1937]
+ [ 732  847]
+ [2071 2085]
+ [2006 2126]
+ [1042 1747]
+ [ 461 1823]
+ [ 204 1968]
+ [1323 1339]
+ [ 400  516]
+ [ 290  294]
+ [ 763 1130]
+ [  33   56]
+ [ 690 2008]
+ [  55   68]
+ [ 890 2115]
+ [ 329  623]
+ [1035 2143]
+ [1352 1373]
+ [1275 1510]
+ [ 827 1750]
+ [1942 1988]
+ [1208 1890]
+ [1557 1610]
+ [  18   47]
+ [1259 1321]
+ [ 391 1962]
+ [1620 2114]
+ [2011 2123]
+ [1681 2155]
+ [ 967 2014]
+ [1256 1384]
+ [1684 1995]
+ [ 463 2118]
+ [ 186 2038]
+ [2019 2185]
+ [1308 1328]
+ [1135 1142]
+ [ 253  343]
+ [ 182 1730]
+ [ 413 1855]
+ [  63  117]
+ [1011 2046]
+ [ 812 2146]
+ [ 602  618]
+ [ 706 1994]
+ [ 962 2111]
+ [ 315 2170]
+ [ 529 2052]
+ [1407 1476]
+ [ 269  273]
+ [ 406 2161]
+ [1631 1634]
+ [1020 1027]
+ [ 456 2074]
+ [ 816 1898]
+ [ 813 1149]
+ [1983 2145]
+ [  96 2148]
+ [ 820 2227]
+ [2020 2096]
+ [1393 1622]
+ [1444 1586]
+ [  90 2105]
+ [1456 1479]
+ [1378 1401]
+ [ 349  895]
+ [1132 1996]
+ [1961 2122]
+ [ 646  668]
+ [1478 1798]
+ [ 855 2134]
+ [ 227  286]
+ [ 126 2208]
+ [ 333  373]
+ [1878 2067]
+ [ 500 2032]
+ [ 235 2080]
+ [ 225  377]
+ [  54  119]
+ [  88  251]
+ [ 675  857]
+ [ 969 2043]
+ [1138 1143]
+ [ 700 1991]
+ [1193 1947]
+ [1939 1952]
+ [1523 1540]
+ [1507 1562]
+ [1028 1465]
+ [ 751 1951]
+ [ 752 1043]
+ [  83  107]
+ [1049 1839]
+ [ 699  743]
+ [ 728 2129]
+ [1956 2076]
+ [ 354 2158]
+ [ 578 2127]
+ [1976 2091]
+ [  41  147]
+ [ 734  910]
+ [1106 1950]
+ [1197 1230]
+ [1273 2093]
+ [ 218  554]
+ [1351 2102]
+ [1649 1869]
+ [1668 1884]
+ [1202 1209]
+ [  43 2104]
+ [1124 1183]
+ [ 346  625]
+ [1524 1613]
+ [ 644  695]
+ [ 780 1070]
+ [ 930 1170]
+ [1364 1987]
+ [ 606 2186]
+ [ 239  242]
+ [1491 1515]
+ [ 515  662]
+ [ 289  707]
+ [   0    9]
+ [1410 1415]
+ [ 236 2243]
+ [1579 1591]
+ [ 196 2247]
+ [ 441  511]
+ [1098 2064]
+ [  28  109]
+ [ 292  494]
+ [1268 1584]
+ [1224 2212]
+ [2139 2222]
+ [2086 2174]
+ [1722 2268]
+ [1598 2101]
+ [ 918 2095]
+ [ 177 2205]
+ [ 886  958]
+ [ 283  360]
+ [ 358 2120]
+ [1067 2135]
+ [ 409 2106]
+ [ 288 1925]
+ [1205 2273]
+ [2084 2184]
+ [ 845  999]
+ [ 998 2154]
+ [1206 1387]
+ [ 157 2250]
+ [1289 2152]
+ [1047 2125]
+ [ 784  811]
+ [1447 1504]
+ [1590 1792]
+ [ 956 1006]
+ [2077 2167]
+ [ 174  207]
+ [1576 1605]
+ [1103 2259]
+ [1592 1637]
+ [ 765 2021]
+ [ 949 1332]
+ [1090 2009]
+ [1246 2055]
+ [ 429  434]
+ [1457 2098]
+ [1807 2029]
+ [ 184 1827]
+ [1039 1073]
+ [ 959 2121]
+ [ 846 1632]
+ [1539 2192]
+ [ 275  435]
+ [1254 2276]
+ [ 493 2266]
+ [ 655  659]
+ [ 768 1136]
+ [ 981 1274]
+ [1376 1392]
+ [ 839  856]
+ [ 259 2202]
+ [1484 2257]
+ [2024 2246]
+ [ 490 1023]
+ [1002 1013]
+ [ 753 1299]
+ [1977 2183]
+ [1122 1151]
+ [1194 1434]
+ [1118 2153]
+ [1026 1031]
+ [2002 2007]
+ [  61 2293]
+ [ 747 1297]
+ [ 715 1907]
+ [ 426  509]
+ [1153 1459]
+ [1509 1534]
+ [2136 2301]
+ [ 665  889]
+ [1062 1727]
+ [1114 1522]
+ [ 306 2312]
+ [  58 2233]
+ [ 431 1990]
+ [1203 2039]
+ [ 787  793]
+ [1599 2137]
+ [2231 2271]
+ [ 629  796]
+ [1325 1355]
+ [1771 2182]
+ [1386 2287]
+ [ 335  436]
+ [ 960 1099]
+ [ 782 2229]
+ [ 201 1795]
+ [1503 2258]
+ [1145 2197]
+ [ 281 2371]
+ [1915 2299]
+ [ 862 2377]
+ [2314 2347]
+ [1229 1862]
+ [1443 2219]
+ [2178 2206]
+ [ 280 2283]
+ [1233 2255]
+ [1029 1326]
+ [ 451 2169]
+ [ 140 1998]
+ [ 657  725]
+ [ 871  885]
+ [1227 1420]
+ [ 153 2177]
+ [ 478  764]
+ [ 473 1306]
+ [ 450 2221]
+ [1249 2201]
+ [2010 2112]
+ [ 888 2379]
+ [ 991 2356]
+ [1045 1076]
+ [1737 1845]
+ [ 221  254]
+ [1346 2351]
+ [ 694  731]
+ [2151 2274]
+ [ 955 1117]
+ [1782 1857]
+ [1360 2235]
+ [1379 2391]
+ [2236 2309]
+ [1281 1305]
+ [1343 2320]
+ [ 374 2353]
+ [ 230  284]
+ [1200 2358]
+ [ 653 1349]
+ [2089 2263]
+ [1940 2133]
+ [ 832 2352]
+ [1336 2150]
+ [ 777  802]
+ [2081 2306]
+ [ 357 2163]
+ [1164 1908]
+ [ 401 2291]
+ [ 712 1015]
+ [1152 1659]
+ [1019 2200]
+ [  86 2160]
+ [1255 1354]
+ [1575 1984]
+ [ 285 2368]
+ [2068 2237]
+ [ 866 1776]
+ [2172 2215]
+ [ 879 2382]
+ [1849 2132]
+ [ 191  301]
+ [ 619 1163]
+ [1431 2075]
+ [ 348 2180]
+ [2103 2321]
+ [  97  213]
+ [ 741 2369]
+ [ 305 2173]
+ [ 445  636]
+ [1296 1424]
+ [ 755  808]
+ [2033 2164]
+ [1601 1646]
+ [1079 2303]
+ [2179 2447]
+ [  11 2149]
+ [1367 2189]
+ [2117 2402]
+ [1910 2225]
+ [ 624  698]
+ [1816 2147]
+ [2319 2432]
+ [1480 2290]
+ [1095 1271]
+ [1536 1544]
+ [ 750 2305]
+ [1235 2307]
+ [2298 2410]
+ [1969 2400]
+ [1092 1506]
+ [ 809 2408]
+ [1811 1887]
+ [ 216  240]
+ [  30 1267]
+ [1724 1905]
+ [1314 1559]
+ [ 228 2417]
+ [1119 1191]
+ [1526 1967]
+ [ 148  222]
+ [1173 2424]
+ [  77 2431]
+ [1372 2022]
+ [2203 2392]
+ [1652 1663]
+ [1178 2448]
+ [1068 1675]
+ [ 975 1048]
+ [1496 2346]
+ [2188 2398]
+ [ 155 2295]
+ [ 113 2239]
+ [2016 2380]
+ [ 633 2348]
+ [1751 2140]
+ [2251 2264]
+ [1101 1973]
+ [  35 1974]
+ [ 428 2395]
+ [ 799 2436]
+ [2065 2254]
+ [1487 2354]
+ [ 233  510]
+ [2253 2281]
+ [  74 2265]
+ [2157 2249]
+ [ 484  696]
+ [1165 1614]
+ [1389 1565]
+ [2000 2387]
+ [1317 1338]
+ [ 197 2409]
+ [ 770 2324]
+ [ 217 1815]
+ [1121 2226]
+ [1065 1405]
+ [ 455 2413]
+ [  25 2228]
+ [  87 2365]
+ [ 803 2425]
+ [1182 1188]
+ [1957 2131]
+ [ 826 2087]
+ [ 760 1051]
+ [ 120 2262]
+ [  72  681]
+ [1302 2479]
+ [ 303 2269]
+ [2343 2401]
+ [ 634 2419]
+ [1992 2026]
+ [1311 2412]
+ [ 977 2252]
+ [1825 2474]
+ [   7 1123]
+ [ 144 1278]
+ [1774 2213]
+ [ 572 1714]
+ [2078 2191]
+ [  38 2108]
+ [ 711 1186]
+ [ 141  190]
+ [1237 2360]
+ [2216 2505]
+ [2366 2435]
+ [ 800 2381]
+ [ 255  440]
+ [  53 1241]
+ [ 181 2403]
+ [2397 2482]
+ [1213 1366]
+ [ 101 2418]
+ [ 150 1307]
+ [ 807 1044]
+ [ 323 1914]
+ [ 203  605]
+ [ 819 1120]
+ [ 598 2498]
+ [2083 2304]
+ [ 548 1981]
+ [1187 2452]
+ [   2 2073]
+ [1873 2517]
+ [2383 2521]
+ [2218 2333]
+ [ 387  403]
+ [ 722 2181]
+ [ 632  641]
+ [ 903 1146]
+ [2414 2532]
+ [ 418 2138]
+ [ 345 2244]
+ [1980 2330]
+ [2367 2456]
+ [ 535 2542]
+ [1161 2481]
+ [1764 2393]
+ [ 419  453]
+ [2207 2335]
+ [2318 2529]
+ [ 369 2511]
+ [ 926 2442]
+ [1959 2277]
+ [  49 2001]
+ [ 705 1758]
+ [1137 2415]
+ [2072 2489]
+ [ 142 2503]
+ [ 990 1550]
+ [1154 1290]
+ [2230 2342]
+ [1831 2217]
+ [ 350 2376]
+ [ 713 2577]
+ [1350 2332]
+ [1548 1695]
+ [ 446 2541]
+ [ 407  433]
+ [1127 2374]
+ [1234 1433]
+ [ 688 1801]
+ [ 691  935]
+ [ 900 2545]
+ [1430 2423]
+ [ 132 2171]
+ [2187 2499]
+ [1398 2406]
+ [1829 2094]
+ [ 194 2568]
+ [2345 2599]
+ [1870 1872]
+ [ 336 1828]
+ [ 124 2561]
+ [ 607  667]
+ [ 864 1412]
+ [2334 2553]
+ [1094 1240]
+ [2404 2549]
+ [ 471 2486]
+ [1625 2514]
+ [ 570 2578]
+ [1470 2385]
+ [2421 2582]
+ [2224 2267]
+ [1641 2399]
+ [2261 2557]
+ [2441 2592]
+ [1291 2327]
+ [ 379 2559]
+ [  24  368]
+ [ 212 1621]
+ [1577 1660]
+ [ 272 1264]
+ [  82 1555]
+ [1640 2302]
+ [ 187  249]
+ [  81  125]
+ [2341 2533]
+ [ 173  193]
+ [ 430 2601]
+ [1521 2331]
+ [1334 2519]
+ [1388 2445]
+ [1720 2361]
+ [2232 2234]
+ [ 686 2604]
+ [1270 2426]
+ [ 277 2047]
+ [1793 2407]
+ [2242 2600]
+ [ 498 2515]
+ [ 378  757]
+ [2475 2560]
+ [1813 2338]
+ [1390 1492]
+ [2494 2563]
+ [ 202 2329]
+ [2092 2576]
+ [2316 2378]
+ [1066 2650]
+ [2326 2608]
+ [2310 2615]
+ [1196 2602]
+ [ 582 2626]
+ [1655 2469]
+ [1244 2655]
+ [ 970  994]
+ [2284 2538]
+ [ 395  488]
+ [ 805 1211]
+ [1639 2569]
+ [2453 2504]
+ [ 164 2554]
+ [ 427 2459]
+ [2280 2530]
+ [ 740 2493]
+ [1102 2611]
+ [2564 2565]
+ [2238 2594]
+ [1953 2572]
+ [2516 2671]
+ [1333 2472]
+ [ 859 1207]
+ [ 840 1086]
+ [2536 2566]
+ [1854 2433]
+ [ 287 1529]
+ [ 835 2512]
+ [1057 2430]
+ [ 229 2350]
+ [ 267 2625]
+ [ 382 2639]
+ [1819 2462]
+ [ 183 2631]
+ [1483 2372]
+ [1809 2556]
+ [2196 2620]
+ [ 122 2340]
+ [1225 2527]
+ [  98 2300]
+ [ 185 2708]
+ [2285 2523]
+ [2473 2507]
+ [1541 2488]
+ [1058 1074]
+ [ 791 2695]
+ [1078 1474]
+ [1546 2696]
+ [ 443 2470]
+ [2446 2465]
+ [  66 2461]
+ [ 996 1356]
+ [1005 1096]
+ [1533 2562]
+ [1320 2659]
+ [ 916 2580]
+ [1083 2598]
+ [2637 2652]
+ [1821 2630]
+ [1054 1148]
+ [ 729  954]
+ [1791 2658]
+ [ 842 2535]
+ [ 167 2662]
+ [ 702 2684]
+ [1929 2550]
+ [2270 2621]
+ [ 995 2603]
+ [1662 2585]
+ [ 973 2286]
+ [1292 2547]
+ [1926 2480]
+ [ 152  226]
+ [2629 2682]
+ [2296 2571]
+ [1014 2034]
+ [2525 2700]
+ [2434 2653]
+ [1280 1287]
+ [ 199 2162]
+ [2390 2632]
+ [2245 2531]
+ [2272 2336]
+ [2279 2688]
+ [1607 1867]
+ [ 877 2674]
+ [2558 2707]
+ [1250 2159]
+ [1680 2477]
+ [ 775  776]
+ [1192 2718]
+ [1488 2726]
+ [ 704  742]
+ [   6   13]
+ [ 721 2478]
+ [ 386 2642]
+ [ 160 2492]
+ [ 940 1627]
+ [2627 2724]
+ [1129 1403]
+ [  14  356]
+ [1453 2609]
+ [ 792  985]
+ [ 508 1851]
+ [2496 2676]
+ [1618 1628]
+ [ 850 2394]
+ [2210 2636]
+ [ 245 2384]
+ [2375 2584]
+ [2199 2698]
+ [ 341 2720]
+ [2451 2737]
+ [ 234  372]
+ [1139 2500]
+ [2288 2624]
+ [1666 1865]
+ [1310 2294]
+ [ 302  724]
+ [1702 2355]
+ [ 449 2590]
+ [2428 2641]
+ [1276 2743]
+ [ 168 1162]
+ [ 247 2754]
+ [2292 2744]
+ [  23  932]
+ [  80 2429]
+ [ 118 2687]
+ [ 545 2656]
+ [2581 2683]
+ [1866 2537]
+ [ 410 2730]
+ [1100 2775]
+ [ 723  968]
+ [2444 2596]
+ [2497 2607]
+ [2454 2570]
+ [ 678 2337]
+ [ 585 2805]
+ [ 849 1034]
+ [ 744 1901]
+ [1037 1210]
+ [ 789 1238]
+ [2725 2774]
+ [ 116 2605]
+ [   5   12]
+ [2672 2732]
+ [2437 2738]
+ [ 385 2476]
+ [2616 2666]
+ [ 383 2606]
+ [ 666 2628]
+ [ 210 2745]
+ [2438 2622]
+ [1394 2790]
+ [1604 2313]
+ [1217 2689]
+ [2697 2759]
+ [2349 2690]
+ [2534 2555]
+ [2508 2731]
+ [1935 2193]
+ [1538 2144]
+ [2520 2756]
+ [2699 2784]
+ [1055 1552]
+ [2443 2546]
+ [1832 2587]
+ [1385 2742]
+ [ 172  442]
+ [2176 2786]
+ [2211 2645]
+ [1718 2710]
+ [2543 2704]
+ [1375 2670]
+ [2552 2768]
+ [2635 2715]
+ [ 503  593]
+ [2779 2824]
+ [ 595 1140]
+ [ 458 2467]
+ [2528 2647]
+ [1566 2772]
+ [  42  830]
+ [ 756 2773]
+ [ 843 2416]
+ [2495 2677]
+ [1260 2822]
+ [1918 2589]
+ [  85 2807]
+ [2787 2820]
+ [ 754 1556]
+ [1053 2806]
+ [2643 2839]
+ [2214 2728]
+ [ 405 2524]
+ [ 496 1594]
+ [ 469  735]
+ [1879 2678]
+ [1036 2729]
+ [1938 2663]
+ [1672 2060]
+ [1810 2025]
+ [2694 2847]
+ [2097 2323]
+ [1743 2209]
+ [1986 2777]
+ [ 739 2785]
+ [  84 2781]
+ [1719 2798]
+ [1796 1806]
+ [2241 2389]
+ [ 701 2540]
+ [2526 2575]
+ [2838 2866]
+ [ 828 2749]
+ [1595 2809]
+ [2644 2830]
+ [1528 2651]
+ [1920 2457]
+ [2706 2817]
+ [2619 2665]
+ [ 899 1871]
+ [ 359  492]
+ [2030 2686]
+ [1858 2791]
+ [ 927 2733]
+ [2490 2746]
+ [1530 2657]
+ [1283 2041]
+ [2458 2648]
+ [ 654 2359]
+ [1808 1883]
+ [1261 2795]
+ [2464 2491]
+ [1786 2593]
+ [2661 2846]
+ [1116 2867]
+ [ 432  479]
+ [2716 2871]
+ [2702 2831]
+ [2753 2789]
+ [2056 2522]
+ [2719 2832]
+ [1651 2741]
+ [2166 2278]
+ [2843 2869]
+ [ 198 1251]
+ [ 243 2752]
+ [2513 2612]
+ [2057 2735]
+ [2119 2880]
+ [1754 2248]
+ [2640 2911]
+ [ 671 2778]
+ [ 457  485]
+ [2771 2803]
+ [  29 2816]
+ [1716 2362]
+ [2190 2388]
+ [1876 2168]
+ [1911 2450]
+ [ 355 2770]
+ [1125 2810]
+ [2610 2854]
+ [  36 2797]
+ [1007 1606]
+ [2487 2764]
+ [2051 2828]
+ [2668 2680]
+ [ 814 1644]
+ [2853 2921]
+ [1892 2915]
+ [  60  708]
+ [1733 2411]
+ [2812 2917]
+ [2282 2649]
+ [1900 2881]
+ [1932 2783]
+ [2325 2872]
+ [2691 2799]
+ [ 276 2794]
+ [1069 2223]
+ [1089 1232]
+ [2510 2551]
+ [2750 2833]
+ [ 988 2856]
+ [ 534 1653]
+ [ 115  263]
+ [ 209 1597]
+ [2740 2813]
+ [ 108 2851]
+ [1685 2885]
+ [2763 2930]
+ [1726 2800]
+ [1713 2802]
+ [  64  599]
+ [2634 2942]
+ [   8  261]
+ [2837 2954]
+ [2633 2681]
+ [2502 2673]
+ [1690 2664]
+ [2850 2888]
+ [2842 2865]
+ [1418 2943]
+ [2796 2870]
+ [  37 2945]
+ [1689 2898]
+ [ 526 2920]
+ [ 674 1226]
+ [2855 2913]
+ [ 448 2660]
+ [ 928 2896]
+ [2595 2918]
+ [2892 2947]
+ [ 581 2944]
+ [2852 2897]
+ [2884 2951]
+ [1220 2588]
+ [1830 2877]
+ [2130 2693]
+ [1693 2894]
+ [1838 2899]
+ [ 836 1395]
+ [2597 2914]
+ [2275 2739]
+ [ 135  274]
+ [1738 2979]
+ [1999 2939]
+ [ 134  447]
+ [ 420  575]
+ [1635 2961]
+ [2825 2891]
+ [  57  100]
+ [1859 2889]
+ [2713 2887]
+ [2667 2929]
+ [ 165  709]
+ [2344 2949]
+ [2675 2748]
+ [ 416  797]
+ [2990 3005]
+ [2912 2962]
+ [2485 2723]
+ [2141 2927]
+ [1588 2984]
+ [2468 2518]
+ [2466 2755]
+ [1736 2449]
+ [ 371 1263]
+ [1822 2841]
+ [2548 2614]
+ [2509 2901]
+ [1846 2767]
+ [2618 2679]
+ [1285 2960]
+ [2463 2935]
+ [2765 2978]
+ [3015 3024]
+ [ 642 3001]
+ [3006 3016]
+ [2963 2998]
+ [3004 3034]
+ [2895 2999]
+ [2857 2972]
+ [2907 3013]
+ [3008 3037]
+ [1759 2953]
+ [2751 2980]
+ [3012 3020]
+ [2849 2931]
+ [3033 3044]
+ [1886 2955]
+ [2297 2904]
+ [1679 1797]
+ [2701 3019]
+ [2322 2845]
+ [2061 2483]
+ [2970 3035]
+ [3036 3046]
+ [2762 2957]
+ [2989 3026]
+ [1701 2977]
+ [2909 2974]
+ [2471 2994]
+ [2940 3043]
+ [2717 2932]
+ [2638 2861]
+ [2815 3032]
+ [1687 2860]
+ [2941 3011]
+ [3041 3054]
+ [2760 2873]
+ [2950 3018]
+ [2669 3050]
+ [1753 2727]
+ [1670 3014]
+ [2981 3007]
+ [2757 2902]
+ [1824 2948]
+ [2586 2997]
+ [2422 2567]
+ [2090 3028]
+ [2623 2834]
+ [1683 2823]
+ [1818 3067]
+ [2017 2069]
+ [2900 2936]
+ [2966 3040]
+ [2646 3017]
+ [2879 3000]
+ [2714 2982]
+ [1735 3030]
+ [2579 3069]
+ [2965 3025]
+ [1763 2862]
+ [1741 2952]
+ [1667 2427]
+ [2685 2826]
+ [2985 3063]
+ [1919 3027]
+ [2059 2722]
+ [2654 2827]
+ [3039 3066]
+ [1788 3083]
+ [2769 2968]
+ [1700 3071]
+ [2906 3076]
+ [2766 3098]
+ [2506 2874]
+ [1850 1852]
+ [2328 2986]
+ [2819 3103]
+ [3038 3072]
+ [2165 2836]
+ [1677 2289]
+ [2864 3090]
+ [2386 2863]
+ [2455 3064]
+ [3059 3102]
+ [3055 3107]
+ [1775 2996]
+ [2308 2973]
+ [1769 2835]
+ [2776 3089]
+ [3053 3115]
+ [2339 3085]
+ [1688 2893]
+ [1783 3087]
+ [1773 3094]
+ [2484 2848]
+ [2036 3077]
+ [2734 2876]
+ [3056 3116]
+ [2844 2926]
+ [1729 2992]
+ [2793 2967]
+ [1768 3051]
+ [2613 3130]
+ [2363 2903]
+ [2814 3045]
+ [2357 2890]
+ [1820 2938]
+ [2195 3081]
+ [2878 3093]
+ [1985 3134]
+ [2858 2958]
+ [2928 3120]
+ [2883 2991]
+ [2925 3002]
+ [2934 2946]
+ [3084 3142]
+ [3003 3100]
+ [3057 3065]
+ [2583 3058]
+ [1694 1916]
+ [2811 3047]
+ [3068 3122]
+ [2829 3099]
+ [1874 3010]
+ [2156 2956]
+ [2405 3146]
+ [2107 3108]
+ [2311 3156]
+ [1917 3131]
+ [2220 3158]
+ [2370 3160]
+ [2539 3088]
+ [2976 3082]
+ [2959 3123]
+ [2058 3140]
+ [2018 3157]
+ [2194 3161]
+ [3042 3080]
+ [2801 3023]
+ [1800 3148]
+ [2788 2937]
+ [2044 2082]
+ [2109 3096]
+ [2066 3167]
+ [2050 3174]
+ [2908 3073]
+ [2396 3101]
+ [3172 3175]
+ [2868 3128]
+ [1982 2013]
+ [2439 3168]
+ [3112 3178]
+ [3180 3182]
+ [1924 3155]
+ [2919 3114]
+ [1885 3183]
+ [3074 3153]
+ [3060 3186]
+ [3184 3188]
+ [2440 2705]
+ [3135 3163]
+ [3117 3154]
+ [2712 3189]
+ [1766 3193]
+ [3132 3152]
+ [2373 3159]
+ [1671 3194]
+ [2983 3139]
+ [2420 3141]
+ [1665 3197]
+ [2256 3113]
+ [3144 3190]
+ [2198 3127]
+ [3124 3185]
+ [2100 3097]
+ [3022 3170]
+ [2574 3200]
+ [3049 3092]
+ [3165 3177]
+ [2922 3207]
+ [3110 3210]
+ [1965 2315]
+ [2969 3187]
+ [2818 3191]
+ [3105 3164]
+ [2204 3211]
+ [2049 3206]
+ [2711 3138]
+ [3070 3209]
+ [2501 3179]
+ [3216 3218]
+ [3104 3106]
+ [2573 3213]
+ [2175 2808]
+ [2240 3221]
+ [1678 3091]
+ [3166 3220]
+ [2099 2113]
+ [3205 3223]
+ [3203 3217]
+ [3202 3208]
+ [2617 3225]
+ [2761 3232]
+ [3212 3233]
+ [1804 2317]
+ [2882 2924]
+ [2364 3234]
+ [3196 3219]
+ [3235 3237]
+ [2758 3062]
+ [3136 3239]
+ [2692 2747]
+ [2987 3241]
+ [2933 3031]
+ [2804 3243]
+ [3181 3215]
+ [3109 3245]
+ [3150 3238]
+ [3118 3247]
+ [2544 3228]
+ [3052 3230]
+ [3249 3250]
+ [2859 3252]
+ [3224 3253]
+ [3201 3204]
+ [2053 2964]
+ [2591 3009]
+ [2782 2923]
+ [3227 3248]
+ [2460 3095]
+ [3254 3258]
+ [2995 3244]
+ [3129 3198]
+ [2260 3261]
+ [2886 3264]
+ [2875 2916]
+ [3133 3147]
+ [3265 3266]
+ [2993 3257]
+ [3263 3268]
+ [3269 3270]
+ [3061 3255]
+ [2736 3271]
+ [2703 3048]
+ [3242 3260]
+ [2988 3246]
+ [3021 3273]
+ [3086 3277]
+ [3256 3275]
+ [3278 3279]
+ [3214 3280]
+ [2792 3281]
+ [3119 3137]
+ [3075 3145]
+ [2840 2971]
+ [3236 3282]
+ [3240 3286]
+ [3283 3287]
+ [2780 3288]
+ [2709 3289]
+ [2721 3290]
+ [3029 3291]
+ [2975 3292]
+ [2910 3162]
+ [2905 3293]
+ [3169 3295]
+ [3079 3296]
+ [3199 3297]
+ [3274 3298]
+ [3294 3299]
+ [3171 3300]
+ [3121 3125]
+ [3149 3285]
+ [2821 3301]
+ [3173 3304]
+ [3126 3302]
+ [3262 3305]
+ [3195 3307]
+ [3176 3308]
+ [3303 3309]
+ [3306 3310]
+ [3226 3311]
+ [3151 3312]
+ [3078 3313]
+ [3267 3314]
+ [3222 3315]
+ [3284 3316]
+ [3111 3317]
+ [3143 3318]
+ [3231 3319]
+ [3276 3320]
+ [3192 3321]
+ [3259 3322]
+ [3229 3323]
+ [3272 3324]
+ [3251 3325]]

@@ -46,6 +46,7 @@ def read_source(sourcefile):
 	return [id_map, node_children, root]
 
 def draw_json(node_children, root, id_map, outputfile):
+	print outputfile
 	output = open(outputfile, 'w')
 	output_data = '{"name":"' + root + '"}\n'
 	q = Queue.Queue()
@@ -61,10 +62,13 @@ def draw_json(node_children, root, id_map, outputfile):
 				child_name = ''
 				if int(child) in id_map:
 					try:
-						news = News.objects.get(pk = id_map[int(child)])
-						child_name = str(id_map[int(child)]) + ' ' + news.title + ' ' + news.created_at
+						#print id_map[int(child)]
+						news = News.objects.get(ID =  id_map[int(child)])
+						child_name = str(id_map[int(child)]) + ' ' + str(news.title) + ' ' + str(news.created_at)
+						#print child_name
 					except:
-						print "No such News"
+						#print "No such News"
+						pass
 				else:
 					child_name = child
 
@@ -79,7 +83,7 @@ def draw_json(node_children, root, id_map, outputfile):
 	output.close()
 
 def test():
-	[id_map, temp_relation, root] = read_source('/Users/solitarylord/Documents/DjangoEnvir/TNDemo/demoBasic/tweenews/overviews/views/tmp_noknn.txt')
+	[id_map, temp_relation, root] = read_source(settings.MEDIA_ROOT + '/tmp_noknn.txt')
 	draw_json(temp_relation , root, id_map, settings.MEDIA_ROOT+'/' +'test.json')
 	print settings.MEDIA_ROOT
 	print settings.STATIC_ROOT
