@@ -3,6 +3,6 @@ from django.http import HttpResponse
 import util
 
 def cluster_view(request):
-    context = {'Json_Filename':'test1.json'}
+    context = {'Json_Filename':'test.json'}
     util.test()
     return render(request, 'cluster_test.html', context)
