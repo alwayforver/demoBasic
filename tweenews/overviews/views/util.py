@@ -67,8 +67,8 @@ def draw_json(node_children, root, id_map, outputfile):
 						child_name = str(id_map[int(child)]) + ' '+str(news.created_at)+ ' ' + str(news.title).replace('"','') 
 						#print child_name
 					except:
-						#print "No such News"
-						pass
+						print "No such News"
+						child_name = "NULL News:" + str(id_map[int(child)])
 				else:
 					child_name = child
 
