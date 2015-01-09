@@ -61,14 +61,16 @@ def draw_json(node_children, root, id_map, outputfile):
 			for child in node_children[node]:
 				child_name = ''
 				if int(child) in id_map:
+					news = None
 					try:
 						#print id_map[int(child)]
 						news = News.objects.get(ID =  id_map[int(child)])
-						child_name = str(id_map[int(child)]) + ' '+str(news.created_at)+ ' ' + str(news.title).replace('"','') 
-						#print child_name
 					except:
 						print "No such News"
 						child_name = "NULL News:" + str(id_map[int(child)])
+					if news != None:
+						child_name = str(id_map[int(child)]) + ' '+str(news.created_at)+ ' ' + str(news.title.encode('ascii','ignore')).replace('"','')
+						#print child_name
 				else:
 					child_name = child
 
