@@ -17,7 +17,7 @@ def GetLastLines(input_file) :
 	filesize = os.path.getsize(input_file)
 	blocksize = 102400
 	input = codecs.open(input_file, 'rb', encoding = 'utf-8')
-	last_line = ""
+	last_lines = []
 
 	if filesize > blocksize :
 		maxseekpoint = (filesize // blocksize)
@@ -36,11 +36,33 @@ def GetLastLines(input_file) :
 	return last_lines
 
 def GetLatestNews(input_file):
-	latest_news = []
+#	latest_news = []
+#	if os.path.exists(input_file):
+#		lines = GetLastLines(input_file)
+#		for line in lines:
+#			latest_news.append(line.split('\t')[1])
+#	return latest_news
+	latest_news = {}
 	if os.path.exists(input_file):
-		lines = GetLastLines(input_file)
+		input = codecs.open(input_file, encoding = 'utf-8')
+		lines = input.readlines()
 		for line in lines:
-			latest_news.append(line.split('\t')[0])
+			latest_news[line.split('\t')[1]] = 0
+		input.close()
+
+	folder = input_file.split('/')[0]
+	date = input_file.split('/')[1].split('.')[0]
+	today = datetime.datetime.strptime(date, '%Y-%m-%d').date()
+	yesterday = str(today - datetime.timedelta(days=1))
+	input_file = folder + '/' + yesterday + '.txt'
+
+	if os.path.exists(input_file):
+		input = codecs.open(input_file, encoding = 'utf-8')
+		lines = input.readlines()
+		for line in lines:
+			latest_news[line.split('\t')[1]] = 0
+		input.close()
+
 	return latest_news
 
 
@@ -48,6 +70,10 @@ def GoogleNewsCrawler(num_news, output_file, twitter_folder):
 	new_news = {}
 
 	latest_news = GetLatestNews(output_file)
+
+	news_id = codecs.open('news_id.txt', encoding = 'utf-8')
+	id = int(news_id.readline())
+	news_id.close()
 
 	#download news feed
 #	#=============Google News===============================
@@ -75,9 +101,13 @@ def GoogleNewsCrawler(num_news, output_file, twitter_folder):
 
 	#=============Reuters======================================
 #	url = 'http://feeds.reuters.com/reuters/topNews'
+
+	log = codecs.open('log.txt', 'a', encoding = 'utf-8')
 	
 	response = urllib2.urlopen(url)
 	content = response.read().decode('utf-8')
+	content = content.replace('\\u0026', '&')
+	content = content.replace('\\u200b', '')
 	results = simplejson.loads(content)
 	results = results.get('responseData').get('feed').get('entries')
 
@@ -97,7 +127,8 @@ def GoogleNewsCrawler(num_news, output_file, twitter_folder):
 	
 	for news_url in news_urls:
 		#get the full article via the url
-		url = 'http://' + news_url.split('//')[2][:-1]
+		url = 'http://' + news_url.split('//')[2]
+		url = url.replace('%3D', '=')
 
 		#ignore existing news
 		if url in latest_news:
@@ -106,14 +137,50 @@ def GoogleNewsCrawler(num_news, output_file, twitter_folder):
 			snippets.pop(0)
 			continue
 
-		article = newspaper.Article(url, language='en')
-		article.download()
-		article.parse()
+		
+		try:
+			article = newspaper.Article(url, language='en')
+			article.download()
+			article.parse()
+		except Exception:
+			google_title = titles.pop(0).split(' - ')
+			source = google_title.pop(len(google_title) - 1).replace('\\u0026', '&')
+			title = ' '.join(google_title).replace('\t', ' ')
+			blob = TextBlob(title)
+			keywords = blob.noun_phrases
+			authors = ''
+			text = ''
+			date = dates.pop(0)
+
+			output.write(str(id) + '\t')
+			output.write(url + '\t')
+			output.write(title.replace('\t', ' ').replace('\n', '::::').replace('\r', '::::') + '\t')
+			output.write(source + '\t')
+			output.write(date.replace('\t', ' ') + '\t')
+			output.write(authors + '\t')
+			output.write(';'.join(keywords) + '\t')
+			if len(snippets) == 0:
+				log.write('Write Error\n')
+				log.write(content)
+				output.write('\t')
+			else:
+				output.write(snippets.pop(0).replace('\\u0026', '&').replace('&amp;', '&').replace('&#39;', '\'').replace('&quot;', '\"') + '\t')
+			output.write(text + '\t')
+			output.write('\n')
+
+			twitter_file = twitter_folder + '/' + str(id) + '_' + ("".join(c for c in title if c not in (string.punctuation))).replace(' ', '_') + '-' + ("".join(c for c in source if c not in (string.punctuation))).replace(' ', '_')
+			new_news[twitter_file] = ' OR '.join(keywords)
+			id += 1
+
+			continue
 
 		#extract necessary information
 		google_title = titles.pop(0).split(' - ')
 		source = google_title.pop(len(google_title) - 1).replace('\\u0026', '&')
 		title = ' '.join(google_title).replace('\t', ' ')
+		if title[:-5] in article.title:
+			title = article.title
+
 
 		blob = TextBlob(title)
 		keywords = blob.noun_phrases
@@ -121,29 +188,34 @@ def GoogleNewsCrawler(num_news, output_file, twitter_folder):
 		text = article.text.replace('\t', ' ')
 		date = dates.pop(0)
 
-		twitter_file = twitter_folder + '/' + ("".join(c for c in title if c not in (string.punctuation))).replace(' ', '_') + '-' + ("".join(c for c in source if c not in (string.punctuation))).replace(' ', '_')
-		if os.path.exists(twitter_file):
-			snippets.pop(0)
-			continue
-
 
 		#write the information
+		output.write(str(id) + '\t')
 		output.write(url + '\t')
-		output.write(title.replace('\t', ' ').replace('\n', '::::') + '\t')
+		output.write(title.replace('\t', ' ').replace('\n', '::::').replace('\r', '::::') + '\t')
 		output.write(source + '\t')
 		output.write(date.replace('\t', ' ') + '\t')
 		output.write(';'.join(authors)+ '\t')
 		output.write(';'.join(keywords) + '\t')
-		output.write(snippets.pop(0).replace('\\u0026', '&').replace('&amp;', '&').replace('&#39;', '\'').replace('&quot;', '\"') + '\t')
-		output.write(text.replace('\t', ' ').replace('\n', '::::') + '\t')
+		if len(snippets) == 0:
+			log.write('Write Error\n')
+			log.write(content)
+			output.write('\t')
+		else:
+			output.write(snippets.pop(0).replace('\\u0026', '&').replace('&amp;', '&').replace('&#39;', '\'').replace('&quot;', '\"') + '\t')
+		output.write(text.replace('\t', ' ').replace('\n', '::::').replace('\r', '::::') + '\t')
 		output.write('\n')
 
-<<<<<<< HEAD:DataCollector/GoogleNewsCrawler.py
-		new_news[twitter_file] = ' '.join(keywords)
+		twitter_file = twitter_folder + '/' + str(id) + '_' + ("".join(c for c in title if c not in (string.punctuation))).replace(' ', '_') + '-' + ("".join(c for c in source if c not in (string.punctuation))).replace(' ', '_')
+		new_news[twitter_file] = ' OR '.join(keywords)
+		id += 1
 
-=======
-		new_news[twitter_folder + '/' + title.translate(string.maketrans("",""), string.punctuation).replace(' ', '_') + '-' + source.replace(' ', '_')] = ' '.join(keywords)
->>>>>>> origin/master:GoogleNewsCrawler.py
+	output.close()
+
+	news_id = codecs.open('news_id.txt', 'w', encoding='utf-8')
+	news_id.write(str(id))
+	news_id.close()
+
 	return new_news
 		
 			
