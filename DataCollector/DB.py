@@ -6,6 +6,10 @@ import codecs
 import datetime
 import threading
 
+#The code works in two ways.
+#You can specify the starting and ending dates you want to dump, for example, python DB.py 2014-12-01 2014-12-03 will dump data of the opening three days in Dec.
+#If you don't specify the dates, the program will first dump data of the day before yesterday, and then dump data once every day.
+
 
 def DumpTweets(username, password, dbname, date, tmp_file, tweet_files):
 	dbconnection = MySQLdb.connect('localhost', username, password, dbname)
