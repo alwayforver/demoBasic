@@ -4,23 +4,41 @@ import sys
 import time
 import codecs
 import datetime
+import threading
 
 
-def CreateTables(username, password, dbname):
+def DumpTweets(username, password, dbname, date, tmp_file, tweet_files):
 	dbconnection = MySQLdb.connect('localhost', username, password, dbname)
 	cursor = dbconnection.cursor()
 
-	cursor.execute("DROP TABLE IF EXISTS News")
-	sql = 'Create Table News (news_id INT NOT NULL, news_url VARCHAR(300), news_title VARCHAR(200), news_source VARCHAR(50), news_date VARCHAR(40), news_authors VARCHAR(300), news_keywords VARCHAR(200), news_snippets VARCHAR(500), news_content VARCHAR(20000), PRIMARY KEY (news_id) )'
-	cursor.execute(sql)
+	tmp_file = os.getcwd().replace('\\', '/') + '/tmp/' + tmp_file
+	output = codecs.open(tmp_file, 'w', encoding = 'utf-8')
 
-	cursor.execute("DROP TABLE IF EXISTS Tweets")
-	sql = 'CREATE TABLE Tweets (tweet_id CHAR(20) NOT NULL, tweet_text VARCHAR(200), tweet_time CHAR(30), tweet_urls VARCHAR(100), tweet_hashtags VARCHAR(50), retweeted_id CHAR(20), retweeted_favorited CHAR(5), retweeted_favorite_count VARCHAR(10), retweeted_retweeted CHAR(5), retweeted_retweeted_count VARCHAR(10), tweet_favorited CHAR(5), tweet_favorite_count VARCHAR(10), tweet_retweeted CHAR(5), tweet_retweet_count VARCHAR(10), user_id CHAR(10), user_verified CHAR(5), user_followers_count VARCHAR(10), user_status_count VARCHAR(10), user_friends_count VARCHAR(10), user_favorites_count VARCHAR(10), user_created_time CHAR(30), user_location VARCHAR(100), tweet_coordinates VARCHAR(40), tweet_source VARCHAR(30), tweet_mentions VARCHAR(100), tweet_reply_user_id CHAR(10), tweet_reply_status_id CHAR(20), PRIMARY KEY (tweet_id) )'
-	cursor.execute(sql)
+	for file in tweet_files:
+		tweet_file = os.getcwd().replace('\\', '/') + '/tweets/' + date + '/' + file
+		if os.path.getsize(tweet_file) < 30:
+			continue
 
-	cursor.execute("DROP TABLE IF EXISTS Connections")
-	sql = 'CREATE TABLE Connections (news_id INT NOT NULL, tweet_id CHAR(20) NOT NULL, PRIMARY KEY (news_id, tweet_id) )'
+		sql = 'LOAD DATA INFILE \'' + tweet_file + '\' IGNORE INTO TABLE overviews_tweet CHARACTER SET utf8mb4 (ID, raw_text, @var_tweet_time, tweet_urls, hash_tags, retweet_id, @var_retweet_favorited, retweet_favorite_count, @var_retweet_retweeted, retweet_retweet_count, @var_tweet_favorited, favorite_count, @var_tweet_retweeted, retweet_count, user, @var_user_verified, followers_count, status_count, friends_count, user_favorites_count, @var_user_time, location, coordinates, source, mentions, reply_user_id, reply_status_id) SET created_at = CONVERT_TZ(STR_TO_DATE(CONCAT(SUBSTR(@var_tweet_time, 1, 19), SUBSTR(@var_tweet_time, 26, 5)), \'%a %b %d %T %Y\'), CONCAT(SUBSTR(@var_tweet_time, 21, 3), \':00\'), \'+00:00\'), user_created_at = CONVERT_TZ(STR_TO_DATE(CONCAT(SUBSTR(@var_user_time, 1, 19), SUBSTR(@var_user_time, 26, 5)), \'%a %b %d %T %Y\'), CONCAT(SUBSTR(@var_user_time, 21, 3), \':00\'), \'+00:00\'), retweet_is_favorited = IF(@var_retweet_favorited = \'True\', 1, 0), retweet_is_retweeted = IF(@var_retweet_retweeted = \'True\', 1, 0), is_favorited = IF(@var_tweet_favorited = \'True\', 1, 0), is_retweet = IF(@var_tweet_retweeted = \'True\', 1, 0), verified = IF(@var_user_verified = \'True\', 1, 0)'
+		cursor.execute(sql)
+		dbconnection.commit()
+
+		news_id = file.split('_')[0]
+		input = codecs.open(tweet_file, encoding = 'utf-8')
+		lines = input.readlines()[:-1]
+
+		for line in lines:
+			tweet_id = line.split('\t')[0]
+			if len(tweet_id) > 0 and tweet_id[0].isdigit() and tweet_id[-1].isdigit():
+				output.write(tweet_id + '\t' + news_id + '\n')
+		input.close()
+	
+	output.close()
+
+	sql = 'LOAD DATA INFILE \'' + tmp_file + '\' IGNORE INTO TABLE overviews_tweet_related_news CHARACTER SET utf8mb4 (tweet_id, news_id)'
 	cursor.execute(sql)
+	dbconnection.commit()
+	dbconnection.close()
 
 
 def Dump(date, username, password, dbname):
@@ -31,61 +49,45 @@ def Dump(date, username, password, dbname):
 	cursor = dbconnection.cursor()
 
 	news_file = os.getcwd().replace('\\', '/') + '/news/' + date + '.txt'
-	sql = 'LOAD DATA LOCAL INFILE \'' + news_file + '\' IGNORE INTO TABLE News CHARACTER SET utf8 (news_id, news_url, news_title, news_source, news_date, news_authors,  news_keywords, news_snippets, news_content, @temp)'
+	sql = 'LOAD DATA INFILE \'' + news_file + '\' IGNORE INTO TABLE overviews_news CHARACTER SET utf8mb4 (ID, url, title, source, @var_news_date, authors,  key_word, snippet, raw_text, @temp) SET created_at = CONVERT_TZ(STR_TO_DATE(SUBSTR(@var_news_date, 1, 25), \'%a, %d %b %Y %T\'), CONCAT(SUBSTR(@var_news_date, 27, 3), \':00\'), \'+00:00\')'
 	cursor.execute(sql)
 	dbconnection.commit()
+	dbconnection.close()
 
-	output = codecs.open('temp.txt', 'w', encoding = 'utf-8')
+#	tweets_folder = 'tweets/' + date
+#	tweet_files = os.listdir(tweets_folder)
+#	tweet_partition = [[], [], [], []]
+#	threads = []
+#	
+#	for i in xrange(0, len(tweet_files)):
+#		tweet_partition[i % 4].append(tweet_files[i])
+#
+#	for i in xrange(0, 4):
+#		thread = threading.Thread(target = DumpTweets, args = (username, password, dbname, date, 'temp' + str(i), tweet_partition[i]))
+#		threads.append(thread)
+#		thread.start()
+#
+#	for thread in threads:
+#		thread.join()
+
 	tweets_folder = 'tweets/' + date
 	tweet_files = os.listdir(tweets_folder)
-	for file in tweet_files:
-		tweet_file = 'tweets/' + date + '/' + file
-		if os.path.getsize(tweet_file) < 30:
-			continue
+	DumpTweets(username, password, dbname, date, 'temp', tweet_files)
 
-		print file
-		sql = 'LOAD DATA LOCAL INFILE \'' + tweet_file + '\' IGNORE INTO TABLE Tweets CHARACTER SET utf8 '
-		cursor.execute(sql)
-		dbconnection.commit()
 
-		news_id = file.split('_')[0]
-		input = codecs.open(tweet_file, encoding = 'utf-8')
-		lines = input.readlines()[:-1]
-		for line in lines:
-			tweet_id = line.split('\t')[0]
-			output.write(news_id + '\t' + tweet_id + '\n')
-		input.close()
-	
-	output.close()
-
-	sql = 'LOAD DATA LOCAL INFILE \'temp.txt\' INTO TABLE Connections CHARACTER SET utf8 '
-	cursor.execute(sql)
-	dbconnection.commit()
-
-	dbconnection.close()
 	print 'Finished at', datetime.datetime.now()
 	print 'Time elapsed ', datetime.datetime.now() - start
 
-def Test(username, password, dbname):
-	dbconnection = MySQLdb.connect('localhost', username, password, dbname)
-	cursor = dbconnection.cursor()
-
-	sql = 'SELECT * FROM Tweets WHERE tweet_id LIKE "53937"'
-	cursor.execute(sql)
-	data = cursor.fetchone()
-	print data
-
-	dbconnection.close()
 
 if __name__ == '__main__':
-	username = 'tong'
-	password = '123456'
-	dbname = 'news_twitter'
+	username = 'hcai6'
+	password = 'haoyan'
+	dbname = 'NewsTwitter0128'
 
-#	Test(username, password, dbname)
+	if not os.path.exists('tmp'):
+		os.makedirs('tmp')
 
-	CreateTables(username, password, dbname)
-#
+
 	if len(sys.argv) > 1:
 		start = sys.argv[1]
 		end = sys.argv[2]
