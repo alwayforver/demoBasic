@@ -5,17 +5,30 @@ import time
 import codecs
 import datetime
 import threading
+import stat
 
 #The code works in two ways.
 #You can specify the starting and ending dates you want to dump, for example, python DB.py 2014-12-01 2014-12-03 will dump data of the opening three days in Dec.
 #If you don't specify the dates, the program will first dump data of the day before yesterday, and then dump data once every day.
 
 
-def DumpTweets(username, password, dbname, date, tmp_file, tweet_files):
+
+def Dump(date, username, password, dbname):
+	start = datetime.datetime.now()
+	print 'Starting Dump Data for ', date, 'at', start
+
 	dbconnection = MySQLdb.connect('localhost', username, password, dbname)
 	cursor = dbconnection.cursor()
 
-	tmp_file = os.getcwd().replace('\\', '/') + '/tmp/' + tmp_file
+	news_file = os.getcwd().replace('\\', '/') + '/news/' + date + '.txt'
+	sql = 'LOAD DATA INFILE \'' + news_file + '\' IGNORE INTO TABLE overviews_news CHARACTER SET utf8mb4 (ID, url, title, source, @var_news_date, authors,  key_word, snippet, raw_text, @temp) SET created_at = CONVERT_TZ(STR_TO_DATE(SUBSTR(@var_news_date, 1, 25), \'%a, %d %b %Y %T\'), CONCAT(SUBSTR(@var_news_date, 27, 3), \':00\'), \'+00:00\')'
+	cursor.execute(sql)
+	dbconnection.commit()
+
+	tweets_folder = 'tweets/' + date
+	tweet_files = os.listdir(tweets_folder)
+
+	tmp_file = os.getcwd().replace('\\', '/') + '/tmp/temp'
 	output = codecs.open(tmp_file, 'w', encoding = 'utf-8')
 
 	for file in tweet_files:
@@ -45,41 +58,7 @@ def DumpTweets(username, password, dbname, date, tmp_file, tweet_files):
 	dbconnection.close()
 
 
-def Dump(date, username, password, dbname):
-	start = datetime.datetime.now()
-	print 'Starting Dump Data for ', date, 'at', start
-
-	dbconnection = MySQLdb.connect('localhost', username, password, dbname)
-	cursor = dbconnection.cursor()
-
-	news_file = os.getcwd().replace('\\', '/') + '/news/' + date + '.txt'
-	sql = 'LOAD DATA INFILE \'' + news_file + '\' IGNORE INTO TABLE overviews_news CHARACTER SET utf8mb4 (ID, url, title, source, @var_news_date, authors,  key_word, snippet, raw_text, @temp) SET created_at = CONVERT_TZ(STR_TO_DATE(SUBSTR(@var_news_date, 1, 25), \'%a, %d %b %Y %T\'), CONCAT(SUBSTR(@var_news_date, 27, 3), \':00\'), \'+00:00\')'
-	cursor.execute(sql)
-	dbconnection.commit()
-	dbconnection.close()
-
-#	tweets_folder = 'tweets/' + date
-#	tweet_files = os.listdir(tweets_folder)
-#	tweet_partition = [[], [], [], []]
-#	threads = []
-#	
-#	for i in xrange(0, len(tweet_files)):
-#		tweet_partition[i % 4].append(tweet_files[i])
-#
-#	for i in xrange(0, 4):
-#		thread = threading.Thread(target = DumpTweets, args = (username, password, dbname, date, 'temp' + str(i), tweet_partition[i]))
-#		threads.append(thread)
-#		thread.start()
-#
-#	for thread in threads:
-#		thread.join()
-
-	tweets_folder = 'tweets/' + date
-	tweet_files = os.listdir(tweets_folder)
-	DumpTweets(username, password, dbname, date, 'temp', tweet_files)
-
-
-	print 'Finished at', datetime.datetime.now()
+	print 'Finished', date,  'at', datetime.datetime.now()
 	print 'Time elapsed ', datetime.datetime.now() - start
 
 
@@ -96,18 +75,30 @@ if __name__ == '__main__':
 		start = sys.argv[1]
 		end = sys.argv[2]
 
-		files = os.listdir('news')
-		for file in files:
-			date = file.split('.')[0]
-			if date >= start and date <= end:
-				Dump(date, username, password, dbname)
+		start = datetime.date(int(start.split('-')[0]), int(start.split('-')[1]), int(start.split('-')[2]))
+		end = datetime.date(int(end.split('-')[0]), int(end.split('-')[1]), int(end.split('-')[2]))
+
+		date = start
+		while date <= end:
+			os.system('chmod -R 777 news')
+			os.system('chmod -R 777 tweets')
+			
+			if os.path.exists('news/' + str(date) + '.txt'):
+				Dump(str(date), username, password, dbname)
+
+			date += datetime.timedelta(days = 1)
 
 	else:
 		daytime = 60 * 60 * 24
 		while True:
+			os.system('chmod -R 777 news')
+			os.system('chmod -R 777 tweets')
+
 			today = datetime.date.today()
 			before_yesterday = str(today - datetime.timedelta(days=2))
-			Dump(before_yesterday, username, password, dbname)
+			if os.path.exists('news/' + str(before_yesterday) + '.txt'):
+				Dump(before_yesterday, username, password, dbname)
+				
 			time.sleep(daytime)
 
 
