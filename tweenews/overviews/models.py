@@ -51,6 +51,6 @@ class Tweet(models.Model):
     related_news = models.ManyToManyField(News)
 
     def __str__(self):
-    return "Tweet "+str(self.ID)+ ' '  + str(self.raw_text.encode("utf-8","ignore"))
+        return "Tweet "+str(self.ID)+ ' '  + str(self.raw_text.encode("utf-8","ignore"))
 
 
