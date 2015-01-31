@@ -13,7 +13,7 @@ def news(request, pos = 1, rank_method = 0):
         news_set = News.objects.filter(title__icontains=query)
         #print new_set
         print 'Post ' + str(news_set.count())
-    else:
+    elif(request.method == 'POST'):
         string_type = ['key_word', 'source', 'main_article', 'title']
         manytomany_type = ['ID']
         timetype = ['created_at']

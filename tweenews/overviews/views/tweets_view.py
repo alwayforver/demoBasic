@@ -17,6 +17,7 @@ def tweet_with_news(request, news_ID, pos = 1, counts = -1):
     start = time.time()
     try:
         current_news = News.objects.get(pk=news_ID)
+	print "Get News:" + str(current_news.ID)
     except:
         raise Http404
     tweets_set = None
