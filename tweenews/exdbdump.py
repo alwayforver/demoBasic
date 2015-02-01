@@ -34,6 +34,7 @@ if __name__ == "__main__":
     tweets_log = open("tweets.log","a+")
     for line in f:
         if len(line.strip().split("\t")) != 9:
+            print "not 9 fields: News " + line 
             continue
         id,url,title,source,date,authors,keywords,snippets,text = line.strip().split("\t")
         

@@ -2,22 +2,122 @@ import os
 import sys
 from datetime import datetime
 import django
+import re
+import string
+# parse time zone string to django time zone aware datetime 
 
-
-local_base = '/Users/Min/Dropbox/Lab/TweeNews/demoBasic/tweenews'
+local_base = '/home/jwang112/projects/tweet/demoBasic/tweenews'
 sys.path.append(local_base)
-
+#print sys.path
+from dateutil.parser import parse
 os.environ['DJANGO_SETTINGS_MODULE']='tweenews.settings'
 
 from overviews.models import News, Tweet
+from django.db import transaction
 
+
+# test git
 # This is a script for database queries
 # Please refer to https://docs.djangoproject.com/en/dev/topics/db/queries/
 if __name__ == "__main__":
+    if len(sys.argv) != 3:
+        print 'usage: python ' + sys.argv[0] + ' newsfile tweetfolder'
+        sys.exit(-1)
     django.setup()
+    
+    
+    # save news
+    # for each news in news.txt, save news
+    #     for each related tweets:
+    ##        save tweets and add related news
+    f = open(sys.argv[1],"r")
+#    news_log = open("news.log","a+")
+#    tweets_log = open("tweets.log","a+")
+    for line in f:
+        if len(line.strip().split("\t")) != 9:
+            print "not 9 fields: News " + line 
+            continue
+        id,url,title,source,date,authors,keywords,snippets,text = line.strip().split("\t")
+        
+        date_utc = parse(date) # parse from string to datetime object with timezone information
+        date_local_timezone = date[len(date)-5:]# local time
+        
+        # length checks
+        if len(text) > 10000:
+            text = text[:10000]
+ #           news_log.write("text too long: "+id+"\n")
+        if len(title) > 200:
+            title = title[:200]
+ #           news_log.write("title too long: "+id+"\n")
+        if len(keywords) > 200:
+            keywords = keywords[:200]
+ #           news_log.write("keywords too long: "+id+"\n")
+        if len(url) > 200:
+            url = url[:200]
+ #           news_log.write("url too long: "+id+"\n")
+        if len(source) > 30:
+            source = source[:30]
+ #           news_log.write("source too long: "+id+"\n")
+        
+        news = News(ID = int(id),url = url, raw_text = text,created_at = date_utc, local_time_zone = date_local_timezone , key_word = keywords, source = source, title = title)
+        # save news object to db
+        news.save()
+        
 
-    # insert object
+        with transaction.atomic():
+            # for each related tweets
+            #t_path = os.path.join("/srv/data/twitter_news/data/tweets/",title.translate(string.maketrans("",""), string.punctuation).replace(" ","_") + '-' + source.replace(" ","_"))
+            #t_path = os.path.join("/srv/data/twitter_news/data/tweets/",title.replace(" ","_") + '-' + source.replace(" ","_"))
+            #t_path = os.path.join(sys.argv[2],title.replace(" ","_") + '-' + source.replace(" ","_"))
+            t_path = os.path.join(sys.argv[2],(id+"_"+"".join(c for c in title if c not in (string.punctuation))).replace(' ', '_') + '-' + ("".join(c for c in source if c not in (string.punctuation))).replace(' ', '_'))
+            print "t_path",t_path
+            if os.path.exists(t_path):
+                t = open(t_path,"r")
+            else:
+                continue
+            
+            for line in t:
+                fields = line.strip().split("\t")
+                # new format of the crawled tweets
+                #if len(fields) != 27:
+                # length of tweets are 24 or 25
+                # TODO check why
+                if len(fields) < 24:
+ #                   tweets_log.write("not 27:"+line.strip()+"\n")
+                    continue
 
+                tw_id_str, tw_text, tw_created_at, contained_url, tag_text, retw_id_str, retw_favorited, retw_favorite_count, retw_retweeted, retw_retweet_count, \
+                tw_favorited, tw_favorite_count, tw_retweeted, tw_retweet_count, user_id_str, verified, follower_count, statuses_count, friends_count, \
+            favorites_count, user_created_at= fields[:21]
+                if len(tag_text) > 100:
+ #                   tweets_log.write("hashtag too long: "+line.strip()+"\n")
+                    continue
+                if len(tw_text) > 200:
+ #                   tweets_log.write("tweet too long: "+line.strip()+"\n")
+                    continue
+                
+                # convert user_created time
+                # Fri Nov 07 22:20:38 +0000 2014
+                tw_created_at_tz = parse(tw_created_at) # utc time with tz information
+                tw_local_timezone = tw_created_at[len(tw_created_at)-10:len(tw_created_at)-5] # +0000
+
+                
+                # Tweet object
+                tweet = Tweet(ID=int(tw_id_str), user=int(user_id_str) ,raw_text = tw_text,created_at = tw_created_at_tz, local_time_zone = tw_local_timezone, retweet_count = tw_retweet_count,\
+                hash_tags = tag_text)
+               
+               # save the record into django db
+                tweet.save() 
+                tweet.related_news.add(news)
+            t.close()
+#    news_log.close()
+#    tweets_log.close()
+    f.close()
+
+    
+    
+        
+    
     # for i in range(3):
     #     tweet = Tweet(ID=i, user="user"+str(i),
     #                     raw_text = "this is test tweet "+str(i),created_at=datetime.now(), key_word="test,test",hash_tags="")
