@@ -81,7 +81,8 @@
 </p>
 
 {% if related_tweets_list %}
-
+<a href="{% url 'overview:tweet_next' current_news.ID CurPos counts 0%}{% if q %}&q={{q}}{% endif %} ">Filter URL Tweets</a>
+<a href="{% url 'overview:tweet_next' current_news.ID CurPos counts 1%}{% if q %}&q={{q}}{% endif %} ">Show URL Tweets</a>
 <div align="center">
 	<table class="table table-striped" style="width:80%">
 	  <tr>
@@ -91,16 +92,12 @@
 	    <td>hashtags</td>
 	  </tr>
 	  {% for tweet in related_tweets_list %}
-    {% with flag = tweet.raw_text | NoURLTweets %}
-	{% if flag  %}
 	  <tr>
 	    <td>{{ tweet.raw_text }}</td>
 	    <td>{{ tweet.user }}</td> 
 	    <td>{{ tweet.created_at }}</td>
 	    <td>{{ tweet.hash_tags }}</td>
 	  </tr>
-    {% endif %}
-	{% endwith %}
 	  {% endfor %}
 	</table>
 </div>

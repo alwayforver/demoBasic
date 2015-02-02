@@ -12,6 +12,7 @@ urlpatterns = patterns('',
     url(r'^tweet/id=(?P<tweet_id>\d+)/$', views.tweet_page, name='tweet_base'),
     url(r'^tweet/news=(?P<news_ID>\d+)/$',views.tweet_with_news, name ='tweet_with_news'),
     url(r'^tweet/news=(?P<news_ID>\d+)page(?P<pos>\d+):(?P<counts>\d+)&q=(?P<q>\w*)$',views.tweet_with_news, name ='tweet_with_news'),
+    url(r'^tweet/news=(?P<news_ID>\d+)page(?P<pos>\d+):(?P<counts>\d+)&(?P<showURL>\d+)&q=(?P<q>\w*)$',views.tweet_with_news, name ='tweet_with_news'),
     url(r'^tweet/news=(?P<news_ID>\d+)page(?P<pos>\d+):(?P<counts>\d+)$', views.tweet_with_news, name='tweet_next'),
     url(r'^cluster_test/$', views.cluster_view, name='cluster_test'),
 )
