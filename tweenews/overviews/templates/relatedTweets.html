@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="author" content="Yifang Zhang">
+    <meta name="author" content="DM Group">
     <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
 
     <title>Tweenews Main Page</title>
@@ -91,12 +91,14 @@
 	    <td>hashtags</td>
 	  </tr>
 	  {% for tweet in related_tweets_list %}
+    {% if tweet | NoURLTweets %}
 	  <tr>
 	    <td>{{ tweet.raw_text }}</td>
 	    <td>{{ tweet.user }}</td> 
 	    <td>{{ tweet.created_at }}</td>
 	    <td>{{ tweet.hash_tags }}</td>
 	  </tr>
+    {% endif %}
 	  {% endfor %}
 	</table>
 </div>
