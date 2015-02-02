@@ -9,7 +9,7 @@ def index(request):
     
     return render(request,"index.html")
 
-def tweet_with_news(request, news_ID, pos = 1, counts = -1, showURL=1, q= ''):
+def tweet_with_news(request, news_ID, pos = 1, counts = -1, showURL=1):
     query = None
     base_page = 1
     pos = max(int(pos),base_page)
@@ -27,9 +27,8 @@ def tweet_with_news(request, news_ID, pos = 1, counts = -1, showURL=1, q= ''):
         tweets_set = current_news.tweet_set.all().filter(raw_text__icontains=query)
         counts = len(tweets_set)
 
-    if request.method == 'GET' and q != '':
-        print q
-        query = q.strip()
+    if request.method == 'GET' and 'q' in request.GET :
+        query = request.GET.get('q','').strip()
         if len(query) > 0:
             news_set = News.objects.select_related().filter(raw_text__icontains=query)
             print "Search Result Move On"

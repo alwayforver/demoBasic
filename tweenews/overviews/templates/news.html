@@ -135,9 +135,9 @@
 <h1> News Table </h1>
 <div class="row" id="order">
                         <ol class="breadcrumb">
-                            <li><a href="{% url 'overview:news_next' 0 0 %}{% if q %}&q={{q}}{% endif %} ">Order by ID</a></li>
-                            <li><a href="{% url 'overview:news_next' 0 1 %}{% if q %}&q={{q}}{% endif %} ">Order by Created Time</a></li>
-                            <li><a href="{% url 'overview:news_next' 0 2 %}{% if q %}&q={{q}}{% endif %} ">Order by Latest</a></li>
+                            <li><a href="{% url 'overview:news_next' 0 0 %}{% if q %}?q={{q}}{% endif %} ">Order by ID</a></li>
+                            <li><a href="{% url 'overview:news_next' 0 1 %}{% if q %}?q={{q}}{% endif %} ">Order by Created Time</a></li>
+                            <li><a href="{% url 'overview:news_next' 0 2 %}{% if q %}?q={{q}}{% endif %} ">Order by Latest</a></li>
                         </ol>
                     </div>
 {% if search_fail %}   
@@ -170,13 +170,13 @@
 {% endif %}
         <div class="row" id="pager">
          <ul class="pager">
-         <li><a href="{% url 'overview:news_next' 1  rankmethod %}{% if q %}&q={{q}}{% endif %} ">Start</a></li>
-         <li><a href="{% url 'overview:news_next' prevPos  rankmethod %}{% if q %}&q={{q}}{% endif %}">Previous</a></li>
+         <li><a href="{% url 'overview:news_next' 1  rankmethod %}{% if q %}?q={{q}}{% endif %} ">Start</a></li>
+         <li><a href="{% url 'overview:news_next' prevPos  rankmethod %}{% if q %}?q={{q}}{% endif %}">Previous</a></li>
          {%for pos in page_index %}
-          <li><a href="{% url 'overview:news_next' pos  rankmethod  %}{% if q %}&q={{q}}{% endif %}">{{pos}}</a></li>
+          <li><a href="{% url 'overview:news_next' pos  rankmethod  %}{% if q %}?q={{q}}{% endif %}">{{pos}}</a></li>
           {%endfor%}
-          <li><a href="{% url 'overview:news_next' nextPos  rankmethod %}{% if q %}&q={{q}}{% endif %}">Next</a></li>
-          <li><a href="{% url 'overview:news_next' last_pos  rankmethod %}{% if q %}&q={{q}}{% endif %}">Total {{last_pos}}</a></li>
+          <li><a href="{% url 'overview:news_next' nextPos  rankmethod %}{% if q %}?q={{q}}{% endif %}">Next</a></li>
+          <li><a href="{% url 'overview:news_next' last_pos  rankmethod %}{% if q %}?q={{q}}{% endif %}">Total {{last_pos}}</a></li>
           </ul>
         </div>
        <div id="scrolltop_button"> </div>

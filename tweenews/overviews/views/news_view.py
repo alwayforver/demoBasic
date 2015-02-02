@@ -5,7 +5,7 @@ import math
 import time
 from overviews.forms import SearchForm
 
-def news(request, pos = 1, rank_method = 0, q = ''):
+def news(request, pos = 1, rank_method = 0):
     news_set = None
     form = SearchForm()
     query = None
@@ -43,9 +43,10 @@ def news(request, pos = 1, rank_method = 0, q = ''):
         print 'Advanced Search'
 
     ## check search
-    if request.method == 'GET' and q != '':
-        print q
-        query = q.strip()
+    if request.method == 'GET' and 'q' in request.GET :
+        #print q
+        query = request.GET.get('q', '')
+        query = query.strip()
         if len(query) > 0:
             news_set = News.objects.select_related().filter(title__icontains=query)
             print "Search Result Move On"
