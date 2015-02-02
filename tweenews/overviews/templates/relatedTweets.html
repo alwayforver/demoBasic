@@ -91,7 +91,8 @@
 	    <td>hashtags</td>
 	  </tr>
 	  {% for tweet in related_tweets_list %}
-    {% if tweet | NoURLTweets %}
+    {% with flag = tweet.raw_text | NoURLTweets %}
+	{% if flag  %}
 	  <tr>
 	    <td>{{ tweet.raw_text }}</td>
 	    <td>{{ tweet.user }}</td> 
@@ -99,6 +100,7 @@
 	    <td>{{ tweet.hash_tags }}</td>
 	  </tr>
     {% endif %}
+	{% endwith %}
 	  {% endfor %}
 	</table>
 </div>
