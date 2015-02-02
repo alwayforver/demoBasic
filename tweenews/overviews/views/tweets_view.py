@@ -10,6 +10,7 @@ def index(request):
     return render(request,"index.html")
 
 def tweet_with_news(request, news_ID, pos = 1, counts = -1, q= ''):
+    query = None
     base_page = 1
     pos = max(int(pos),base_page)
     one_page = 30
@@ -55,8 +56,9 @@ def tweet_with_news(request, news_ID, pos = 1, counts = -1, q= ''):
     page_index = range(start_pos, end_pos+1)
     prev = max(1, pos - 1)
     nextPos = min(end_pos, pos+1)
-    context = {'related_tweets_list':related_tweets_list,'current_news':current_news, 'nextPos': nextPos,'prevPos': prev, 'page_index':page_index, 'counts':total_num, 'last_pos': last_pos, 'q': query} 
-
+    context = {'related_tweets_list':related_tweets_list,'current_news':current_news, 'nextPos': nextPos,'prevPos': prev, 'page_index':page_index, 'counts':total_num, 'last_pos': last_pos} 
+    if query:
+        context['q'] = query
     return render(request, 'relatedTweets.html', context)
 
 def tweet_page(request, tweet_id):

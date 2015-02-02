@@ -107,13 +107,13 @@
 {% endif %}
         <div class="row" id="pager">
          <ul class="pager">
-         <li><a href="{% url 'overview:tweet_next' current_news.ID 1 counts%}&q={{q}}">Start</a></li>
-         <li><a href="{% url 'overview:tweet_next' current_news.ID prevPos counts%}&q={{q}}">Previous</a></li>
+         <li><a href="{% url 'overview:tweet_next' current_news.ID 1 counts%}{% if q %}&q={{q}}{% endif %} ">Start</a></li>
+         <li><a href="{% url 'overview:tweet_next' current_news.ID prevPos counts%}{% if q %}&q={{q}}{% endif %} ">Previous</a></li>
          {%for pos in page_index %}
-          <li><a href="{% url 'overview:tweet_next' current_news.ID pos  counts%}&q={{q}}">{{pos}}</a></li>
+          <li><a href="{% url 'overview:tweet_next' current_news.ID pos  counts%}{% if q %}&q={{q}}{% endif %} ">{{pos}}</a></li>
           {%endfor%}
-          <li><a href="{% url 'overview:tweet_next' current_news.ID nextPos counts %}&q={{q}}">Next</a></li>
-          <li><a href="{% url 'overview:tweet_next' current_news.ID last_pos counts %}&q={{q}}">Total {{last_pos}}</a></li>
+          <li><a href="{% url 'overview:tweet_next' current_news.ID nextPos counts %}{% if q %}&q={{q}}{% endif %} ">Next</a></li>
+          <li><a href="{% url 'overview:tweet_next' current_news.ID last_pos counts %}{% if q %}&q={{q}}{% endif %} ">Total {{last_pos}}</a></li>
           </ul>
         </div>
        <div id="scrolltop_button"></div>

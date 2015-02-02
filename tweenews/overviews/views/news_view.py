@@ -8,6 +8,7 @@ from overviews.forms import SearchForm
 def news(request, pos = 1, rank_method = 0, q = ''):
     news_set = None
     form = SearchForm()
+    query = None
     if(request.method == 'POST' and 'q' in request.POST):
         query =  request.POST['q']
         news_set = News.objects.filter(title__icontains=query)
@@ -85,9 +86,11 @@ def news(request, pos = 1, rank_method = 0, q = ''):
     last_pos = int(math.ceil(float(total_num)/float(one_page)))
     prev = max(1, pos - 1)
     nextPos = min(end_pos, pos+1)
-    context = {'all_news_list':all_news_list, 'search_form': form, 'page_index':page_index, 'nextPos': nextPos,'prevPos': prev, 'rankmethod': rank_method, 'last_pos': last_pos, 'q': query}
+    context = {'all_news_list':all_news_list, 'search_form': form, 'page_index':page_index, 'nextPos': nextPos,'prevPos': prev, 'rankmethod': rank_method, 'last_pos': last_pos}
     if request.method == 'POST' and news_set != None and SearchFlag == False:
         context['search_fail'] = True
+    if query:
+        context['q'] = query
     return render(request, 'news.html', context)
 
 
