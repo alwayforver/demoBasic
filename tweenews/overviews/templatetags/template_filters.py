@@ -18,7 +18,7 @@ def plus(num1,num2):
 def NoURLTweets(tweet):
 	if "http://" in tweet:
 		return False
-	else
+	else:
 		return True
 
 def replace_mark(content):
