@@ -47,9 +47,9 @@ def tweet_with_news(request, news_ID, pos = 1, counts = -1, showURL=1, q= ''):
         related_tweets_list = News.objects.get(ID=news_ID).tweet_set.all()[(pos-1)*one_page : pos*one_page]
     end = time.time()
     print start - end
-
-    if showURL == 0:
-        temp = [tw for tw in related_tweets_list if "http://" not in tw]
+    if showURL == "0":
+	print "Filter Tweet"
+        temp = [tw for tw in related_tweets_list if "http:" not in tw.raw_text]
         related_tweets_list = temp
 
     end_pos = min( pos + default_pagenum , int(math.ceil(float(total_num)/float(one_page))))

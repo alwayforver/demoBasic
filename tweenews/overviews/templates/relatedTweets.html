@@ -81,8 +81,8 @@
 </p>
 
 {% if related_tweets_list %}
-<a href="{% url 'overview:tweet_next' current_news.ID CurPos counts 0%}{% if q %}&q={{q}}{% endif %} ">Filter URL Tweets</a>
-<a href="{% url 'overview:tweet_next' current_news.ID CurPos counts 1%}{% if q %}&q={{q}}{% endif %} ">Show URL Tweets</a>
+<a href="{% url 'overview:tweet_filter' current_news.ID CurPos counts 0%}">Filter URL Tweets</a>
+<a href="{% url 'overview:tweet_filter' current_news.ID CurPos counts 1%}">Show URL Tweets</a>
 <div align="center">
 	<table class="table table-striped" style="width:80%">
 	  <tr>
