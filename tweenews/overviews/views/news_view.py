@@ -5,7 +5,7 @@ import math
 import time
 from overviews.forms import SearchForm
 
-def news(request, pos = 1, rank_method = 0):
+def news(request, pos = 1, rank_method = 0, q = ''):
     news_set = None
     form = SearchForm()
     if(request.method == 'POST' and 'q' in request.POST):
@@ -40,6 +40,15 @@ def news(request, pos = 1, rank_method = 0):
                 news_set = News.objects.select_related().filter(**kwargs)
                 print len(news_set)
         print 'Advanced Search'
+
+    ## check search
+    if request.method == 'GET':
+        q = request.GET.get('q', '')
+        q = q.strip()
+        if len(q) > 0:
+            news_set = News.objects.select_related().filter(title__icontains=query)
+            print "Search Result Move On"
+
     base_page = 1
     pos = max(int(pos),base_page)
     rank_method = int(rank_method)
@@ -76,7 +85,7 @@ def news(request, pos = 1, rank_method = 0):
     last_pos = int(math.ceil(float(total_num)/float(one_page)))
     prev = max(1, pos - 1)
     nextPos = min(end_pos, pos+1)
-    context = {'all_news_list':all_news_list, 'search_form': form, 'page_index':page_index, 'nextPos': nextPos,'prevPos': prev, 'rankmethod': rank_method, 'last_pos': last_pos}
+    context = {'all_news_list':all_news_list, 'search_form': form, 'page_index':page_index, 'nextPos': nextPos,'prevPos': prev, 'rankmethod': rank_method, 'last_pos': last_pos, 'q': q}
     if request.method == 'POST' and news_set != None and SearchFlag == False:
         context['search_fail'] = True
     return render(request, 'news.html', context)

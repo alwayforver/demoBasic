@@ -170,13 +170,13 @@
 {% endif %}
         <div class="row" id="pager">
          <ul class="pager">
-         <li><a href="{% url 'overview:news_next' 1  rankmethod %}">Start</a></li>
-         <li><a href="{% url 'overview:news_next' prevPos  rankmethod %}">Previous</a></li>
+         <li><a href="{% url 'overview:news_next' 1  rankmethod %}&q={{q}}">Start</a></li>
+         <li><a href="{% url 'overview:news_next' prevPos  rankmethod %}&q={{q}}">Previous</a></li>
          {%for pos in page_index %}
-          <li><a href="{% url 'overview:news_next' pos  rankmethod  %}">{{pos}}</a></li>
+          <li><a href="{% url 'overview:news_next' pos  rankmethod  %}&q={{q}}">{{pos}}</a></li>
           {%endfor%}
-          <li><a href="{% url 'overview:news_next' nextPos  rankmethod %}">Next</a></li>
-          <li><a href="{% url 'overview:news_next' last_pos  rankmethod %}">Total {{last_pos}}</a></li>
+          <li><a href="{% url 'overview:news_next' nextPos  rankmethod %}&q={{q}}">Next</a></li>
+          <li><a href="{% url 'overview:news_next' last_pos  rankmethod %}&q={{q}}">Total {{last_pos}}</a></li>
           </ul>
         </div>
        <div id="scrolltop_button"> </div>
