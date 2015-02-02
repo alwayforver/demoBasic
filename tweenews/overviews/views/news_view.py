@@ -42,10 +42,10 @@ def news(request, pos = 1, rank_method = 0, q = ''):
         print 'Advanced Search'
 
     ## check search
-    if request.method == 'GET':
-        q = request.GET.get('q', '')
-        q = q.strip()
-        if len(q) > 0:
+    if request.method == 'GET' and q != '':
+        print q
+        query = q.strip()
+        if len(query) > 0:
             news_set = News.objects.select_related().filter(title__icontains=query)
             print "Search Result Move On"
 
@@ -85,7 +85,7 @@ def news(request, pos = 1, rank_method = 0, q = ''):
     last_pos = int(math.ceil(float(total_num)/float(one_page)))
     prev = max(1, pos - 1)
     nextPos = min(end_pos, pos+1)
-    context = {'all_news_list':all_news_list, 'search_form': form, 'page_index':page_index, 'nextPos': nextPos,'prevPos': prev, 'rankmethod': rank_method, 'last_pos': last_pos, 'q': q}
+    context = {'all_news_list':all_news_list, 'search_form': form, 'page_index':page_index, 'nextPos': nextPos,'prevPos': prev, 'rankmethod': rank_method, 'last_pos': last_pos, 'q': query}
     if request.method == 'POST' and news_set != None and SearchFlag == False:
         context['search_fail'] = True
     return render(request, 'news.html', context)
