@@ -9,7 +9,7 @@ def index(request):
     
     return render(request,"index.html")
 
-def tweet_with_news(request, news_ID, pos = 1, counts = -1):
+def tweet_with_news(request, news_ID, pos = 1, counts = -1, q= ''):
     base_page = 1
     pos = max(int(pos),base_page)
     one_page = 30
@@ -26,6 +26,12 @@ def tweet_with_news(request, news_ID, pos = 1, counts = -1):
         tweets_set = current_news.tweet_set.all().filter(raw_text__icontains=query)
         counts = len(tweets_set)
 
+    if request.method == 'GET' and q != '':
+        print q
+        query = q.strip()
+        if len(query) > 0:
+            news_set = News.objects.select_related().filter(raw_text__icontains=query)
+            print "Search Result Move On"
     if counts == -1:
         #counts = Tweet.objects.filter(related_news=news_ID).count()
         counts = current_news.tweet_set.all().count()
@@ -49,7 +55,7 @@ def tweet_with_news(request, news_ID, pos = 1, counts = -1):
     page_index = range(start_pos, end_pos+1)
     prev = max(1, pos - 1)
     nextPos = min(end_pos, pos+1)
-    context = {'related_tweets_list':related_tweets_list,'current_news':current_news, 'nextPos': nextPos,'prevPos': prev, 'page_index':page_index, 'counts':total_num, 'last_pos': last_pos} 
+    context = {'related_tweets_list':related_tweets_list,'current_news':current_news, 'nextPos': nextPos,'prevPos': prev, 'page_index':page_index, 'counts':total_num, 'last_pos': last_pos, 'q': query} 
 
     return render(request, 'relatedTweets.html', context)
 
