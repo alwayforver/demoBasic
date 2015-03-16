@@ -14,6 +14,7 @@ def news(request, pos = 1, rank_method = 0):
         news_set = News.objects.filter(title__icontains=query)
         #print new_set
         print 'Post ' + str(news_set.count())
+        print request.POST
     elif(request.method == 'POST'):
         string_type = ['key_word', 'source', 'main_article', 'title']
         manytomany_type = ['ID']
@@ -93,5 +94,8 @@ def news(request, pos = 1, rank_method = 0):
     if query:
         context['q'] = query
     return render(request, 'news.html', context)
+
+# def event_view(request):
+#     return render(request, 'index.html')
 
 

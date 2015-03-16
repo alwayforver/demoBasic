@@ -26,6 +26,7 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+SESSION_COOKIE_AGE=2419200
 
 # Application definition
 
@@ -64,12 +65,14 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
 	    'OPTIONS': {'charset': 'utf8mb4'},
     #    'NAME': 'twitter_news',
-    #    'NAME': 'twitter_news_test',
-        'NAME': 'NewsTwitter0128',
-        'USER': 'hcai6',
-        'PASSWORD':'haoyan',
-        'PORT':'3306',
-        'HOST':'',
+       'NAME': 'twitter_news_test',
+        # 'NAME': 'NewsTwitter0128',
+        # 'USER': 'hcai6',
+        # 'PASSWORD':'haoyan',
+         'USER': 'root',
+        'PASSWORD':'',
+        # 'PORT':'3306',
+        # 'HOST':'',
     }
 }
 
