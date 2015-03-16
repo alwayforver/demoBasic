@@ -13,6 +13,7 @@ class News(models.Model):
     key_word = models.CharField(max_length = 200, null = True, blank = True)
     snippet = models.CharField(max_length = 500, null = True, blank = True)
     raw_text = models.CharField(max_length = 10000, null = True, blank = True)
+    entities = models.CharField(max_length = 5000, null = True, blank = True)
 
     def __str__(self):
         return "News "+str(self.ID)
@@ -53,4 +54,6 @@ class Tweet(models.Model):
     def __str__(self):
         return "Tweet "+str(self.ID)+ ' '  + str(self.raw_text.encode("utf-8","ignore"))
 
-
+class MetaInfo(models.Model):
+    news_start_date = models.DateField()
+    new_end_date = models.DateField()

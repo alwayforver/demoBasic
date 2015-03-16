@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="UIUC DM Group">
+    <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+
+    <title>Tweenews News Page</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/overviews/static/css/bootstrap.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    
+    <!-- Bootstrap theme -->
+    <link href="/overviews/static/css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/overviews/static/css/custom.css" rel="stylesheet">
+
+    
+    <style>
+
+    path.link{
+        fill: none;
+        stroke: #666;
+        stroke-width: 1.5px;
+    }   
+
+
+    path.li/*nk.t1{
+        stroke: #ff0000;
+    }   
+
+    path.link.t2{
+        stroke: rgb(10,255,255)
+        
+    }*/
+    circle {
+        fill: none;
+        stroke: black;
+        stroke-width: 1.5px;
+    }
+
+    text {
+        font: 10px sans-serif;
+        pointer-events: none;
+    }
+
+    text.shadow {
+        stroke: #fff;
+        stroke-width: 3px;
+        stroke-opacity: .8;
+    }
+
+    body {
+        background-color: white;
+        margin: 0px;
+    }
+    .axis path,
+        .axis line {
+            fill: none;
+            stroke: #000;
+            shape-rendering: crispEdges;
+        }
+        /*.x.axis path {
+            display: none;
+        }*/
+        .line {
+            fill: none;
+            stroke: steelblue;
+            stroke-width: 1.5px;
+        }
+
+    .graphContainer {
+        text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+        float: left;
+    }
+    .networkGraph{
+      float: left;
+    }
+    .distGraph{
+      margin-left: 800px;
+    }
+
+    </style>
+
+
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="/overviews/static/script/bootstrap.min.js"></script>
+    <script src="/overviews/static/script/jquery.cookie.js"></script>
+    <script src="/overviews/static/script/utils.js"></script>
+    <script src="/overviews/static/script/readmore.min.js"></script>
+    <script src="/overviews/static/script/jquery.tablesorter.min.js"></script>
+    
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+   
+
+
+
+  </head>
+
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Tweenews: Twitter with News</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/overviews/">Home</a></li>
+            <li><a href="/overviews/news/">News Overview</a></li>
+            <li><a href="/overviews/event_discovery/">Event Discovery</a></li>
+            <!-- <li><a href="https://code.jquery.com/jquery-1.10.2.min.js">News with Tweet</a></li> -->
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    
+
+    <div class="container theme-showcase">
+    
+      <div class="top-buffer">
+        <!-- Make the space for top -->
+      </div>
+
+      <a name="top"></a>
+      <div class="col-xs-12 search-box">
+        
+
+    </div>
+    
+      <h3>Event Display Page</h3>
+
+      
+      
+        <h4>Event # 1</h4>
+        <TABLE cellpadding="4" style="border: 1px solid #000000; border-collapse: collapse;" border="1">
+        
+        <tr>
+        <td> Rose Bowl: No. 2 Oregon routs No. 3 Florida St. in semifinal   </td>
+        <td> yards </td>
+        <!-- <td> .0 }} </td> -->
+        </tr>
+        
+        <tr>
+        <td> Ohio State keeps on running to national title game   </td>
+        <td> game </td>
+        <!-- <td> .1 }} </td> -->
+        </tr>
+        
+        <tr>
+        <td> Michigan State&#39;s Mark Dantonio: &#39;I would not be anyplace, anywhere more happier&#39; than as Cotton Bowl champs   </td>
+        <td> oregon </td>
+        <!-- <td> .2 }} </td> -->
+        </tr>
+        
+        </table>
+        <br>
+        <br>
+
+      
+        <h4>Event # 2</h4>
+        <TABLE cellpadding="4" style="border: 1px solid #000000; border-collapse: collapse;" border="1">
+        
+        <tr>
+        <td> Egypt Court Orders Retrial for Imprisoned Al-Jazeera Journalists   </td>
+        <td> egyptian </td>
+        <!-- <td> .0 }} </td> -->
+        </tr>
+        
+        <tr>
+        <td> Egypt Appeals Court Orders Retrial in Case of Al Jazeera Journalists   </td>
+        <td> journalists </td>
+        <!-- <td> .1 }} </td> -->
+        </tr>
+        
+        <tr>
+        <td> Egyptian Court Orders New Trial for Jailed Al Jazeera Journalists   </td>
+        <td> al </td>
+        <!-- <td> .2 }} </td> -->
+        </tr>
+        
+        </table>
+        <br>
+        <br>
+
+      
+        <h4>Event # 3</h4>
+        <TABLE cellpadding="4" style="border: 1px solid #000000; border-collapse: collapse;" border="1">
+        
+        <tr>
+        <td> Shanghai Stampede Death Toll Rises to at Least 36; Accounts Differ on Cause   </td>
+        <td> shanghai </td>
+        <!-- <td> .0 }} </td> -->
+        </tr>
+        
+        <tr>
+        <td> Shanghai Stampede Death Toll Rises to at Least 36; Accounts Differ on Cause   </td>
+        <td> club </td>
+        <!-- <td> .1 }} </td> -->
+        </tr>
+        
+        <tr>
+        <td> Senate Majority Leader Harry Reid Released From Hospital   </td>
+        <td> bund </td>
+        <!-- <td> .2 }} </td> -->
+        </tr>
+        
+        </table>
+        <br>
+        <br>
+
+      
+        <h4>Event # 4</h4>
+        <TABLE cellpadding="4" style="border: 1px solid #000000; border-collapse: collapse;" border="1">
+        
+        <tr>
+        <td> Senate Majority Leader Harry Reid Released From Hospital   </td>
+        <td> said </td>
+        <!-- <td> .0 }} </td> -->
+        </tr>
+        
+        <tr>
+        <td> Safety questions on Shanghai crush   </td>
+        <td> new </td>
+        <!-- <td> .1 }} </td> -->
+        </tr>
+        
+        <tr>
+        <td> This Is What 2015 Will Look Like According To &#39;Back To The Future&#39;   </td>
+        <td> year </td>
+        <!-- <td> .2 }} </td> -->
+        </tr>
+        
+        </table>
+        <br>
+        <br>
+
+      
+        <h4>Event # 5</h4>
+        <TABLE cellpadding="4" style="border: 1px solid #000000; border-collapse: collapse;" border="1">
+        
+        <tr>
+        <td> A look at the trial of 3 Al-Jazeera English journalists imprisoned in Egypt over a year   </td>
+        <td> journalists </td>
+        <!-- <td> .0 }} </td> -->
+        </tr>
+        
+        <tr>
+        <td> Egypt court orders retrial in Al-Jazeera case   </td>
+        <td> egyptian </td>
+        <!-- <td> .1 }} </td> -->
+        </tr>
+        
+        <tr>
+        <td> Imprisoned Al-Jazeera reporters face Egypt appeal   </td>
+        <td> egypt </td>
+        <!-- <td> .2 }} </td> -->
+        </tr>
+        
+        </table>
+        <br>
+        <br>
+
+      
+        <h4>Event # 6</h4>
+        <TABLE cellpadding="4" style="border: 1px solid #000000; border-collapse: collapse;" border="1">
+        
+        <tr>
+        <td> Board resignations clear path for Jeb Bush presidential campaign   </td>
+        <td> bush </td>
+        <!-- <td> .0 }} </td> -->
+        </tr>
+        
+        <tr>
+        <td> Jeb Bush quits board posts ahead of possible White House run: Washington Post   </td>
+        <td> business </td>
+        <!-- <td> .1 }} </td> -->
+        </tr>
+        
+        <tr>
+        <td> Jeb Bush quits board posts ahead of possible White House run Washington Post   </td>
+        <td> board </td>
+        <!-- <td> .2 }} </td> -->
+        </tr>
+        
+        </table>
+        <br>
+        <br>
+
+      
+        <h4>Event # 7</h4>
+        <TABLE cellpadding="4" style="border: 1px solid #000000; border-collapse: collapse;" border="1">
+        
+        <tr>
+        <td> Georgia police chief allegedly shoots wife   </td>
+        <td> mccollom </td>
+        <!-- <td> .0 }} </td> -->
+        </tr>
+        
+        <tr>
+        <td> 911: Police Chief Said He Accidentally Shot Wife   </td>
+        <td> chief </td>
+        <!-- <td> .1 }} </td> -->
+        </tr>
+        
+        <tr>
+        <td> 911: Police chief said he accidentally shot wife   </td>
+        <td> peachtree </td>
+        <!-- <td> .2 }} </td> -->
+        </tr>
+        
+        </table>
+        <br>
+        <br>
+
+      
+        <h4>Event # 8</h4>
+        <TABLE cellpadding="4" style="border: 1px solid #000000; border-collapse: collapse;" border="1">
+        
+        <tr>
+        <td> UPDATE 2-Egyptian court orders retrial of Al Jazeera journalists   </td>
+        <td> greste </td>
+        <!-- <td> .0 }} </td> -->
+        </tr>
+        
+        <tr>
+        <td> Retrial of Al Jazeera journalists must lead to freedom, says Amnesty   </td>
+        <td> egypt </td>
+        <!-- <td> .1 }} </td> -->
+        </tr>
+        
+        <tr>
+        <td> Deportation Sought for Jailed Australian Journalist in Egypt   </td>
+        <td> journalists </td>
+        <!-- <td> .2 }} </td> -->
+        </tr>
+        
+        </table>
+        <br>
+        <br>
+
+      
+        <h4>Event # 9</h4>
+        <TABLE cellpadding="4" style="border: 1px solid #000000; border-collapse: collapse;" border="1">
+        
+        <tr>
+        <td> Chinese react to stampede deaths: Thought this happened only in India   </td>
+        <td> shanghai </td>
+        <!-- <td> .0 }} </td> -->
+        </tr>
+        
+        <tr>
+        <td> China demands answers after stampede in financial hub Shanghai   </td>
+        <td> stampede </td>
+        <!-- <td> .1 }} </td> -->
+        </tr>
+        
+        <tr>
+        <td> China demands answers after stampede in financial hub Shanghai   </td>
+        <td> china </td>
+        <!-- <td> .2 }} </td> -->
+        </tr>
+        
+        </table>
+        <br>
+        <br>
+
+      
+        <h4>Event # 10</h4>
+        <TABLE cellpadding="4" style="border: 1px solid #000000; border-collapse: collapse;" border="1">
+        
+        <tr>
+        <td> West Virginia Police Shooting: 2 Officers Injured, 2 Dead Bodies Found Inside ...   </td>
+        <td> officers </td>
+        <!-- <td> .0 }} </td> -->
+        </tr>
+        
+        <tr>
+        <td> Texas father and son kill NC couple, wound officers in crime spree   </td>
+        <td> police </td>
+        <!-- <td> .1 }} </td> -->
+        </tr>
+        
+        <tr>
+        <td> Bodies found in pickup after shootout with West Virginia cops   </td>
+        <td> virginia </td>
+        <!-- <td> .2 }} </td> -->
+        </tr>
+        
+        </table>
+        <br>
+        <br>
+
+      
+
+
+      <div id="graphContainer" class="graphContainer">
+
+
+        <script>
+        $(function(){var data = {
+                "nodes":  [
+                {"id": 0, "name": "Barack_Obama:person", size:"7.15541454774",color:"red"},
+                {"id": 1, "name": "George_Clooney:person", size:"4.93686958731",color:"red"},
+                {"id": 2, "name": "John_Kerry:person", size:"5.67372796446",color:"red"},
+
+            ],
+
+        "links": [
+            {"source": 0, "target": 2, color:"#008080", weight:1.90334745384 },
+            {"source": 2, "target": 1, color:"#333333", weight:0.804480662506 },
+            ]
+        };
+        var mLinkNum = {};
+    
+    // sort links first
+    sortLinks();                                
+    
+    // set up linkIndex and linkNumer, because it may possible multiple links share the same source and target node
+    setLinkIndexAndNum();
+    
+    var w = 750,
+        h = 500;
+    
+    var force = d3.layout.force()
+                  .nodes(d3.values(data.nodes))
+                  .links(data.links)
+                  .size([w, h])
+                  .linkDistance(150)
+                  .charge(-300)
+                  .on("tick", tick)
+                  .start();
+    
+    var svg = d3.select(".graphContainer").append("svg:svg")
+                .attr("width", w)
+                .attr("height", h);
+    
+    
+var path = svg.append("svg:g").selectAll("path")
+    .data(force.links())
+  .enter().append("svg:path")
+  .style("stroke", function(d){return d.color})
+  .style("stroke-width", function(d){return d.weight+"px"})
+  .style("opacity", 0.5);
+  
+  
+    // .attr("class", function(d) { return "link " + d.type; })
+   ;
+    
+    var circle = svg.append("svg:g")
+                    .selectAll("circle")
+                    .data(force.nodes())
+                    .enter().append("svg:circle")
+                    // .attr("r", 6)
+                    .attr("r", function(d){console.log(d.name);console.log(d.size);return d.size; })
+                    // .attr("class",function(d) { console.log("node " + d.type); return "node " + d.type; })
+                    .call(force.drag)
+                    .style("fill", function(d){ return d.color;});
+  
+    var text = svg.append("svg:g")                                
+                  .selectAll("g")
+                  .data(force.nodes())
+                  .enter().append("svg:g");
+    
+    // A copy of the text with a thick white stroke for legibility.
+    text.append("svg:text")
+        .attr("x", 8)
+        .attr("y", ".31em")
+        .attr("class", "shadow")
+        .text(function(d) { return d.name; });  
+    
+    text.append("svg:text")
+        .attr("x", 8)
+        .attr("y", ".31em")
+        .text(function(d) { return d.name; });
+    
+    // Use elliptical arc path segments to doubly-encode directionality.
+    function tick() {
+        path.attr("d", function(d) {
+            var dx = d.target.x - d.source.x,
+                dy = d.target.y - d.source.y,
+                dr = Math.sqrt(dx * dx + dy * dy);
+            // get the total link numbers between source and target node
+            var lTotalLinkNum = mLinkNum[d.source.id + "," + d.target.id] || mLinkNum[d.target.id + "," + d.source.id];
+            if(lTotalLinkNum > 1)
+            {
+                // if there are multiple links between these two nodes, we need generate different dr for each path
+                dr = dr/(1 + (1/lTotalLinkNum) * (d.linkindex - 1));
+            }       
+            // generate svg path
+            return "M" + d.source.x + "," + d.source.y + 
+                "A" + dr + "," + dr + " 0 0 1," + d.target.x + "," + d.target.y + 
+                "A" + dr + "," + dr + " 0 0 0," + d.source.x + "," + d.source.y;    
+        });
+        
+        // Add tooltip to the connection path
+        path.append("svg:title")
+            .text(function(d, i) { return d.name; });
+        
+        circle.attr("transform", function(d) {
+            return "translate(" + d.x + "," + d.y + ")";
+        });
+        
+        text.attr("transform", function(d) {
+            return "translate(" + d.x + "," + d.y + ")";
+        });
+    } 
+    
+    // sort the links by source, then target
+    function sortLinks()
+    {                               
+        data.links.sort(function(a,b) {
+            if (a.source > b.source) 
+            {
+                return 1;
+            }
+            else if (a.source < b.source) 
+            {
+                return -1;
+            }
+            else 
+            {
+                if (a.target > b.target) 
+                {
+                    return 1;
+                }
+                if (a.target < b.target) 
+                {
+                    return -1;
+                }
+                else 
+                {
+                    return 0;
+                }
+            }
+        });
+    }
+    
+    //any links with duplicate source and target get an incremented 'linknum'
+        function setLinkIndexAndNum()
+        {                               
+            for (var i = 0; i < data.links.length; i++) 
+            {
+                if (i != 0 &&
+                    data.links[i].source == data.links[i-1].source &&
+                    data.links[i].target == data.links[i-1].target) 
+                {
+                    data.links[i].linkindex = data.links[i-1].linkindex + 1;
+                }
+                else 
+                {
+                    data.links[i].linkindex = 1;
+                }
+                // save the total number of links between two nodes
+                if(mLinkNum[data.links[i].target + "," + data.links[i].source] !== undefined)
+                {
+                    mLinkNum[data.links[i].target + "," + data.links[i].source] = data.links[i].linkindex;
+                }
+                else
+                {
+                    mLinkNum[data.links[i].source + "," + data.links[i].target] = data.links[i].linkindex;
+                }
+            }
+        }   
+        });         
+        </script>
+    </div>
+
+
+      <div class="well">
+        <p>All copyrights are reserved on UIUC Data Mining Group</p>
+      </div>
+
+
+    <div class="bottom-buffer"></div>
+
+    </div> 
+  </body>
+  </html>

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+      <h3>Current News Date Range:</h3>
+
+      <h3>Please select initial date and end date for Event Discovery: </h3>
+      <div id="date-picker">
+      <form action="{% url 'overview:event_discovery'%}" method="post">
+        {% csrf_token %}
+        End Date: <input type="date" name="sdate" value="{% now "SHORT_DATETIME_FORMAT" %}">  
+        Start Date: <input type="date" name="edate" value="{% now "SHORT_DATETIME_FORMAT" %}">  
+        <!-- <input type="submit" value="OK"> -->
+      <!-- <button type="submit" class="btn btn-default">Go</button> -->
+
+      <!-- <label for="your_name">Your name: </label>
+        <input id="your_name" type="text" name="your_name" value="{{ current_name }}"> -->
+        <input type="submit" value="GO">
+        </form>
+      </div>
+
+      <!-- <h3>{{ start_date }}</h3> -->
+      {% if valid_input %}
+          {% if calculation %}
+          <h3>Selected start date is {{ input_start_date }}</h3>
+          <h3>Selected end date is {{ input_end_date }}</h3>
+          <h3> Please wait....</h3>
+
+          <script type="text/javascript">
+                $.get('/overviews/event_running/start_str={{start_str}}end_str={{end_str}}', function(data) {
+                if (data == 'OK') {
+                  window.location.href = '/overviews/event_display/start_str={{start_str}}end_str={{end_str}}' ;
+                } else {
+                      alert(data);
+                    }
+                });
+            </script>
+
+         {% else %}
+             <h3>Wrong input date (out of range or not valid)</h3>
+
+        {% endif %}
+    {% endif %}
+      
+
+
+
+{% endblock %}
