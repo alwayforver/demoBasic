@@ -1,6 +1,5 @@
 import numpy as np
 from scipy.stats import norm
-
 def getMatIndex(X):
     X = X.tocsr()
     indptr,indices = (X.indptr,X.indices)
@@ -58,16 +57,16 @@ def EMstep(vitals,Pw_zs,Pz_d,forLis,lambdaB,wt,selectTime,timeData):
             sigma[i] = np.sqrt( np.dot( Pz_td[i,:] , (DT-mu[i])**2 ) / weightsum[i] )
         Pz_d_out = Pz_d_out + wt*Pz_td
     sumd = Pz_d_out.sum(axis=0)
-    # print sumd
     Pz_d = np.vstack(( (1-lambdaB)*Pz_d_out/np.tile(sumd,(K-1,1)),Pz_d[-1,:] ))
     return Pw_zs,Pz_d,mu,sigma
-def logL(vitals,Pd,forLis,forLit):
+def logL(vitals,Pd,forLis,forLit,wt):
     Li = []
     for i in range(len(vitals)):
         indptr,docind,wordind,value = vitals[i]
         Pw_d, Pz_dw_ = forLis[i]
         Li.append( (value*np.log(Pw_d * Pd[docind])).sum() )
     if forLit:
+        Pt_d, Pz_dt_ = forLit
         Li.append( np.log(Pt_d*Pd).sum()*wt )        
     print Li
     return sum(Li)
@@ -138,7 +137,7 @@ def pLSABet(selectTime,numX,Learn,data,inits,wt,lambdaB):
             forLis.append( (Pw_d, Pz_dw_) )
         if selectTime:
             forLit = compute_Pt_d(Pz_d,mu,sigma,DT)
-        Li.append(logL(vitals,Pd,forLis,forLit))
+        Li.append(logL(vitals,Pd,forLis,forLit,wt))
         if it > 0:
             dLi = Li[it] - Li[it-1]
             print "dLi = " + str(dLi)
