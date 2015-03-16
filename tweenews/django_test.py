@@ -44,7 +44,8 @@ def event_running(start_str= '20150101', end_str = '20150102'):
         news_title = []
         for i in xrange(len(all_news)):
             news_title.append(all_news[i].title)
-        raw_docs = data_prep(all_news)
+        ind2obj = {}
+        raw_docs = data_prep(all_news, ind2obj)
 
 
 
