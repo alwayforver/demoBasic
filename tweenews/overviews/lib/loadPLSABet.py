@@ -12,9 +12,7 @@ def inittime(DT,K,labels):
     mu = np.zeros(K)
     sigma = np.zeros(K)
     for i in range(K):
-        print DT
-        print labels
-        ts = DT[labels==i]
+        ts = np.array(DT)[labels==i]
         mu[i] = np.mean(ts)
         sigma[i] = np.std(ts)
     return mu,sigma
