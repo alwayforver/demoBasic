@@ -1,18 +1,19 @@
 from django.shortcuts import render, render_to_response
 import sys, os
 from django.http import HttpResponse
-from overviews.models import News, Tweet
+from overviews.models import News, Tweet, MetaInfo
 from overviews.forms import StartEndDateForm
 import time
 from datetime import datetime, timedelta
 from django.utils import timezone
 from django.views.decorators.csrf import csrf_exempt
+from scipy.sparse import csr_matrix
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 sys.path.insert(0, os.path.join(BASE_DIR, 'lib'))
 import k_means
-from utility import data_prep, parse_date, prepend_date, find_toptitle_simple, find_topterms_simple
+from utility import data_prep, parse_date, prepend_date, find_toptitle_simple, find_topterms_simple, calc_entity_matrix
 import pLSABet
 
 # from django.core.contex_processors import csrf
@@ -40,6 +41,9 @@ def event_view(request):
     input_start_date= None
     input_end_date = None
     # print request.POST
+    meta = MetaInfo.objects.all()[0]
+    all_start = meta.news_start_date
+    all_end = meta.news_end_date
     if request.method == 'POST' and 'sdate' in request.POST and 'edate' in request.POST:
         input_start_date, input_end_date = request.POST['sdate'], request.POST['edate']
 
@@ -65,7 +69,7 @@ def event_view(request):
 
     # print start_date, end_date
     # print start_date, end_date,calculation, 
-    context = {'input_end_date': input_end_date,'input_start_date': input_start_date, 'valid_input':valid_input, 'calculation': calculation, 'start_str':start_str, 'end_str':end_str}
+    context = {'all_start':all_start,'all_end':all_end, 'input_end_date': input_end_date,'input_start_date': input_start_date, 'valid_input':valid_input, 'calculation': calculation, 'start_str':start_str, 'end_str':end_str}
     return render(request, 'eventDiscovery.html', context)
 
 
@@ -75,25 +79,27 @@ def event_running(request, start_str= '19901025', end_str = '19901025'):
 
     start_date, end_date = parse_date(start_str), parse_date(end_str)+timedelta(days = 1)
 
+
     if True:
     # if prepend_date(start_str, end_str, 'news_title') not in request.session:
-
         # time.sleep(3)
-
         all_news = News.objects.filter(created_at__gte = start_date).filter(created_at__lte = end_date)
 
-
-
         news_title = []
+        news_entities =[]
         for i in xrange(len(all_news)):
             news_title.append(all_news[i].title)
+            news_entities.append(all_news[i].entities)
+
+
         ind2obj = {}
         raw_docs = data_prep(all_news, ind2obj)
-
-
         # k_means
-
         X, Pw_z_km, Pz_d_km, Pd_km, terms = k_means.simple_kmeans(raw_docs, cluster_num)
+
+        print type(X)
+        Xp, Xl, Xo = calc_entity_matrix(news_entities)
+        # print X.shape()
 
         t0 = time.time()
         Learn=(1,10)
@@ -108,7 +114,7 @@ def event_running(request, start_str= '19901025', end_str = '19901025'):
         # data = [Xs,DT]
         # inits = [Pz_d,Pw_z, Pp_z,Pl_z,Po_z,mu,sigma]        
         Pw_zs,Pz_d,Pd,mu,sigma,Li = pLSABet.pLSABet(selectTime,numX,Learn,data,inits,wt,lambdaB)
-        print "pLSA done in "+str(time.time() - t0)
+        # print "pLSA done in "+str(time.time() - t0)
         Pw_z = Pw_zs[0]
 
         top_title = find_toptitle_simple(Pz_d, ind2obj , 5, cluster_num)
@@ -128,6 +134,7 @@ def event_running(request, start_str= '19901025', end_str = '19901025'):
         
         request.session[prepend_date(start_str, end_str, 'top_title')] = top_title
         request.session[prepend_date(start_str, end_str, 'top_term')] = top_term
+        # request.session[prepend_date(start_str, end_str, 'X')] = X
 
         # Need to store event assignment in this step
 
@@ -140,8 +147,9 @@ def event_display(request, start_str, end_str):
     top_title = request.session.get(prepend_date(start_str, end_str, 'top_title'),[])
     top_term = request.session.get(prepend_date(start_str, end_str, 'top_term'),[])
 
+    # X = request.session.get(prepend_date(start_str, end_str, 'X'), [])
 
-    print request.session.get_expiry_age()
+    # print X
 
     event_info_list = []
 

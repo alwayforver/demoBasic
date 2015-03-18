@@ -11,6 +11,11 @@ Learn:
 (delta_likelihood, maximum_iter)
 
 data:
+
+Xp=wp*Xp wp = 0.3
+
+should include Xp weight
+
 [X, Xp, Xe, Dt]  in this case  numX 3
 
 inits:

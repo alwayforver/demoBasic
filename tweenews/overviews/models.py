@@ -55,5 +55,5 @@ class Tweet(models.Model):
         return "Tweet "+str(self.ID)+ ' '  + str(self.raw_text.encode("utf-8","ignore"))
 
 class MetaInfo(models.Model):
-    news_start_date = models.DateField()
-    new_end_date = models.DateField()
+    news_start_date = models.DateTimeField()
+    news_end_date = models.DateTimeField()

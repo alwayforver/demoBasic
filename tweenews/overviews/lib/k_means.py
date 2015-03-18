@@ -3,18 +3,13 @@ from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn import metrics
 from sklearn.cluster import KMeans, MiniBatchKMeans
 import numpy as np
+from scipy.sparse import csr_matrix, coo_matrix
 
 
 # def data_prep():
     
-
-def simple_kmeans(docs, cluster = 2):
-
-    vectorizer = TfidfVectorizer( stop_words='english')
-    # vectorizer = TfidfVectorizer( stop_words=None)
-
-
-    X = vectorizer.fit_transform(docs)
+ 
+def simple_kmeans(X, cluster = 2):
 
     km = KMeans(n_clusters=cluster, init='k-means++', max_iter=100, n_init=10,
                 verbose=False)
@@ -22,19 +17,16 @@ def simple_kmeans(docs, cluster = 2):
     km.fit(X)
     # print("Top terms per cluster:")
     order_centroids = km.cluster_centers_.argsort()[:, ::-1]
-    terms = vectorizer.get_feature_names()
+    
     # for i in range(cluster):
     #     print("Cluster %d:" % i)
     #     for ind in order_centroids[i, :10]:
     #         print(' %s' % terms[ind])
     #     print
-
     row_sums = km.cluster_centers_.sum(axis=1)
     Pw_z = (km.cluster_centers_ / row_sums[:, np.newaxis]).T
 
     # print "Pw_z", Pw_z
-    
-    Pd = calc_Pd(docs)
     # print km.labels_
     Pz_d = calc_Pz_d_simple(km.labels_, cluster)
 
@@ -42,8 +34,7 @@ def simple_kmeans(docs, cluster = 2):
     # print km.labels_, type(km.labels_)
 
     # print Pz_d
-
-    return X, Pw_z, Pz_d, Pd, terms
+    return Pw_z, Pz_d, km.labels_
 
 
 def calc_Pd(docs):
@@ -73,6 +64,39 @@ def calc_Pz_d_simple(labels, cluster):
         Pz_d[ labels[i], i]  = normalized_1
 
     return Pz_d
+
+def calc_Pe_z(labels, Xe, cluster_num):
+    # print "in function",type(Xe), np.shape(Xe)
+
+    Xe = Xe.tocoo()
+
+    # print "in function",type(Xe), np.shape(Xe)
+
+    doc_num  = len(labels)
+    row = []
+    column = []
+    value = []
+
+    for i in xrange(len(Xe.row)):
+        e = Xe.col[i]
+        z = labels[Xe.row[i]]
+
+        row.append(e)
+        column.append(z)
+        value.append(Xe.data[i])
+
+    # print labels
+
+
+    # for i in xrange(doc_num):
+    Pe_z = coo_matrix( ( value, ( row, column )), shape= ( np.shape(Xe)[1], cluster_num) ).toarray()
+    
+
+
+
+
+    return Pe_z
+
 
 
 

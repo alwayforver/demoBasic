@@ -62,15 +62,16 @@ def EMstep(vitals,Pw_zs,Pz_d,forLis,lambdaB,wt,selectTime,timeData):
 def logL(vitals,Pd,forLis,forLit,wt):
     Li = []
     for i in range(len(vitals)):
+
         indptr,docind,wordind,value = vitals[i]
         Pw_d, Pz_dw_ = forLis[i]
+    
         Li.append( (value*np.log(Pw_d * Pd[docind])).sum() )
     if forLit:
         Pt_d, Pz_dt_ = forLit
         Li.append( np.log(Pt_d*Pd).sum()*wt )        
-    print Li
     return sum(Li)
-def pLSABet(selectTime,numX,Learn,data,inits,wt,lambdaB):
+def pLSABet(selectTime,numX,Learn,data,inits,wt,lambdaB, debug = 0):
 # data = [Xs,DT]
 # inits = [Pz_d,Pw_z, Pp_z,Pl_z,Po_z,mu,sigma]        
     (Min_Likelihood_Change,Max_Iterations) = Learn
@@ -87,7 +88,8 @@ def pLSABet(selectTime,numX,Learn,data,inits,wt,lambdaB):
         sigma = np.append(inits[-1], sigma_B)
         if (sigma==0).sum()>0:
             sigma[sigma==0] = 1e-7
-            print "zeros in sigma"        
+            if debug == 1:
+                print "zeros in sigma"        
     Xs = data[:numX]
     nDocs = Xs[0].shape[0]
 # initializing...
@@ -129,20 +131,24 @@ def pLSABet(selectTime,numX,Learn,data,inits,wt,lambdaB):
    # Pd_docind = Pd[docind] ####
 
     for it in range(Max_Iterations):
-        print "iteration: "+str(it)        
+        if debug == 1:
+            print "iteration: "+str(it)        
         Pw_zs,Pz_d,mu,sigma= EMstep(vitals,Pw_zs,Pz_d,forLis,lambdaB,wt,selectTime,(DT,mu,sigma,forLit))
         forLis = []
-        for i in range(numX):            
+        for i in range(numX):
+            _,docind,wordind,value = vitals[i]        
             Pw_d, Pz_dw_ = compute_Pw_d(wordind,docind,Pw_zs[i],Pz_d)
             forLis.append( (Pw_d, Pz_dw_) )
         if selectTime:
-            forLit = compute_Pt_d(Pz_d,mu,sigma,DT)
+            forLit = compute_Pt_d(Pz_d,mu,sigma,DT) 
         Li.append(logL(vitals,Pd,forLis,forLit,wt))
         if it > 0:
             dLi = Li[it] - Li[it-1]
-            print "dLi = " + str(dLi)
+            if debug == 1:
+                print "dLi = " + str(dLi)
             if dLi < Min_Likelihood_Change:
                 break
-    print Li[-1]
+    if debug == 1:
+        print Li[-1]
     return Pw_zs,Pz_d,Pd,mu,sigma,Li
 

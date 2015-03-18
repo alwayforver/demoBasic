@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
       <h3>Current News Date Range:</h3>
+      <h4> From: {{ all_start }} </h4>
+      <h4> To: {{ all_end }} </h4>
 
+      <br>
       <h3>Please select initial date and end date for Event Discovery: </h3>
       <div id="date-picker">
       <form action="{% url 'overview:event_discovery'%}" method="post">
