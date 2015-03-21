@@ -13,7 +13,7 @@ class News(models.Model):
     key_word = models.CharField(max_length = 200, null = True, blank = True)
     snippet = models.CharField(max_length = 500, null = True, blank = True)
     raw_text = models.CharField(max_length = 10000, null = True, blank = True)
-    entities = models.CharField(max_length = 5000, null = True, blank = True)
+    entities = models.CharField(max_length = 2100, null = True, blank = True)
 
     def __str__(self):
         return "News "+str(self.ID)
