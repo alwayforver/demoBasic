@@ -16,13 +16,18 @@ urlpatterns = patterns('',
     url(r'^tweet/news=(?P<news_ID>\d+)page(?P<pos>\d+):(?P<counts>\d+)$', views.tweet_with_news, name='tweet_next'),
     url(r'^cluster_test/$', views.cluster_view, name='cluster_test'),
     url(r'^event_discovery/$', views.event_view, name = 'event_discovery'),
+    url(r'^event_running/start_str=(?P<start_str>\d+)end_str=(?P<end_str>\d+)/$', views.event_running, name = 'event_running'),
+
+    url(r'^aspect_running/start_str=(?P<start_str>\d+)end_str=(?P<end_str>\d+)event=(?P<event>\d+)/$', views.aspect_running, name = 'aspect_running'),
+
     url(r'^aspect_discovery/start_str=(?P<start_str>\d+)end_str=(?P<end_str>\d+)event=(?P<event>\d+)/$', views.aspect_discovery, name = 'aspect_discovery'),
 
-    url(r'^event_running/start_str=(?P<start_str>\d+)end_str=(?P<end_str>\d+)/$', views.event_running, name = 'event_running'),
     # url(r'^event_running/$', views.event_running, name = 'event_running'),
 
     # url(r'^event_display/$', views.event_display, name = 'event_display'),
     url(r'^event_display/start_str=(?P<start_str>\d+)end_str=(?P<end_str>\d+)/$', views.event_display, name = 'event_display'),
+    url(r'^aspect_display/start_str=(?P<start_str>\d+)end_str=(?P<end_str>\d+)event=(?P<event>\d+)/$', views.aspect_display, name = 'aspect_display'),
+    url(r'^aspect_display_noaspect/start_str=(?P<start_str>\d+)end_str=(?P<end_str>\d+)event=(?P<event>\d+)/$', views.aspect_display_noaspect, name = 'aspect_display_noaspect'),
 
     # url(r'^event_display/$', views.event_display, name = 'event_display'),
 

@@ -7,9 +7,9 @@ from scipy.sparse import csr_matrix, coo_matrix
 
 
 # def data_prep():
-    
- 
-def simple_kmeans(X, cluster = 2):
+
+
+def simple_kmeans(X, cluster=2):
 
     km = KMeans(n_clusters=cluster, init='k-means++', max_iter=100, n_init=10,
                 verbose=False)
@@ -17,7 +17,7 @@ def simple_kmeans(X, cluster = 2):
     km.fit(X)
     # print("Top terms per cluster:")
     order_centroids = km.cluster_centers_.argsort()[:, ::-1]
-    
+
     # for i in range(cluster):
     #     print("Cluster %d:" % i)
     #     for ind in order_centroids[i, :10]:
@@ -48,22 +48,26 @@ def calc_Pd(docs):
 
     sumV = sum(docs_term)
 
-    Pd = [ float(x)/sumV  for x in docs_term]
+    Pd = [float(x) / sumV for x in docs_term]
 
     return np.array(Pd)
-    
+
 
 def calc_Pz_d_simple(labels, cluster):
 
     doc_length = len(labels)
-    Pz_d = np.zeros((cluster,doc_length))
-    Pz_d[:,:]=0.05
+    Pz_d = np.zeros((cluster, doc_length))
+    Pz_d[:, :] = 0
 
-    normalized_1 = 1- (cluster-1)*0.05
+    # normalized_1 = 1 - (cluster - 1) * 0.05
+
     for i in xrange(doc_length):
-        Pz_d[ labels[i], i]  = normalized_1
+        Pz_d[labels[i], i] = 1
 
+    Pz_d += 0.01
+    Pz_d /= np.tile(Pz_d.sum(axis=0),(cluster,1))
     return Pz_d
+
 
 def calc_Pe_z(labels, Xe, cluster_num):
     # print "in function",type(Xe), np.shape(Xe)
@@ -72,7 +76,7 @@ def calc_Pe_z(labels, Xe, cluster_num):
 
     # print "in function",type(Xe), np.shape(Xe)
 
-    doc_num  = len(labels)
+    doc_num = len(labels)
     row = []
     column = []
     value = []
@@ -87,20 +91,27 @@ def calc_Pe_z(labels, Xe, cluster_num):
 
     # print labels
 
-
     # for i in xrange(doc_num):
-    Pe_z = coo_matrix( ( value, ( row, column )), shape= ( np.shape(Xe)[1], cluster_num) ).toarray()
-    
-
-
-
+    Pe_z = coo_matrix(
+        (value, (row, column)), shape=(np.shape(Xe)[1], cluster_num)).toarray()
 
     return Pe_z
 
 
+def km_initialize(X, Xe, entityTypes, cluster_num):
+    Pw_z_km, Pz_d_km, labels_km = simple_kmeans(X, cluster_num)
+    Pe_z_km = {}
+    for each_type in entityTypes:
+        Pe_z_km[each_type] = calc_Pe_z(labels_km, Xe[each_type], cluster_num)
+
+    inits_notime = [Pz_d_km, Pw_z_km]
+    for each_type in entityTypes:
+        inits_notime.append(Pe_z_km[each_type])
+    return inits_notime, labels_km
 
 
 if __name__ == '__main__':
-    simple_kmeans(['cat cat cat cat dog', 'dog dog dog dog dog dog dog cat dog', 'dog cat dog cat'])
-    # print calc_Pd(['cat cat cat cat dog', 'dog dog dog dog dog dog dog cat dog', 'dog cat dog cat'])
-    
+    simple_kmeans(
+        ['cat cat cat cat dog', 'dog dog dog dog dog dog dog cat dog', 'dog cat dog cat'])
+    # print calc_Pd(['cat cat cat cat dog', 'dog dog dog dog dog dog dog cat
+    # dog', 'dog cat dog cat'])
