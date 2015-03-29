@@ -10,18 +10,22 @@ class PLSACache:
     def __init__(self):
         self.data = []
 
-    def __init__(self, Xdata, n_wdxPz_wds, ind2obj, terms, reverse_voc):
+    def __init__(self, Xdata, Pw_zs, n_wdxPz_wds, ind2obj, terms, reverse_voc, vectorizer):
         self.Xdata = Xdata
+        self.Pw_zs = Pw_zs
         self.n_wdxPz_wds = n_wdxPz_wds
         self.ind2obj = ind2obj
         self.terms = terms
         self.reverse_voc = reverse_voc
+        self.vectorizer = vectorizer
+
 
 
 def data_prep(news_list, ind2obj):
     raw_docs = []
     count = 0
     for each in news_list:
+        # raw_docs.append(each.title)
         raw_docs.append(each.title + ' ' + each.raw_text)
         ind2obj[count] = each
         count += 1
@@ -36,13 +40,11 @@ def parse_date(date_str):
             to_return = datetime.strptime(date_str, '%y-%m-%d')
         except:
             return None
-    # in the form of
     else:
         try:
 
             to_return = datetime.strptime(date_str, '%y%m%d')
         except:
-            # print "wrong"
             return None
 
     return timezone.make_aware(to_return, timezone.get_default_timezone())
@@ -93,6 +95,17 @@ def find_topterms_simple(Pw_z, terms, top_n):
         top_term.append(this)
     return top_term
 
+def find_topterms_dic(Pw_z, terms, top_n):
+    cluster = Pw_z.shape[1]-1
+
+    ordered_ind = Pw_z.argsort(axis=0)[::-1, :][:top_n, :]
+    top_term_dic = []
+    for i in xrange(cluster):
+        this = {}
+        for j in xrange(top_n):
+            this[terms[ordered_ind[j, i]]] = Pw_z[ordered_ind[j, i], i]
+        top_term_dic.append(this)
+    return top_term_dic
 
 def parse_entity_str(entity_str):
     entities = entity_str.strip().split(';')
@@ -102,7 +115,6 @@ def parse_entity_str(entity_str):
     result['person'] = {}
     for entity in entities:
         fields = entity.split(':')
-        # print fields
         if len(fields) != 3:
             continue
         result[fields[1]][fields[0]] = int(fields[2])
@@ -112,7 +124,6 @@ def parse_entity_str(entity_str):
 def calc_entity_matrix(news_entities, entityTypes):
 
     # entityTypes = ['person','org', 'place']
-
     X = {}
     count = {}
     voc = {}
@@ -138,24 +149,17 @@ def calc_entity_matrix(news_entities, entityTypes):
     for cat_ent_cnt in cat_ent_cnt_list:
         for each_type in entityTypes:
             all_type_values = cat_ent_cnt[each_type].keys()
-            # print all_type_values
             for type_value in all_type_values:
                 if type_value not in voc[each_type]:
-                    # print "haha"
                     voc[each_type][type_value] = count[each_type]
                     reverse_voc[each_type].append(type_value)
                     count[each_type] += 1
-
-    # print len(voc['place']), voc['place']
-    # print reverse_voc['place']
 
     doc_count = 0
     for cat_ent_cnt in cat_ent_cnt_list:
         for each_type in entityTypes:
             for ent, cnt in cat_ent_cnt[each_type].iteritems():
                 mrow[each_type].append(doc_count)
-                # print "haha", each_type
-                # print ent, cnt
                 mcolumn[each_type].append(voc[each_type][ent])
                 mvalue[each_type].append(cnt)
         doc_count += 1
@@ -164,9 +168,6 @@ def calc_entity_matrix(news_entities, entityTypes):
         X[each_type] = coo_matrix((mvalue[each_type], (mrow[each_type], mcolumn[
                                   each_type])), shape=(doc_count, len(reverse_voc[each_type]))).tocsr()
 
-    # print X['place'], type(X['place'])
-
-    # print cat_ent_cnt_list[505], reverse_voc['place'][60]
     return X, reverse_voc
 
 
@@ -189,7 +190,7 @@ def weightX(X, Pw_z, Pz_d):
     X = X.tocoo()
     docind, wordind, value = (X.row, X.col, X.data)
     # Pz_do_f = Pz_do.*(Pz_do>(1-lambdaB)/double(K-1))
-    Pz_d_f = Pz_d * (Pz_d > 0.01)
+    Pz_d_f = Pz_d  * (Pz_d > 0.01)
     Pz_dw_ = Pw_z[wordind, :].T * Pz_d_f[:, docind]
     Pw_d = Pz_dw_.sum(axis=0)  # 1 x nnz
     Pz_wd = Pz_dw_[:-1, :] / np.tile(Pw_d, (K - 1, 1))
@@ -198,13 +199,10 @@ def weightX(X, Pw_z, Pz_d):
     return n_wdxPz_wd
 
 # get event matrices
-
-
 def selectTopic(Xs, n_wdxPz_wds, event):
     Xevents = []
     for i in range(len(Xs)):
         X = Xs[i]
-        # add by Min
         X = X.tocoo()
 
         n_wdxPz_wd = n_wdxPz_wds[i]
@@ -238,10 +236,7 @@ def csr_matrix2array(X):
     Xcol = [int(v) for v in Xcoo.col]
     Xval = [float(v) for v in Xcoo.data]
 
-    # print "Xval", Xval[0], type(float(Xval[0]))
-
     return Xrow, Xcol, Xval
-    # print "haa",np.result_type(X.tocoo().row)
 
 
 def array2csr_matrix(Xrow, Xcol, Xval, Xshape):
@@ -258,3 +253,18 @@ def saveX2session(X, session, name, start_str, end_str):
     session[prepend_date(start_str, end_str, name + 'Xshape')] = X.shape
 
     return 'success'
+    
+def filterEvent(Pw_zs,Pz_d,Pd):
+    eventID = Pz_d[:-1,:].dot(Pd).argsort()[::-1]
+
+    for i in xrange(len(eventID)):
+        print "event ", eventID[i], "Pz is ", Pz_d[:-1,:].dot(Pd)[eventID[i]]
+    topk = 20
+    # input dID document metrics
+    eventID = eventID[:topk]
+    eventID = np.append(eventID, Pz_d.shape[0]-1)
+    for i in xrange(len(Pw_zs)):
+        Pw_zs[i] = Pw_zs[i][:,eventID]
+    Pz_d = Pz_d[eventID,:]
+    return Pw_zs,Pz_d, Pz_d.shape[0]-1
+

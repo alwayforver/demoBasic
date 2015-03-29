@@ -13,27 +13,16 @@ def simple_kmeans(X, cluster=2):
 
     km = KMeans(n_clusters=cluster, init='k-means++', max_iter=100, n_init=10,
                 verbose=False)
-
     km.fit(X)
-    # print("Top terms per cluster:")
     order_centroids = km.cluster_centers_.argsort()[:, ::-1]
 
-    # for i in range(cluster):
-    #     print("Cluster %d:" % i)
-    #     for ind in order_centroids[i, :10]:
-    #         print(' %s' % terms[ind])
-    #     print
     row_sums = km.cluster_centers_.sum(axis=1)
-    Pw_z = (km.cluster_centers_ / row_sums[:, np.newaxis]).T
-
-    # print "Pw_z", Pw_z
-    # print km.labels_
     Pz_d = calc_Pz_d_simple(km.labels_, cluster)
 
-    # print Pw_z
-    # print km.labels_, type(km.labels_)
+    nWords = X.shape[1]
+    C = km.cluster_centers_.T+1.0/nWords/nWords
+    Pw_z = C/np.tile(sum(C),(nWords,1))
 
-    # print Pz_d
     return Pw_z, Pz_d, km.labels_
 
 
@@ -45,7 +34,6 @@ def calc_Pd(docs):
         doc_len = len(doc.split())
 
         docs_term.append(doc_len)
-
     sumV = sum(docs_term)
 
     Pd = [float(x) / sumV for x in docs_term]
@@ -111,7 +99,9 @@ def km_initialize(X, Xe, entityTypes, cluster_num):
 
 
 if __name__ == '__main__':
-    simple_kmeans(
-        ['cat cat cat cat dog', 'dog dog dog dog dog dog dog cat dog', 'dog cat dog cat'])
+    vectorizer = TfidfVectorizer(stop_words='english', max_features=10000)
+    X = vectorizer.fit_transform(['cat cat cat cat dog','cat cat cat catdog dog', 'dog dog dog dog dog dog dog cat dog', 'dog cat dog cat'])
+
+    simple_kmeans(X, 2)
     # print calc_Pd(['cat cat cat cat dog', 'dog dog dog dog dog dog dog cat
     # dog', 'dog cat dog cat'])

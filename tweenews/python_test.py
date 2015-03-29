@@ -18,4 +18,13 @@ def parse_date(date_str):
     return to_return
 
 if __name__ == '__main__':
-    print parse_date('20151213')+timedelta(days = 1)
+    # print parse_date('20151213')+timedelta(days = 1)
+
+    graphStr = 'a'*35
+    part_num = len(graphStr)/10+1
+
+
+    for i in xrange(part_num):
+        start = 10*i
+        print start, start+10
+        print graphStr[start:start+10]
