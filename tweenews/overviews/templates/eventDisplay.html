@@ -29,16 +29,16 @@
         <div class='row'>
             <div class="col-xs-4" >
                 <h5> News Summary </h5>
-                <!-- {% autoescape on %} -->
+                {% autoescape off %}
                  {{ event_info.0|linebreaks }}
-                <!-- {% endautoescape %} -->
+                {% endautoescape %}
                 
             </div>
             <div class="col-xs-4" >
                 <h5> Tweet Highlights </h5>
-                 <!-- {% autoescape on %} -->
+                 {% autoescape off %}
                  {{ event_info.1|linebreaks  }}
-                 <!-- {% endautoescape %} -->
+                 {% endautoescape %}
             </div>
             <div class="col-xs-4" id="wordcloudarea{{forloop.counter0}}">
                 <h5> Word Cloud </h5>
@@ -48,7 +48,7 @@
         </div>
         <div class='row'>
             <div class="col-xs-4" >
-            <p><button id='aspect{{forloop.counter0}}'>See Event Details and Inspects Aspects</button> </p>
+            <p><button id='aspect{{forloop.counter0}}'>See Event Details and Inspect Aspects</button> </p>
            
             <p id='aspect{{forloop.counter0}}' style="display:none;">Please Wait...</p>
             </div>
@@ -78,6 +78,7 @@
                       alert(data);
                     }
                 });
+                    
                     // window.location.href='/overviews/aspect_running/start_str=20150101end_str=20150102event={{forloop.counter0}}';
                 });
                 });

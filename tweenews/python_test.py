@@ -1,5 +1,7 @@
 from datetime import datetime
 from django.utils import timezone
+
+import re
 def parse_date(date_str):
     # in the form of 2015-01-01
     if '-' in date_str:
@@ -17,14 +19,8 @@ def parse_date(date_str):
             return None
     return to_return
 
+pattern = re.compile(r".*")
+
 if __name__ == '__main__':
-    # print parse_date('20151213')+timedelta(days = 1)
-
-    graphStr = 'a'*35
-    part_num = len(graphStr)/10+1
-
-
-    for i in xrange(part_num):
-        start = 10*i
-        print start, start+10
-        print graphStr[start:start+10]
+    # print re.match(pattern, "adf,adsf")
+    

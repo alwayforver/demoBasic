@@ -108,16 +108,25 @@ def find_topterms_dic(Pw_z, terms, top_n):
     return top_term_dic
 
 def parse_entity_str(entity_str):
-    entities = entity_str.strip().split(';')
+   
     result = {}
     result['place'] = {}
     result['org'] = {}
     result['person'] = {}
+
+    if entity_str==None:
+        print "non_entity_str!"
+        return result
+
+    entities = entity_str.strip().split(';')
+
     for entity in entities:
         fields = entity.split(':')
         if len(fields) != 3:
             continue
         result[fields[1]][fields[0]] = int(fields[2])
+        if fields[2]=="":
+            continue
     return result
 
 
@@ -209,7 +218,8 @@ def selectTopic(Xs, n_wdxPz_wds, event):
         nDocs, nWords = X.shape
         docind, wordind, value = (X.row, X.col, X.data)
         value = n_wdxPz_wd[event, :]
-        select = (value != 0)
+        # select = (value != 0)
+        select = (value >0.2*max(value))
         value_f = value[select]
         row_f = docind[select]  # 1 3 3 5 5 6 6 6
         col_f = wordind[select]
@@ -253,18 +263,69 @@ def saveX2session(X, session, name, start_str, end_str):
     session[prepend_date(start_str, end_str, name + 'Xshape')] = X.shape
 
     return 'success'
-    
-def filterEvent(Pw_zs,Pz_d,Pd):
-    eventID = Pz_d[:-1,:].dot(Pd).argsort()[::-1]
 
-    for i in xrange(len(eventID)):
-        print "event ", eventID[i], "Pz is ", Pz_d[:-1,:].dot(Pd)[eventID[i]]
-    topk = 20
+def filterEvent(Pw_zs, Pz_d, Pd, mu, sigma):
+    # eventID = Pz_d[:-1,:].dot(Pd).argsort()[::-1]
+
+    # for i in xrange(len(eventID)):
+    #     print "event ", eventID[i], "Pz is ", Pz_d[:-1,:].dot(Pd)[eventID[i]]
+    # cluster_num = Pz_d.shape[0]-1
+    # for i xrange(cluster_num):
+    eventID = np.sort(Pw_zs[0][:,:-1],axis=0)[::-1,:][:10,:].sum(axis=0).argsort()[::-1] 
+    topk = 35
     # input dID document metrics
     eventID = eventID[:topk]
     eventID = np.append(eventID, Pz_d.shape[0]-1)
     for i in xrange(len(Pw_zs)):
         Pw_zs[i] = Pw_zs[i][:,eventID]
     Pz_d = Pz_d[eventID,:]
-    return Pw_zs,Pz_d, Pz_d.shape[0]-1
+    mu = mu[eventID]
+    sigma = sigma[eventID]
+    # print np.sort(np.sort(Pw_zs[0],axis=0)[::-1,:][:10,:].sum(axis=0))[::-1]
+
+    return Pw_zs,Pz_d, mu, sigma, Pz_d.shape[0]-1
+
+
+def filterEventKeyword(Pw_zs, Pz_d, Pd, mu, sigma, terms):
+    # eventID = Pz_d[:-1,:].dot(Pd).argsort()[::-1]
+
+    # for i in xrange(len(eventID)):
+    #     print "event ", eventID[i], "Pz is ", Pz_d[:-1,:].dot(Pd)[eventID[i]]
+    # cluster_num = Pz_d.shape[0]-1
+    # for i xrange(cluster_num):
+    cluster_num  = Pz_d.shape[0]-1
+    sortedPw_z = np.argsort(Pw_zs[0][:,:-1],axis=0)[::-1,:][:10,:]
+    eventID = np.zeros(2, dtype=np.int)
+    for i in xrange(cluster_num):
+        for j in xrange(10):
+            if terms[sortedPw_z[j][i]].lower()== "apple":
+                eventID[1] = i
+                break
+            if terms[sortedPw_z[j][i]].lower()== "squad":
+                eventID[0] = i
+                break
+    eventID = np.append(eventID, Pz_d.shape[0]-1)
+
+    for i in xrange(len(Pw_zs)):
+        Pw_zs[i] = Pw_zs[i][:,eventID]
+    Pz_d = Pz_d[eventID,:]
+    mu = mu[eventID]
+    sigma = sigma[eventID]
+    # print np.sort(np.sort(Pw_zs[0],axis=0)[::-1,:][:10,:].sum(axis=0))[::-1]
+
+    return Pw_zs,Pz_d, mu, sigma, eventID.size-1
+
+def rankEventwithTime(Pw_zs,Pz_d,Pd, mu, sigma):
+    eventID = mu[:-1].argsort()
+    eventID = np.append(eventID, Pz_d.shape[0]-1)
+
+    for i in xrange(len(Pw_zs)):
+        Pw_zs[i] = Pw_zs[i][:,eventID]
+    Pz_d = Pz_d[eventID,:]
+    mu = mu[eventID]
+    sigma = sigma[eventID]
+
+    return Pw_zs,Pz_d, mu, sigma, Pz_d.shape[0]-1
+
+
 

@@ -7,8 +7,10 @@ from utility import get_ticks, parse_date
 
 
 def drawLineDist(cluster_num, start_time, end_time, mu, sigma):
-    colors = ["#DEB887", "#A9A9A9", "#E9967A", "#00BFFF", "#333333", "#8FBC8F",
-                       "#00ff00", "#b6fcd5", "#31698a", "#ff00ff", "#7fffd4", "#800000", "#8a2be2"]
+    
+    colors = ["#0B6121", "#FE2E2E", "#01A9DB", "#DBA901", "#A52A2A", "#333333",
+                "#00ff00", "#b6fcd5", "#31698a", "#ff00ff", "#7fffd4", "#800000", "#8a2be2"]
+
 
     start_tick = get_ticks(parse_date(start_time))-3600*24*2
     end_tick = get_ticks(parse_date(end_time))+3600*24*2
@@ -57,7 +59,9 @@ xScale = d3.time.scale().domain([dateMin, dateMax]).range([0, width]), // value 
     }, // data -> display\n\
     xAxis = d3.svg.axis()\n\
     .scale(xScale)\n\
-    .orient("bottom");\n\
+    .orient("bottom")\n\
+    .ticks(d3.time.days, 2)\n\
+    .tickSize(3);\n\
 \n\
 var yAxis = d3.svg.axis()\n\
     .scale(y)\n\
@@ -140,8 +144,9 @@ class EntityGraphData():
         self.edges = edges
 
     def __init__(self, threshold, event_num, cluster_num, reverse_voc, Pp_z, Pl_z, Po_z, Xaspects_list, aspect_Pp_z, aspect_Pl_z, aspect_Po_z):
-        self.colors = ["#DEB887", "#A9A9A9", "#E9967A", "#00BFFF", "#333333", "#8FBC8F",
-                       "#00ff00", "#b6fcd5", "#31698a", "#ff00ff", "#7fffd4", "#800000", "#8a2be2"]
+        self.colors = ["#0B6121", "#FE2E2E", "#01A9DB", "#DBA901", "#A52A2A", "#333333",
+                "#00ff00", "#b6fcd5", "#31698a", "#ff00ff", "#7fffd4", "#800000", "#8a2be2"]
+
         self.colors = list(self.colors)
         self.termtypeDic = {}
         self.termDic = {}
@@ -167,7 +172,7 @@ class EntityGraphData():
 
         for i in xrange(self.termCount):
             if i < np.size(termsp):
-                self.termDic[i] = termsp[i].strip()
+                self.termDic[i] = termsp[i].strip().replace('(astronaut)','')
                 self.termtypeDic[i] = "#9400D3"
                 self.termWeight[i] = float(termspW[i])
                 for j in xrange(self.aspect_num):
@@ -208,7 +213,7 @@ class EntityGraphData():
                     # print self.termDic[row], self.termWeight[row],
                     # self.termDic[col],self.termWeight[col],
                     # erelation[row,col]
-                    if self.termWeight[row] > 0.04 and self.termWeight[col] > 0.04 and erelation[row, col] > threshold:
+                    if self.termWeight[row] > 0.01 and self.termWeight[col] > 0.01 and erelation[row, col] > threshold:
                         if (col, row, topicType) in self.edges:
                             continue
                         # print 'haha'
@@ -350,15 +355,58 @@ def drawWordCloud(word_distribution):
 
 def wordCloudSize(value):
     value = float(value)
+    if value>330:
+        value = 330
 
-    return (value - 40)/float(310-40)*(50-10)+10
+    return (value - 40)/float(310-40)*(40-10)+25
     
 
+def drawOpinionPie(event_opinion_percent):
+    result_str = '$(function() {data = [{"name": "positive", "percent":"'+str(event_opinion_percent[0]*100)+'"}, {"name": "negative", "percent":"'+str(event_opinion_percent[1]*100)+'"},];'
 
+    result_str += '\n\
+    var width = 250,\n\
+        height = 250,\n\
+        radius = Math.min(width, height) / 2;\n\
+    \n\
+    var color = d3.scale.ordinal()\n\
+        .range(["#FF6600", "#8a89a6", ]);\n\
+    \n\
+    var arc = d3.svg.arc()\n\
+        .outerRadius(radius - 10)\n\
+        .innerRadius(0);\n\
+    \n\
+    var pie = d3.layout.pie()\n\
+        .sort(null)\n\
+        .value(function(d) { return d.percent; });\n\
+    \n\
+    var svg = d3.select("placeholder").append("svg")\n\
+        .attr("width", width)\n\
+        .attr("height", height)\n\
+        .append("g")\n\
+        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");\n\
+    \n\
+      var g = svg.selectAll(".arc")\n\
+          .data(pie(data))\n\
+        .enter().append("g")\n\
+          .attr("class", "arc");\n\
+    \n\
+      g.append("path")\n\
+          .attr("d", arc)\n\
+          .style("fill", function(d) { return color(d.data.name); });\n\
+    \n\
+      g.append("text")\n\
+          .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })\n\
+          .attr("dy", ".40em")\n\
+          .style("text-anchor", "middle")\n\
+          .style("font-size","16px")\n\
+          .text(function(d) { return d.data.name; });\n\
+     });'
+    return result_str
 
 if __name__ == '__main__':
 
     # gD = EntityGraphData(0.5, 2)
-
-    print drawWordCloud({'adf':500, 'asdffff':20,'asdfdddd':10  })
+    print drawOpinionPie((20,80))
+    # print drawWordCloud({'adf':500, 'asdffff':20,'asdfdddd':10  })
 

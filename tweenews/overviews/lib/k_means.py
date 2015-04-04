@@ -52,7 +52,7 @@ def calc_Pz_d_simple(labels, cluster):
     for i in xrange(doc_length):
         Pz_d[labels[i], i] = 1
 
-    Pz_d += 0.01
+    Pz_d += 0.1
     Pz_d /= np.tile(Pz_d.sum(axis=0),(cluster,1))
     return Pz_d
 
@@ -60,29 +60,37 @@ def calc_Pz_d_simple(labels, cluster):
 def calc_Pe_z(labels, Xe, cluster_num):
     # print "in function",type(Xe), np.shape(Xe)
 
-    Xe = Xe.tocoo()
+    # Xe = Xe.tocoo()
 
-    # print "in function",type(Xe), np.shape(Xe)
+    # # print "in function",type(Xe), np.shape(Xe)
 
-    doc_num = len(labels)
-    row = []
-    column = []
-    value = []
+    # # doc_num = len(labels)
+    # row = []
+    # column = []
+    # value = []
 
-    for i in xrange(len(Xe.row)):
-        e = Xe.col[i]
-        z = labels[Xe.row[i]]
+    # for i in xrange(len(Xe.row)):
+    #     e = Xe.col[i]
+    #     z = labels[Xe.row[i]]
 
-        row.append(e)
-        column.append(z)
-        value.append(Xe.data[i])
+    #     row.append(e)
+    #     column.append(z)
+    #     value.append(Xe.data[i])
 
-    # print labels
+    # # print labels
 
-    # for i in xrange(doc_num):
-    Pe_z = coo_matrix(
-        (value, (row, column)), shape=(np.shape(Xe)[1], cluster_num)).toarray()
-
+    # # for i in xrange(doc_num):
+    # Pe_z = coo_matrix(
+    #     (value, (row, column)), shape=(np.shape(Xe)[1], cluster_num)).toarray()
+    # print type(labels)
+    Xe = Xe.tocsr()
+    nEnt = Xe.shape[1]
+    Pe_z = np.zeros((nEnt,cluster_num))
+    for i in xrange(cluster_num):
+        Pe_z[:,i] = Xe[labels==i,:].mean(0)
+    # print "pass"
+    C = Pe_z+1e-7 #1.0/nEnt/nEnt
+    Pe_z = C/np.tile(sum(C),(nEnt,1))
     return Pe_z
 
 

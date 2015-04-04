@@ -14,10 +14,12 @@ def compute_Pw_d(wordind,docind,Pw_z,Pz_d):
     Pw_d = Pz_dw_.sum(axis=0)  # 1 x nnz
     # print "00",(Pz_dw_==0).sum(axis=1)
     check = Pz_dw_.sum(axis=1)
-
     # print 'Pz_dw_',Pz_dw_
     # print check
+    # print "compute"
+    # print check
     if (check[:-1]==0).sum()>0:
+        
         # print 'computer_Pw_d is None'
         return None,None
     return Pw_d, Pz_dw_
@@ -87,6 +89,7 @@ def logL(vitals,Pd,forLis,forLit,wt):
         Li.append( np.log(Pt_d*Pd).sum()*wt )        
     return sum(Li)
 def pLSABet(selectTime,numX,Learn,data,inits,wt,lambdaB, debug = 1):
+    print "pLSABet"
 # data = [Xs,DT]
 # inits = [Pz_d,Pw_z, Pp_z,Pl_z,Po_z,mu,sigma]        
     (Min_Likelihood_Change,Max_Iterations) = Learn

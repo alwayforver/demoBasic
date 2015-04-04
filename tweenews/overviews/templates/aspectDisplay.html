@@ -9,25 +9,19 @@ path.link{
     stroke-width: 1.5px;
 }   
 
+.arc path {
+  stroke: #fff;
+}
 
-path.li/*nk.t1{
-    stroke: #ff0000;
-}   
-
-path.link.t2{
-    stroke: rgb(10,255,255)
-    
-}*/
 circle {
     fill: none;
     stroke: black;
     stroke-width: 1.5px;
 }
-
-text {
+/*.eventopinion {
     font: 10px sans-serif;
     pointer-events: none;
-}
+}*/
 
 text.shadow {
     stroke: #fff;
@@ -39,6 +33,7 @@ body {
     background-color: white;
     margin: 0px;
 }
+
 .axis path,
     .axis line {
         fill: none;
@@ -81,7 +76,6 @@ body {
 
 {% block script %}
 
-
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
 <script src="{{ STATIC_URL }}script/d3.layout.cloud.js"></script>
      
@@ -95,9 +89,17 @@ body {
         {% endautoescape %}
     </script>
 
+    {%  for aspect_word_cloud_str in aspect_wordcloud_list %}
+        <script>
+        {% autoescape off %}
+            {{aspect_word_cloud_str}}
+           
+        {% endautoescape %}
+        </script>
+    {% endfor %}
+
   
 {% endblock %}
-
 
 {% block entityGraph %}
     
@@ -118,11 +120,29 @@ body {
 {% endblock %}
     
 {% block distGraph%} 
-        {% autoescape off %}
-            {{distStr}}
-        {% endautoescape %}
+    {% autoescape off %}
+        {{distStr}}
+    {% endautoescape %}
+{% endblock %}
+
+{% block eventopinion %} 
+<script>
+    {% autoescape off %}
+        {{event_opinion_str}}
+    {% endautoescape %}
+</script>
+
+{%  for each_opinion in aspect_opinion_str  %}
+        <script>
+         {% autoescape off %}
+                {{ each_opinion }}
+         {% endautoescape %}
+        </script>
+
+{% endfor %}
 
 {% endblock %}
+
 
 {% block content %}
    <div class="tabbable tabs-left">
@@ -151,11 +171,17 @@ body {
         <div class='row'>
             <div class="col-xs-4" id="headarea">
                  <h4> News Summary </h4>
+                 {% autoescape off %}
                  {{event_news_summary|linebreaks}}
+                 {% endautoescape %}
+                 <hr>
             </div>
             <div class="col-xs-4" id="headarea">
                  <h4> Tweets Highlight </h4>
+                 {% autoescape off %}
                  {{event_tweets_summary|linebreaks}}
+                 {% endautoescape %}
+                 <hr>
             </div>
             <div class="col-xs-4" id="eventwordcloud">
                  <h4> Word Cloud </h4>
@@ -168,12 +194,12 @@ body {
             <div class="col-xs-6" id="area1">
                 <h4> Entity Graph</h4>
                 Node Colors represent different entity categories: <font color="#9400D3">Violet:Person; </font><font color="#228B22">Green:Place; </font> <font color="#0000FF">Blue:Org </font><br>
-                Link Colors represent interactions of different aspects.
+                Different link Colors represent interactions of different aspects.
             </div>
-            <div class="col-xs-6" id="area2"> <h3> </h3> 
-                <h4> Event-Aspect Time Distribution</h4>
-                Aspect Colors are uniform with the summary below
-                <br><br><br><br>
+            <div class="col-xs-6" id="eventopinion"> <h3> </h3> 
+                <h4> Event Opinion Percentage</h4>
+                <br>
+                <br>
             </div>
         <!-- <div class="col-xs-6" id="area3">area3</div> -->
         </div>
@@ -182,8 +208,9 @@ body {
 
     <div class="container tab-pane" id="b_tab">
         <div class='row'>
-            <div class="col-xs-6" id="headarea">
+            <div class="col-xs-6" id="area2">
                  <h2>Aspect Summaries</h2>
+                 <h4>Event Aspect Time Distribution</h4>
             </div>
         </div>
         {% for event_info in event_info_list %}
@@ -193,19 +220,32 @@ body {
             </div>
         </div>
         <div class='row'>
-            <div class="col-xs-6" >
+            <div class="col-xs-4" >
                 <h4> News Summary </h4>
+                {% autoescape off %}
                 {{ event_info.0|linebreaks }}
+                {% endautoescape %}
+                <hr>
             </div>
-            <div class="col-xs-6" >
+            <div class="col-xs-4" >
                 <h4> Tweet Highlights </h4>
+                {% autoescape off %}
                 {{ event_info.1|linebreaks  }}
+                {% endautoescape %}
+                <hr>
+            </div>
 
+             <div class="col-xs-4"  id = "aspectwordcloud{{forloop.counter0}}">
+                <h4> Word Cloud </h4>
             </div>
         </div>
         <div class='row'>
-            <div class="col-xs-4" id = "aspectEntityArea{{forloop.counter0}}">
+            <div class="col-xs-6" id = "aspectEntityArea{{forloop.counter0}}">
                 <h4> Aspect Entity Graph </h4>
+            </div>
+             <div class="col-xs-6" id = "aspectopinion{{forloop.counter0}}">
+                <h4> Aspect Opinion Percentage </h4>
+                <br>
             </div>
         </div>
         <hr>

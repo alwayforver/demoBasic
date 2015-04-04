@@ -18,7 +18,7 @@ urlpatterns = patterns('',
     url(r'^graph_test/$', views.graph_test, name='graph_test'),
 
     url(r'^event_discovery/$', views.event_view, name = 'event_discovery'),
-    url(r'^event_running/start_str=(?P<start_str>\d+)end_str=(?P<end_str>\d+)/$', views.event_running, name = 'event_running'),
+    url(r'^event_running/start_str=(?P<start_str>\d+)end_str=(?P<end_str>\d+)keywords=(?P<keywords>.*)/$', views.event_running, name = 'event_running'),
 
     url(r'^aspect_running/start_str=(?P<start_str>\d+)end_str=(?P<end_str>\d+)event=(?P<event>\d+)/$', views.aspect_running, name = 'aspect_running'),
 
