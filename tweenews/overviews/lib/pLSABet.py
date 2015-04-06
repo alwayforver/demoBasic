@@ -13,8 +13,14 @@ def compute_Pw_d(wordind,docind,Pw_z,Pz_d):
     Pz_dw_ = Pw_z[wordind,:].T * Pz_d[:,docind]
     Pw_d = Pz_dw_.sum(axis=0)  # 1 x nnz
     # print "00",(Pz_dw_==0).sum(axis=1)
-    check = (Pz_dw_==0).sum(axis=1)
+    check = Pz_dw_.sum(axis=1)
+    # print 'Pz_dw_',Pz_dw_
+    # print check
+    # print "compute"
+    # print check
     if (check[:-1]==0).sum()>0:
+        
+        # print 'computer_Pw_d is None'
         return None,None
     return Pw_d, Pz_dw_
 def compute_Pt_d(Pz_d,mu,sig,DT):
@@ -39,6 +45,7 @@ def EMstep(vitals,Pw_zs,Pz_d,forLis,lambdaB,wt,selectTime,timeData):
         n_wdxPz_wd = np.tile(value,(K-1,1))*Pz_wd
         check = n_wdxPz_wd.sum(axis=1)
         if (check==0).sum()>0:
+            # print 'n_wdxPz_wd check fail'
             return None,None,None,None
         nWords = len(Pw_z)
         Pw_z_out = np.zeros((nWords,K-1))
@@ -82,6 +89,7 @@ def logL(vitals,Pd,forLis,forLit,wt):
         Li.append( np.log(Pt_d*Pd).sum()*wt )        
     return sum(Li)
 def pLSABet(selectTime,numX,Learn,data,inits,wt,lambdaB, debug = 1):
+    print "pLSABet"
 # data = [Xs,DT]
 # inits = [Pz_d,Pw_z, Pp_z,Pl_z,Po_z,mu,sigma]        
     (Min_Likelihood_Change,Max_Iterations) = Learn
@@ -98,6 +106,7 @@ def pLSABet(selectTime,numX,Learn,data,inits,wt,lambdaB, debug = 1):
         sigma = np.append(inits[-1], sigma_B)
         if (sigma==0).sum()>0:
             sigma[sigma==0] = 1e-7
+            # print 'sigma is None'
             return None, None, None, None, None, None
             if debug == 1:
                 print "zeros in sigma"        
@@ -148,12 +157,14 @@ def pLSABet(selectTime,numX,Learn,data,inits,wt,lambdaB, debug = 1):
             print "iteration: "+str(it)        
         Pw_zs,Pz_d,mu,sigma= EMstep(vitals,Pw_zs,Pz_d,forLis,lambdaB,wt,selectTime,(DT,mu,sigma,forLit))
         if Pw_zs==None:
+            # print 'Pw_zs is None'
             return None, None, None, None, None, None
         forLis = []
         for i in range(numX):
             _,docind,wordind,value = vitals[i]        
             Pw_d, Pz_dw_ = compute_Pw_d(wordind,docind,Pw_zs[i],Pz_d)
             if  Pw_d==None:
+                # print 'Pw_d is None'
                 return None, None, None, None, None, None
             forLis.append( (Pw_d, Pz_dw_) )
         if selectTime:

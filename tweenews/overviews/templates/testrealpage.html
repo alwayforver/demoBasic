@@ -1,0 +1,1946 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="UIUC DM Group">
+    <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+
+    <title>Tweenews News Page</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./css/bootstrap.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    
+    <!-- Bootstrap theme -->
+    <link href="./css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./css/custom.css" rel="stylesheet">
+
+    
+
+<style>
+
+path.link{
+    fill: none;
+    stroke: #666;
+    stroke-width: 1.5px;
+}   
+
+.arc path {
+  stroke: #fff;
+}
+
+circle {
+    fill: none;
+    stroke: black;
+    stroke-width: 1.5px;
+}
+/*.eventopinion {
+    font: 10px sans-serif;
+    pointer-events: none;
+}*/
+
+text.shadow {
+    stroke: #fff;
+    stroke-width: 3px;
+    stroke-opacity: .8;
+}
+
+body {
+    background-color: white;
+    margin: 0px;
+}
+
+.axis path,
+    .axis line {
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
+    }
+    /*.x.axis path {
+        display: none;
+    }*/
+    .line {
+        fill: none;
+        stroke: steelblue;
+        stroke-width: 1.5px;
+    }
+
+.tabs-left > .nav-tabs > li {
+  float: none;
+  border-right: 1px solid #D3D3D3;
+  margin-bottom: 1px;
+}
+.tabs-left > .nav-tabs > li > a {
+  margin-right: 0;
+  text-align: center;
+  padding: 15px 15px;
+}
+.tabs-left > .nav-tabs {
+  float: left;
+  margin-right: 19px;  
+}
+.tabs-left > .nav-tabs .active > a,
+.tabs-left > .nav-tabs .active > a:hover,
+.tabs-left > .nav-tabs .active > a:focus {
+  background-color: #d9d9d9;
+}
+</style>
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="./script/bootstrap.min.js"></script>
+    <script src="./script/jquery.cookie.js"></script>
+    <script src="./script/utils.js"></script>
+    <script src="./script/readmore.min.js"></script>
+    <script src="./script/jquery.tablesorter.min.js"></script>
+    
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+<script src="./script/d3.layout.cloud.js"></script>
+     
+
+    
+    
+  </head>
+
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Tweenews: Twitter with News</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="./">Home</a></li>
+            <li><a href="./news/">News Overview</a></li>
+            <li><a href="./event_discovery/">Event Discovery</a></li>
+            <!-- <li><a href="https://code.jquery.com/jquery-1.10.2.min.js">News with Tweet</a></li> -->
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    
+
+    <div class="container theme-showcase">
+    
+      <div class="top-buffer">
+        <!-- Make the space for top -->
+      </div>
+
+      <a name="top"></a>
+      <div class="col-xs-12 search-box">
+        
+
+    </div>
+     
+     
+<script>
+    
+        $(function() {data = [{"name": "positive", "percent":"45.2691736055"}, {"name": "negative", "percent":"54.7308263945"},];
+    var width = 250,
+        height = 250,
+        radius = Math.min(width, height) / 2;
+    
+    var color = d3.scale.ordinal()
+        .range(["#FF6600", "#8a89a6", ]);
+    
+    var arc = d3.svg.arc()
+        .outerRadius(radius - 10)
+        .innerRadius(0);
+    
+    var pie = d3.layout.pie()
+        .sort(null)
+        .value(function(d) { return d.percent; });
+    
+    var svg = d3.select("#eventopinion").append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .append("g")
+        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+    
+      var g = svg.selectAll(".arc")
+          .data(pie(data))
+        .enter().append("g")
+          .attr("class", "arc");
+    
+      g.append("path")
+          .attr("d", arc)
+          .style("fill", function(d) { return color(d.data.name); });
+    
+      g.append("text")
+          .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+          .attr("dy", ".40em")
+          .style("text-anchor", "middle")
+          .style("font-size","16px")
+          .text(function(d) { return d.data.name; });
+     });
+    
+</script>
+
+
+        <script>
+         
+        $(function() {data = [{"name": "positive", "percent":"55.4644227846"}, {"name": "negative", "percent":"44.5355772154"},];
+    var width = 250,
+        height = 250,
+        radius = Math.min(width, height) / 2;
+    
+    var color = d3.scale.ordinal()
+        .range(["#FF6600", "#8a89a6", ]);
+    
+    var arc = d3.svg.arc()
+        .outerRadius(radius - 10)
+        .innerRadius(0);
+    
+    var pie = d3.layout.pie()
+        .sort(null)
+        .value(function(d) { return d.percent; });
+    
+    var svg = d3.select("#aspectopinion0").append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .append("g")
+        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+    
+      var g = svg.selectAll(".arc")
+          .data(pie(data))
+        .enter().append("g")
+          .attr("class", "arc");
+    
+      g.append("path")
+          .attr("d", arc)
+          .style("fill", function(d) { return color(d.data.name); });
+    
+      g.append("text")
+          .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+          .attr("dy", ".40em")
+          .style("text-anchor", "middle")
+          .style("font-size","16px")
+          .text(function(d) { return d.data.name; });
+     });
+         
+        </script>
+
+
+        <script>
+         
+                $(function() {data = [{"name": "positive", "percent":"16.1067788844"}, {"name": "negative", "percent":"83.8932211156"},];
+    var width = 250,
+        height = 250,
+        radius = Math.min(width, height) / 2;
+    
+    var color = d3.scale.ordinal()
+        .range(["#FF6600", "#8a89a6", ]);
+    
+    var arc = d3.svg.arc()
+        .outerRadius(radius - 10)
+        .innerRadius(0);
+    
+    var pie = d3.layout.pie()
+        .sort(null)
+        .value(function(d) { return d.percent; });
+    
+    var svg = d3.select("#aspectopinion1").append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .append("g")
+        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+    
+      var g = svg.selectAll(".arc")
+          .data(pie(data))
+        .enter().append("g")
+          .attr("class", "arc");
+    
+      g.append("path")
+          .attr("d", arc)
+          .style("fill", function(d) { return color(d.data.name); });
+    
+      g.append("text")
+          .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+          .attr("dy", ".40em")
+          .style("text-anchor", "middle")
+          .style("font-size","16px")
+          .text(function(d) { return d.data.name; });
+     });
+         
+        </script>
+
+
+        <script>
+         
+                $(function() {data = [{"name": "positive", "percent":"30.3205827177"}, {"name": "negative", "percent":"69.6794172823"},];
+    var width = 250,
+        height = 250,
+        radius = Math.min(width, height) / 2;
+    
+    var color = d3.scale.ordinal()
+        .range(["#FF6600", "#8a89a6", ]);
+    
+    var arc = d3.svg.arc()
+        .outerRadius(radius - 10)
+        .innerRadius(0);
+    
+    var pie = d3.layout.pie()
+        .sort(null)
+        .value(function(d) { return d.percent; });
+    
+    var svg = d3.select("#aspectopinion2").append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .append("g")
+        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+    
+      var g = svg.selectAll(".arc")
+          .data(pie(data))
+        .enter().append("g")
+          .attr("class", "arc");
+    
+      g.append("path")
+          .attr("d", arc)
+          .style("fill", function(d) { return color(d.data.name); });
+    
+      g.append("text")
+          .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+          .attr("dy", ".40em")
+          .style("text-anchor", "middle")
+          .style("font-size","16px")
+          .text(function(d) { return d.data.name; });
+     });
+         
+        </script>
+
+
+        <script>
+         
+                $(function() {data = [{"name": "positive", "percent":"40.8657823312"}, {"name": "negative", "percent":"59.1342176688"},];
+    var width = 250,
+        height = 250,
+        radius = Math.min(width, height) / 2;
+    
+    var color = d3.scale.ordinal()
+        .range(["#FF6600", "#8a89a6", ]);
+    
+    var arc = d3.svg.arc()
+        .outerRadius(radius - 10)
+        .innerRadius(0);
+    
+    var pie = d3.layout.pie()
+        .sort(null)
+        .value(function(d) { return d.percent; });
+    
+    var svg = d3.select("#aspectopinion3").append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .append("g")
+        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+    
+      var g = svg.selectAll(".arc")
+          .data(pie(data))
+        .enter().append("g")
+          .attr("class", "arc");
+    
+      g.append("path")
+          .attr("d", arc)
+          .style("fill", function(d) { return color(d.data.name); });
+    
+      g.append("text")
+          .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+          .attr("dy", ".40em")
+          .style("text-anchor", "middle")
+          .style("font-size","16px")
+          .text(function(d) { return d.data.name; });
+     });
+         
+        </script>
+
+
+
+
+    
+    
+   <div class="tabbable tabs-left">
+   <ul class="nav nav-tabs" id="leftTabs">
+    <li class="active">
+      <a href="#a_tab" data-toggle="tab">
+        <span></span>Event Details
+      </a>
+    </li>
+    <li>
+      <a href="#b_tab" data-toggle="tab">
+        <span></span>Event Aspects
+      </a>
+    </li>
+   </ul>
+
+   </div>
+
+<div class="tab-content">
+    <div class="container tab-pane active" id="a_tab">
+        <div class='row'>
+            <div class="col-xs-6" id="headarea">
+                 <h2>Event Details</h2>
+            </div>
+        </div>
+        <div class='row'>
+            <div class="col-xs-4" id="headarea">
+                 <h4> News Summary </h4>
+                 
+                 <p>2015-03-09  Apple Watch anticipation: Features, functions for the wrist</p>
+
+<p>2015-03-09  Behold the Apple Watch</p>
+
+<p>2015-03-09  Apple debuts $17000 watch, some waiting for killer app</p>
+
+<p>2015-03-10  Apple Watch prices, new MacBook revealed</p>
+
+<p>2015-03-10  How Apple Watch compares to other smartwatches: infographic</p>
+                 
+                 <hr>
+            </div>
+            <div class="col-xs-4" id="headarea">
+                 <h4> Tweets Highlight </h4>
+                 
+                 <p>Im buyin an apple watch. Fuck it</p>
+
+<p>apple watch &gt;&gt;&gt;&gt;&gt; macbook</p>
+
+<p>got the apple watch like wrist wrist wrist wrist wrist wrist</p>
+
+<p>@JhanaBananas Nope lol I just thought about my Apple watch and Gold MacBook And Rims ... Lol</p>
+
+<p>Fuck this apple watch app... Just another useless app that no one will ever use</p>
+                 
+                 <hr>
+            </div>
+            <div class="col-xs-4" id="eventwordcloud">
+                 <h4> Word Cloud </h4>
+                 
+            </div>
+
+        </div>
+
+        <div class='row'>
+            <div class="col-xs-6" id="area1">
+                <h4> Entity Graph</h4>
+                Node Colors represent different entity categories: <font color="#9400D3">Violet:Person; </font><font color="#228B22">Green:Place; </font> <font color="#0000FF">Blue:Org </font><br>
+                Different link Colors represent interactions of different aspects.
+            </div>
+            <div class="col-xs-6" id="eventopinion"> <h3> </h3> 
+                <h4> Event Opinion Percentage</h4>
+                <br>
+                <br>
+            </div>
+        <!-- <div class="col-xs-6" id="area3">area3</div> -->
+        </div>
+
+    </div>
+
+    <div class="container tab-pane" id="b_tab">
+        <div class='row'>
+            <div class="col-xs-6" id="area2">
+                 <h2>Aspect Summaries</h2>
+                 <h4>Event Aspect Time Distribution</h4>
+            </div>
+        </div>
+        
+        <div class='row'>
+            <div class="col-xs-6" id="area3">
+                <h4> <font color= "#0B6121">Aspect # 1 </font></h4>
+            </div>
+        </div>
+        <div class='row'>
+            <div class="col-xs-4" >
+                <h4> News Summary </h4>
+                
+                <p>2015-03-09  What Apple Watch will do to the stock</p>
+
+<p>2015-03-09  Behold the Apple Watch</p>
+
+<p>2015-03-10  Apple Watch could become latest must-have fashion accessory</p>
+
+<p>2015-03-10  Apple Watch's six unmatched features</p>
+
+<p>2015-03-10  How Apple Watch compares to other smartwatches: infographic</p>
+                
+                <hr>
+            </div>
+            <div class="col-xs-4" >
+                <h4> Tweet Highlights </h4>
+                
+                <p>Im buyin an apple watch. Fuck it</p>
+
+<p>apple watch &gt;&gt;&gt;&gt;&gt; macbook</p>
+
+<p>@AwesomeRamen are you gonna get the apple watch!!!!?? Haha</p>
+
+<p>@Moisezzzz apple watch sucks lol</p>
+
+<p>Really really wanna get the apple watch</p>
+                
+                <hr>
+            </div>
+
+             <div class="col-xs-4"  id = "aspectwordcloud0">
+                <h4> Word Cloud </h4>
+            </div>
+        </div>
+        <div class='row'>
+            <div class="col-xs-6" id = "aspectEntityArea0">
+                <h4> Aspect Entity Graph </h4>
+                Node Colors represent different entity categories: <font color="#9400D3">Violet:Person; </font><font color="#228B22">Green:Place; </font> <font color="#0000FF">Blue:Org </font><br>
+            </div>
+             <div class="col-xs-6" id = "aspectopinion0">
+                <h4> Aspect Opinion Percentage </h4>
+                <br>
+            </div>
+        </div>
+        <hr>
+        
+        <div class='row'>
+            <div class="col-xs-6" id="area3">
+                <h4> <font color= "#FE2E2E">Aspect # 2 </font></h4>
+            </div>
+        </div>
+        <div class='row'>
+            <div class="col-xs-4" >
+                <h4> News Summary </h4>
+                
+                <p>2015-03-09  Hands-on with the new 12-inch MacBook with Retina Display</p>
+
+<p>2015-03-09  Introducing Apple's New MacBook: Thinnest Ever</p>
+
+<p>2015-03-09  The new MacBook may be the future, not the present</p>
+
+<p>2015-03-10  Apple's new MacBook ditches inputs for a single reversible USB connector</p>
+
+<p>2015-03-10  Get Ready For The Gold Macbook Frenzy -- The Cut</p>
+                
+                <hr>
+            </div>
+            <div class="col-xs-4" >
+                <h4> Tweet Highlights </h4>
+                
+                <p>the new macbook is gorgeous    IKR OMG OMG OMG OMG</p>
+
+<p>USB-C connector on the new MacBook (@AppIeOfflciaI) you can charge a phone from your laptop or you can tell your phone to charge ur laptop!</p>
+
+<p>the new macbook is bullshit if it only has one port that isn't even a USB &amp; you have to BUY a converter to plug in a USB</p>
+
+<p>The iWatch and the new 12-inch MacBook in gold. &lt;/3 &lt;/3 &lt;/3</p>
+
+<p>That new MacBook Air tho... &gt;&gt;&gt;&gt;</p>
+                
+                <hr>
+            </div>
+
+             <div class="col-xs-4"  id = "aspectwordcloud1">
+                <h4> Word Cloud </h4>
+            </div>
+        </div>
+        <div class='row'>
+            <div class="col-xs-6" id = "aspectEntityArea1">
+                <h4> Aspect Entity Graph </h4>
+            </div>
+             <div class="col-xs-6" id = "aspectopinion1">
+                <h4> Aspect Opinion Percentage </h4>
+                <br>
+            </div>
+        </div>
+        <hr>
+        
+        <div class='row'>
+            <div class="col-xs-6" id="area3">
+                <h4> <font color= "#01A9DB">Aspect # 3 </font></h4>
+            </div>
+        </div>
+        <div class='row'>
+            <div class="col-xs-4" >
+                <h4> News Summary </h4>
+                
+                <p>2015-03-11  Apple Reopens iTunes, App Stores After Lengthy Outage</p>
+
+<p>2015-03-12  Apple apologizes for 11-hour iTunes and App Store outage</p>
+
+<p>2015-03-12  Apple hit by iTunes, App Store and iCloud faults</p>
+
+<p>2015-03-12  Apple's iTunes, App Store back online after 12-hour outage due to internal error</p>
+
+<p>2015-03-12  Apple's iTunes App Store Suffers All Day Global Outage</p>
+                
+                <hr>
+            </div>
+            <div class="col-xs-4" >
+                <h4> Tweet Highlights </h4>
+                
+                <p>Apple:  It Just Works.  Except iTunes.  And the App Store.  And Support.  But It Just Works.</p>
+
+<p>Apple blame DNS issues for 12 hour outage of itunes &amp; app store #tech</p>
+
+<p>iTunes and App store are not working worldwide lol wow !! Dayum apple whats going onnnnnnnnn ?</p>
+
+<p>@VZWSupport is apple App Store and iTunes Store still out for verizon iPhone devices?  still cannot connect.  Thanks.</p>
+
+<p>#WebsiteDesign #news Apples App Store went down for over 11 hours yesterday, alongside iTunes, iBooks, iCloud and even its Mac App S...</p>
+                
+                <hr>
+            </div>
+
+             <div class="col-xs-4"  id = "aspectwordcloud2">
+                <h4> Word Cloud </h4>
+            </div>
+        </div>
+        <div class='row'>
+            <div class="col-xs-6" id = "aspectEntityArea2">
+                <h4> Aspect Entity Graph </h4>
+            </div>
+             <div class="col-xs-6" id = "aspectopinion2">
+                <h4> Aspect Opinion Percentage </h4>
+                <br>
+            </div>
+        </div>
+        <hr>
+        
+        <div class='row'>
+            <div class="col-xs-6" id="area3">
+                <h4> <font color= "#DBA901">Aspect # 4 </font></h4>
+            </div>
+        </div>
+        <div class='row'>
+            <div class="col-xs-4" >
+                <h4> News Summary </h4>
+                
+                <p>2015-03-09  Apple lands HBO streaming service as a launch exclusive</p>
+
+<p>2015-03-12  US Retail Sales Fall, Reflecting Bad Weather and Curiously Cautious Consumers</p>
+
+<p>2015-03-12  US retail sales weak; labor market strengthening</p>
+
+<p>2015-03-12  Kerry Washington to play Anita Hill in HBO movie</p>
+
+<p>2015-03-13  Iran Said to Hold Talks With Asia Buyers About Raising Oil Sales</p>
+                
+                <hr>
+            </div>
+            <div class="col-xs-4" >
+                <h4> Tweet Highlights </h4>
+                
+                <p>Oh, so apparently the @HBO streaming is going to be Apple exclusive? Fuck you @HBO.</p>
+
+<p>Watch is NOT a sales engine for iPhone   iPhone is a sales engine &amp; gateway product for all of #Apple   Cheers</p>
+
+<p>Kerry Washington's gonna play Anita Hill in an HBO movie. Just tossing it out there, but Keith David would be an awesome Clarence Thomas</p>
+
+<p>Wait, so if I want HBO GO without a cable subscription, I have to buy an Apple TV? GUESS THE OLE PIRATE SHIP GONNA KEEP ON CHUGGIN.</p>
+
+<p>HBO Now only on the iphone, ipad and apple tv for three months... thats hella dumb (yeah so dumb I used hella dumb) that shit is infuriating</p>
+                
+                <hr>
+            </div>
+
+             <div class="col-xs-4"  id = "aspectwordcloud3">
+                <h4> Word Cloud </h4>
+            </div>
+        </div>
+        <div class='row'>
+            <div class="col-xs-6" id = "aspectEntityArea3">
+                <h4> Aspect Entity Graph </h4>
+            </div>
+             <div class="col-xs-6" id = "aspectopinion3">
+                <h4> Aspect Opinion Percentage </h4>
+                <br>
+            </div>
+        </div>
+        <hr>
+        
+    </div>
+
+
+
+
+
+     
+    <!-- <div class="col-xs-6" id="area2">area2</div> -->
+    <!-- <div class="col-xs-6" id="area3">area3</div> -->
+
+
+
+
+    
+    <script>
+        
+            data = [
+{"name":"apple","size":80.7679807779},{"name":"app","size":26.7107245772},{"name":"market","size":25.6332945168},{"name":"apps","size":26.9066535236},{"name":"iphone","size":28.309389902},{"name":"new","size":26.4031059615},{"name":"company","size":27.6370661755},{"name":"watch","size":55.072974727},{"name":"cook","size":29.211625424},{"name":"macbook","size":29.242803286},{"name":"hbo","size":25.8609867513},]
+  var fill = d3.scale.category20();
+  d3.layout.cloud().size([300, 300])
+      .words(data.map(function(d) {
+        return {text: d.name, size: d.size};
+      }))
+      .padding(5)
+      .rotate(function() { return ~~(Math.random() * 2) * 90; })
+      .font("Impact")
+      .fontSize(function(d) { return d.size; })
+      .on("end", draw)
+      .start();
+  function draw(words) {
+    d3.select("#eventwordcloud").append("svg")
+        .attr("width", 300)
+        .attr("height", 300)
+      .append("g")
+        .attr("transform", "translate(150,150)")
+      .selectAll("text")
+        .data(words)
+      .enter().append("text")
+        .style("font-size", function(d) { return d.size + "px"; })
+        .style("font-family", "Impact")
+        .style("fill", function(d, i) { return fill(i); })
+        .attr("text-anchor", "middle")
+        .attr("transform", function(d) {
+          return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+        })
+        .text(function(d) { return d.text; });
+  }
+           
+        
+    </script>
+
+    
+        <script>
+        
+            data = [
+{"name":"fashion","size":32.572632209},{"name":"apple","size":60.546572261},{"name":"investors","size":29.1639649954},{"name":"battery","size":29.8800190694},{"name":"india","size":25.2415358125},{"name":"watches","size":25.8263954552},{"name":"device","size":27.7725443648},{"name":"smartwatches","size":41.1242510271},{"name":"technology","size":26.3684856531},{"name":"machines","size":26.0415681398},{"name":"pay","size":25.8878263782},{"name":"apps","size":30.147469429},{"name":"iphone","size":30.746804981},{"name":"scribner","size":25.3826545889},{"name":"stock","size":38.5046131807},{"name":"product","size":30.7057185714},{"name":"diversity","size":25.2671660772},{"name":"users","size":25.5468842231},{"name":"crown","size":25.81235513},{"name":"company","size":31.7499001165},{"name":"watch","size":60.227381369},{"name":"smartwatch","size":28.6054350776},{"name":"market","size":27.2481406049},{"name":"cook","size":60.9906302218},{"name":"mode","size":26.358736272},{"name":"swiss","size":30.9812815583},]
+  var fill = d3.scale.category20();
+  d3.layout.cloud().size([300, 300])
+      .words(data.map(function(d) {
+        return {text: d.name, size: d.size};
+      }))
+      .padding(5)
+      .rotate(function() { return ~~(Math.random() * 2) * 90; })
+      .font("Impact")
+      .fontSize(function(d) { return d.size; })
+      .on("end", draw)
+      .start();
+  function draw(words) {
+    d3.select("#aspectwordcloud0").append("svg")
+        .attr("width", 300)
+        .attr("height", 300)
+      .append("g")
+        .attr("transform", "translate(150,150)")
+      .selectAll("text")
+        .data(words)
+      .enter().append("text")
+        .style("font-size", function(d) { return d.size + "px"; })
+        .style("font-family", "Impact")
+        .style("fill", function(d, i) { return fill(i); })
+        .attr("text-anchor", "middle")
+        .attr("transform", function(d) {
+          return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+        })
+        .text(function(d) { return d.text; });
+  }
+           
+        
+        </script>
+    
+        <script>
+        
+            data = [
+{"name":"trackpad","size":38.0929986219},{"name":"macbook","size":60.413750571},{"name":"thinner","size":36.1641621333},{"name":"gold","size":60.0831231111},{"name":"battery","size":30.5039290922},{"name":"laptop","size":60.8539646083},{"name":"usb","size":40.7003546836},{"name":"port","size":30.3856934416},{"name":"connector","size":30.309718201},{"name":"inch","size":35.8984605867},{"name":"hdmi","size":25.6500772466},{"name":"track","size":38.1488594547},{"name":"new","size":35.3858156343},{"name":"intel","size":30.6923335705},]
+  var fill = d3.scale.category20();
+  d3.layout.cloud().size([300, 300])
+      .words(data.map(function(d) {
+        return {text: d.name, size: d.size};
+      }))
+      .padding(5)
+      .rotate(function() { return ~~(Math.random() * 2) * 90; })
+      .font("Impact")
+      .fontSize(function(d) { return d.size; })
+      .on("end", draw)
+      .start();
+  function draw(words) {
+    d3.select("#aspectwordcloud1").append("svg")
+        .attr("width", 350)
+        .attr("height", 350)
+      .append("g")
+        .attr("transform", "translate(150,150)")
+      .selectAll("text")
+        .data(words)
+      .enter().append("text")
+        .style("font-size", function(d) { return d.size + "px"; })
+        .style("font-family", "Impact")
+        .style("fill", function(d, i) { return fill(i); })
+        .attr("text-anchor", "middle")
+        .attr("transform", function(d) {
+          return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+        })
+        .text(function(d) { return d.text; });
+  }
+           
+        
+        </script>
+    
+        <script>
+        
+            data = [
+{"name":"apple","size":43.2197780281},{"name":"revenue","size":38.037729112},{"name":"app","size":251.956256865},{"name":"lets","size":39.7580442759},{"name":"internal","size":38.7698812083},{"name":"dns","size":39.7553369509},{"name":"store","size":186.761296981},{"name":"users","size":35.6722859621},{"name":"company","size":35.6081410165},{"name":"outage","size":194.424673158},{"name":"ios","size":46.4841619927},{"name":"icloud","size":59.4710782482},{"name":"services","size":69.676043508},{"name":"billion","size":55.6952548329},{"name":"mobile","size":40.2866943728},{"name":"fault","size":42.1006393896},{"name":"itunes","size":205.179467927},{"name":"products","size":37.2745619432},{"name":"error","size":41.5350379703},]
+  var fill = d3.scale.category20();
+  d3.layout.cloud().size([300, 300])
+      .words(data.map(function(d) {
+        return {text: d.name, size: d.size};
+      }))
+      .padding(5)
+      .rotate(function() { return ~~(Math.random() * 2) * 90; })
+      .font("Impact")
+      .fontSize(function(d) { return d.size; })
+      .on("end", draw)
+      .start();
+  function draw(words) {
+    d3.select("#aspectwordcloud2").append("svg")
+        .attr("width", 300)
+        .attr("height", 300)
+      .append("g")
+        .attr("transform", "translate(150,150)")
+      .selectAll("text")
+        .data(words)
+      .enter().append("text")
+        .style("font-size", function(d) { return d.size + "px"; })
+        .style("font-family", "Impact")
+        .style("fill", function(d, i) { return fill(i); })
+        .attr("text-anchor", "middle")
+        .attr("transform", function(d) {
+          return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+        })
+        .text(function(d) { return d.text; });
+  }
+           
+        
+        </script>
+    
+        <script>
+        
+            data = [
+{"name":"outlook","size":41.6700411291},{"name":"google","size":38.0300438135},{"name":"sales","size":118.503669953},{"name":"edition","size":41.9652932388},{"name":"fashion","size":36.372234818},{"name":"service","size":41.4992648724},{"name":"tv","size":35.3234295234},{"name":"menu","size":36.0482252924},{"name":"access","size":37.8229316017},{"name":"goes","size":33.0516619228},{"name":"digital","size":37.9304118833},{"name":"print","size":39.7727184399},{"name":"dresses","size":43.383739616},{"name":"facebook","size":44.8285251365},{"name":"subscribers","size":42.5733750296},{"name":"hands","size":32.9583372674},{"name":"hermes","size":34.21543234},{"name":"subscription","size":39.5270612658},{"name":"hbo","size":116.216648261},{"name":"fortune","size":35.855877414},{"name":"intel","size":47.569667361},{"name":"cable","size":33.8253320909},{"name":"streaming","size":53.8008117164},{"name":"leather","size":35.6064314505},{"name":"coat","size":36.935828973},{"name":"computers","size":38.6033123161},{"name":"value","size":34.6843209434},{"name":"plus","size":34.4058890706},{"name":"enter","size":43.4649519504},{"name":"retail","size":71.1027508787},]
+  var fill = d3.scale.category20();
+  d3.layout.cloud().size([300, 300])
+      .words(data.map(function(d) {
+        return {text: d.name, size: d.size};
+      }))
+      .padding(5)
+      .rotate(function() { return ~~(Math.random() * 2) * 90; })
+      .font("Impact")
+      .fontSize(function(d) { return d.size; })
+      .on("end", draw)
+      .start();
+  function draw(words) {
+    d3.select("#aspectwordcloud3").append("svg")
+        .attr("width", 300)
+        .attr("height", 300)
+      .append("g")
+        .attr("transform", "translate(150,150)")
+      .selectAll("text")
+        .data(words)
+      .enter().append("text")
+        .style("font-size", function(d) { return d.size + "px"; })
+        .style("font-family", "Impact")
+        .style("fill", function(d, i) { return fill(i); })
+        .attr("text-anchor", "middle")
+        .attr("transform", function(d) {
+          return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+        })
+        .text(function(d) { return d.text; });
+  }
+           
+        
+        </script>
+    
+
+  
+
+    
+    
+    <script>
+        
+            $(function() {var data = {
+    "nodes":  [
+{"id": 0, "name": "Paris", size:"6.22869676344",color:"#228B22"},
+{"id": 1, "name": "Friedrich Schiller", size:"5.06494043256",color:"#9400D3"},
+{"id": 2, "name": "Phil Schiller", size:"6.16355272148",color:"#9400D3"},
+{"id": 3, "name": "Carl Icahn", size:"5.06490080294",color:"#9400D3"},
+{"id": 4, "name": "United States", size:"6.33053691355",color:"#228B22"},
+{"id": 5, "name": "Switzerland", size:"6.28664665071",color:"#228B22"},
+{"id": 6, "name": "HBO", size:"6.29087831425",color:"#0000FF"},
+{"id": 7, "name": "Colette", size:"5.06489296327",color:"#9400D3"},
+{"id": 8, "name": "Christy Turlington", size:"6.16352963563",color:"#9400D3"},
+{"id": 9, "name": "Mickey Mouse", size:"5.54278928374",color:"#9400D3"},
+{"id": 10, "name": "Michael Kors", size:"5.06494031648",color:"#9400D3"},
+{"id": 11, "name": "Tim Cook", size:"8.32302332151",color:"#9400D3"},
+{"id": 12, "name": "Apple Inc.", size:"8.9867564868",color:"#0000FF"},
+{"id": 13, "name": "Steve Jobs", size:"6.76965064198",color:"#9400D3"},
+{"id": 14, "name": "Jonathan Ive", size:"5.75802808777",color:"#9400D3"},
+{"id": 15, "name": "India", size:"5.26998607737",color:"#228B22"},
+],
+"links": [
+{"source": 6, "target": 12, color:"#DBA901", weight:2.045255679251 },
+
+{"source": 11, "target": 13, color:"#0B6121", weight:-0.145255679251 },
+{"source": 11, "target": 1, color:"#0B6121", weight:-2.8082139744 },
+{"source": 14, "target": 13, color:"#0B6121", weight:-1.30174410586 },
+{"source": 11, "target": 10, color:"#0B6121", weight:-2.61818505151 },
+{"source": 9, "target": 12, color:"#0B6121", weight:1.52344244251 },
+{"source": 5, "target": 12, color:"#0B6121", weight:2.41817470123 },
+{"source": 8, "target": 7, color:"#0B6121", weight:-1.19511275638 },
+{"source": 10, "target": 5, color:"#0B6121", weight:-0.105009025052 },
+{"source": 8, "target": 9, color:"#0B6121", weight:-1.89691491055 },
+{"source": 10, "target": 12, color:"#0B6121", weight:0.592844241619 },
+{"source": 11, "target": 14, color:"#0B6121", weight:-1.30554248205 },
+{"source": 3, "target": 12, color:"#0B6121", weight:0.705311296118 },
+{"source": 7, "target": 12, color:"#0B6121", weight:0.80819476599 },
+{"source": 2, "target": 12, color:"#FE2E2E", weight:0.952378117379 },
+{"source": 11, "target": 15, color:"#0B6121", weight:-1.18465105665 },
+{"source": 9, "target": 7, color:"#0B6121", weight:-1.85850412987 },
+{"source": 8, "target": 12, color:"#0B6121", weight:2.20877965733 },
+{"source": 8, "target": 0, color:"#0B6121", weight:-0.394766399799 },
+{"source": 4, "target": 6, color:"#DBA901", weight:2.61147482799 },
+{"source": 11, "target": 0, color:"#0B6121", weight:-0.445294083803 },
+{"source": 11, "target": 12, color:"#0B6121", weight:3.99418591094 },
+{"source": 11, "target": 3, color:"#0B6121", weight:-1.27812065299 },
+{"source": 13, "target": 8, color:"#0B6121", weight:-2.00302000694 },
+{"source": 13, "target": 12, color:"#0B6121", weight:2.77642768583 },
+{"source": 14, "target": 8, color:"#0B6121", weight:-2.67612026089 },
+{"source": 7, "target": 0, color:"#0B6121", weight:-0.356355619111 },
+{"source": 11, "target": 8, color:"#0B6121", weight:-0.646589456707 },
+{"source": 11, "target": 9, color:"#0B6121", weight:-0.708057560992 },
+{"source": 13, "target": 9, color:"#0B6121", weight:-2.62120914681 },
+{"source": 0, "target": 12, color:"#0B6121", weight:1.60854112257 },
+{"source": 11, "target": 7, color:"#0B6121", weight:-1.24564044038 },
+{"source": 1, "target": 12, color:"#0B6121", weight:0.454921075514 },
+{"source": 9, "target": 0, color:"#0B6121", weight:-1.05815777328 },
+{"source": 14, "target": 12, color:"#0B6121", weight:1.75929492123 },
+]
+};
+  var mLinkNum = {};
+    // sort links first
+    sortLinks();                                
+    // set up linkIndex and linkNumer, because it may possible multiple links share the same source and target node
+    setLinkIndexAndNum();
+    
+    var w = 500,
+        h = 400;
+    
+    var force = d3.layout.force()
+                  .nodes(d3.values(data.nodes))
+                  .links(data.links)
+                  .size([w, h])
+                  .linkDistance(170)
+                  .charge(-300)
+                  .on("tick", tick)
+                  .start();
+    
+    var svg = d3.select("#area1").append("svg:svg")
+                .attr("width", w)
+                .attr("height", h)
+    
+    
+    var path = svg.append("svg:g").selectAll("path")
+        .data(force.links())
+      .enter().append("svg:path")
+      .style("stroke", function(d){return d.color})
+      .style("stroke-width", function(d){return d.weight+"px"})
+      .style("opacity", 0.5);
+  
+  
+    // .attr("class", function(d) { return "link " + d.type; })
+   ;
+    
+    var circle = svg.append("svg:g")
+                    .selectAll("circle")
+                    .data(force.nodes())
+                    .enter().append("svg:circle")
+                    // .attr("r", 6)
+                    .attr("r", function(d){console.log(d.name);console.log(d.size);return d.size; })
+                    // .attr("class",function(d) { console.log("node " + d.type); return "node " + d.type; })
+                    .call(force.drag)
+                    .style("fill", function(d){ return d.color;});
+  
+    var text = svg.append("svg:g")                                
+                  .selectAll("g")
+                  .data(force.nodes())
+                  .enter().append("svg:g");
+    
+    // A copy of the text with a thick white stroke for legibility.
+    text.append("svg:text")
+        .attr("x", 8)
+        .attr("y", ".31em")
+        .attr("class", "shadow")
+        .text(function(d) { return d.name; });  
+    
+    text.append("svg:text")
+        .attr("x", 8)
+        .attr("y", ".31em")
+        .text(function(d) { return d.name; });
+    
+    // Use elliptical arc path segments to doubly-encode directionality.
+    function tick() {
+        path.attr("d", function(d) {
+            var dx = d.target.x - d.source.x,
+                dy = d.target.y - d.source.y,
+                dr = Math.sqrt(dx * dx + dy * dy);
+            // get the total link numbers between source and target node
+            var lTotalLinkNum = mLinkNum[d.source.id + "," + d.target.id] || mLinkNum[d.target.id + "," + d.source.id];
+            if(lTotalLinkNum > 1)
+            {
+                // if there are multiple links between these two nodes, we need generate different dr for each path
+                dr = dr/(1 + (1/lTotalLinkNum) * (d.linkindex - 1));
+            }       
+            // generate svg path
+            return "M" + d.source.x + "," + d.source.y + 
+                "A" + dr + "," + dr + " 0 0 1," + d.target.x + "," + d.target.y + 
+                "A" + dr + "," + dr + " 0 0 0," + d.source.x + "," + d.source.y;    
+        });
+        
+        // Add tooltip to the connection path
+        path.append("svg:title")
+            .text(function(d, i) { return d.name; });
+        
+        circle.attr("transform", function(d) {
+            return "translate(" + d.x + "," + d.y + ")";
+        });
+        
+        text.attr("transform", function(d) {
+            return "translate(" + d.x + "," + d.y + ")";
+        });
+    } 
+    
+    // sort the links by source, then target
+    function sortLinks()
+    {                               
+        data.links.sort(function(a,b) {
+            if (a.source > b.source) 
+            {
+                return 1;
+            }
+            else if (a.source < b.source) 
+            {
+                return -1;
+            }
+            else 
+            {
+                if (a.target > b.target) 
+                {
+                    return 1;
+                }
+                if (a.target < b.target) 
+                {
+                    return -1;
+                }
+                else 
+                {
+                    return 0;
+                }
+            }
+        });
+    }
+    
+    //any links with duplicate source and target get an incremented 'linknum'
+    function setLinkIndexAndNum()
+    {                               
+        for (var i = 0; i < data.links.length; i++) 
+        {
+            if (i != 0 &&
+                data.links[i].source == data.links[i-1].source &&
+                data.links[i].target == data.links[i-1].target) 
+            {
+                data.links[i].linkindex = data.links[i-1].linkindex + 1;
+            }
+            else 
+            {
+                data.links[i].linkindex = 1;
+            }
+            // save the total number of links between two nodes
+            if(mLinkNum[data.links[i].target + "," + data.links[i].source] !== undefined)
+            {
+                mLinkNum[data.links[i].target + "," + data.links[i].source] = data.links[i].linkindex;
+            }
+            else
+            {
+                mLinkNum[data.links[i].source + "," + data.links[i].target] = data.links[i].linkindex;
+            }
+        }
+    }   
+});         
+        
+    </script>
+
+     
+        <script>
+         
+                $(function() {var data = {
+    "nodes":  [
+{"id": 0, "name": "Paris", size:"7.01845575546",color:"#228B22"},
+{"id": 1, "name": "Friedrich Schiller", size:"5.14974317873",color:"#9400D3"},
+{"id": 2, "name": "Carl Icahn", size:"5.32293517701",color:"#9400D3"},
+{"id": 3, "name": "Switzerland", size:"7.96052618299",color:"#228B22"},
+{"id": 4, "name": "Colette", size:"5.34985308764",color:"#9400D3"},
+{"id": 5, "name": "Christy Turlington", size:"6.37720463469",color:"#9400D3"},
+{"id": 6, "name": "Mickey Mouse", size:"5.74183794456",color:"#9400D3"},
+{"id": 7, "name": "Michael Kors", size:"5.36939789631",color:"#9400D3"},
+{"id": 8, "name": "Tim Cook", size:"8.44628352808",color:"#9400D3"},
+{"id": 9, "name": "Apple Inc.", size:"9.21034037198",color:"#0000FF"},
+{"id": 10, "name": "Steve Jobs", size:"6.96696318633",color:"#9400D3"},
+{"id": 11, "name": "Jonathan Ive", size:"5.99099500399",color:"#9400D3"},
+{"id": 12, "name": "India", size:"6.98215584717",color:"#228B22"},
+],
+"links": [
+{"source": 8, "target": 10, color:"#0B6121", weight:-0.145255679251 },
+{"source": 8, "target": 1, color:"#0B6121", weight:-2.8082139744 },
+{"source": 11, "target": 10, color:"#0B6121", weight:-1.30174410586 },
+{"source": 8, "target": 7, color:"#0B6121", weight:-2.61818505151 },
+{"source": 6, "target": 9, color:"#0B6121", weight:1.52344244251 },
+{"source": 3, "target": 9, color:"#0B6121", weight:2.41817470123 },
+{"source": 5, "target": 4, color:"#0B6121", weight:-1.19511275638 },
+{"source": 7, "target": 3, color:"#0B6121", weight:-0.105009025052 },
+{"source": 5, "target": 6, color:"#0B6121", weight:-1.89691491055 },
+{"source": 7, "target": 9, color:"#0B6121", weight:0.592844241619 },
+{"source": 8, "target": 11, color:"#0B6121", weight:-1.30554248205 },
+{"source": 2, "target": 9, color:"#0B6121", weight:0.705311296118 },
+{"source": 4, "target": 9, color:"#0B6121", weight:0.80819476599 },
+{"source": 8, "target": 12, color:"#0B6121", weight:-1.18465105665 },
+{"source": 6, "target": 4, color:"#0B6121", weight:-1.85850412987 },
+{"source": 5, "target": 9, color:"#0B6121", weight:2.20877965733 },
+{"source": 5, "target": 0, color:"#0B6121", weight:-0.394766399799 },
+{"source": 8, "target": 0, color:"#0B6121", weight:-0.445294083803 },
+{"source": 8, "target": 9, color:"#0B6121", weight:3.99418591094 },
+{"source": 8, "target": 2, color:"#0B6121", weight:-1.27812065299 },
+{"source": 10, "target": 5, color:"#0B6121", weight:-2.00302000694 },
+{"source": 10, "target": 9, color:"#0B6121", weight:2.77642768583 },
+{"source": 11, "target": 5, color:"#0B6121", weight:-2.67612026089 },
+{"source": 4, "target": 0, color:"#0B6121", weight:-0.356355619111 },
+{"source": 8, "target": 5, color:"#0B6121", weight:-0.646589456707 },
+{"source": 8, "target": 6, color:"#0B6121", weight:-0.708057560992 },
+{"source": 10, "target": 6, color:"#0B6121", weight:-2.62120914681 },
+{"source": 0, "target": 9, color:"#0B6121", weight:1.60854112257 },
+{"source": 8, "target": 4, color:"#0B6121", weight:-1.24564044038 },
+{"source": 1, "target": 9, color:"#0B6121", weight:0.454921075514 },
+{"source": 6, "target": 0, color:"#0B6121", weight:-1.05815777328 },
+{"source": 11, "target": 9, color:"#0B6121", weight:1.75929492123 },
+]
+};
+  var mLinkNum = {};
+    // sort links first
+    sortLinks();                                
+    // set up linkIndex and linkNumer, because it may possible multiple links share the same source and target node
+    setLinkIndexAndNum();
+    
+    var w = 500,
+        h = 400;
+    
+    var force = d3.layout.force()
+                  .nodes(d3.values(data.nodes))
+                  .links(data.links)
+                  .size([w, h])
+                  .linkDistance(170)
+                  .charge(-300)
+                  .on("tick", tick)
+                  .start();
+    
+    var svg = d3.select("#aspectEntityArea0").append("svg:svg")
+                .attr("width", w)
+                .attr("height", h)
+    
+    
+    var path = svg.append("svg:g").selectAll("path")
+        .data(force.links())
+      .enter().append("svg:path")
+      .style("stroke", function(d){return d.color})
+      .style("stroke-width", function(d){return d.weight+"px"})
+      .style("opacity", 0.5);
+  
+  
+    // .attr("class", function(d) { return "link " + d.type; })
+   ;
+    
+    var circle = svg.append("svg:g")
+                    .selectAll("circle")
+                    .data(force.nodes())
+                    .enter().append("svg:circle")
+                    // .attr("r", 6)
+                    .attr("r", function(d){console.log(d.name);console.log(d.size);return d.size; })
+                    // .attr("class",function(d) { console.log("node " + d.type); return "node " + d.type; })
+                    .call(force.drag)
+                    .style("fill", function(d){ return d.color;});
+  
+    var text = svg.append("svg:g")                                
+                  .selectAll("g")
+                  .data(force.nodes())
+                  .enter().append("svg:g");
+    
+    // A copy of the text with a thick white stroke for legibility.
+    text.append("svg:text")
+        .attr("x", 8)
+        .attr("y", ".31em")
+        .attr("class", "shadow")
+        .style("font-size", 18)
+        .text(function(d) { return d.name; });  
+    
+    text.append("svg:text")
+        .attr("x", 8)
+        .attr("y", ".31em")
+        .style("font-size", 18)
+        .text(function(d) { return d.name; });
+    
+    // Use elliptical arc path segments to doubly-encode directionality.
+    function tick() {
+        path.attr("d", function(d) {
+            var dx = d.target.x - d.source.x,
+                dy = d.target.y - d.source.y,
+                dr = Math.sqrt(dx * dx + dy * dy);
+            // get the total link numbers between source and target node
+            var lTotalLinkNum = mLinkNum[d.source.id + "," + d.target.id] || mLinkNum[d.target.id + "," + d.source.id];
+            if(lTotalLinkNum > 1)
+            {
+                // if there are multiple links between these two nodes, we need generate different dr for each path
+                dr = dr/(1 + (1/lTotalLinkNum) * (d.linkindex - 1));
+            }       
+            // generate svg path
+            return "M" + d.source.x + "," + d.source.y + 
+                "A" + dr + "," + dr + " 0 0 1," + d.target.x + "," + d.target.y + 
+                "A" + dr + "," + dr + " 0 0 0," + d.source.x + "," + d.source.y;    
+        });
+        
+        // Add tooltip to the connection path
+        path.append("svg:title")
+            .text(function(d, i) { return d.name; });
+        
+        circle.attr("transform", function(d) {
+            return "translate(" + d.x + "," + d.y + ")";
+        });
+        
+        text.attr("transform", function(d) {
+            return "translate(" + d.x + "," + d.y + ")";
+        });
+    } 
+    
+    // sort the links by source, then target
+    function sortLinks()
+    {                               
+        data.links.sort(function(a,b) {
+            if (a.source > b.source) 
+            {
+                return 1;
+            }
+            else if (a.source < b.source) 
+            {
+                return -1;
+            }
+            else 
+            {
+                if (a.target > b.target) 
+                {
+                    return 1;
+                }
+                if (a.target < b.target) 
+                {
+                    return -1;
+                }
+                else 
+                {
+                    return 0;
+                }
+            }
+        });
+    }
+    
+    //any links with duplicate source and target get an incremented 'linknum'
+    function setLinkIndexAndNum()
+    {                               
+        for (var i = 0; i < data.links.length; i++) 
+        {
+            if (i != 0 &&
+                data.links[i].source == data.links[i-1].source &&
+                data.links[i].target == data.links[i-1].target) 
+            {
+                data.links[i].linkindex = data.links[i-1].linkindex + 1;
+            }
+            else 
+            {
+                data.links[i].linkindex = 1;
+            }
+            // save the total number of links between two nodes
+            if(mLinkNum[data.links[i].target + "," + data.links[i].source] !== undefined)
+            {
+                mLinkNum[data.links[i].target + "," + data.links[i].source] = data.links[i].linkindex;
+            }
+            else
+            {
+                mLinkNum[data.links[i].source + "," + data.links[i].target] = data.links[i].linkindex;
+            }
+        }
+    }   
+});         
+         
+        </script>
+
+    
+        <script>
+         
+                $(function() {var data = {
+    "nodes":  [
+{"id": 0, "name": "Apple Inc.", size:"9.21034037198",color:"#0000FF"},
+{"id": 1, "name": "Phil Schiller", size:"8.26781600298",color:"#9400D3"},
+],
+"links": [
+{"source": 1, "target": 0, color:"#FE2E2E", weight:0.952378117379 },
+]
+};
+  var mLinkNum = {};
+    // sort links first
+    sortLinks();                                
+    // set up linkIndex and linkNumer, because it may possible multiple links share the same source and target node
+    setLinkIndexAndNum();
+    
+    var w = 500,
+        h = 400;
+    
+    var force = d3.layout.force()
+                  .nodes(d3.values(data.nodes))
+                  .links(data.links)
+                  .size([w, h])
+                  .linkDistance(170)
+                  .charge(-300)
+                  .on("tick", tick)
+                  .start();
+    
+    var svg = d3.select("#aspectEntityArea1").append("svg:svg")
+                .attr("width", w)
+                .attr("height", h)
+    
+    
+    var path = svg.append("svg:g").selectAll("path")
+        .data(force.links())
+      .enter().append("svg:path")
+      .style("stroke", function(d){return d.color})
+      .style("stroke-width", function(d){return d.weight+"px"})
+      .style("opacity", 0.5);
+  
+  
+    // .attr("class", function(d) { return "link " + d.type; })
+   ;
+    
+    var circle = svg.append("svg:g")
+                    .selectAll("circle")
+                    .data(force.nodes())
+                    .enter().append("svg:circle")
+                    // .attr("r", 6)
+                    .attr("r", function(d){console.log(d.name);console.log(d.size);return d.size; })
+                    // .attr("class",function(d) { console.log("node " + d.type); return "node " + d.type; })
+                    .call(force.drag)
+                    .style("fill", function(d){ return d.color;});
+  
+    var text = svg.append("svg:g")                                
+                  .selectAll("g")
+                  .data(force.nodes())
+                  .enter().append("svg:g");
+    
+    // A copy of the text with a thick white stroke for legibility.
+    text.append("svg:text")
+        .attr("x", 8)
+        .attr("y", ".31em")
+        .attr("class", "shadow")
+        .text(function(d) { return d.name; });  
+    
+    text.append("svg:text")
+        .attr("x", 8)
+        .attr("y", ".31em")
+        .text(function(d) { return d.name; });
+    
+    // Use elliptical arc path segments to doubly-encode directionality.
+    function tick() {
+        path.attr("d", function(d) {
+            var dx = d.target.x - d.source.x,
+                dy = d.target.y - d.source.y,
+                dr = Math.sqrt(dx * dx + dy * dy);
+            // get the total link numbers between source and target node
+            var lTotalLinkNum = mLinkNum[d.source.id + "," + d.target.id] || mLinkNum[d.target.id + "," + d.source.id];
+            if(lTotalLinkNum > 1)
+            {
+                // if there are multiple links between these two nodes, we need generate different dr for each path
+                dr = dr/(1 + (1/lTotalLinkNum) * (d.linkindex - 1));
+            }       
+            // generate svg path
+            return "M" + d.source.x + "," + d.source.y + 
+                "A" + dr + "," + dr + " 0 0 1," + d.target.x + "," + d.target.y + 
+                "A" + dr + "," + dr + " 0 0 0," + d.source.x + "," + d.source.y;    
+        });
+        
+        // Add tooltip to the connection path
+        path.append("svg:title")
+            .text(function(d, i) { return d.name; });
+        
+        circle.attr("transform", function(d) {
+            return "translate(" + d.x + "," + d.y + ")";
+        });
+        
+        text.attr("transform", function(d) {
+            return "translate(" + d.x + "," + d.y + ")";
+        });
+    } 
+    
+    // sort the links by source, then target
+    function sortLinks()
+    {                               
+        data.links.sort(function(a,b) {
+            if (a.source > b.source) 
+            {
+                return 1;
+            }
+            else if (a.source < b.source) 
+            {
+                return -1;
+            }
+            else 
+            {
+                if (a.target > b.target) 
+                {
+                    return 1;
+                }
+                if (a.target < b.target) 
+                {
+                    return -1;
+                }
+                else 
+                {
+                    return 0;
+                }
+            }
+        });
+    }
+    
+    //any links with duplicate source and target get an incremented 'linknum'
+    function setLinkIndexAndNum()
+    {                               
+        for (var i = 0; i < data.links.length; i++) 
+        {
+            if (i != 0 &&
+                data.links[i].source == data.links[i-1].source &&
+                data.links[i].target == data.links[i-1].target) 
+            {
+                data.links[i].linkindex = data.links[i-1].linkindex + 1;
+            }
+            else 
+            {
+                data.links[i].linkindex = 1;
+            }
+            // save the total number of links between two nodes
+            if(mLinkNum[data.links[i].target + "," + data.links[i].source] !== undefined)
+            {
+                mLinkNum[data.links[i].target + "," + data.links[i].source] = data.links[i].linkindex;
+            }
+            else
+            {
+                mLinkNum[data.links[i].source + "," + data.links[i].target] = data.links[i].linkindex;
+            }
+        }
+    }   
+});         
+         
+        </script>
+
+    
+        <script>
+         
+                $(function() {var data = {
+    "nodes":  [
+],
+"links": [
+]
+};
+  var mLinkNum = {};
+    // sort links first
+    sortLinks();                                
+    // set up linkIndex and linkNumer, because it may possible multiple links share the same source and target node
+    setLinkIndexAndNum();
+    
+    var w = 500,
+        h = 400;
+    
+    var force = d3.layout.force()
+                  .nodes(d3.values(data.nodes))
+                  .links(data.links)
+                  .size([w, h])
+                  .linkDistance(170)
+                  .charge(-300)
+                  .on("tick", tick)
+                  .start();
+    
+    var svg = d3.select("#aspectEntityArea2").append("svg:svg")
+                .attr("width", w)
+                .attr("height", h)
+    
+    
+    var path = svg.append("svg:g").selectAll("path")
+        .data(force.links())
+      .enter().append("svg:path")
+      .style("stroke", function(d){return d.color})
+      .style("stroke-width", function(d){return d.weight+"px"})
+      .style("opacity", 0.5);
+  
+  
+    // .attr("class", function(d) { return "link " + d.type; })
+   ;
+    
+    var circle = svg.append("svg:g")
+                    .selectAll("circle")
+                    .data(force.nodes())
+                    .enter().append("svg:circle")
+                    // .attr("r", 6)
+                    .attr("r", function(d){console.log(d.name);console.log(d.size);return d.size; })
+                    // .attr("class",function(d) { console.log("node " + d.type); return "node " + d.type; })
+                    .call(force.drag)
+                    .style("fill", function(d){ return d.color;});
+  
+    var text = svg.append("svg:g")                                
+                  .selectAll("g")
+                  .data(force.nodes())
+                  .enter().append("svg:g");
+    
+    // A copy of the text with a thick white stroke for legibility.
+    text.append("svg:text")
+        .attr("x", 8)
+        .attr("y", ".31em")
+        .attr("class", "shadow")
+        .text(function(d) { return d.name; });  
+    
+    text.append("svg:text")
+        .attr("x", 8)
+        .attr("y", ".31em")
+        .text(function(d) { return d.name; });
+    
+    // Use elliptical arc path segments to doubly-encode directionality.
+    function tick() {
+        path.attr("d", function(d) {
+            var dx = d.target.x - d.source.x,
+                dy = d.target.y - d.source.y,
+                dr = Math.sqrt(dx * dx + dy * dy);
+            // get the total link numbers between source and target node
+            var lTotalLinkNum = mLinkNum[d.source.id + "," + d.target.id] || mLinkNum[d.target.id + "," + d.source.id];
+            if(lTotalLinkNum > 1)
+            {
+                // if there are multiple links between these two nodes, we need generate different dr for each path
+                dr = dr/(1 + (1/lTotalLinkNum) * (d.linkindex - 1));
+            }       
+            // generate svg path
+            return "M" + d.source.x + "," + d.source.y + 
+                "A" + dr + "," + dr + " 0 0 1," + d.target.x + "," + d.target.y + 
+                "A" + dr + "," + dr + " 0 0 0," + d.source.x + "," + d.source.y;    
+        });
+        
+        // Add tooltip to the connection path
+        path.append("svg:title")
+            .text(function(d, i) { return d.name; });
+        
+        circle.attr("transform", function(d) {
+            return "translate(" + d.x + "," + d.y + ")";
+        });
+        
+        text.attr("transform", function(d) {
+            return "translate(" + d.x + "," + d.y + ")";
+        });
+    } 
+    
+    // sort the links by source, then target
+    function sortLinks()
+    {                               
+        data.links.sort(function(a,b) {
+            if (a.source > b.source) 
+            {
+                return 1;
+            }
+            else if (a.source < b.source) 
+            {
+                return -1;
+            }
+            else 
+            {
+                if (a.target > b.target) 
+                {
+                    return 1;
+                }
+                if (a.target < b.target) 
+                {
+                    return -1;
+                }
+                else 
+                {
+                    return 0;
+                }
+            }
+        });
+    }
+    
+    //any links with duplicate source and target get an incremented 'linknum'
+    function setLinkIndexAndNum()
+    {                               
+        for (var i = 0; i < data.links.length; i++) 
+        {
+            if (i != 0 &&
+                data.links[i].source == data.links[i-1].source &&
+                data.links[i].target == data.links[i-1].target) 
+            {
+                data.links[i].linkindex = data.links[i-1].linkindex + 1;
+            }
+            else 
+            {
+                data.links[i].linkindex = 1;
+            }
+            // save the total number of links between two nodes
+            if(mLinkNum[data.links[i].target + "," + data.links[i].source] !== undefined)
+            {
+                mLinkNum[data.links[i].target + "," + data.links[i].source] = data.links[i].linkindex;
+            }
+            else
+            {
+                mLinkNum[data.links[i].source + "," + data.links[i].target] = data.links[i].linkindex;
+            }
+        }
+    }   
+});         
+         
+        </script>
+
+    
+        <script>
+         
+                $(function() {var data = {
+    "nodes":  [
+{"id": 0, "name": "HBO", size:"9.21034037197",color:"#0000FF"},
+{"id": 1, "name": "United States", size:"8.88893327356",color:"#228B22"},
+],
+"links": [
+{"source": 1, "target": 0, color:"#DBA901", weight:2.61147482799 },
+]
+};
+  var mLinkNum = {};
+    // sort links first
+    sortLinks();                                
+    // set up linkIndex and linkNumer, because it may possible multiple links share the same source and target node
+    setLinkIndexAndNum();
+    
+    var w = 500,
+        h = 400;
+    
+    var force = d3.layout.force()
+                  .nodes(d3.values(data.nodes))
+                  .links(data.links)
+                  .size([w, h])
+                  .linkDistance(170)
+                  .charge(-300)
+                  .on("tick", tick)
+                  .start();
+    
+    var svg = d3.select("#aspectEntityArea3").append("svg:svg")
+                .attr("width", w)
+                .attr("height", h)
+    
+    
+    var path = svg.append("svg:g").selectAll("path")
+        .data(force.links())
+      .enter().append("svg:path")
+      .style("stroke", function(d){return d.color})
+      .style("stroke-width", function(d){return d.weight+"px"})
+      .style("opacity", 0.5);
+  
+  
+    // .attr("class", function(d) { return "link " + d.type; })
+   ;
+    
+    var circle = svg.append("svg:g")
+                    .selectAll("circle")
+                    .data(force.nodes())
+                    .enter().append("svg:circle")
+                    // .attr("r", 6)
+                    .attr("r", function(d){console.log(d.name);console.log(d.size);return d.size; })
+                    // .attr("class",function(d) { console.log("node " + d.type); return "node " + d.type; })
+                    .call(force.drag)
+                    .style("fill", function(d){ return d.color;});
+  
+    var text = svg.append("svg:g")                                
+                  .selectAll("g")
+                  .data(force.nodes())
+                  .enter().append("svg:g");
+    
+    // A copy of the text with a thick white stroke for legibility.
+    text.append("svg:text")
+        .attr("x", 8)
+        .attr("y", ".31em")
+        .attr("class", "shadow")
+        .text(function(d) { return d.name; });  
+    
+    text.append("svg:text")
+        .attr("x", 8)
+        .attr("y", ".31em")
+        .text(function(d) { return d.name; });
+    
+    // Use elliptical arc path segments to doubly-encode directionality.
+    function tick() {
+        path.attr("d", function(d) {
+            var dx = d.target.x - d.source.x,
+                dy = d.target.y - d.source.y,
+                dr = Math.sqrt(dx * dx + dy * dy);
+            // get the total link numbers between source and target node
+            var lTotalLinkNum = mLinkNum[d.source.id + "," + d.target.id] || mLinkNum[d.target.id + "," + d.source.id];
+            if(lTotalLinkNum > 1)
+            {
+                // if there are multiple links between these two nodes, we need generate different dr for each path
+                dr = dr/(1 + (1/lTotalLinkNum) * (d.linkindex - 1));
+            }       
+            // generate svg path
+            return "M" + d.source.x + "," + d.source.y + 
+                "A" + dr + "," + dr + " 0 0 1," + d.target.x + "," + d.target.y + 
+                "A" + dr + "," + dr + " 0 0 0," + d.source.x + "," + d.source.y;    
+        });
+        
+        // Add tooltip to the connection path
+        path.append("svg:title")
+            .text(function(d, i) { return d.name; });
+        
+        circle.attr("transform", function(d) {
+            return "translate(" + d.x + "," + d.y + ")";
+        });
+        
+        text.attr("transform", function(d) {
+            return "translate(" + d.x + "," + d.y + ")";
+        });
+    } 
+    
+    // sort the links by source, then target
+    function sortLinks()
+    {                               
+        data.links.sort(function(a,b) {
+            if (a.source > b.source) 
+            {
+                return 1;
+            }
+            else if (a.source < b.source) 
+            {
+                return -1;
+            }
+            else 
+            {
+                if (a.target > b.target) 
+                {
+                    return 1;
+                }
+                if (a.target < b.target) 
+                {
+                    return -1;
+                }
+                else 
+                {
+                    return 0;
+                }
+            }
+        });
+    }
+    
+    //any links with duplicate source and target get an incremented 'linknum'
+    function setLinkIndexAndNum()
+    {                               
+        for (var i = 0; i < data.links.length; i++) 
+        {
+            if (i != 0 &&
+                data.links[i].source == data.links[i-1].source &&
+                data.links[i].target == data.links[i-1].target) 
+            {
+                data.links[i].linkindex = data.links[i-1].linkindex + 1;
+            }
+            else 
+            {
+                data.links[i].linkindex = 1;
+            }
+            // save the total number of links between two nodes
+            if(mLinkNum[data.links[i].target + "," + data.links[i].source] !== undefined)
+            {
+                mLinkNum[data.links[i].target + "," + data.links[i].source] = data.links[i].linkindex;
+            }
+            else
+            {
+                mLinkNum[data.links[i].source + "," + data.links[i].target] = data.links[i].linkindex;
+            }
+        }
+    }   
+});         
+         
+        </script>
+
+    
+
+     
+    
+        
+
+<script type="text/javascript">
+var data = [];
+
+getData();
+var margin = {
+        top: 20,
+        right: 20,
+        bottom: 30,
+        left: 50
+    },
+    width = 520 - margin.left - margin.right,
+    height = 300 - margin.top - margin.bottom;
+
+var x = d3.scale.linear()
+    .range([0, width]);
+
+var y = d3.scale.linear()
+    .range([height, 0]),
+    yMap = function(d){
+        return null
+    }
+
+var format = d3.time.format("%Y%m%d");
+var dateMin = format.parse("20150308");
+var dateMax = format.parse("20150313");
+
+var xValue = function (v) {
+    var myDate = new Date( v.x *1000);
+    return myDate.toGMTString()
+},
+xScale = d3.time.scale().domain([dateMin, dateMax]).range([0, width]), // value -> display
+    xMap = function (d) {
+        return xScale(xValue(d));
+    }, // data -> display
+    xAxis = d3.svg.axis()
+    .scale(xScale)
+    .orient("bottom")
+    .ticks(d3.time.days, 2)
+    .tickSize(3);
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .ticks(5);
+var svg = d3.select("#area2").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+x.domain([1425600000.0,1426377600.0]);
+y.domain([0, maxV])
+
+var line1= d3.svg.line()
+        .x(function(d) {
+            return x(d.q);
+        })
+        .y(function(d) {
+            return y(d.l1);
+        });
+var line2= d3.svg.line()
+        .x(function(d) {
+            return x(d.q);
+        })
+        .y(function(d) {
+            return y(d.l2);
+        });
+var line3= d3.svg.line()
+        .x(function(d) {
+            return x(d.q);
+        })
+        .y(function(d) {
+            return y(d.l3);
+        });
+var line4= d3.svg.line()
+        .x(function(d) {
+            return x(d.q);
+        })
+        .y(function(d) {
+            return y(d.l4);
+        });svg.append("g")
+    .attr("class", "x axis")
+    // .attr("transform", "translate(0," + height + ")")
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis);
+
+svg.append("g")
+    .attr("class", "y axis")
+    // .attr("transform", "translate(0," + height + ")")
+    .call(yAxis);
+
+svg.append("path")
+    .datum(data)
+    .attr("class", "line")
+    .attr("d", line1)
+    .style("stroke","#0B6121");
+
+svg.append("path")
+    .datum(data)
+    .attr("class", "line")
+    .attr("d", line2)
+    .style("stroke","#FE2E2E");
+
+svg.append("path")
+    .datum(data)
+    .attr("class", "line")
+    .attr("d", line3)
+    .style("stroke","#01A9DB");
+
+svg.append("path")
+    .datum(data)
+    .attr("class", "line")
+    .attr("d", line4)
+    .style("stroke","#DBA901");
+
+function getData() {
+        maxV = 0
+for (var i = 0; i<1700;i++){
+q=1425600000.0+i*457.411764706
+l1=gaussian(q, 1425916764.16,35425.0243368)
+l2=gaussian(q, 1425938312.56,10157.9639827)
+l3=gaussian(q, 1426139456.67,10486.0541881)
+l4=gaussian(q, 1426205180.39,46899.6827471)
+maxV = Math.max(maxV , l1, l2, l3, l4)
+el={"q":q, "l1":l1,"l2":l2,"l3":l3,"l4":l4,}
+data.push(el)};
+data.sort(function(x, y) {
+            return x.q - y.q;
+        }); 
+}
+function gaussian(x, mean, sigma) {
+    var gaussianConstant = 1 / Math.sqrt(2 * Math.PI),
+        // mean =  1419305576,
+        // sigma = 39603.2746308182;
+
+    x = (x - mean) / sigma;
+    return gaussianConstant * Math.exp(-.5 * x * x) / sigma;
+};
+</script>
+
+    
+
+
+
+    
+      
+  </body>
+  </html>

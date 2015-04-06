@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+path.link{
+    fill: none;
+    stroke: #666;
+    stroke-width: 1.5px;
+}   
+
+
+path.li/*nk.t1{
+    stroke: #ff0000;
+}   
+
+path.link.t2{
+    stroke: rgb(10,255,255)
+    
+}*/
+circle {
+    fill: none;
+    stroke: black;
+    stroke-width: 1.5px;
+}
+
+text {
+    font: 10px sans-serif;
+    pointer-events: none;
+}
+
+text.shadow {
+    stroke: #fff;
+    stroke-width: 3px;
+    stroke-opacity: .8;
+}
+
+body {
+    background-color: white;
+    margin: 0px;
+}
+.axis path,
+    .axis line {
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
+    }
+    /*.x.axis path {
+        display: none;
+    }*/
+    .line {
+        fill: none;
+        stroke: steelblue;
+        stroke-width: 1.5px;
+    }
+
+#graphContainer {
+    text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+    float: left;
+}
+.networkGraph{
+  float: left;
+}
+#distGraph{
+  margin-left: 800px;
+}
+
+</style>
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+</style>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+$(function() {data = [{
+        "name": "positive",
+            "percent": 270459,
+    }, {
+       "name": "negative",
+            "percent": 554659,
+    },];
+
+var width = 300,
+    height = 300,
+    radius = Math.min(width, height) / 2;
+
+var color = d3.scale.ordinal()
+    .range(["#FF6600", "#8a89a6", ]);
+
+var arc = d3.svg.arc()
+    .outerRadius(radius - 10)
+    .innerRadius(0);
+
+var pie = d3.layout.pie()
+    .sort(null)
+    .value(function(d) { return d.percent; });
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+
+  var g = svg.append("svg:g").selectAll(".arc")
+      .data(pie(data))
+    .enter().append("g")
+      .attr("class", "arc")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+
+  g.append("svg:path")
+      .attr("d", arc)
+      .style("fill", function(d) { return color(d.data.name); });
+
+  g.append("svg:text")
+      .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+      .attr("dy", ".40em")
+      .style("text-anchor", "middle")
+      .text(function(d) { return d.data.name; });
+    });     
+</script>
+<script>
+            $(function() {var data = {
+    "nodes":  [
+{"id": 0, "name": "Israel Defense Forces", size:"6.80111710955",color:"#0000FF"},
+{"id": 1, "name": "Joseph Stalin", size:"7.57999856251",color:"#9400D3"},
+{"id": 2, "name": "Palestinian National Authority", size:"8.16076236464",color:"#228B22"},
+{"id": 3, "name": "International Criminal Court", size:"7.98121189892",color:"#0000FF"},
+{"id": 4, "name": "Benjamin Netanyahu", size:"7.51008568144",color:"#9400D3"},
+{"id": 5, "name": "Hamas", size:"6.85659903059",color:"#0000FF"},
+{"id": 6, "name": "State of Palestine", size:"5.99704056306",color:"#228B22"},
+{"id": 7, "name": "Mahmoud Abbas", size:"7.9896587617",color:"#9400D3"},
+{"id": 8, "name": "United States Armed Forces", size:"6.49424453359",color:"#0000FF"},
+{"id": 9, "name": "Mansour bin Abdulaziz Al Saud", size:"6.04374861265",color:"#9400D3"},
+{"id": 10, "name": "Israel", size:"7.9090909778",color:"#228B22"},
+],
+"links": [
+{"source": 2, "target": 5, color:"#DEB887", weight:4.77136236085 },
+{"source": 1, "target": 4, color:"#DEB887", weight:4.32545628319 },
+{"source": 2, "target": 8, color:"#DEB887", weight:4.01530135488 },
+{"source": 2, "target": 0, color:"#DEB887", weight:4.70844853544 },
+{"source": 4, "target": 5, color:"#DEB887", weight:3.63230910263 },
+{"source": 4, "target": 10, color:"#DEB887", weight:5.62473926732 },
+{"source": 9, "target": 6, color:"#DEB887", weight:3.90560243763 },
+{"source": 7, "target": 3, color:"#DEB887", weight:4.88371060052 },
+{"source": 8, "target": 0, color:"#DEB887", weight:3.56331623114 },
+{"source": 10, "target": 0, color:"#DEB887", weight:5.33097814879 },
+{"source": 7, "target": 5, color:"#DEB887", weight:3.33505757916 },
+{"source": 2, "target": 3, color:"#DEB887", weight:5.93394136086 },
+{"source": 10, "target": 5, color:"#DEB887", weight:4.92638374165 },
+{"source": 7, "target": 10, color:"#DEB887", weight:5.16661287555 },
+{"source": 6, "target": 3, color:"#DEB887", weight:4.59874961819 },
+{"source": 4, "target": 2, color:"#DEB887", weight:5.31517448361 },
+{"source": 10, "target": 3, color:"#DEB887", weight:4.77440650323 },
+{"source": 1, "target": 0, color:"#DEB887", weight:4.2564634117 },
+{"source": 1, "target": 8, color:"#DEB887", weight:3.56331623114 },
+{"source": 4, "target": 3, color:"#DEB887", weight:3.295836866 },
+{"source": 7, "target": 4, color:"#DEB887", weight:3.4781584228 },
+{"source": 1, "target": 10, color:"#DEB887", weight:5.33097814879 },
+{"source": 8, "target": 5, color:"#DEB887", weight:2.87016905058 },
+{"source": 3, "target": 5, color:"#DEB887", weight:2.56186769092 },
+{"source": 10, "target": 2, color:"#DEB887", weight:6.6251801439 },
+{"source": 7, "target": 2, color:"#DEB887", weight:6.01361735175 },
+{"source": 9, "target": 3, color:"#DEB887", weight:3.25501487148 },
+{"source": 1, "target": 5, color:"#DEB887", weight:3.56331623114 },
+{"source": 10, "target": 8, color:"#DEB887", weight:4.63783096823 },
+{"source": 4, "target": 8, color:"#DEB887", weight:3.63230910263 },
+{"source": 4, "target": 0, color:"#DEB887", weight:4.32545628319 },
+{"source": 1, "target": 2, color:"#DEB887", weight:4.70844853544 },
+{"source": 0, "target": 5, color:"#DEB887", weight:3.56331623114 },
+]
+};
+  var mLinkNum = {};
+    // sort links first
+    sortLinks();                                
+    // set up linkIndex and linkNumer, because it may possible multiple links share the same source and target node
+    setLinkIndexAndNum();
+    
+    var w = 500,
+        h = 400;
+    
+    var force = d3.layout.force()
+                  .nodes(d3.values(data.nodes))
+                  .links(data.links)
+                  .size([w, h])
+                  .linkDistance(170)
+                  .charge(-300)
+                  .on("tick", tick)
+                  .start();
+    
+    var svg = d3.select("body").append("svg:svg")
+                .attr("width", w)
+                .attr("height", h)
+    
+    
+    var path = svg.append("svg:g").selectAll("path")
+        .data(force.links())
+      .enter().append("svg:path")
+      .style("stroke", function(d){return d.color})
+      .style("stroke-width", function(d){return d.weight+"px"})
+      .style("opacity", 0.5);
+  
+  
+    // .attr("class", function(d) { return "link " + d.type; })
+   ;
+    
+    var circle = svg.append("svg:g")
+                    .selectAll("circle")
+                    .data(force.nodes())
+                    .enter().append("svg:circle")
+                    // .attr("r", 6)
+                    .attr("r", function(d){console.log(d.name);console.log(d.size);return d.size; })
+                    // .attr("class",function(d) { console.log("node " + d.type); return "node " + d.type; })
+                    .call(force.drag)
+                    .style("fill", function(d){ return d.color;});
+  
+    var text = svg.append("svg:g")                                
+                  .selectAll("g")
+                  .data(force.nodes())
+                  .enter().append("svg:g");
+    
+    // A copy of the text with a thick white stroke for legibility.
+    text.append("svg:text")
+        .attr("x", 8)
+        .attr("y", ".31em")
+        .attr("class", "shadow")
+        .text(function(d) { return d.name; });  
+    
+    text.append("svg:text")
+        .attr("x", 8)
+        .attr("y", ".31em")
+        .text(function(d) { return d.name; });
+    
+    // Use elliptical arc path segments to doubly-encode directionality.
+    function tick() {
+        path.attr("d", function(d) {
+            var dx = d.target.x - d.source.x,
+                dy = d.target.y - d.source.y,
+                dr = Math.sqrt(dx * dx + dy * dy);
+            // get the total link numbers between source and target node
+            var lTotalLinkNum = mLinkNum[d.source.id + "," + d.target.id] || mLinkNum[d.target.id + "," + d.source.id];
+            if(lTotalLinkNum > 1)
+            {
+                // if there are multiple links between these two nodes, we need generate different dr for each path
+                dr = dr/(1 + (1/lTotalLinkNum) * (d.linkindex - 1));
+            }       
+            // generate svg path
+            return "M" + d.source.x + "," + d.source.y + 
+                "A" + dr + "," + dr + " 0 0 1," + d.target.x + "," + d.target.y + 
+                "A" + dr + "," + dr + " 0 0 0," + d.source.x + "," + d.source.y;    
+        });
+        
+        // Add tooltip to the connection path
+        path.append("svg:title")
+            .text(function(d, i) { return d.name; });
+        
+        circle.attr("transform", function(d) {
+            return "translate(" + d.x + "," + d.y + ")";
+        });
+        
+        text.attr("transform", function(d) {
+            return "translate(" + d.x + "," + d.y + ")";
+        });
+    } 
+    
+    // sort the links by source, then target
+    function sortLinks()
+    {                               
+        data.links.sort(function(a,b) {
+            if (a.source > b.source) 
+            {
+                return 1;
+            }
+            else if (a.source < b.source) 
+            {
+                return -1;
+            }
+            else 
+            {
+                if (a.target > b.target) 
+                {
+                    return 1;
+                }
+                if (a.target < b.target) 
+                {
+                    return -1;
+                }
+                else 
+                {
+                    return 0;
+                }
+            }
+        });
+    }
+    
+    //any links with duplicate source and target get an incremented 'linknum'
+    function setLinkIndexAndNum()
+    {                               
+        for (var i = 0; i < data.links.length; i++) 
+        {
+            if (i != 0 &&
+                data.links[i].source == data.links[i-1].source &&
+                data.links[i].target == data.links[i-1].target) 
+            {
+                data.links[i].linkindex = data.links[i-1].linkindex + 1;
+            }
+            else 
+            {
+                data.links[i].linkindex = 1;
+            }
+            // save the total number of links between two nodes
+            if(mLinkNum[data.links[i].target + "," + data.links[i].source] !== undefined)
+            {
+                mLinkNum[data.links[i].target + "," + data.links[i].source] = data.links[i].linkindex;
+            }
+            else
+            {
+                mLinkNum[data.links[i].source + "," + data.links[i].target] = data.links[i].linkindex;
+            }
+        }
+    }   
+});     
+
+</script>
+<body>
+
+</body>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<style>
+
+.tabs-left > .nav-tabs > li {
+  float: none;
+  border-right: 1px solid #D3D3D3;
+  margin-bottom: 1px;
+}
+.tabs-left > .nav-tabs > li > a {
+  margin-right: 0;
+  text-align: center;
+  padding: 15px 15px;
+}
+.tabs-left > .nav-tabs {
+  float: left;
+  margin-right: 19px;  
+}
+.tabs-left > .nav-tabs .active > a,
+.tabs-left > .nav-tabs .active > a:hover,
+.tabs-left > .nav-tabs .active > a:focus {
+  background-color: #d9d9d9;
+}
+
+</style>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+<!-- tabs left -->
+<div class="tabbable tabs-left">
+  <ul class="nav nav-tabs" id="leftTabs">
+    <li class="active">
+      <a href="#a_tab" data-toggle="tab">
+        <span></span>Event Details
+      </a>
+    </li>
+    <li>
+      <a href="#b_tab" data-toggle="tab">
+        <span></span>Event Aspects
+      </a>
+    </li>
+  </ul>
+
+</div>
+
+
+<div class="tab-content">
+    <div class="container tab-pane active" id="a_tab">
+      <h1>Content of A</h1>
+    </div>
+    <div class="container tab-pane" id="b_tab">
+      <h1>Content of B</h1>
+    </div>
+</div>
+
+
