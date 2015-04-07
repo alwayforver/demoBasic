@@ -170,43 +170,43 @@ def event_running(start_str='20150101', end_str='20150102'):
 
         opinion_percent = []
 
-        # for event in xrange(cluster_num_):
-        #     print "##################### Event", event, "#################"
-        #     print
-        #     # event = target_event
-        #     _, dID = selectTopic(data[:numX], n_wdxPz_wds, event)
-        #     event_news_list = []
-        #     print "did length is", len(dID)
-        #     print "top title"
-        #     for i in xrange(5):
-        #         print top_title[event][i].encode("utf-8")
-        #     print
-        #     for each in dID:
-        #         event_news_list.append(ind2obj[each])
-        #         # X = vectorizer.fit_transform()
-        #         # print ind2obj[each].title
-        #     word_dist = Pw_z[:, event].T
-        #     time_mu = mu[event]
-        #     time_sigma = sigma[event]
-        #     event_tweet_list = []
-        #     for i in xrange(len(event_news_list)):
-        #         # print "dealing with news",i
-        #         event_tweet_list += list(event_news_list[i].tweet_set.all())
+         for event in xrange(cluster_num_):
+             print "##################### Event", event, "#################"
+             print
+             # event = target_event
+             _, dID = selectTopic(data[:numX], n_wdxPz_wds, event)
+             event_news_list = []
+             print "did length is", len(dID)
+             print "top title"
+             for i in xrange(5):
+                 print top_title[event][i].encode("utf-8")
+             print
+             for each in dID:
+                 event_news_list.append(ind2obj[each])
+                 # X = vectorizer.fit_transform()
+                 # print ind2obj[each].title
+             word_dist = Pw_z[:, event].T
+             time_mu = mu[event]
+             time_sigma = sigma[event]
+             event_tweet_list = []
+             for i in xrange(len(event_news_list)):
+                 # print "dealing with news",i
+                 event_tweet_list += list(event_news_list[i].tweet_set.all())
 
-        #     news_summary, tweets_summary, tweets, tweets_rele, sentiment = summarization(
-        #         sentiCL, event_news_list, event_tweet_list, word_dist, vectorizer, time_mu, time_sigma, 5)
+             news_summary, tweets_summary, tweets, tweets_rele, sentiment = summarization(
+                 sentiCL, event_news_list, event_tweet_list, word_dist, vectorizer, time_mu, time_sigma, 5)
 
-        #     news_summary.sort(key = lambda s: s.created_at)
-        #     news_summary_text = ""
-        #     for i in xrange(len(news_summary)):
-        #         news_summary_text+=(str(news_summary[i].created_at)[:10]+'  '+news_summary[i].title+'\n\n')
-        #     news_summary_text = news_summary_text[:-2]
-        #     print news_summary_text
+             news_summary.sort(key = lambda s: s.created_at)
+             news_summary_text = ""
+             for i in xrange(len(news_summary)):
+                 news_summary_text+=(str(news_summary[i].created_at)[:10]+'  '+news_summary[i].title+'\n\n')
+             news_summary_text = news_summary_text[:-2]
+             print news_summary_text
 
 
-        #     opinion_percent.append((getSentiPercentageDic(sentiCL, tweets, tweets_rele)))
+             # opinion_percent.append((getSentiPercentageDic(sentiCL, tweets, tweets_rele)))
 
-        #     print "opinion for event ", event, getSentiPercentage(sentiCL, tweets, tweets_rele)
+             #print "opinion for event ", event, getSentiPercentage(sentiCL, tweets, tweets_rele)
 
         for i in xrange(cluster_num_):
             event_info_list.append(zip(top_title[i], top_term[i]))
