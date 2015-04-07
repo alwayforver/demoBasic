@@ -237,7 +237,7 @@ def event_running(request, start_str='19901025', end_str='19901025', keywords = 
             # print
 
             news_summary_list.append(news_summary_text)
-            tweets_summary_text = '\n\n'.join(tweets_summary)
+            tweets_summary_text = '\n\n'.join([t.raw_text for t in tweets_summary])
             # print "tweets summary is"
             # print tweets_summary_text
             # print
@@ -420,7 +420,7 @@ def aspect_running(request, start_str='19901025', end_str='19901025', event=0):
             # print news_summary_text
             news_summary_list.append(news_summary_text)
 
-            tweets_summary_text = '\n\n'.join(tweets_summary)
+            tweets_summary_text = '\n\n'.join([t.raw_text for t in tweets_summary])
             # print "tweets summary is"
             # print tweets_summary_text
             # print
