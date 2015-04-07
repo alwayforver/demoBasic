@@ -14,10 +14,10 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 import numpy as np
 import pickle
-import matplotlib.pyplot as plt
-from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
-from matplotlib.figure import Figure
-from wordcloud import WordCloud
+# import matplotlib.pyplot as plt
+# from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+# from matplotlib.figure import Figure
+# from wordcloud import WordCloud
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -569,23 +569,23 @@ def aspect_display_noaspect(request, start_str, end_str, event=0):
     return render(request, 'aspectDisplayNoAspect.html', context)
 
 
-def graph_test(request):
+# def graph_test(request):
 
-    fig = Figure(figsize=(5, 2), dpi=100, tight_layout = True)
-    canvas = FigureCanvas(fig)
+#     fig = Figure(figsize=(5, 2), dpi=100, tight_layout = True)
+#     canvas = FigureCanvas(fig)
 
-    ax = fig.add_subplot(1, 1, 1)
-    # Read the whole text.
-    wordcloud = WordCloud(font_path='Verdana.ttf', background_color="white").generate(
-        "adsf sdf w q a aa aaaaa sssss aaaass sssss sssss sssss")
-    # wordcloud = WordCloud().generate(text)
-    # Open a plot of the generated image.
-    ax.imshow(wordcloud)
-    ax.axis("off")
-    response = HttpResponse(content_type='image/png')
-    canvas.print_png(response)
+#     ax = fig.add_subplot(1, 1, 1)
+#     # Read the whole text.
+#     wordcloud = WordCloud(font_path='Verdana.ttf', background_color="white").generate(
+#         "adsf sdf w q a aa aaaaa sssss aaaass sssss sssss sssss")
+#     # wordcloud = WordCloud().generate(text)
+#     # Open a plot of the generated image.
+#     ax.imshow(wordcloud)
+#     ax.axis("off")
+#     response = HttpResponse(content_type='image/png')
+#     canvas.print_png(response)
 
-    return response
+#     return response
 
 
 if __name__ == '__main__':
