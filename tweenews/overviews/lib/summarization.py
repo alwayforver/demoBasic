@@ -164,9 +164,9 @@ def getRelevantTweets(tweets, tweets_content_vec, tweets_rele):
     top_tweets = (tweets_rele.argsort())[::-1][:length]
     top_tweets_vec = tweets_content_vec[top_tweets, :]
     top_tweets_rele = tweets_rele[top_tweets]
-    top_tweets_content = [tweets[i].raw_text for i in top_tweets]
-
-    return top_tweets_content, top_tweets_vec, top_tweets_rele
+    #top_tweets_content = [tweets[i].raw_text for i in top_tweets]
+    top_tweets_obj = [tweets[i] for i in top_tweets]
+    return top_tweets_obj, top_tweets_vec, top_tweets_rele
 
 
 # get news summary based on relevance & diversity of content & time
@@ -256,7 +256,7 @@ def getTweetsSummary(sentiCL, tweets, tweets_rele, tweets_content_vec, news_summ
     div = np.zeros(len(tweets))
 
     for i in xrange(len(tweets)):
-        if tweets[i]=="MacBook &amp; Apple Watch":
+        if tweets[i].raw_text=="MacBook &amp; Apple Watch":
             tweets_rele[i]=-50
 
     score = tweets_weight[0] * tweets_rele + tweets_weight[1] * sentiment + tweets_weight[2] * news_sim
@@ -275,13 +275,13 @@ def getTweetsSummary(sentiCL, tweets, tweets_rele, tweets_content_vec, news_summ
 
         if updated_score[selected] < tweets_threshold:
             print "deleted"
-            print tweets[selected].encode('utf-8')
+            print tweets[selected].raw_text.encode('utf-8')
             print 'weighted=', updated_score[selected], 'content rele=', tweets_rele[selected], 'senti=', sentiment[selected], 'news sim=', news_sim[selected], 'tweets sim=', div[selected]
             print
             break
         
         summary.append(tweets[selected])
-        print tweets[selected].encode('utf-8')
+        print tweets[selected].raw_text.encode('utf-8')
         print 'weighted=', updated_score[selected], 'content rele=', tweets_rele[selected], 'senti=', sentiment[selected], 'news sim=', news_sim[selected], 'tweets sim=', div[selected]
         print
         div = updateTweetsDiversity(
@@ -293,7 +293,7 @@ def getTweetsSummary(sentiCL, tweets, tweets_rele, tweets_content_vec, news_summ
 def computeSentiment(sentiCL, tweets):
     sentiment = []
     for t in tweets:
-        sentiment.append(sentiCL.getPolarityScore(t))
+        sentiment.append(sentiCL.getPolarityScore(t.raw_text))
     return np.array(sentiment)
 
 
