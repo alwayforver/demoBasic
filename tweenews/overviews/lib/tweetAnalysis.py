@@ -261,9 +261,9 @@ def getSentiPercentageDic(sentiCL, tweets, tweets_rele):
 
     pos_count = 0
     for i in xrange(len(tweets)):
-        cl_senti = sentiCL.getSentiScore(tweets[i])
+        cl_senti = sentiCL.getSentiScore(tweets[i].raw_text)
         if cl_senti != 0:
-            st_obj = SentiTweet(tweets[i])
+            st_obj = SentiTweet(tweets[i].raw_text)
             senti = st_obj.getRawSentiScore()
             if senti > 0.2:
                 pos_num += tweets_rele[i]
