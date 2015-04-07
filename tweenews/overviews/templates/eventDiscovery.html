@@ -27,7 +27,6 @@
           <h3>Selected start date is {{ input_start_date }}</h3>
           <h3>Selected end date is {{ input_end_date }}</h3>
           <h3> Please wait....</h3>
-          {{keywords}}
           <script type="text/javascript">
                 $.get('/overviews/event_running/start_str={{start_str}}end_str={{end_str}}keywords={{keywords}}', function(data) {
                 if (data == 'OK') {
