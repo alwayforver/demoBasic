@@ -286,24 +286,17 @@ def filterEvent(Pw_zs, Pz_d, Pd, mu, sigma):
     return Pw_zs,Pz_d, mu, sigma, Pz_d.shape[0]-1
 
 
-def filterEventKeyword(Pw_zs, Pz_d, Pd, mu, sigma, terms):
-    # eventID = Pz_d[:-1,:].dot(Pd).argsort()[::-1]
-
-    # for i in xrange(len(eventID)):
-    #     print "event ", eventID[i], "Pz is ", Pz_d[:-1,:].dot(Pd)[eventID[i]]
-    # cluster_num = Pz_d.shape[0]-1
-    # for i xrange(cluster_num):
+def filterEventKeyword(Pw_zs, Pz_d, Pd, mu, sigma, terms, keyword_list):
     cluster_num  = Pz_d.shape[0]-1
     sortedPw_z = np.argsort(Pw_zs[0][:,:-1],axis=0)[::-1,:][:10,:]
-    eventID = np.zeros(2, dtype=np.int)
+    eventID = np.zeros(0, dtype=np.int)
     for i in xrange(cluster_num):
         for j in xrange(10):
-            if terms[sortedPw_z[j][i]].lower()== "apple":
-                eventID[1] = i
-                break
-            if terms[sortedPw_z[j][i]].lower()== "squad":
-                eventID[0] = i
-                break
+            for keyword in keyword_list:
+                # print "current keyword", keyword
+                if terms[sortedPw_z[j][i]].lower()== keyword:
+                    eventID = np.append(eventID, i)
+                    break
     eventID = np.append(eventID, Pz_d.shape[0]-1)
 
     for i in xrange(len(Pw_zs)):
@@ -311,7 +304,6 @@ def filterEventKeyword(Pw_zs, Pz_d, Pd, mu, sigma, terms):
     Pz_d = Pz_d[eventID,:]
     mu = mu[eventID]
     sigma = sigma[eventID]
-    # print np.sort(np.sort(Pw_zs[0],axis=0)[::-1,:][:10,:].sum(axis=0))[::-1]
 
     return Pw_zs,Pz_d, mu, sigma, eventID.size-1
 
