@@ -62,7 +62,7 @@ def summarization(sentiCL, news, tweets, word_distribution, vectorizer, mu, sigm
 
     # print "t5-t6 tweets length", len(tweets)
     tweets_summary, sentiment = getTweetsSummary(
-        sentiCL, tweets, tweets_rele, tweets_content_vec, news_summary_vec, topk)
+        sentiCL, tweets, tweets_rele, tweets_content_vec, news_summary_vec, 10)
     t6 = time.time()
     # print 'tweets summary time', (t6 - t5)
 
