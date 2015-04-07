@@ -42,7 +42,7 @@ all_start = timezone.make_aware(
 all_end = timezone.make_aware(
     datetime(2015, 1, 4, 5, 44, 17), timezone.get_default_timezone())
 
-cluster_num = 40
+cluster_num = 20
 aspect_num = 4
 numX = 4
 topk = 5
@@ -97,11 +97,14 @@ def event_running(request, start_str='19901025', end_str='19901025', keywords = 
 
 
     # this function is not yet implemented
-    keywords = keywords.strip()
+   
+
     if len(keywords)==0:
         keywords = []
     else:
-        keywords = keywords.split(',')
+        keywords = keywords.strip().split(',')
+
+    keywords = [keyword.strip().lower() for keyword in keywords]
 
     # if os.path.exists('./media/cache' + start_str + '_' + end_str) and prepend_date(start_str, end_str, 'top_title') in request.session:
     #     print "exist!"
@@ -178,7 +181,7 @@ def event_running(request, start_str='19901025', end_str='19901025', keywords = 
         print "pLSA done in " + str(time.time() - t0)
 
         # Pw_zs, Pz_d, mu, sigma, cluster_num_ = filterEvent(Pw_zs, Pz_d, Pd, mu, sigma)
-        Pw_zs, Pz_d, mu, sigma, cluster_num_ = filterEventKeyword(Pw_zs, Pz_d, Pd, mu, sigma, terms)
+        Pw_zs, Pz_d, mu, sigma, cluster_num_ = filterEventKeyword(Pw_zs, Pz_d, Pd, mu, sigma, terms, keywords)
 
         Pw_z = Pw_zs[0]
         Pp_z = Pw_zs[1]
