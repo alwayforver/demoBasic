@@ -243,7 +243,7 @@ def getSentiPercentage(sentiCL, tweets, tweets_rele):
     neg_num = 0.0
     # neutral_num = 0.0
     for i in xrange(len(tweets)):
-        senti = sentiCL.getSentiScore(tweets[i])
+        senti = sentiCL.getSentiScore(tweets[i].raw_text)
         # total_num += tweets_rele[i]
         if senti == 1:
             pos_num += tweets_rele[i]
