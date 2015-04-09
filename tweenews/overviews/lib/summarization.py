@@ -37,16 +37,17 @@ def summarization(sentiCL, news, tweets, word_distribution, vectorizer, mu, sigm
     news, news_titles_vec = removeZeroVector(news, news_titles_vec)
     tweets, tweets_content_vec = removeZeroVector(tweets, tweets_content_vec)
     t2 = time.time()
-    # print 'vectorize', (t2 - t1)
+    print 'vectorize', (t2 - t1)
 
     news_rele, tweets_rele = computeBM25(
         news_titles_vec, tweets_content_vec, word_distribution)
-    # print time.time()-t2
+    print 'bm25',time.time()-t2
+    t2 = time.time()
     # news_rele, _ = computeContentRelevance(news_titles_vec, tweets_content_vec, word_distribution)
     tweets, tweets_content_vec, tweets_rele = getRelevantTweets(
         tweets, tweets_content_vec, tweets_rele)
     t3 = time.time()
-    # print 'cosine', (t3 - t2)
+    print 'cosine', (t3 - t2)
     # news, tweets, news_titles_vec, tweets_content_vec, news_rele, tweets_rele = coHits(news, tweets, news_titles_vec, tweets_content_vec, news_rele, tweets_rele)
     t4 = time.time()
     # print 'cohits', (t4 - t3)
@@ -57,19 +58,18 @@ def summarization(sentiCL, news, tweets, word_distribution, vectorizer, mu, sigm
     t5 = time.time()
     print "=========="
     print "Tweet Summary"
-    # print 'news summary time', (t5 - t4)
+    print 'news summary time', (t5 - t4)
     # print '======================'
 
     # print "t5-t6 tweets length", len(tweets)
     tweets_summary, sentiment = getTweetsSummary(
         sentiCL, tweets, tweets_rele, tweets_content_vec, news_summary_vec, 10)
     t6 = time.time()
-    # print 'tweets summary time', (t6 - t5)
+    print 'tweets summary time', (t6 - t5)
 
     # news_summary is a list of news objects, and the tweets_summary is a list
     # of tweet text.
     return news_summary, tweets_summary, tweets, tweets_rele, sentiment
-
 
 # compute relevance score
 def computeBM25(news_vec, tweets_vec, word_distribution):
