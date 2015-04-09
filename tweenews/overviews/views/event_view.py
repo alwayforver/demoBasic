@@ -95,10 +95,6 @@ def event_running(request, start_str='19901025', end_str='19901025', keywords = 
     start_date, end_date = parse_date(
         start_str), parse_date(end_str) + timedelta(days=1)
 
-
-    # this function is not yet implemented
-   
-
     if len(keywords)==0:
         keywords = []
     else:
@@ -106,12 +102,15 @@ def event_running(request, start_str='19901025', end_str='19901025', keywords = 
 
     keywords = [keyword.strip().lower() for keyword in keywords]
 
+    
     # if os.path.exists('./media/cache' + start_str + '_' + end_str) and prepend_date(start_str, end_str, 'top_title') in request.session:
     #     print "exist!"
+    t0 = time.time()
     if True:
         all_news = News.objects.filter(
             created_at__gte=start_date).filter(created_at__lte=end_date)
-
+        print 'all_news',time.time()-t0
+        t0 = time.time()
         # Vectorizor and raw data preparation
         news_title = []
         news_entities = []
@@ -144,14 +143,17 @@ def event_running(request, start_str='19901025', end_str='19901025', keywords = 
         for each_type in entityTypes:
             data.append(Xe[each_type])
         data.append(news_DT)
-
+    
+        print 'vectorize',time.time()-t0
+        t0 = time.time()
         # inits preparation
         inits_notime, labels_km = km_initialize(
             X, Xe, entityTypes, cluster_num)
 
         mu_km, sigma_km = inittime(news_DT, cluster_num, labels_km)
         inits = inits_notime + [mu_km, sigma_km]
-
+        
+        print 'initial',time.time()-t0
         # run PLSA
         t0 = time.time()
         Learn = (1, 20)
@@ -179,9 +181,11 @@ def event_running(request, start_str='19901025', end_str='19901025', keywords = 
             Pw_zs, Pz_d, Pd, mu, sigma, Li = pLSABet.pLSABet(
                 selectTime, numX, Learn, data, inits, wt, lambdaB, debug)
         print "pLSA done in " + str(time.time() - t0)
-
+        
+        t0 = time.time()
         # Pw_zs, Pz_d, mu, sigma, cluster_num_ = filterEvent(Pw_zs, Pz_d, Pd, mu, sigma)
-        Pw_zs, Pz_d, mu, sigma, cluster_num_ = filterEventKeyword(Pw_zs, Pz_d, Pd, mu, sigma, terms, keywords)
+        if len(keywords) != 0:
+            Pw_zs, Pz_d, mu, sigma, cluster_num_ = filterEventKeyword(Pw_zs, Pz_d, Pd, mu, sigma, terms, keywords)
 
         Pw_z = Pw_zs[0]
         Pp_z = Pw_zs[1]
@@ -201,11 +205,15 @@ def event_running(request, start_str='19901025', end_str='19901025', keywords = 
 
         opinion_percent = []
 
+        print 'display+weightX',time.time()-t0
+        t0 = time.time()
         for event in xrange(cluster_num_):
             print "##################### Event", event, "#################"
             print
             # event = target_event
             _, dID = selectTopic(data[:numX], n_wdxPz_wds, event)
+            print 'select topic',time.time()-t0
+            t0 = time.time()
             event_news_list = []
             # print dID
             # print "top title"
@@ -224,8 +232,13 @@ def event_running(request, start_str='19901025', end_str='19901025', keywords = 
 
             for i in xrange(len(event_news_list)):
                 event_tweet_list += list(event_news_list[i].tweet_set.all())
+            print 'get data',time.time()-t0
+            t0 = time.time()
+            
             news_summary, tweets_summary, tweets, tweets_rele, sentiment = summarization(
                 sentiCL, event_news_list, event_tweet_list, word_dist, vectorizer, time_mu, time_sigma, topk, debug)
+            print 'summary all',time.time()-t0
+            t0 = time.time()
             news_summary.sort(key = lambda s: s.created_at)
             
             news_summary_text = ""
@@ -243,8 +256,12 @@ def event_running(request, start_str='19901025', end_str='19901025', keywords = 
             # print
             tweets_summary_list.append(tweets_summary_text)
 
+            print 'display',time.time()-t0
+            t0 = time.time()
             opinion_percent.append((getSentiPercentage(sentiCL, tweets[:2000], tweets_rele)))
 
+            print 'opinion',time.time()-t0
+            t0 = time.time()
         request.session[
             prepend_date(start_str, end_str, 'top_title')] = top_title
         request.session[
@@ -262,6 +279,8 @@ def event_running(request, start_str='19901025', end_str='19901025', keywords = 
             open('./media/cache' + start_str + '_' + end_str, 'w'))
         pickle.dump(cur_cache, cache_file)
         cache_file.close()
+        print 'cache',time.time()-t0
+        t0 = time.time()
 
     return HttpResponse('OK')
 
