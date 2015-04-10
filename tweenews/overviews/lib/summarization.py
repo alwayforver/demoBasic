@@ -73,62 +73,69 @@ def summarization(sentiCL, news, tweets, word_distribution, vectorizer, mu, sigm
 
 # compute relevance score
 def computeBM25(news_vec, tweets_vec, word_distribution):
-    # k1=1.6
-    # b=0.75
-    # top_count = 100
-    # top_words = word_distribution.argsort()[::-1][:top_count]
-
-    # dist = word_distribution[top_words]
-    # top_news_vec = np.ceil(news_vec[:, top_words]).toarray()
-    # top_tweets_vec = np.ceil(tweets_vec[:, top_words]).toarray()
-
-    # nNews = news_vec.shape[0]
-    # nTweets = tweets_vec.shape[0]
-    # avg_doc_len_n = float(news_vec.data.size) / nNews
-    # avg_doc_len_t = float(tweets_vec.data.size) / nTweets
-
-    # t1=time.time()
-
-    # news_len = np.tile((news_vec!=0).sum(axis = 1).A1*b/avg_doc_len_n, (top_count,1)).T
-    # tweets_len = np.tile((tweets_vec!=0).sum(axis = 1).A1*b/avg_doc_len_t, (top_count,1)).T
-    # t2=time.time()
-    # print 'new0',t2-t1
-    # news_score = ( dist*top_news_vec*(k1+1)/ (top_news_vec + k1*(1-b+news_len)) ).sum(axis=1)
-    # tweets_score = ( dist*top_tweets_vec*(k1+1)/ (top_tweets_vec + k1*(1-b+tweets_len)) ).sum(axis=1)
-    # t3=time.time()
-    # print 'new1',t3-t2
-    ######
-    top_count = word_distribution.size
+    t1=time.time()
+    k1=1.6
+    b=0.75
     top_count = 100
     top_words = word_distribution.argsort()[::-1][:top_count]
+
+    t2=time.time()
+    print 'new argsort',t2-t1
+    t2=time.time()
     dist = word_distribution[top_words]
-    avg_doc_len_n = float(news_vec.data.size) / news_vec.shape[0]
-    avg_doc_len_t = float(tweets_vec.data.size) / tweets_vec.shape[0]
-    top_news_vec = news_vec[:, top_words].T
-    top_tweets_vec = tweets_vec[:, top_words].T
+    top_news_vec = (news_vec[:, top_words]!=0) #.toarray()
+    #top_news_vec = np.ceil(news_vec[:, top_words]) #.toarray()
+    top_tweets_vec = (tweets_vec[:, top_words]!=0) #.toarray()
+    #top_tweets_vec = np.ceil(tweets_vec[:, top_words]) #.toarray()
 
-    news_score = np.zeros(news_vec.shape[0])
-    news_len = np.ceil(news_vec).sum(axis=1).T.A1
+    print 'new0',time.time() - t2
+    nNews = news_vec.shape[0]
+    nTweets = tweets_vec.shape[0]
+    avg_doc_len_n = float(news_vec.data.size) / nNews
+    avg_doc_len_t = float(tweets_vec.data.size) / nTweets
 
-    tweets_score = np.zeros(tweets_vec.shape[0])
-    tweets_len = np.ceil(tweets_vec).sum(axis=1).T.A1
 
-    top_news_vec = np.ceil(top_news_vec).toarray()
-    top_tweets_vec = np.ceil(top_tweets_vec).toarray()
-
-    for i in xrange(len(top_words)):
-        # news_score += dist[i] * idf[i] * ((2.6 * top_news_vec[i, :]) / (top_news_vec[i, :] + 1.6 * (0.25 + 0.75 / avg_doc_len * news_len )))
-        news_score += dist[i] * ((2.6 * top_news_vec[i, :]) / (
-            top_news_vec[i, :] + 1.6 * (0.25 + 0.75 / avg_doc_len_n * news_len)))
-
-        # tweets_freq = np.ceil(top_tweets_vec[i, :])
-
-        tweets_score += dist[i] * ((2.6 * top_tweets_vec[i, :]) / (
-            top_tweets_vec[i, :] + 1.6 * (0.25 + 0.75 / avg_doc_len_t * tweets_len)))
-        # tweets_score += dist[i] * idf[i] * ((2.6 * top_tweets_vec[i, :]) / (top_tweets_vec[i, :] + 1.6 * (0.25 + 0.75 / avg_doc_len * tweets_len )))
-    # print 'old',time.time()-t3
-
-    return news_score, tweets_score
+    news_len = np.tile((news_vec!=0).sum(axis = 1).A1*b/avg_doc_len_n, (top_count,1)).T
+    tweets_len = np.tile((tweets_vec!=0).sum(axis = 1).A1*b/avg_doc_len_t, (top_count,1)).T
+    dist_sparse = scipy.sparse.lil_matrix((top_count,top_count))
+    dist_sparse.setdiag(dist)
+    news_score = (top_news_vec*dist_sparse*(k1+1)/ (top_news_vec + k1*(1-b+news_len)) ).sum(axis=1)
+    tweets_score = (top_tweets_vec*dist_sparse*(k1+1)/ (top_tweets_vec + k1*(1-b+tweets_len)) ).sum(axis=1)
+    t3=time.time()
+    print 'new1',t3-t2
+    ######
+#    top_count = word_distribution.size
+#    top_count = 100
+#    top_words = word_distribution.argsort()[::-1][:top_count]
+#    dist = word_distribution[top_words]
+#    avg_doc_len_n = float(news_vec.data.size) / news_vec.shape[0]
+#    avg_doc_len_t = float(tweets_vec.data.size) / tweets_vec.shape[0]
+#    top_news_vec = news_vec[:, top_words].T
+#    top_tweets_vec = tweets_vec[:, top_words].T
+#
+#    news_score = np.zeros(news_vec.shape[0])
+#    news_len = np.ceil(news_vec).sum(axis=1).T.A1
+#
+#    tweets_score = np.zeros(tweets_vec.shape[0])
+#    tweets_len = np.ceil(tweets_vec).sum(axis=1).T.A1
+#
+#    top_news_vec = np.ceil(top_news_vec).toarray()
+#    top_tweets_vec = np.ceil(top_tweets_vec).toarray()
+#
+#    for i in xrange(len(top_words)):
+#        # news_score += dist[i] * idf[i] * ((2.6 * top_news_vec[i, :]) / (top_news_vec[i, :] + 1.6 * (0.25 + 0.75 / avg_doc_len * news_len )))
+#        news_score += dist[i] * ((2.6 * top_news_vec[i, :]) / (
+#            top_news_vec[i, :] + 1.6 * (0.25 + 0.75 / avg_doc_len_n * news_len)))
+#
+#        # tweets_freq = np.ceil(top_tweets_vec[i, :])
+#
+#        tweets_score += dist[i] * ((2.6 * top_tweets_vec[i, :]) / (
+#            top_tweets_vec[i, :] + 1.6 * (0.25 + 0.75 / avg_doc_len_t * tweets_len)))
+#        # tweets_score += dist[i] * idf[i] * ((2.6 * top_tweets_vec[i, :]) / (top_tweets_vec[i, :] + 1.6 * (0.25 + 0.75 / avg_doc_len * tweets_len )))
+#    # print 'old',time.time()-t3
+#    print news_score/news_score_0
+#    print tweets_score/tweets_score_0
+    return news_score.A1, tweets_score.A1
 
 
 def computeContentRelevance(news_vec, tweets_vec, word_distribution):
