@@ -33,8 +33,8 @@ all_start = timezone.make_aware(
     datetime(2014, 12, 31, 23, 23, 47), timezone.get_default_timezone())
 all_end = timezone.make_aware(
     datetime(2015, 1, 4, 5, 44, 17), timezone.get_default_timezone())
-cluster_num = 10
-topk = 5
+cluster_num = 30
+topk = 10
 debug = 1
 sentiCL = LRSentiClassifier()
 
@@ -51,7 +51,7 @@ numX = 4
 aspect_num = 5
 
 
-def event_running(start_str='20150301', end_str='20150302'):
+def event_running(start_str='20150308', end_str='20150312'):
 
     start_date, end_date = parse_date(
         start_str), parse_date(end_str) + timedelta(days=1)
@@ -134,7 +134,7 @@ def event_running(start_str='20150301', end_str='20150302'):
                 selectTime, numX, Learn, data, inits, wt, lambdaB)
 
         print "pLSA done in " + str(time.time() - t0)
-
+        
         Pw_zs, Pz_d,mu,sigma, cluster_num_ = filterEvent(Pw_zs, Pz_d, Pd, mu, sigma)
 
         # for each in entityTypes:
@@ -192,7 +192,8 @@ def event_running(start_str='20150301', end_str='20150302'):
                 event_tweet_list += list(event_news_list[i].tweet_set.all())
 
             news_summary, tweets_summary, tweets, tweets_rele, sentiment = summarization(
-                sentiCL, event_news_list, event_tweet_list, word_dist, vectorizer, time_mu, time_sigma, 5)
+                sentiCL, event_news_list, event_tweet_list, word_dist, vectorizer, 
+                time_mu, time_sigma, 5) ## arg event for output purpose jingjing
 
             news_summary.sort(key = lambda s: s.created_at)
             news_summary_text = ""
