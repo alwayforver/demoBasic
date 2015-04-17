@@ -10,6 +10,7 @@ from tweetAnalysis import SentiTweet, LRSentiClassifier, normalization
 from utility import get_ticks
 import pickle
 import time
+from scipy.sparse import csr_matrix, coo_matrix
 
 # note the relevance score of BM25 is about 3-4 times smaller than cosine,
 # so the first weight need to be larger.
@@ -99,8 +100,9 @@ def computeBM25(news_vec, tweets_vec, word_distribution):
     tweets_len = np.tile((tweets_vec!=0).sum(axis = 1).A1*b/avg_doc_len_t, (top_count,1)).T
     dist_sparse = scipy.sparse.lil_matrix((top_count,top_count))
     dist_sparse.setdiag(dist)
-    news_score = (top_news_vec*dist_sparse*(k1+1)/ (top_news_vec + k1*(1-b+news_len)) ).sum(axis=1)
-    tweets_score = (top_tweets_vec*dist_sparse*(k1+1)/ (top_tweets_vec + k1*(1-b+tweets_len)) ).sum(axis=1)
+        
+    news_score = (top_news_vec*dist_sparse*(k1+1)/ csr_matrix(top_news_vec + k1*(1-b+news_len))  ).sum(axis=1)
+    tweets_score = (top_tweets_vec*dist_sparse*(k1+1)/ csr_matrix(top_tweets_vec + k1*(1-b+tweets_len)) ).sum(axis=1)
     t3=time.time()
     print 'new1',t3-t2
     ######
