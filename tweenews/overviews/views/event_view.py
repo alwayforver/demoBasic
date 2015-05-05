@@ -24,7 +24,7 @@ from django.core.files import File
 sys.path.insert(0, os.path.join(BASE_DIR, 'lib'))
 from k_means import km_initialize
 import pLSABet
-from utility import news_initialization, calc_cluster_num,filterEventKeyword, rankEventwithTime, filterEvent, find_topterms_dic, find_toptitle_dID, PLSACache, array2csr_matrix, csr_matrix2array, selectTopic, weightX, get_ticks, data_prep, parse_date, prepend_date, find_toptitle_simple, find_topterms_simple, calc_entity_matrix, inittime
+from utility import news_initialization, calc_cluster_num,filterEventKeyword, rankEventwithTime, filterEvent, find_topterms_dic, find_toptitle_dID, PLSACache, array2csr_matrix, csr_matrix2array, selectTopic, weightX, get_ticks, parse_date, prepend_date, find_toptitle_simple, find_topterms_simple, calc_entity_matrix, inittime
 from GraphData import drawOpinionPie, drawWordCloud, dataTextGen, aspectTextGen, EntityGraphData, textGen, drawLineDist
 from tweetAnalysis import getSentiPercentage, LRSentiClassifier
 from summarization import summarization
