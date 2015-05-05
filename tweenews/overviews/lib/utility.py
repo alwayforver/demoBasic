@@ -3,6 +3,8 @@ from datetime import datetime, timedelta
 from django.utils import timezone
 import numpy as np
 from scipy.sparse import csr_matrix, coo_matrix
+from sklearn.feature_extraction.text import TfidfVectorizer
+import math
 
 
 class PLSACache:
@@ -20,16 +22,59 @@ class PLSACache:
         self.vectorizer = vectorizer
 
 
+def calc_cluster_num(start_date, end_date):
+    num_days = (end_date-start_date).days
 
-def data_prep(news_list, ind2obj):
+    cluster_num = int(math.ceil(85*math.log(num_days)/math.log(10)))
+
+    return cluster_num if cluster_num!=0 else 30
+
+
+# def data_prep(news_list, ind2obj):
+#     raw_docs = []
+#     count = 0
+#     for each in news_list:
+#         # raw_docs.append(each.title)
+#         raw_docs.append(each.title + ' ' + each.raw_text)
+#         ind2obj[count] = each
+#         count += 1
+#     return raw_docs
+
+def news_initialization(all_news, entityTypes):
+    news_title = []
+    news_entities = []
+    news_DT = []
+
+    for i in xrange(len(all_news)):
+        news_title.append(all_news[i].title)
+        news_entities.append(all_news[i].entities)
+        news_DT.append(get_ticks(all_news[i].created_at))
+
+    ind2obj = {}
     raw_docs = []
     count = 0
-    for each in news_list:
+    for each in all_news:
         # raw_docs.append(each.title)
         raw_docs.append(each.title + ' ' + each.raw_text)
         ind2obj[count] = each
         count += 1
-    return raw_docs
+    vectorizer = TfidfVectorizer(stop_words='english', max_features=10000)
+    X = vectorizer.fit_transform(raw_docs)
+    terms = vectorizer.get_feature_names()
+
+    # reverse_voc a dict for lists of entity terms
+    Xe, reverse_voc = calc_entity_matrix(news_entities, entityTypes)
+
+    # reweight
+    Xe['person'] = Xe['person'] * 0.3
+    Xe['place'] = Xe['place'] * 0.3
+    Xe['org'] = Xe['org'] * 0.3
+
+    data = [X]
+    for each_type in entityTypes:
+        data.append(Xe[each_type])
+    data.append(news_DT)
+    return news_title, news_entities, news_DT, ind2obj, vectorizer, X, terms, Xe, reverse_voc, data
 
 
 def parse_date(date_str):
@@ -219,6 +264,7 @@ def selectTopic(Xs, n_wdxPz_wds, event):
         docind, wordind, value = (X.row, X.col, X.data)
         value = n_wdxPz_wd[event, :]
         # select = (value != 0)
+        # print "value",value
         select = (value >0.2*max(value))
         value_f = value[select]
         row_f = docind[select]  # 1 3 3 5 5 6 6 6
@@ -318,6 +364,7 @@ def rankEventwithTime(Pw_zs,Pz_d,Pd, mu, sigma):
     sigma = sigma[eventID]
 
     return Pw_zs,Pz_d, mu, sigma, Pz_d.shape[0]-1
+
 
 
 

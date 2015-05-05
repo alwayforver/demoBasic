@@ -18,12 +18,13 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tweenews.settings')
 import django.contrib.sessions
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-sys.path.insert(0, os.path.join(BASE_DIR, 'overviews/lib'))
-#sys.path.append(os.path.join(BASE_DIR, 'overviews/lib'))
+# sys.path.insert(0, os.path.join(BASE_DIR, 'overviews/lib'))
+sys.path.append(os.path.join(BASE_DIR, 'overviews/lib'))
+
 import k_means
 from k_means import calc_Pd, calc_Pe_z, km_initialize
 import pLSABet
-from utility import filterEvent, find_topterms_dic, find_toptitle_dID, PLSACache, array2csr_matrix, csr_matrix2array, selectTopic, weightX, get_ticks, data_prep, parse_date, prepend_date, find_toptitle_simple, find_topterms_simple, calc_entity_matrix, inittime
+from utility import calc_cluster_num, filterEvent, find_topterms_dic, find_toptitle_dID, PLSACache, array2csr_matrix, csr_matrix2array, selectTopic, weightX, get_ticks, data_prep, parse_date, prepend_date, find_toptitle_simple, find_topterms_simple, calc_entity_matrix, inittime
 from GraphData import drawWordCloud, dataTextGen, aspectTextGen, EntityGraphData, textGen, drawLineDist
 from summarization import summarization
 from tweetAnalysis import MySentiWordExtractor, SentiTweet, getSentiPercentageDic, getSentiPercentage, LRSentiClassifier
@@ -56,6 +57,8 @@ def event_running(start_str='20150308', end_str='20150312'):
     start_date, end_date = parse_date(
         start_str), parse_date(end_str) + timedelta(days=1)
 
+    cluster_num = calc_cluster_num(start_date, end_date)
+    print cluster_num
     if True:
         # if prepend_date(start_str, end_str, 'news_title') not in request.session:
         # time.sleep(3)
@@ -63,6 +66,8 @@ def event_running(start_str='20150308', end_str='20150312'):
             created_at__gte=start_date).filter(created_at__lte=end_date)
 
         # Vectorizor and raw data preparation
+
+        print (end_date-start_date).days
         news_title = []
         news_entities = []
         news_DT = []

@@ -1,5 +1,7 @@
 import numpy as np
 from scipy.stats import norm
+from utility import inittime
+from k_means import km_initialize
 def getMatIndex(X):
     X = X.tocsr()
     indptr,indices = (X.indptr,X.indices)
@@ -180,3 +182,25 @@ def pLSABet(selectTime,numX,Learn,data,inits,wt,lambdaB, debug = 1):
         print Li[-1]
     return Pw_zs,Pz_d,Pd,mu,sigma,Li
 
+def pLSAWrapper(selectTime, numX, Learn, data, wt, lambdaB, debug, X, Xe, news_DT, entityTypes, cluster_num):
+    inits_notime, labels_km = km_initialize(X, Xe, entityTypes, cluster_num)
+    mu_km, sigma_km = inittime(news_DT, cluster_num, labels_km)
+    inits = inits_notime + [mu_km, sigma_km]
+
+    Pw_zs, Pz_d, Pd, mu, sigma, Li = pLSABet(selectTime, numX, Learn, data, inits, wt, lambdaB, debug)
+
+    cluster_num_ = cluster_num
+    itercounter = 0
+    while(Pw_zs) == None:
+        itercounter += 1
+        print "###############################################################"
+        print "now PLSA rerun", itercounter, "current #", cluster_num_
+        cluster_num_ -= 1
+        inits_notime, labels_km = km_initialize(
+            X, Xe, entityTypes, cluster_num_)
+        mu_km, sigma_km = inittime(news_DT, cluster_num_, labels_km)
+        inits = inits_notime + [mu_km, sigma_km]
+
+        Pw_zs, Pz_d, Pd, mu, sigma, Li = pLSABet(
+            selectTime, numX, Learn, data, inits, wt, lambdaB, debug)
+    return Pw_zs, Pz_d, Pd, mu, sigma, Li, cluster_num_

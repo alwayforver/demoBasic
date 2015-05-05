@@ -69,10 +69,12 @@
                     $.get('/overviews/aspect_running/start_str={{start_str}}end_str={{end_str}}event={{forloop.counter0}}', function(data) {
                 if (data == 'OK'){
                     // alert('!!!!!!');
-                  window.location.href = '/overviews/aspect_display/start_str={{start_str}}end_str={{end_str}}event={{forloop.counter0}}' ;
+                  window.open('/overviews/aspect_display/start_str={{start_str}}end_str={{end_str}}event={{forloop.counter0}}') ;
+                    $("p#aspect{{forloop.counter0}}").hide();
                 } 
                 else if(data == 'OneError'){
-                  window.location.href = '/overviews/aspect_display_noaspect/start_str={{start_str}}end_str={{end_str}}event={{forloop.counter0}}' ;
+                  window.open('/overviews/aspect_display_noaspect/start_str={{start_str}}end_str={{end_str}}event={{forloop.counter0}}') ;
+                    $("p#aspect{{forloop.counter0}}").hide();
                 }
                 else {
                       alert(data);

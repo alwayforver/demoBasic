@@ -15,7 +15,7 @@ from scipy.sparse import csr_matrix, coo_matrix
 # note the relevance score of BM25 is about 3-4 times smaller than cosine,
 # so the first weight need to be larger.
 # for content relevance, time relevance, content similarity, time diversity
-news_weight = [0.4, 1.0, -0.5, 1.0]
+news_weight = [0.4, 1.0, -0.6, 1.0]
 # news_threshold = 0.005
 news_threshold_damping_ratio = 0.3  # 0.35
 tweets_threshold = -500
@@ -64,7 +64,7 @@ def summarization(sentiCL, news, tweets, word_distribution, vectorizer, mu, sigm
 
     # print "t5-t6 tweets length", len(tweets)
     tweets_summary, sentiment = getTweetsSummary(
-        sentiCL, tweets, tweets_rele, tweets_content_vec, news_summary_vec, 10)
+        sentiCL, tweets, tweets_rele, tweets_content_vec, news_summary_vec, topk)
     t6 = time.time()
     print 'tweets summary time', (t6 - t5)
 
@@ -94,7 +94,6 @@ def computeBM25(news_vec, tweets_vec, word_distribution):
     nTweets = tweets_vec.shape[0]
     avg_doc_len_n = float(news_vec.data.size) / nNews
     avg_doc_len_t = float(tweets_vec.data.size) / nTweets
-
 
     news_len = np.tile((news_vec!=0).sum(axis = 1).A1*b/avg_doc_len_n, (top_count,1)).T
     tweets_len = np.tile((tweets_vec!=0).sum(axis = 1).A1*b/avg_doc_len_t, (top_count,1)).T
