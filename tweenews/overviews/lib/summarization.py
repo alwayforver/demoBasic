@@ -100,8 +100,8 @@ def computeBM25(news_vec, tweets_vec, word_distribution):
     dist_sparse = scipy.sparse.lil_matrix((top_count,top_count))
     dist_sparse.setdiag(dist)
         
-    news_score = (top_news_vec*dist_sparse*(k1+1)/ csr_matrix(top_news_vec + k1*(1-b+news_len))  ).sum(axis=1)
-    tweets_score = (top_tweets_vec*dist_sparse*(k1+1)/ csr_matrix(top_tweets_vec + k1*(1-b+tweets_len)) ).sum(axis=1)
+    news_score = (top_news_vec*dist_sparse*(k1+1)/ (top_news_vec + k1*(1-b+news_len))  ).sum(axis=1)
+    tweets_score = (top_tweets_vec*dist_sparse*(k1+1)/ (top_tweets_vec + k1*(1-b+tweets_len)) ).sum(axis=1)
     t3=time.time()
     print 'new1',t3-t2
     ######
