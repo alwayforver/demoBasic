@@ -13,7 +13,10 @@ newspaper,
 textblob,
 pytz,
 MySQL-python,
-dateutil
+dateutil,
+scipy,
+numpy,
+scikit-learn
 
 
 ## Collect data from Google news and Twitter search API
